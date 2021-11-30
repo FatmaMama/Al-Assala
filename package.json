@@ -1,0 +1,24 @@
+{
+  "name": "al-assala",
+  "version": "1.0.0",
+  "description": "full MERN e-commerce website",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/FatmaMama/Al-Assala.git"
+  },
+  "keywords": [
+    "e-commerce",
+    "shop",
+    "shopping"
+  ],
+  "author": "Fatma Mama",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/FatmaMama/Al-Assala/issues"
+  },
+  "homepage": "https://github.com/FatmaMama/Al-Assala#readme"
+}
