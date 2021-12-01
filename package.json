@@ -4,7 +4,9 @@
   "description": "full MERN e-commerce website",
   "main": "server.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "node backend/server.js",
+    "dev" : "SET NODE_ENV=DEVELOPMENT& nodemon backend/server.js",
+    "prod" : "SET NODE_ENV=PRODUCTION& nodemon backend/server.js"
   },
   "repository": {
     "type": "git",
@@ -20,5 +22,13 @@
   "bugs": {
     "url": "https://github.com/FatmaMama/Al-Assala/issues"
   },
-  "homepage": "https://github.com/FatmaMama/Al-Assala#readme"
+  "homepage": "https://github.com/FatmaMama/Al-Assala#readme",
+  "dependencies": {
+    "dotenv": "^10.0.0",
+    "express": "^4.17.1",
+    "mongoose": "^6.0.14"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.15"
+  }
 }
