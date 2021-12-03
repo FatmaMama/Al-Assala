@@ -7,7 +7,7 @@ const createCategories = (categories, parentId = null) => {
     if(parentId === null){
         category = categories.filter(cat => cat.parentId === undefined)
     } else {
-        category = categories.filter(cat => cat.parentId === parentId)
+        category = categories.filter(cat => cat.parentId == parentId)
     }
     
     for(let cate of category) {
@@ -53,4 +53,28 @@ exports.getCategories = async (req, res, next) => {
             categoryList
         })
     }
+};
+
+
+//DELETE CATEGORY  =>  api/v1/category/:id
+exports.deleteCategory = async (req, res, next) => {
+    console.log(req.params.id)
+    const category = await Category.findById(req.params.id);
+    const subCategories = await Category.find({ parentId : req.params.id });
+
+    // if(!category){
+
+    // }
+    
+    await category.remove();
+
+    if(subCategories.length > 0){
+        for (let cat of subCategories){
+            await cat.remove();
+        }
+    }
+    
+    res.status(200).json({
+        success: true
+    })
 }
