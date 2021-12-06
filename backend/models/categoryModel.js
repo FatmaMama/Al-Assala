@@ -4,6 +4,7 @@ const categorySchema = new mongoose.Schema({
     name : {
         type: String,
         required : [ true, 'Please enter product name'],
+        unique: true,
         trim : true
     },
 
