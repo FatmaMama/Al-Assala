@@ -1,9 +1,12 @@
-const app = require('./app.js');
 const dotenv = require('dotenv');
+//setting up config file 
+dotenv.config({path: 'backend/config/config.env'});
+
+const app = require('./app.js');
+
 const connectDB = require('./config/database')
 
-//setting up config file 
-dotenv.config({path: 'backend/config/config.env'})
+
 
 connectDB();
 

@@ -1,4 +1,6 @@
-const Category = require('../models/categoryModel')
+const Category = require('../models/categoryModel');
+const AppError = require('../utils/appError');
+const catchAsync = require('../utils/catchAsync')
 
 const createCategories = (categories, parentId = null) => {
     const categoryList = [];
@@ -21,8 +23,8 @@ const createCategories = (categories, parentId = null) => {
     return categoryList
 }
 
-//ADD CATEGORY  =>   api/v1/category/new
-exports.addCategory = async (req, res, next) => {
+//ADD CATEGORY  =>   POST : api/v1/categories
+exports.addCategory = catchAsync(async (req, res, next) => {
         const { name, parentId } = req.body;
 
         const categoryObj = {
@@ -39,10 +41,10 @@ exports.addCategory = async (req, res, next) => {
             success: true,
             category
         })
-}
+});
 
-//GET ALL CATEGORIES  =>  api/v1/categories
-exports.getCategories = async (req, res, next) => {
+//GET ALL CATEGORIES  =>  GET : api/v1/categories
+exports.getCategories = catchAsync(async (req, res, next) => {
     const categories = await Category.find();
 
     if(categories){
@@ -53,19 +55,50 @@ exports.getCategories = async (req, res, next) => {
             categoryList
         })
     }
-};
+});
 
 
-//DELETE CATEGORY  =>  api/v1/category/:id
-exports.deleteCategory = async (req, res, next) => {
-    console.log(req.params.id)
+//GET CATEGORY   =>  GET : api/v1/categories/:id
+exports.getCategory = catchAsync(async (req, res, next) => {
+    const category = await Category.findById(req.params.id);
+
+    if(!category){
+        return next(new AppError('No category found with this ID', 404))
+    }
+
+    res.status(200).json({
+        success: true,
+        category
+    })
+});
+
+//UPDATE CATEGORY  =>  UPDATE : api/v1/categories/:id
+exports.updateCategory = catchAsync(async (req, res, next) => {
+    const category = await Category.findByIdAndUpdate(req.params.id, req.body, {
+        new: true,
+        runValidators: true
+    })
+
+    if(!category){
+        return next(new AppError('No category found with this ID', 404))
+    }
+
+    res.status(200).json({
+        success: true,
+        category
+    })
+})
+
+//DELETE CATEGORY  =>  DELETE : api/v1/categories/:id
+exports.deleteCategory = catchAsync(async (req, res, next) => {
+    
     const category = await Category.findById(req.params.id);
     const subCategories = await Category.find({ parentId : req.params.id });
 
-    // if(!category){
+    if(!category){
+        return next(new AppError('No category found with this ID', 404))
+    }
 
-    // }
-    
     await category.remove();
 
     if(subCategories.length > 0){
@@ -77,4 +110,4 @@ exports.deleteCategory = async (req, res, next) => {
     res.status(200).json({
         success: true
     })
-}
+})
