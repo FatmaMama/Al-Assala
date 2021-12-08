@@ -65,14 +65,8 @@ const productSchema = new mongoose.Schema({
                 type: String
             },
 
-            colorCode: {
+            code: {
                 type: String
-            },
-
-            product : {
-                type : mongoose.Schema.Types.ObjectId,
-                ref: 'Product',
-                required: true
             }
         }
     ],

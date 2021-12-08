@@ -1,0 +1,295 @@
+[
+    {
+        "name" : "Chemise Coton",
+        "price" : 49.99,
+        "description" : "Nous travaillons avec des programmes de suivi pour garantir le respect des normes de sécurité, de santé et de qualité de nos produits. ",
+        "category" : "61b0f31367e9fe5ba92e4337",
+        "sizes" : [{
+            "name" : "s",
+            "stock" : 10
+        },
+        {
+            "name" : "M",
+            "stock" : 5
+        },
+        {
+            "name" : "L",
+            "stock" : 3
+        }],
+        "color" : "blanc",
+        "colors" : [
+            {
+                "name" : "blanc",
+                "code" : "fff"
+                },
+            {
+            "name" : "bleu",
+            "code" : "63C5DA"
+            },
+            {
+                "name" : "noir",
+                "code" : "000"
+            }
+        ],
+        "images" : [
+            {
+                "public_id": "Al-Assala/products/chemise-blanche1_f8a1sb",
+                "url": "https://res.cloudinary.com/fantasy2021/image/upload/v1638986957/Al-Assala/products/chemise-blanche1_f8a1sb.jpg"
+            },
+            {
+                "public_id": "Al-Assala/products/chemise-blanche2_wldu4l",
+                "url": "https://res.cloudinary.com/fantasy2021/image/upload/v1638986967/Al-Assala/products/chemise-blanche2_wldu4l.jpg"
+            }
+        ]
+    },
+
+    {
+        "name" : "Chemise Coton",
+        "price" : 49.99,
+        "description" : "Nous travaillons avec des programmes de suivi pour garantir le respect des normes de sécurité, de santé et de qualité de nos produits. ",
+        "category" : "61b0f31367e9fe5ba92e4337",
+        "sizes" : [{
+            "name" : "s",
+            "stock" : 0
+        },
+        {
+            "name" : "M",
+            "stock" : 3
+        },
+        {
+            "name" : "L",
+            "stock" : 1
+        }],
+        "color" : "bleu",
+        "colors" : [
+            {
+                "name" : "blanc",
+                "code" : "fff"
+                },
+            {
+            "name" : "bleu",
+            "code" : "63C5DA"
+            },
+            {
+                "name" : "noir",
+                "code" : "000"
+            }
+        ],
+        "images" : [
+            {
+                "public_id": "Al-Assala/products/chemise-bleu1_zsc2yr",
+                "url": "https://res.cloudinary.com/fantasy2021/image/upload/v1638986974/Al-Assala/products/chemise-bleu1_zsc2yr.jpg"
+            },
+            {
+                "public_id": "Al-Assala/products/chemise-bleu2_ktboie",
+                "url": "https://res.cloudinary.com/fantasy2021/image/upload/v1638986995/Al-Assala/products/chemise-bleu2_ktboie.jpg"
+            }
+        ]
+    },
+
+    {
+        "name" : "Chemise Coton",
+        "price" : 49.99,
+        "description" : "Nous travaillons avec des programmes de suivi pour garantir le respect des normes de sécurité, de santé et de qualité de nos produits. ",
+        "category" : "61b0f31367e9fe5ba92e4337",
+        "sizes" : [{
+            "name" : "s",
+            "stock" : 0
+        },
+        {
+            "name" : "M",
+            "stock" : 0
+        },
+        {
+            "name" : "L",
+            "stock" : 3
+        }],
+        "color" : "noir",
+        "colors" : [
+            {
+                "name" : "blanc",
+                "code" : "fff"
+                },
+            {
+            "name" : "bleu",
+            "code" : "63C5DA"
+            },
+            {
+                "name" : "noir",
+                "code" : "000"
+            }
+        ],
+        "images" : [
+            {
+                "public_id": "Al-Assala/products/chemise-noir1_c5rneh",
+                "url": "https://res.cloudinary.com/fantasy2021/image/upload/v1638987369/Al-Assala/products/chemise-noir1_c5rneh.jpg"
+            },
+            {
+                "public_id": "Al-Assala/products/chemise-noir2_mx32zb",
+                "url": "https://res.cloudinary.com/fantasy2021/image/upload/v1638987375/Al-Assala/products/chemise-noir2_mx32zb.jpg"
+            }
+        ]
+    },
+
+    {
+        "name" : "Robe ajustée",
+        "price" : 79.99,
+        "description" : "Nous travaillons avec des programmes de suivi pour garantir le respect des normes de sécurité, de santé et de qualité de nos produits. ",
+        "category" : "61b0f9f0e27403bea5223fe3",
+        "sizes" : [{
+            "name" : "s",
+            "stock" : 2
+        },
+        {
+            "name" : "M",
+            "stock" : 5
+        },
+        {
+            "name" : "L",
+            "stock" : 3
+        }],
+        "color" : "noir",
+        "colors" : [
+            {
+                "name" : "noir",
+                "code" : "000"
+            },
+            {
+                "name" : "rouge",
+                "code" : "BB0B0B"
+            }
+        ],
+        "images" : [
+            {
+                "public_id": "Al-Assala/products/robe-noir1_ayyhs0",
+                "url": "https://res.cloudinary.com/fantasy2021/image/upload/v1638988444/Al-Assala/products/robe-noir1_ayyhs0.jpg"
+            },
+            {
+                "public_id": "Al-Assala/products/robe-noir2_o3z9k9",
+                "url": "https://res.cloudinary.com/fantasy2021/image/upload/v1638988450/Al-Assala/products/robe-noir2_o3z9k9.jpg"
+            }
+        ]
+    },
+
+    {
+        "name" : "Robe ajustée",
+        "price" : 79.99,
+        "description" : "Nous travaillons avec des programmes de suivi pour garantir le respect des normes de sécurité, de santé et de qualité de nos produits. ",
+        "category" : "61b0f9f0e27403bea5223fe3",
+        "sizes" : [{
+            "name" : "s",
+            "stock" : 0
+        },
+        {
+            "name" : "M",
+            "stock" : 5
+        },
+        {
+            "name" : "L",
+            "stock" : 0
+        }],
+        "color" : "rouge",
+        "colors" : [
+            {
+                "name" : "noir",
+                "code" : "000"
+            },
+            {
+                "name" : "rouge",
+                "code" : "BB0B0B"
+            }
+        ],
+        "images" : [
+            {
+                "public_id": "Al-Assala/products/robe-rouge1_hnmvg5",
+                "url": "https://res.cloudinary.com/fantasy2021/image/upload/v1638988456/Al-Assala/products/robe-rouge1_hnmvg5.jpg"
+            },
+            {
+                "public_id": "Al-Assala/products/robe-rouge2_lhvznx",
+                "url": "https://res.cloudinary.com/fantasy2021/image/upload/v1638988462/Al-Assala/products/robe-rouge2_lhvznx.jpg"
+            }
+        ]
+    },
+
+    {
+        "name" : "Chemise Classique",
+        "price" : 69.99,
+        "description" : "Nous travaillons avec des programmes de suivi pour garantir le respect des normes de sécurité, de santé et de qualité de nos produits. ",
+        "category" : "61b0fb868920be730c7b6cd7",
+        "sizes" : [{
+            "name" : "s",
+            "stock" : 10
+        },
+        {
+            "name" : "M",
+            "stock" : 5
+        },
+        {
+            "name" : "L",
+            "stock" : 3
+        }],
+        "color" : "blanc",
+        "colors" : [
+            {
+                "name" : "blanc",
+                "code" : "fff"
+            },
+           
+            {
+                "name" : "noir",
+                "code" : "000"
+            }
+        ],
+        "images" : [
+            {
+                "public_id": "Al-Assala/products/chemise-homme-b1_tyjhfh",
+                "url": "https://res.cloudinary.com/fantasy2021/image/upload/v1638988807/Al-Assala/products/chemise-homme-b1_tyjhfh.jpg"
+            },
+            {
+                "public_id": "Al-Assala/products/chemise-blanche2_wldu4l",
+                "url": "https://res.cloudinary.com/fantasy2021/image/upload/v1638986967/Al-Assala/products/chemise-blanche2_wldu4l.jpg"
+            }
+        ]
+    },
+
+    {
+        "name" : "Chemise Classique",
+        "price" : 69.99,
+        "description" : "Nous travaillons avec des programmes de suivi pour garantir le respect des normes de sécurité, de santé et de qualité de nos produits. ",
+        "category" : "61b0fb868920be730c7b6cd7",
+        "sizes" : [{
+            "name" : "s",
+            "stock" : 3
+        },
+        {
+            "name" : "M",
+            "stock" : 0
+        },
+        {
+            "name" : "L",
+            "stock" : 4
+        }],
+        "color" : "noir",
+        "colors" : [
+            {
+                "name" : "blanc",
+                "code" : "fff"
+            },
+           
+            {
+                "name" : "noir",
+                "code" : "000"
+            }
+        ],
+        "images" : [
+            {
+                "public_id": "Al-Assala/products/chemise-homme-n1_hbqbbq",
+                "url": "https://res.cloudinary.com/fantasy2021/image/upload/v1638988823/Al-Assala/products/chemise-homme-n1_hbqbbq.jpg"
+            },
+            {
+                "public_id": "Al-Assala/products/chemise-homme-n2_ydzam",
+                "url": "https://res.cloudinary.com/fantasy2021/image/upload/v1638988833/Al-Assala/products/chemise-homme-n2_ydzam1.jpg"
+            }
+        ]
+    }
+]
