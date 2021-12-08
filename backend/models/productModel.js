@@ -65,18 +65,17 @@ const productSchema = new mongoose.Schema({
                 type: String
             },
 
-            code: {
+            colorCode: {
                 type: String
+            },
+
+            product : {
+                type : mongoose.Schema.Types.ObjectId,
+                ref: 'Product',
+                required: true
             }
         }
     ],
-
-    stock : {
-        type : Number,
-        required : [ true, 'Veuillez entrer le stock du produit'],
-        maxlength : [5, 'le stock ne peut pas dépasser 5 caractères'],
-        default: 0,
-    },
 
     numOfSells : {
         type: Number,
