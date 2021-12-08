@@ -40,7 +40,9 @@
                 "public_id": "Al-Assala/products/chemise-blanche2_wldu4l",
                 "url": "https://res.cloudinary.com/fantasy2021/image/upload/v1638986967/Al-Assala/products/chemise-blanche2_wldu4l.jpg"
             }
-        ]
+        ],
+        "numOfSells" : 12,
+        "sale" : 0.2
     },
 
     {
@@ -84,7 +86,9 @@
                 "public_id": "Al-Assala/products/chemise-bleu2_ktboie",
                 "url": "https://res.cloudinary.com/fantasy2021/image/upload/v1638986995/Al-Assala/products/chemise-bleu2_ktboie.jpg"
             }
-        ]
+        ],
+        "numOfSells" : 10,
+        "sale" : 0.2
     },
 
     {
@@ -128,7 +132,9 @@
                 "public_id": "Al-Assala/products/chemise-noir2_mx32zb",
                 "url": "https://res.cloudinary.com/fantasy2021/image/upload/v1638987375/Al-Assala/products/chemise-noir2_mx32zb.jpg"
             }
-        ]
+        ],
+        "numOfSells" : 8,
+        "sale" : 0.2
     },
 
     {
@@ -168,7 +174,9 @@
                 "public_id": "Al-Assala/products/robe-noir2_o3z9k9",
                 "url": "https://res.cloudinary.com/fantasy2021/image/upload/v1638988450/Al-Assala/products/robe-noir2_o3z9k9.jpg"
             }
-        ]
+        ],
+        "numOfSells" : 15,
+        "sale" : 0.3
     },
 
     {
@@ -208,7 +216,9 @@
                 "public_id": "Al-Assala/products/robe-rouge2_lhvznx",
                 "url": "https://res.cloudinary.com/fantasy2021/image/upload/v1638988462/Al-Assala/products/robe-rouge2_lhvznx.jpg"
             }
-        ]
+        ],
+        "numOfSells" : 15,
+        "sale" : 0.3
     },
 
     {
@@ -249,7 +259,8 @@
                 "public_id": "Al-Assala/products/chemise-blanche2_wldu4l",
                 "url": "https://res.cloudinary.com/fantasy2021/image/upload/v1638986967/Al-Assala/products/chemise-blanche2_wldu4l.jpg"
             }
-        ]
+        ],
+        "numOfSells" : 9
     },
 
     {
@@ -290,6 +301,7 @@
                 "public_id": "Al-Assala/products/chemise-homme-n2_ydzam",
                 "url": "https://res.cloudinary.com/fantasy2021/image/upload/v1638988833/Al-Assala/products/chemise-homme-n2_ydzam1.jpg"
             }
-        ]
+        ],
+        "numOfSells" : 17
     }
 ]

@@ -20,6 +20,7 @@ exports.getProducts = catchAsync(async (req, res, next) => {
 
     res.status(200).json({
         success: true,
+        numOfProducts : products.length,
         products
     })
 });
@@ -84,5 +85,36 @@ exports.deleteProduct = catchAsync(async (req, res, next) => {
 
     res.status(200).json({
         success: true
+    })
+});
+
+//GET ON SALE PRODUCTS  =>  api/v1/products-on-sale
+exports.getOnSaleProducts = catchAsync(async (req, res, next) => {
+
+    const onSaleProducts = await Product.find({ sale : { $gt : 0} })
+    
+    if(!onSaleProducts) {
+        return next(new AppError("Il n'y aucun produit en promo ", 404))
+    };
+
+    res.status(200).json({
+        success: true,
+        numOfProducts: onSaleProducts.length,
+        onSaleProducts
+    })
+});
+
+//GET BEST SELLERS  =>  api/v1/products-on-sale
+exports.getBestSellers = catchAsync(async (req, res, next) => {
+
+    const bestSellers = await Product.aggregate([
+        { $sort: { numOfSells : -1 }},
+        { $limit : 10 }
+    ]);
+
+    res.status(200).json({
+        success: true,
+        numOfProducts: bestSellers.length,
+        bestSellers
     })
 })
