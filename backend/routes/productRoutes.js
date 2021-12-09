@@ -1,6 +1,12 @@
 const express = require('express');
 const router = express.Router();
-const { addProduct, getProducts, getProductById, getProductByColorName, updateProduct, deleteProduct, getOnSaleProducts, getBestSellers } = require('../controllers/productControllers');
+const { addProduct, 
+        getProducts, 
+        getProductById, 
+        getProductByColorName, 
+        updateProduct, 
+        deleteProduct, 
+        getOnSaleProducts, getBestSellers, getAdminProducts } = require('../controllers/productControllers');
 
 router.route('/products')
         .post(addProduct)
@@ -18,6 +24,9 @@ router.route('/products-on-sale')
         .get(getOnSaleProducts);
 
 router.route('/best-sellers')
-        .get(getBestSellers)
+        .get(getBestSellers);
+
+router.route('/admin/products')
+        .get(getAdminProducts)
 
 module.exports = router;

@@ -1,6 +1,7 @@
 const Product = require('../models/productModel');
 const AppError = require('../utils/appError');
 const catchAsync = require('../utils/catchAsync');
+const ApiFeatures = require('../utils/apiFeatures')
 
 //ADD Product  =>  POST : api/v1/products
 exports.addProduct = catchAsync(async (req, res, next) => {
@@ -13,10 +14,34 @@ exports.addProduct = catchAsync(async (req, res, next) => {
     })
 });
 
-//GET ALL PRODUCTS  =>  GET : api/v1/products
+//GET ADMIN PRODUCTS  =>  GET : api/v1/admin/products
+exports.getAdminProducts = catchAsync(async (req, res, next) => {
+    //get products sorted with createdAt (2methods)
+    //1)
+    // let query = Product.find();
+    // query = query.sort('-createdAt');
+    // const products = await query;
+
+    //2)
+    const features = new ApiFeatures(Product.find(), req.query).sort();
+    const products = await features.query;
+
+    res.status(200).json({
+        success: true,
+        numOfProducts : products.length,
+        products
+    })
+});
+
+//GET ALL PRODUCTS  => 
 exports.getProducts = catchAsync(async (req, res, next) => {
 
-    const products = await Product.find();
+    const features = new ApiFeatures(Product.find(), req.query)
+                        .search()
+                        .filter()
+                        .sort()
+                        .pagination();
+    const products = await features.query;
 
     res.status(200).json({
         success: true,
