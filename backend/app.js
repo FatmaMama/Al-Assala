@@ -6,6 +6,7 @@ const errorMiddleware = require('./middlewares/errorMiddleware');
 
 const categories = require('./routes/categoryRoutes');
 const products = require('./routes/productRoutes');
+const users = require('./routes/userRoutes')
 
 app.use(express.json());
 
@@ -16,6 +17,7 @@ app.get('/', (req, res) => {
 //Routes
 app.use('/api/v1', categories);
 app.use('/api/v1', products);
+app.use('/api/v1', users);
 
 //Handling unhandled Routes
 app.all('*', (req, res, next) => {

@@ -17,16 +17,12 @@ router.route('/products/:id')
         .patch(updateProduct)
         .delete(deleteProduct);
 
-router.route('/products/:color/:name')
-        .get(getProductByColorName);
-
-router.route('/products-on-sale')
-        .get(getOnSaleProducts);
-
-router.route('/best-sellers')
-        .get(getBestSellers);
-
-router.route('/admin/products')
-        .get(getAdminProducts)
+router.get('/products/:color/:name', getProductByColorName);
+        
+router.get('/products-on-sale', getOnSaleProducts);
+        
+router.get('/best-sellers', getBestSellers);
+        
+router.get('/admin/products', getAdminProducts);
 
 module.exports = router;
