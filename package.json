@@ -5,9 +5,9 @@
   "main": "server.js",
   "scripts": {
     "start": "node backend/server.js",
-    "dev" : "SET NODE_ENV=DEVELOPMENT& nodemon backend/server.js",
-    "prod" : "SET NODE_ENV=PRODUCTION& nodemon backend/server.js",
-    "seeder" : "node backend/seederScript.js"
+    "dev": "SET NODE_ENV=DEVELOPMENT& nodemon backend/server.js",
+    "prod": "SET NODE_ENV=PRODUCTION& nodemon backend/server.js",
+    "seeder": "node backend/seederScript.js"
   },
   "repository": {
     "type": "git",
@@ -27,7 +27,8 @@
   "dependencies": {
     "dotenv": "^10.0.0",
     "express": "^4.17.1",
-    "mongoose": "^6.0.14"
+    "mongoose": "^6.0.14",
+    "validator": "^13.7.0"
   },
   "devDependencies": {
     "nodemon": "^2.0.15"
