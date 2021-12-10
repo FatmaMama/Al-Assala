@@ -24,11 +24,11 @@ const orderSchema = new mongoose.Schema ({
         },
     },
 
-    user : {
-        type : mongoose.Schema.Types.ObjectId,
-        required : true,
-        ref : 'user'
-    },
+    // user : {
+    //     type : mongoose.Schema.Types.ObjectId,
+    //     required : true,
+    //     ref : 'User'
+    // },
 
     orderItems : [
         {
@@ -38,6 +38,14 @@ const orderSchema = new mongoose.Schema ({
             },
             price : {
                 type : Number,
+                required : true 
+            },
+            size : {
+                type : String,
+                required : true 
+            },
+            color : {
+                type : String,
                 required : true 
             },
             quantity : {
@@ -55,25 +63,11 @@ const orderSchema = new mongoose.Schema ({
             },
         }
     ],
-
-    paidAt : {
-        type : Date
-    },
     isPaid : {
         type : Boolean,
         default : false
     },
     itemsPrice : {
-        type : Number,
-        required : true,
-        default : 0.0
-    },
-    // taxPrice : {
-    //     type : Number,
-    //     required : true,
-    //     default : 0.0
-    // },
-    ShippingPrice : {
         type : Number,
         required : true,
         default : 0.0
@@ -86,9 +80,12 @@ const orderSchema = new mongoose.Schema ({
     orderStatus : {
         type : String,
         required : true,
-        default : 'processing'
+        default : 'non traitée'
     },
     deliveredAt : {
+        type: Date
+    },
+    shippedAt : {
         type: Date
     },
     createdAt : {
@@ -97,6 +94,6 @@ const orderSchema = new mongoose.Schema ({
     }
 });
 
-const Order = mongoose.model('order', orderSchema);
+const Order = mongoose.model('Order', orderSchema);
 
 module.exports = Order;

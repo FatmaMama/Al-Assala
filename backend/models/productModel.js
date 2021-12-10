@@ -78,7 +78,14 @@ const productSchema = new mongoose.Schema({
 
     sale : {
         type: Number,
-        default: 0
+        default: 0,
+        validate: {
+            //Only works on save or create (not update)
+            validator: function(el){
+                return el < 1
+            },
+            message: "la valeur doit être inférieure à 1"
+        }
     },
 
     // user: {
