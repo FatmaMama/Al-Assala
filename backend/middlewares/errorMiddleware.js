@@ -30,7 +30,7 @@ const sendErrorProd = (err, res) => {
     
 }
 
-
+//Global Middleware
 const errorMiddleware = (err, req, res, next) => {
      err.statusCode = err.statusCode || 500;
 

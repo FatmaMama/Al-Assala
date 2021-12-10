@@ -36,7 +36,7 @@ exports.getAdminProducts = catchAsync(async (req, res, next) => {
 //GET ALL PRODUCTS  => 
 exports.getProducts = catchAsync(async (req, res, next) => {
 
-    const features = new ApiFeatures(Product.find(), req.query)
+    const features = new ApiFeatures(Product.find().populate('category', 'name parentId'), req.query)
                         .search()
                         .filter()
                         .sort()
@@ -53,7 +53,7 @@ exports.getProducts = catchAsync(async (req, res, next) => {
 //GET PRODUCT BY ID  => GET : api/v1/products/:id
 exports.getProductById = catchAsync(async (req,res, next) => {
 
-    const product = await Product.findById(req.params.id);
+    const product = await Product.findById(req.params.id).populate('category', 'name parentId');
 
     if(!product) {
         return next(new AppError('Produit non trouvé', 404))
