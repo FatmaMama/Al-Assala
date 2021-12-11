@@ -10,12 +10,12 @@ const { newOrder,
         getTodayYesterdayOrdersEarnings, 
         getOrdersByStatus } = require('../controllers/orderControllers');
 
-const { isAuthenticated } = require('../middlewares/authMiddleware')
+const { isAuthenticated, authorizeRoles } = require('../middlewares/authMiddleware')
 
 router.post('/order', newOrder);
 router.get('/order/:id', getOrder);
 
-router.get('/admin/orders', isAuthenticated, getAllOrders);
+router.get('/admin/orders', isAuthenticated, authorizeRoles('admin'), getAllOrders);
 router.route('/admin/orders/:id')
         .patch(updateOrder)
         .delete(deleteOrder);

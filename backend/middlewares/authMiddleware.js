@@ -29,4 +29,14 @@ exports.isAuthenticated = catchAsync(async (req, res, next) => {
     //Grant access to protected route
     req.user = currentUser
     next()
-})
+});
+
+
+exports.authorizeRoles = (...roles) => {
+    return (req, res, next) => {
+        if(!roles.includes(req.user.role)){
+            return next(new AppError(`le rôle "${req.user.role}" n'a pas accès à cette ressource`, 403))
+        }
+        next()
+    }
+}
