@@ -13,7 +13,7 @@ exports.newOrder = catchAsync(async (req, res, next) => {
         orderItems, 
         itemsPrice, 
         totalPrice,
-        // user: req.user._id
+        user: req.user._id
     };
 
     const order = await Order.create(newOrder);
@@ -26,8 +26,7 @@ exports.newOrder = catchAsync(async (req, res, next) => {
 
 //GET ORDER  =>  GET : api/v1/order/:id
 exports.getOrder = catchAsync(async (req, res, next) => {
-    const order = await Order.findById(req.params.id)
-    // .populate('user', 'name email');
+    const order = await Order.findById(req.params.id).populate('user', 'name email');
 
     if(!order){
         return next(new AppError('Commande non trouvée', 404))

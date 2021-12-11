@@ -6,16 +6,19 @@ const { addProduct,
         getProductByColorName, 
         updateProduct, 
         deleteProduct, 
-        getOnSaleProducts, getBestSellers, getAdminProducts } = require('../controllers/productControllers');
+        getOnSaleProducts, 
+        getBestSellers, 
+        getAdminProducts } = require('../controllers/productControllers');
+const { isAuthenticated, authorizeRoles } = require('../middlewares/authMiddleware');
 
 router.route('/products')
-        .post(addProduct)
+        .post(isAuthenticated, authorizeRoles('admin'), addProduct)
         .get(getProducts);
 
 router.route('/products/:id')
         .get(getProductById)
-        .patch(updateProduct)
-        .delete(deleteProduct);
+        .patch(isAuthenticated, authorizeRoles('admin'), updateProduct)
+        .delete(isAuthenticated, authorizeRoles('admin'), deleteProduct);
 
 router.get('/products/:color/:name', getProductByColorName);
         

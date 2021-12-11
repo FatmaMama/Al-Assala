@@ -5,7 +5,8 @@ const ApiFeatures = require('../utils/apiFeatures')
 
 //ADD Product  =>  POST : api/v1/products
 exports.addProduct = catchAsync(async (req, res, next) => {
-    
+    req.body.user = req.user._id;
+    console.log(req.user)
     const product = await Product.create(req.body);
 
     res.status(201).json({
