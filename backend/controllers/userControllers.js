@@ -13,12 +13,45 @@ exports.getAllUsers = catchAsync(async (req, res, next) => {
     })
 });
 
+//GET USER  =>  GET : api/v1/admin/user/:id
+exports.getUser = catchAsync( async (req, res, next) => {
+    const user = await User.findById(req.params.id);
+
+    if(!user){
+        return next(new AppError("utilisateur pas trouvé", 404))
+    }
+
+    res.status(200).json({
+        success: true,
+        user
+    })
+});
+
 // UPDATE USER  =>  PATCH : api/v1/admin/users/:id
 exports.updateUser = catchAsync(async (req, res, next) => {
+    const user = await User.findByIdAndUpdate(req.params.id, req.body, {
+        new: true,
+        runValidators: true,
+        useFindAndModify : false
+    });
 
+    res.status(200).json({
+        success: true,
+        user
+    })
 });
 
 // DELETE USER  =>  DELETE : api/v1/admin/users/:id
 exports.deleteUser = catchAsync(async (req, res, next) => {
+    const user = await User.findByIdAndDelete(req.params.id)
 
+    if(!user){
+        return next(new AppError("utilisateur pas trouvée", 404))
+    };
+
+    //delete avatar
+
+    res.status(200).json({
+        success: true
+    })
 });
