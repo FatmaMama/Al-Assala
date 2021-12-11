@@ -1,13 +1,9 @@
 const User = require('../models/userModel');
 const catchAsync = require('../utils/catchAsync');
-const jwt = require('jsonwebtoken');
-const AppError = require('../utils/appError');
 
-const signToken = (id) => {
-    return jwt.sign({ id }, process.env.JWT_SECRET, {
-        expiresIn: process.env.JWT_EXPIRES_IN
-    })
-}
+const AppError = require('../utils/appError');
+const sendToken = require('../utils/sendToken');
+
 
 exports.signupUser = catchAsync(async (req, res, next) => {
 
@@ -23,13 +19,7 @@ exports.signupUser = catchAsync(async (req, res, next) => {
         passwordConfirm
     });
 
-    const token = signToken(user._id);
-
-    res.status(201).json({
-        success: true,
-        token,
-        user
-    })
+    sendToken(user, 200, res)
 });
 
 exports.loginUser = catchAsync(async (req, res, next) => {
@@ -47,10 +37,16 @@ exports.loginUser = catchAsync(async (req, res, next) => {
     }
 
     //Send token
-    const token = signToken(user._id);
+    sendToken(user, 200, res)
+});
 
-    res.status(201).json({
-        success: true,
-        token
+exports.logoutUser = catchAsync(async (req, res, next) => {
+    res.cookie('token', null, {
+        expires: new Date(Date.now()),
+        httpOnly: true
+    });
+
+    res.status(200).json({
+        success: true
     })
 })

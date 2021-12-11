@@ -1,6 +1,6 @@
 const express = require('express');
 const app = express();
-
+const cookieParser = require('cookie-parser');
 const AppError = require('./utils/appError')
 const errorMiddleware = require('./middlewares/errorMiddleware');
 
@@ -10,10 +10,7 @@ const users = require('./routes/userRoutes');
 const orders = require('./routes/orderRoutes');
 
 app.use(express.json());
-
-app.get('/', (req, res) => {
-    res.json('helloooo')
-})
+app.use(cookieParser());
 
 //Routes
 app.use('/api/v1', categories);
