@@ -37,8 +37,9 @@ const errorMiddleware = (err, req, res, next) => {
      if(process.env.NODE_ENV === "DEVELOPMENT"){
         sendErrorEnv(err, res)
      } else if(process.env.NODE_ENV === "PRODUCTION"){
-        // let error = { ...err};
-        let error;
+        let error = { ...err};
+        error.message = err.message;
+        
         //Other errors that are not treated in operational errors but we want them as operational
         //Wrong mongoose Object Id error
         if(err.name === "CastError"){
@@ -57,6 +58,18 @@ const errorMiddleware = (err, req, res, next) => {
             const errors = Object.values(err.errors).map(value => value.message);
             const message = `${errors.join(". ")}`
             error = new ErrorHandler(message, 400)
+        };
+
+         //Handling wrong jwt token
+         if(err.name === 'jsonWebTokenError'){
+            const message = `Token invalide. Veuillez vous reconnecter`;
+            error = new ErrorHandler(message, 401)
+        };
+
+        //Handling expired jwt token
+        if(err.name === 'TokenExpiredError'){
+            const message = `Json Web Token a expiré. Veuillez vous reconnecter`;
+            error = new ErrorHandler(message, 401)
         };
 
         sendErrorProd(error, res)

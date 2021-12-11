@@ -7,16 +7,21 @@ const sendToken = require('../utils/sendToken');
 
 exports.signupUser = catchAsync(async (req, res, next) => {
 
-    const {name, email, password, passwordConfirm, avatar } = req.body;
+    const {name, email, password, passwordConfirm, passwordChangedAt, avatar } = req.body;
 
     //to prevent that the user can add role as an admin we don't use directly req.body
     // const user = await User.create(req.body)
+
+
+    //avatar
 
     const user = await User.create({
         name,
         email,
         password,
-        passwordConfirm
+        passwordConfirm,
+        passwordChangedAt,
+        //avatar
     });
 
     sendToken(user, 200, res)

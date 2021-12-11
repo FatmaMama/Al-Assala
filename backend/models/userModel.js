@@ -49,7 +49,9 @@ const userSchema = new mongoose.Schema({
     role: {
         type: String,
         default: "user"
-    }
+    },
+
+    passwordChangedAt: Date
 
 }, {timestamps: true});
 
@@ -68,6 +70,16 @@ userSchema.methods.signToken = function(id) {
     return jwt.sign({ id }, process.env.JWT_SECRET, {
         expiresIn: process.env.JWT_EXPIRES_IN
     })
+}
+
+userSchema.methods.changedPasswordAfter = function(JWTTimestamp) {
+    if(this.passwordChangedAt){
+        const changedTimestamp = parseInt(this.passwordChangedAt.getTime() / 1000, 10);
+        return JWTTimestamp < changedTimestamp
+    };
+
+    //Password Not changed
+    return false
 }
 
 const User = mongoose.model('User', userSchema);
