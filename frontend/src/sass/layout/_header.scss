@@ -3,6 +3,7 @@ header {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    height: 6rem;
 
     .logo {
         width: 15rem;
@@ -110,7 +111,7 @@ header {
         justify-content: center;
         align-items: center;
         position: absolute;
-        left: 5rem;
+        left: 3rem;
         top: .5rem;
     }
 }

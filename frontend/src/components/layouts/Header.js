@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 export default function Header() {
     return (
         <header>
-            <Link to='#'>
+            <Link to='/'>
                 <img src='./images/al-assala-logo.png' alt='Al Assala Logo' className='logo' />
             </Link>
 
@@ -24,7 +24,7 @@ export default function Header() {
                             <span className="user-nav__text">Panier</span>
                         </Link></li>
                     <li className="user-nav__item">
-                        <Link to='#' className="user-nav__link">
+                        <Link to='/login' className="user-nav__link">
                             <i className="fas fa-user user-nav__icon"></i>
                             <span className="user-nav__text">Se connecter</span>
                         </Link>
