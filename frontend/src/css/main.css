@@ -157,10 +157,13 @@ header .logo {
   align-items: center;
   padding-top: 5rem;
   font-weight: 700;
-  font-size: 1.4rem;
+  font-size: 1.6rem;
 }
 .login__wrapper form {
   padding: 2.5rem 3rem;
+}
+.login__col {
+  box-shadow: 0.2rem 0.1rem 1.2rem 0.2rem rgba(0, 0, 0, 0.7);
 }
 .login__title {
   text-transform: uppercase;
@@ -175,10 +178,16 @@ header .logo {
   border-color: #c92a2a;
   margin-top: 6.4rem;
 }
+.login input {
+  font-size: inherit;
+}
 
 .register {
   background-image: linear-gradient(to right, rgba(250, 250, 250, 0.7), rgba(250, 250, 250, 0.7)), url(../images/street.jpeg);
   background-size: cover;
   background-position: center;
   height: calc(100vh - 6rem);
+}
+.register input {
+  font-size: inherit;
 }

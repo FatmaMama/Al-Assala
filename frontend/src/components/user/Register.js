@@ -4,57 +4,57 @@ import { Link } from 'react-router-dom';
 
 export default function Register() {
     return (
-        <div class="register">
-            <div class="login__wrapper">
-		        <div class="col-10 col-lg-6 shadow-lg">
+        <div className="register">
+            <div className="login__wrapper">
+		        <div className="login__col col-10 col-lg-6 ">
                     <form encType='multipart/form-data'>
-                        <h1 class="login__title mb-3 text-center">Créez votre compte</h1>
+                        <h1 className="login__title mb-3 text-center">Créez votre compte</h1>
 
-                        <div class="form-group pt-5">
-                            <label for="email_field">Name</label>
-                            <input type="name" id="name_field" class="form-control" value="" />
+                        <div className="form-group pt-5">
+                            <label htmlFor="email_field">Name</label>
+                            <input type="name" id="name_field" className="form-control" value="" />
                         </div>
 
-                        <div class="form-group">
-                            <label for="email_field">Email</label>
+                        <div className="form-group">
+                            <label htmlFor="email_field">Email</label>
                             <input
                                 type="email"
                                 id="email_field"
-                                class="form-control"
+                                className="form-control"
                                 value=""
                             />
                         </div>
             
-                        <div class="form-group">
-                            <label for="password_field">Password</label>
+                        <div className="form-group">
+                            <label htmlFor="password_field">Password</label>
                             <input
                                 type="password"
                                 id="password_field"
-                                class="form-control"
+                                className="form-control"
                                 value=""
                             />
                         </div>
 
-                        <div class='form-group'>
-                            <label for='avatar_upload'>Avatar</label>
-                            <div class='d-flex align-items-center'>
+                        <div className='form-group'>
+                            <label htmlFor='avatar_upload'>Avatar</label>
+                            <div className='d-flex align-items-center'>
                                 <div>
-                                    <figure class='avatar mr-3 item-rtl'>
+                                    <figure className='avatar mr-3 item-rtl'>
                                         <img
                                             src=""
-                                            class='rounded-circle'
+                                            className='rounded-circle'
                                             alt='image'
                                         />
                                     </figure>
                                 </div>
-                                <div class='custom-file'>
+                                <div className='custom-file'>
                                     <input
                                         type='file'
                                         name='avatar'
-                                        class='custom-file-input'
+                                        className='custom-file-input'
                                         id='customFile'
                                     />
-                                    <label class='custom-file-label' for='customFile'>
+                                    <label className='custom-file-label' for='customFile'>
                                         Choose Avatar
                                     </label>
                                 </div>
@@ -64,11 +64,11 @@ export default function Register() {
                         <button
                         id="register_button"
                         type="submit"
-                        class="login__button btn btn-block py-3 mt-5"
+                        className="login__button btn btn-block py-3 mt-5"
                         >
                         enregistrer
                         </button>
-                        
+
                         <Link to="/login" className="float-right mt-3 mb-3">Vous avez déjà un compte ? Connectez-vous !</Link>
                     </form>
 		        </div>
