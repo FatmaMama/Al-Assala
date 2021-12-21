@@ -1,3 +1,6 @@
+// -Font sizes (px):
+// 10 / 12 / 14 / 16 / 18 / 20 / 24 / 30 / 36 / 44 / 52 / 62 / 74 / 86 / 98
+
 *, *::after, *::before {
     margin: 0;
     padding: 0;
@@ -5,10 +8,11 @@
 }
 
 html {
-    font-size: 62.5%;
+    box-sizing: border-box;
+    font-size: 62.5%; 
 }
 
 body {
-    box-sizing: border-box;
+    line-height: 1.6;
     // background-color: #eee;
 }
