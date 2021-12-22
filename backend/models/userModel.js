@@ -4,10 +4,16 @@ const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
 
 const userSchema = new mongoose.Schema({
-    name: {
+    firstName: {
         type: String,
         required: [true, "Veuillez entrer votre nom"],
         maxlength: [30, "Votre nom ne peut pas dépasser 0 caractère"]
+    },
+
+    lastName: {
+        type: String,
+        required: [true, "Veuillez entrer votre prénom"],
+        maxlength: [30, "Votre prénom ne peut pas dépasser 0 caractère"]
     },
 
     email: {
@@ -25,17 +31,17 @@ const userSchema = new mongoose.Schema({
         select: false
     },
 
-    passwordConfirm: {
-        type: String,
-        required: [true, "Veuillez entrer la confirmation de votre mot de passe"],
-        validate: {
-            //Only works on save or create (not update)
-            validator: function(el){
-                return el === this.password
-            },
-            message: "les deux mots de passe ne sont pas les mêmes!"
-        }
-    },
+    // passwordConfirm: {
+    //     type: String,
+    //     required: [true, "Veuillez entrer la confirmation de votre mot de passe"],
+    //     validate: {
+    //         //Only works on save or create (not update)
+    //         validator: function(el){
+    //             return el === this.password
+    //         },
+    //         message: "les deux mots de passe ne sont pas les mêmes!"
+    //     }
+    // },
 
     avatar: {
         public_id: {

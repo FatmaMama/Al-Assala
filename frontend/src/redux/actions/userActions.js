@@ -45,7 +45,7 @@ export const register = (userData) => async (dispatch) => {
             }
         };
 
-        const {data} = await axios.post('/api/v1/register', userData, config);
+        const {data} = await axios.post('/api/v1/signup', userData, config);
 
         dispatch({
             type: REGISTER_SUCCESS,

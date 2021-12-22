@@ -173,7 +173,8 @@ header .logo {
 .login__button {
   text-transform: uppercase;
   font-weight: 700;
-  font-size: 1.4rem;
+  font-size: 1.8rem;
+  letter-spacing: 1.4px;
   background-color: #c92a2a;
   border-color: #c92a2a;
   margin-top: 6.4rem;
@@ -188,6 +189,14 @@ header .logo {
   background-position: center;
   height: calc(100vh - 6rem);
 }
+.register__wrapper {
+  padding-top: 2rem;
+}
 .register input {
   font-size: inherit;
+}
+.register__avatar {
+  height: 5rem;
+  width: 5rem;
+  border-radius: 50%;
 }

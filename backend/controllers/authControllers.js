@@ -7,21 +7,24 @@ const sendToken = require('../utils/sendToken');
 
 exports.signupUser = catchAsync(async (req, res, next) => {
 
-    const {name, email, password, passwordConfirm, passwordChangedAt, avatar } = req.body;
+    const {firstName, lastName, email, password, passwordChangedAt} = req.body;
 
     //to prevent that the user can add role as an admin we don't use directly req.body
     // const user = await User.create(req.body)
 
-
-    //avatar
+    
 
     const user = await User.create({
-        name,
+        firstName,
+        lastName,
         email,
         password,
-        passwordConfirm,
+        // passwordConfirm,
         passwordChangedAt,
-        //avatar
+        avatar: {
+            public_id: "Al-Assala/avatars/default-avatar_zhm2mo",
+            url: "https://res.cloudinary.com/fantasy2021/image/upload/v1640114557/Al-Assala/avatars/default-avatar_zhm2mo.png"
+        }
     });
 
     sendToken(user, 200, res)

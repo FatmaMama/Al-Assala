@@ -1,9 +1,9 @@
 import React, { Fragment, useState, useEffect} from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Link, useNavigate } from 'react-router-dom';
-import Loader from '../layouts/Loader';
 import {login, clearErrors} from '../../redux/actions/userActions';
 import {notifyUser} from '../../redux/actions/notifyActions';
+import Loader from '../layouts/Loader';
 import Alert from '../layouts/Alert';
 
 
@@ -28,7 +28,7 @@ export default function Login({ history }) {
             dispatch(notifyUser(error, 'error'));
         };
         setTimeout(() => dispatch(clearErrors()), 5000) 
-    }, [isAuthenticated, history, error, dispatch])
+    }, [isAuthenticated, navigate, error, dispatch])
 
     const submitHandler = (e) => {
         e.preventDefault();

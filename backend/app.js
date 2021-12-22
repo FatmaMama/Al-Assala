@@ -9,8 +9,19 @@ const products = require('./routes/productRoutes');
 const users = require('./routes/userRoutes');
 const orders = require('./routes/orderRoutes');
 
+const cloudinary = require('cloudinary');
+const fileUpload = require('express-fileUpload');
+
 app.use(express.json());
 app.use(cookieParser());
+app.use(fileUpload())
+
+//setup cloudinary
+cloudinary.config ({
+    cloud_name: process.env.CLOUDINARY_CLOUD_NAME,
+    api_key: process.env.CLOUDINARY_API_KEY,
+    api_secret: process.env.CLOUDINARY_API_SECRET
+})
 
 //Routes
 app.use('/api/v1', categories);

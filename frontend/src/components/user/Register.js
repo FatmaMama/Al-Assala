@@ -1,18 +1,83 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
+import React, { Fragment, useState, useEffect} from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { Link, useNavigate } from 'react-router-dom';
+import {register, clearErrors} from '../../redux/actions/userActions';
+import {notifyUser} from '../../redux/actions/notifyActions';
+import Loader from '../layouts/Loader';
+import Alert from '../layouts/Alert';
 
 
 export default function Register() {
+    const dispatch = useDispatch();
+    const navigate = useNavigate();
+
+    const [user, setUser]= useState({
+        firstName: '',
+        lastName: '',
+        email: '',
+        password: ''
+    });
+    const {firstName, lastName, email, password} = user;
+    
+
+    const {loading, isAuthenticated, error} = useSelector(state => state.auth);
+    const {message, messageType} = useSelector(state => state.notify)
+
+    useEffect(() => {
+        if(isAuthenticated){
+            navigate('/')
+        };
+
+        if(error){
+            dispatch(notifyUser(error, 'error'));
+        };
+        setTimeout(() => dispatch(clearErrors()), 9000) 
+    }, [isAuthenticated, navigate, error, dispatch])
+
+    const submitHandler = (e) => {
+        e.preventDefault();
+        const formData = new FormData();
+        formData.append('firstName', firstName);
+        formData.append('lastName', lastName);
+        formData.append('email', email);
+        formData.append('password', password);
+        dispatch(register(formData))
+    }
+
+    const changeData = (e) => {
+        setUser({...user, [e.target.name] : e.target.value})
+    }
+
     return (
         <div className="register">
-            <div className="login__wrapper">
+            <div className="login__wrapper register__wrapper">
 		        <div className="login__col col-10 col-lg-6 ">
-                    <form encType='multipart/form-data'>
+                    <form onSubmit={submitHandler} encType='multipart/form-data'>
                         <h1 className="login__title mb-3 text-center">Créez votre compte</h1>
+                        {error !== null && <Alert message={message} messageType={messageType} />}
 
                         <div className="form-group pt-5">
-                            <label htmlFor="email_field">Name</label>
-                            <input type="name" id="name_field" className="form-control" value="" />
+                            <label htmlFor="firstName_field">Nom</label>
+                            <input 
+                                type="name" 
+                                id="firstName_field" 
+                                className="form-control" 
+                                name="firstName" 
+                                value={firstName}
+                                onChange={changeData}
+                                required />
+                        </div>
+
+                        <div className="form-group">
+                            <label htmlFor="lastName_field">Prénom</label>
+                            <input 
+                                type="name" 
+                                id="lastName_field" 
+                                className="form-control" 
+                                name="lastName" 
+                                value={lastName}
+                                onChange={changeData}
+                                required />
                         </div>
 
                         <div className="form-group">
@@ -21,50 +86,32 @@ export default function Register() {
                                 type="email"
                                 id="email_field"
                                 className="form-control"
-                                value=""
+                                name="email" 
+                                value={email}
+                                onChange={changeData}
+                                required
                             />
                         </div>
             
                         <div className="form-group">
-                            <label htmlFor="password_field">Password</label>
+                            <label htmlFor="password_field">Mot de passe</label>
                             <input
                                 type="password"
                                 id="password_field"
                                 className="form-control"
-                                value=""
+                                name="password" 
+                                value={password}
+                                onChange={changeData}
+                                required
                             />
                         </div>
 
-                        <div className='form-group'>
-                            <label htmlFor='avatar_upload'>Avatar</label>
-                            <div className='d-flex align-items-center'>
-                                <div>
-                                    <figure className='avatar mr-3 item-rtl'>
-                                        <img
-                                            src=""
-                                            className='rounded-circle'
-                                            alt='image'
-                                        />
-                                    </figure>
-                                </div>
-                                <div className='custom-file'>
-                                    <input
-                                        type='file'
-                                        name='avatar'
-                                        className='custom-file-input'
-                                        id='customFile'
-                                    />
-                                    <label className='custom-file-label' for='customFile'>
-                                        Choose Avatar
-                                    </label>
-                                </div>
-                            </div>
-                        </div>
-            
+                       
                         <button
                         id="register_button"
                         type="submit"
                         className="login__button btn btn-block py-3 mt-5"
+                        disabled={loading ? true : false}
                         >
                         enregistrer
                         </button>

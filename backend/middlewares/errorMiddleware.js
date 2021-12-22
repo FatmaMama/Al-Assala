@@ -24,7 +24,7 @@ const sendErrorProd = (err, res) => {
         //Send generic message
         res.status(500).json({
             success: false,
-            message: "Something went very wrong",
+            message: "Quelque chose s'est mal passé",
         })
     }
     
@@ -43,13 +43,13 @@ const errorMiddleware = (err, req, res, next) => {
         //Other errors that are not treated in operational errors but we want them as operational
         //Wrong mongoose Object Id error
         if(err.name === "CastError"){
-            const message = `Resource not found. Invalid ${err.path}: ${err.value}`;
+            const message = `Ressource introuvable. ${err.path}: ${err.value} est invalide`;
             error = new AppError(message, 400)
         }
 
         //Handling Mongoose duplicate key error
         if(err.code === 11000){
-            const message = `Duplicate field value ${Object.keys(err.keyValue)}. Please use another value.`;
+            const message = `Valeur déjà utilisée ("${Object.keys(err.keyValue)}"). Veuillez essayer une autre valeur!`;
             error = new AppError(message, 400)
         }
 
@@ -57,19 +57,19 @@ const errorMiddleware = (err, req, res, next) => {
         if(err.name === "ValidatorError"){
             const errors = Object.values(err.errors).map(value => value.message);
             const message = `${errors.join(". ")}`
-            error = new ErrorHandler(message, 400)
+            error = new AppError(message, 400)
         };
 
          //Handling wrong jwt token
          if(err.name === 'jsonWebTokenError'){
             const message = `Token invalide. Veuillez vous reconnecter`;
-            error = new ErrorHandler(message, 401)
+            error = new AppError(message, 401)
         };
 
         //Handling expired jwt token
         if(err.name === 'TokenExpiredError'){
             const message = `Json Web Token a expiré. Veuillez vous reconnecter`;
-            error = new ErrorHandler(message, 401)
+            error = new AppError(message, 401)
         };
 
         sendErrorProd(error, res)

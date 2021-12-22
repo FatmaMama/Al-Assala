@@ -31,7 +31,8 @@
     &__button {
         text-transform: uppercase;
         font-weight: 700;
-        font-size: 1.4rem;
+        font-size: 1.8rem;
+        letter-spacing: 1.4px;
         background-color: $color-primary;
         border-color: $color-primary;
         margin-top: 6.4rem;
@@ -49,7 +50,17 @@
     background-position: center;
     height: calc(100vh - 6rem);
 
+    &__wrapper {
+        padding-top: 2rem;
+    }
+
     input {
         font-size: inherit;
+    }
+
+    &__avatar {
+        height: 5rem;
+        width: 5rem;
+        border-radius: 50%;
     }
 }
