@@ -7,7 +7,8 @@ import Header from './components/layouts/Header';
 import Login from './components/user/Login';
 import Home from './components/Home';
 import Register from './components/user/Register';
-import Test from './components/Test';
+import Dashboard from './components/admin/Dashboard';
+
 
 
 function App() {
@@ -25,7 +26,7 @@ function App() {
           <Route path='/' exact element={<Home/>} />
           <Route path='/login' element={<Login/>} />
           <Route path='/register' element={<Register/>} />
-          <Route path='/test' element={<Test />} />
+          <Route path='/dashboard' element={<Dashboard/>} />
         </Routes>
       </div>
     </Router>

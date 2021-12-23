@@ -217,3 +217,16 @@ header .avatar {
   width: 5rem;
   border-radius: 50%;
 }
+
+.sidebar__link:link, .sidebar__link:visited {
+  text-decoration: none;
+  font-size: 1.8rem;
+  font-weight: 600;
+  color: #eee;
+  padding: 1.6rem 2.4rem;
+  display: block;
+}
+.sidebar__link:link:hover, .sidebar__link:visited:hover {
+  background-color: #eee;
+  color: #333;
+}

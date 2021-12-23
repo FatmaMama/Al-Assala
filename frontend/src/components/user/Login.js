@@ -73,7 +73,7 @@ export default function Login({ history }) {
                                 </div>
                                 
 
-                                <div class="d-grid gap-5 mt-3">
+                                <div className="d-grid gap-5 mt-3">
                                     <Link to="/forgot/password" className="text-end">Mot de passe oublié?</Link>
                                     <button
                                         id="login_button"
