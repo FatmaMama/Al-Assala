@@ -24,6 +24,11 @@ header .logo {
   width: 15rem;
   margin-left: 5rem;
 }
+header .avatar {
+  width: 3rem;
+  height: 3rem;
+  border-radius: 50%;
+}
 
 .search {
   flex: 0 0 35%;
@@ -85,9 +90,6 @@ header .logo {
   display: flex;
   align-items: center;
 }
-.user-nav__list > *:hover {
-  background-color: #999;
-}
 .user-nav__link:link, .user-nav__link:visited {
   align-self: stretch;
   display: inline-block;
@@ -113,6 +115,22 @@ header .logo {
   position: absolute;
   left: 3rem;
   top: 0.5rem;
+}
+
+.dropdown-toggle {
+  font-size: inherit;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+}
+
+.dropdown:focus, .dropdown:active {
+  outline: transparent;
+}
+
+.dropdown-menu {
+  font-size: inherit;
 }
 
 .loader {
@@ -177,7 +195,6 @@ header .logo {
   letter-spacing: 1.4px;
   background-color: #c92a2a;
   border-color: #c92a2a;
-  margin-top: 6.4rem;
 }
 .login input {
   font-size: inherit;

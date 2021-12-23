@@ -1,12 +1,13 @@
 const express = require('express');
 const router = express.Router();
 const { signupUser, loginUser, logoutUser } = require('../controllers/authControllers');
-const { getAllUsers, getUser, updateUser, deleteUser } = require('../controllers/userControllers');
+const { getAllUsers, getUser, updateUser, deleteUser, getUserProfile } = require('../controllers/userControllers');
 const { isAuthenticated, authorizeRoles } = require('../middlewares/authMiddleware');
 
 router.post('/signup', signupUser);
 router.post('/login', loginUser);
 router.get('/logout', logoutUser);
+router.get('/me',isAuthenticated, getUserProfile);
 
 router.get('/admin/users',isAuthenticated, authorizeRoles('admin'), getAllUsers);
 

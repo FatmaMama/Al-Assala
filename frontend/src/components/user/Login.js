@@ -57,7 +57,7 @@ export default function Login({ history }) {
                                     />
                                 </div>
                     
-                                <div className="form-group">
+                                <div className="form-group pt-3">
                                     <label htmlFor="password_field">Mot de passe</label>
                                     <input
                                         type="password"
@@ -67,18 +67,24 @@ export default function Login({ history }) {
                                         onChange={(e) => setPassword(e.target.value)}
                                     />
                                 </div>
+
+                                <div className="float-end mb-4">
+                                    
+                                </div>
+                                
+
+                                <div class="d-grid gap-5 mt-3">
+                                    <Link to="/forgot/password" className="text-end">Mot de passe oublié?</Link>
+                                    <button
+                                        id="login_button"
+                                        type="submit"
+                                        className="login__button btn py-3"
+                                        >
+                                        connexion
+                                    </button>
+                                </div>
         
-                                <Link to="/forgot/password" className="float-right mb-4">Mot de passe oublié?</Link>
-                    
-                                <button
-                                id="login_button"
-                                type="submit"
-                                className="login__button btn btn-block py-3"
-                                >
-                                connexion
-                                </button>
-        
-                                <Link to="/register" className="float-right mt-3 mb-3">Pas de compte? Créez-en un</Link>
+                                <Link to="/register" className="float-end mt-3 mb-3">Pas de compte? Créez-en un</Link>
                             </form>
                         </div>
                     </div>

@@ -1,9 +1,8 @@
-import React, { Fragment, useState, useEffect} from 'react';
+import React, { useState, useEffect} from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Link, useNavigate } from 'react-router-dom';
 import {register, clearErrors} from '../../redux/actions/userActions';
 import {notifyUser} from '../../redux/actions/notifyActions';
-import Loader from '../layouts/Loader';
 import Alert from '../layouts/Alert';
 
 
@@ -68,7 +67,7 @@ export default function Register() {
                                 required />
                         </div>
 
-                        <div className="form-group">
+                        <div className="form-group pt-3">
                             <label htmlFor="lastName_field">Prénom</label>
                             <input 
                                 type="name" 
@@ -80,7 +79,7 @@ export default function Register() {
                                 required />
                         </div>
 
-                        <div className="form-group">
+                        <div className="form-group pt-3">
                             <label htmlFor="email_field">Email</label>
                             <input
                                 type="email"
@@ -93,7 +92,7 @@ export default function Register() {
                             />
                         </div>
             
-                        <div className="form-group">
+                        <div className="form-group pt-3">
                             <label htmlFor="password_field">Mot de passe</label>
                             <input
                                 type="password"
@@ -106,17 +105,19 @@ export default function Register() {
                             />
                         </div>
 
+                        <div class="d-grid gap-5 mt-3">
+                            <button
+                                id="register_button"
+                                type="submit"
+                                className="login__button btn btn-block py-3 mt-5"
+                                disabled={loading ? true : false}
+                                >
+                                Enregistrer
+                            </button>
+                        </div>
                        
-                        <button
-                        id="register_button"
-                        type="submit"
-                        className="login__button btn btn-block py-3 mt-5"
-                        disabled={loading ? true : false}
-                        >
-                        enregistrer
-                        </button>
 
-                        <Link to="/login" className="float-right mt-3 mb-3">Vous avez déjà un compte ? Connectez-vous !</Link>
+                        <Link to="/login" className="float-end mt-3 mb-3">Vous avez déjà un compte ? Connectez-vous !</Link>
                     </form>
 		        </div>
             </div>

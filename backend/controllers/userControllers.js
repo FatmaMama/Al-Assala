@@ -2,6 +2,16 @@ const User = require('../models/userModel');
 const catchAsync = require('../utils/catchAsync');
 const AppError = require('../utils/appError');
 
+//GET currently logged in user  =>  GET :  api/v1/me
+exports.getUserProfile = catchAsync( async (req, res, next) => {
+    const user = await User.findById(req.user.id);
+
+    res.status(200).json({
+        success: true,
+        user
+    })
+});
+
 // GET ALL USERS  =>  GET : api/v1/admin/users
 exports.getAllUsers = catchAsync(async (req, res, next) => {
     const users = await User.find();
