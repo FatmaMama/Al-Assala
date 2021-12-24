@@ -11,9 +11,16 @@ import {
     LOAD_USER_REQUEST,
     LOAD_USER_SUCCESS,
     LOAD_USER_FAIL,
+    ALL_USERS_REQUEST,
+    ALL_USERS_SUCCESS,
+    ALL_USERS_FAIL,
     CLEAR_ERRORS
 } from '../constants/userConstants';
 
+
+////////////////////////////////////////
+//////// AUTH ACTIONS  //////////
+///////////////////////////////////////
 export const login = (email, password) => async (dispatch) => {
     try {
         dispatch({type: LOGIN_REQUEST});
@@ -97,7 +104,30 @@ export const loadUser = () => async (dispatch) => {
             payload: error.response.data.message 
         })
     }
+};
+
+////////////////////////////////////////
+//////// ADMIN USERS ACTIONS  //////////
+///////////////////////////////////////
+export const getAllUsers = () => async (dispatch) => {
+    try {
+        dispatch({type: ALL_USERS_REQUEST});
+
+        const {data} = await axios.get('/admin/users');
+
+        dispatch({
+            type: ALL_USERS_SUCCESS,
+            payload: data
+        })
+        
+    } catch (error) {
+        dispatch({
+            type: ALL_USERS_FAIL,
+            payload: error.response.data.message
+        })
+    }
 }
+
 
 
 export const clearErrors = () => async (dispatch) => {

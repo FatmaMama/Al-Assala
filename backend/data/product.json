@@ -42,7 +42,8 @@
             }
         ],
         "numOfSells" : 12,
-        "sale" : 0.2
+        "sale" : 0.2,
+        "user" : "61c23bf94ef7be3ae01e4c56"
     },
 
     {
@@ -88,7 +89,8 @@
             }
         ],
         "numOfSells" : 10,
-        "sale" : 0.2
+        "sale" : 0.2,
+        "user" : "61c23bf94ef7be3ae01e4c56"
     },
 
     {
@@ -134,7 +136,8 @@
             }
         ],
         "numOfSells" : 8,
-        "sale" : 0.2
+        "sale" : 0.2,
+        "user" : "61c23bf94ef7be3ae01e4c56"
     },
 
     {
@@ -176,7 +179,8 @@
             }
         ],
         "numOfSells" : 15,
-        "sale" : 0.3
+        "sale" : 0.3,
+        "user" : "61c23bf94ef7be3ae01e4c56"
     },
 
     {
@@ -218,7 +222,8 @@
             }
         ],
         "numOfSells" : 15,
-        "sale" : 0.3
+        "sale" : 0.3,
+        "user" : "61c23bf94ef7be3ae01e4c56"
     },
 
     {
@@ -260,7 +265,8 @@
                 "url": "https://res.cloudinary.com/fantasy2021/image/upload/v1638986967/Al-Assala/products/chemise-blanche2_wldu4l.jpg"
             }
         ],
-        "numOfSells" : 9
+        "numOfSells" : 9,
+        "user" : "61c23bf94ef7be3ae01e4c56"
     },
 
     {
@@ -302,6 +308,7 @@
                 "url": "https://res.cloudinary.com/fantasy2021/image/upload/v1638988833/Al-Assala/products/chemise-homme-n2_ydzam1.jpg"
             }
         ],
-        "numOfSells" : 17
+        "numOfSells" : 17,
+        "user" : "61c23bf94ef7be3ae01e4c56"
     }
 ]

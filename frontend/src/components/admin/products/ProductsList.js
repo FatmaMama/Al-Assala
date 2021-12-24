@@ -1,13 +1,13 @@
 import React, { Fragment, useEffect } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
-import Sidebar from '../layouts/Sidebar';
+import Sidebar from '../../layouts/Sidebar';
 import { MDBDataTable } from 'mdbreact';
-import Loader from '../layouts/Loader';
+import Loader from '../../layouts/Loader';
 import { useDispatch, useSelector } from 'react-redux';
-import { clearErrors, getAdminProducts, deleteProduct } from '../../redux/actions/productActions';
-import { notifyUser } from '../../redux/actions/notifyActions';
-import Alert from '../layouts/Alert';
-import { DELETE_PRODUCT_RESET } from '../../redux/constants/product_constants';
+import { clearErrors, getAdminProducts, deleteProduct } from '../../../redux/actions/productActions';
+import { notifyUser } from '../../../redux/actions/notifyActions';
+import Alert from '../../layouts/Alert';
+import { DELETE_PRODUCT_RESET } from '../../../redux/constants/product_constants';
 
 export default function ProductsList() {
 

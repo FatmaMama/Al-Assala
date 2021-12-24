@@ -17,7 +17,7 @@ export default function Sidebar() {
                     </Link>
                     <ul className="collapse list-unstyled" id="categorySubmenu">
                         <li className='sidebar__item me-2'>
-                            <Link to="#" className='sidebar__link ms-4'><i className="fas fa-clipboard-list me-2"></i> All</Link>
+                            <Link to="/admin/categories" className='sidebar__link ms-4'><i className="fas fa-clipboard-list me-2"></i> All</Link>
                         </li>
             
                         <li className='sidebar__item'>
@@ -47,7 +47,7 @@ export default function Sidebar() {
                     </Link>
                     <ul className="collapse list-unstyled" id="orderSubmenu">
                         <li className='sidebar__item me-2'>
-                            <Link to="#" className='sidebar__link ms-4'><i className="fas fa-clipboard-list me-2"></i> All</Link>
+                            <Link to="/admin/orders" className='sidebar__link ms-4'><i className="fas fa-clipboard-list me-2"></i> All</Link>
                         </li>
             
                         <li className='sidebar__item'>
@@ -57,7 +57,7 @@ export default function Sidebar() {
                 </li>
 
                 <li className='sidebar__item'>
-                    <Link to="#" className='sidebar__link'><i className="fas fa-users me-2"></i> Users</Link>
+                    <Link to="/admin/users" className='sidebar__link'><i className="fas fa-users me-2"></i> Users</Link>
                 </li>
             
             </ul>

@@ -1,3 +1,4 @@
+import { type } from 'express/lib/response';
 import {
     LOGIN_REQUEST,
     LOGIN_SUCCESS,
@@ -10,7 +11,10 @@ import {
     LOAD_USER_REQUEST,
     LOAD_USER_SUCCESS,
     LOAD_USER_FAIL,
-    CLEAR_ERRORS
+    CLEAR_ERRORS,
+    ALL_USERS_REQUEST,
+    ALL_USERS_SUCCESS,
+    ALL_USERS_FAIL
 } from '../constants/userConstants';
 
 
@@ -71,3 +75,33 @@ export const authReducer = (state = { user : {}}, action) => {
             return state
     }
 };
+
+
+export const allUsersReducer = (state = {users: {}}, action) => {
+    switch (type.action) {
+        case ALL_USERS_REQUEST:
+            return {
+                loading: true,
+                users: []
+            }
+        case ALL_USERS_SUCCESS:
+            return {
+                loading: false,
+                users: action.payload.users,
+                usersCount: action.payload.numOfUsers
+            }
+        case ALL_USERS_FAIL:
+            return {
+                loading: false,
+                error: action.payload
+            }
+        case CLEAR_ERRORS:
+            return {
+                loading: false,
+                error: null
+            }
+
+        default:
+            return state
+    }
+}

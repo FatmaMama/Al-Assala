@@ -40,7 +40,7 @@ export const deleteProduct = (id) => async (dispatch) => {
         
     } catch (error) {
         dispatch({
-            type: DELETE_PRODUCT_REQUEST,
+            type: DELETE_PRODUCT_FAIL,
             payload: error.response.data.message
         })
     }
