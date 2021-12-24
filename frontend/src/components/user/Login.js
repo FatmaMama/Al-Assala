@@ -8,7 +8,7 @@ import Alert from '../layouts/Alert';
 
 
 
-export default function Login({ history }) {
+export default function Login() {
 
     const dispatch = useDispatch();
     const navigate = useNavigate();
