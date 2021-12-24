@@ -1,8 +1,31 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import Sidebar from '../layouts/Sidebar';
 import { Link } from 'react-router-dom';
+import { useDispatch, useSelector } from 'react-redux';
+import { getAllUsers } from '../../redux/actions/userActions';
+import { getAdminProducts } from '../../redux/actions/productActions';
 
 export default function Dashboard() {
+
+    const dispatch = useDispatch();
+    const { products, productsCount } = useSelector(state => state.products);
+    const { usersCount } = useSelector(state => state.users);
+
+    let outOfStock = 0
+    products.forEach(product => {
+        for(let i =0; i < product.sizes.length; i++) {
+            if(product.sizes[i].stock === 0){
+                        outOfStock += 1
+                        return
+                    }
+        }
+    })
+
+    useEffect(() => {
+        dispatch(getAllUsers());
+        dispatch(getAdminProducts())
+    }, [])
+
     return (
         
 		<div className="row">
@@ -27,7 +50,7 @@ export default function Dashboard() {
                                 <div className="col-xl-3 col-sm-6 mb-3 mt-3">
                                     <div className="card text-white bg-success o-hidden h-100">
                                         <div className="card-body">
-                                            <div className="text-center card-font-size">Products<br /> <b>56</b></div>
+                                            <div className="text-center card-font-size">Products<br /> <b>{productsCount}</b></div>
                                         </div>
                                         <Link className="card-footer text-white clearfix small z-1" to="/admin/products">
                                             <span className="float-start">View Details</span>
@@ -57,7 +80,7 @@ export default function Dashboard() {
                                 <div className="col-xl-3 col-sm-6 mb-3 mt-3">
                                     <div className="card text-white bg-info o-hidden h-100">
                                         <div className="card-body">
-                                            <div className="text-center card-font-size">Users<br /> <b>45</b></div>
+                                            <div className="text-center card-font-size">Users<br /> <b>{usersCount}</b></div>
                                         </div>
                                         <Link className="card-footer text-white clearfix small z-1" to="/admin/users">
                                             <span className="float-start">View Details</span>
@@ -72,7 +95,7 @@ export default function Dashboard() {
                                 <div className="col-xl-3 col-sm-6 mb-3 mt-3">
                                     <div className="card text-white bg-warning o-hidden h-100">
                                         <div className="card-body">
-                                            <div className="text-center card-font-size">Out of Stock<br /> <b>4</b></div>
+                                            <div className="text-center card-font-size">Out of Stock<br /> <b>{outOfStock}</b></div>
                                         </div>
                                     </div>
                                 </div>
