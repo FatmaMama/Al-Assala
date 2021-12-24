@@ -17,7 +17,14 @@ import {
     DELETE_USER_REQUEST,
     DELETE_USER_SUCCESS,
     DELETE_USER_FAIL,
-    DELETE_USER_RESET
+    DELETE_USER_RESET,
+    UPDATE_USER_REQUEST,
+    UPDATE_USER_SUCCESS,
+    UPDATE_USER_FAIL,
+    UPDATE_USER_RESET,
+    USER_DETAILS_REQUEST,
+    USER_DETAILS_SUCCESS,
+    USER_DETAILS_FAIL
 } from '../constants/userConstants';
 
 
@@ -115,6 +122,7 @@ export const allUsersReducer = (state = {users: []}, action) => {
 export const userReducer = (state= {user: {}}, action) => {
     switch (action.type) {
         case DELETE_USER_REQUEST: 
+        case UPDATE_USER_REQUEST:
             return {
                 ...state,
                 loading: true
@@ -127,7 +135,15 @@ export const userReducer = (state= {user: {}}, action) => {
                 isDeleted: action.payload
             }
 
+        case UPDATE_USER_SUCCESS:
+            return {
+                ...state,
+                loading: false,
+                isUpdated: action.payload
+            }
+
         case DELETE_USER_FAIL:
+        case UPDATE_USER_FAIL:
             return {
                 ...state,
                 loading: false,
@@ -140,7 +156,40 @@ export const userReducer = (state= {user: {}}, action) => {
                 isDeleted: false
             }
 
+        case UPDATE_USER_RESET:
+            return {
+                ...state,
+                isUpdated: false
+            }
+
         default:
             return state
     }
-}
+};
+
+export const userDetailsReducer = (state= {user: {}}, action) => {
+    switch (action.type) {
+        case USER_DETAILS_REQUEST: 
+            return {
+                ...state,
+                loading: true
+            }
+
+        case USER_DETAILS_SUCCESS:
+            return {
+                ...state,
+                loading: false,
+                user: action.payload
+            }
+
+        case USER_DETAILS_FAIL:
+            return {
+                ...state,
+                loading: false,
+                error: action.payload
+            }
+
+        default:
+            return state
+    }
+};
