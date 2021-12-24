@@ -1,4 +1,3 @@
-import { type } from 'express/lib/response';
 import {
     LOGIN_REQUEST,
     LOGIN_SUCCESS,
@@ -14,7 +13,11 @@ import {
     CLEAR_ERRORS,
     ALL_USERS_REQUEST,
     ALL_USERS_SUCCESS,
-    ALL_USERS_FAIL
+    ALL_USERS_FAIL,
+    DELETE_USER_REQUEST,
+    DELETE_USER_SUCCESS,
+    DELETE_USER_FAIL,
+    DELETE_USER_RESET
 } from '../constants/userConstants';
 
 
@@ -77,28 +80,64 @@ export const authReducer = (state = { user : {}}, action) => {
 };
 
 
-export const allUsersReducer = (state = {users: {}}, action) => {
-    switch (type.action) {
+export const allUsersReducer = (state = {users: []}, action) => {
+    switch (action.type) {
         case ALL_USERS_REQUEST:
             return {
+                ...state,
                 loading: true,
                 users: []
             }
         case ALL_USERS_SUCCESS:
             return {
+                ...state,
                 loading: false,
                 users: action.payload.users,
                 usersCount: action.payload.numOfUsers
             }
         case ALL_USERS_FAIL:
             return {
+                ...state,
                 loading: false,
                 error: action.payload
             }
         case CLEAR_ERRORS:
             return {
-                loading: false,
+                ...state,
                 error: null
+            }
+
+        default:
+            return state
+    }
+};
+
+export const userReducer = (state= {user: {}}, action) => {
+    switch (action.type) {
+        case DELETE_USER_REQUEST: 
+            return {
+                ...state,
+                loading: true
+            }
+
+        case DELETE_USER_SUCCESS:
+            return {
+                ...state,
+                loading: false,
+                isDeleted: action.payload
+            }
+
+        case DELETE_USER_FAIL:
+            return {
+                ...state,
+                loading: false,
+                error: action.payload
+            }
+
+        case DELETE_USER_RESET:
+            return {
+                ...state,
+                isDeleted: false
             }
 
         default:

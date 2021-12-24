@@ -37,7 +37,7 @@ export default function ProductsList() {
             setTimeout(() => dispatch({type: DELETE_PRODUCT_RESET}), 5000)
         } 
         
-    }, [error, deleteError, isDeleted, navigate]);
+    }, [error, deleteError, isDeleted, navigate, dispatch]);
 
 
     const deleteHandler = (id) => {
@@ -115,7 +115,7 @@ export default function ProductsList() {
                 </div>
 
                 <div className="col-12 col-md-10 px-5">
-                <Fragment>
+                    <Fragment>
                         {(isDeleted || error) && <Alert message={message} messageType={messageType} /> }
                         <h1 className="my-5" >All Products</h1>
                         {loading ? <Loader /> : (

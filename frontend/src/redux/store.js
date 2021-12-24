@@ -1,7 +1,7 @@
 import { createStore, combineReducers, applyMiddleware} from 'redux';
 import thunk from 'redux-thunk';
 import { composeWithDevTools } from 'redux-devtools-extension';
-import { authReducer } from './reducers/userReducers';
+import { allUsersReducer, authReducer, userReducer } from './reducers/userReducers';
 import { notifyReducer } from './reducers/notifyReducer';
 import { productReducer, productsReducer } from './reducers/productReducers';
 
@@ -9,7 +9,9 @@ const reducers = combineReducers({
     auth: authReducer,
     notify: notifyReducer,
     products: productsReducer,
-    product: productReducer
+    product: productReducer,
+    users: allUsersReducer,
+    user: userReducer
 });
 
 let initialState = {
