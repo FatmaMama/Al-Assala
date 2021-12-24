@@ -1,5 +1,6 @@
-import React from 'react'
-import Sidebar from '../layouts/Sidebar'
+import React from 'react';
+import Sidebar from '../layouts/Sidebar';
+import { Link } from 'react-router-dom';
 
 export default function Dashboard() {
     return (
@@ -28,12 +29,12 @@ export default function Dashboard() {
                                         <div className="card-body">
                                             <div className="text-center card-font-size">Products<br /> <b>56</b></div>
                                         </div>
-                                        <a className="card-footer text-white clearfix small z-1" to="/admin/products">
+                                        <Link className="card-footer text-white clearfix small z-1" to="/admin/products">
                                             <span className="float-start">View Details</span>
                                             <span className="float-end">
                                                 <i className="fa fa-angle-right"></i>
                                             </span>
-                                        </a>
+                                        </Link>
                                     </div>
                                 </div>
 
@@ -43,12 +44,12 @@ export default function Dashboard() {
                                         <div className="card-body">
                                             <div className="text-center card-font-size">Orders<br /> <b>125</b></div>
                                         </div>
-                                        <a className="card-footer text-white clearfix small z-1" to="/admin/orders">
+                                        <Link className="card-footer text-white clearfix small z-1" to="/admin/orders">
                                             <span className="float-start">View Details</span>
                                             <span className="float-end">
                                                 <i className="fa fa-angle-right"></i>
                                             </span>
-                                        </a>
+                                        </Link>
                                     </div>
                                 </div>
 
@@ -58,12 +59,12 @@ export default function Dashboard() {
                                         <div className="card-body">
                                             <div className="text-center card-font-size">Users<br /> <b>45</b></div>
                                         </div>
-                                        <a className="card-footer text-white clearfix small z-1" href="/admin/users">
+                                        <Link className="card-footer text-white clearfix small z-1" to="/admin/users">
                                             <span className="float-start">View Details</span>
                                             <span className="float-end">
                                                 <i className="fa fa-angle-right"></i>
                                             </span>
-                                        </a>
+                                        </Link>
                                     </div>
                                 </div>
 

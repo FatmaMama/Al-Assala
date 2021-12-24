@@ -13,7 +13,7 @@ export default function Sidebar() {
 
                 <li className='sidebar__item'>
                     <Link to="#categorySubmenu" data-bs-toggle="collapse" aria-expanded="false" className="dropdown-toggle sidebar__link">
-                    <i class="fas fa-th-list me-2"></i> Categories
+                    <i className="fas fa-th-list me-2"></i> Categories
                     </Link>
                     <ul className="collapse list-unstyled" id="categorySubmenu">
                         <li className='sidebar__item me-2'>
@@ -32,7 +32,7 @@ export default function Sidebar() {
                     </Link>
                     <ul className="collapse list-unstyled" id="productSubmenu">
                         <li className='sidebar__item me-2'>
-                            <Link to="#" className='sidebar__link ms-4'><i className="fas fa-clipboard-list me-2"></i> All</Link>
+                            <Link to="/admin/products" className='sidebar__link ms-4'><i className="fas fa-clipboard-list me-2"></i> All</Link>
                         </li>
             
                         <li className='sidebar__item'>

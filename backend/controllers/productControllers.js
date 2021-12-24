@@ -24,7 +24,7 @@ exports.getAdminProducts = catchAsync(async (req, res, next) => {
     // const products = await query;
 
     //2)
-    const features = new ApiFeatures(Product.find(), req.query).sort();
+    const features = new ApiFeatures(Product.find().populate('category', 'name'), req.query).sort();
     const products = await features.query;
 
     res.status(200).json({
