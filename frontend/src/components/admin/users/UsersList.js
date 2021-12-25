@@ -7,7 +7,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { notifyUser } from '../../../redux/actions/notifyActions';
 import Alert from '../../layouts/Alert';
 import { deleteUser, getAllUsers, clearErrors } from '../../../redux/actions/userActions';
-import { DELETE_USER_RESET } from '../../../redux/constants/userConstants';
+import { DELETE_USER_RESET, UPDATE_USER_RESET } from '../../../redux/constants/userConstants';
 
 export default function UsersList() {
 
@@ -15,7 +15,7 @@ export default function UsersList() {
     const navigate = useNavigate();
 
     const { loading, users, error }= useSelector(state => state.users);
-    const { isDeleted, error: deleteError }= useSelector(state => state.user)
+    const { isDeleted, error: deleteError, isUpdated }= useSelector(state => state.user)
     const { message, messageType }= useSelector(state => state.notify);
 
     useEffect(() => {
@@ -36,8 +36,14 @@ export default function UsersList() {
             navigate('/admin/users')
             setTimeout(() => dispatch({type: DELETE_USER_RESET}), 5000)
         } 
+
+        if(isUpdated){
+            dispatch(notifyUser('Utilisateur mis à jour avec succès', 'success'));
+            navigate('/admin/users');
+            setTimeout(() => {dispatch({ type : UPDATE_USER_RESET})},5000) 
+        }
         
-    }, [error, deleteError, isDeleted, navigate, dispatch]);
+    }, [error, deleteError, isDeleted, isUpdated, navigate, dispatch]);
 
 
     const deleteHandler = (id) => {
@@ -86,7 +92,7 @@ export default function UsersList() {
                 role: user.role,
                 actions : 
                 <Fragment>
-                    <Link to='#' className="btn py-1 px-2 me-3 fs-4 bg-primary">
+                    <Link to={`/admin/users/${user._id}`} className="btn py-1 px-2 me-3 fs-4 bg-primary">
                         <i className="fa fa-pencil-alt"></i>
                     </Link>
                     <button className="btn py-1 px-2 ml-2 fs-4 bg-danger" onClick={() => deleteHandler(user._id)} >
@@ -106,7 +112,7 @@ export default function UsersList() {
 
                 <div className="col-12 col-md-10 px-5">
                     <Fragment>
-                        {(isDeleted || error) && <Alert message={message} messageType={messageType} /> }
+                        {(isDeleted || isUpdated || error) && <Alert message={message} messageType={messageType} /> }
                         <h1 className="my-5" >All Users</h1>
                         {loading ? <Loader /> : (
                             <MDBDataTable 

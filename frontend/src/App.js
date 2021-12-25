@@ -12,6 +12,7 @@ import ProductsList from './components/admin/products/ProductsList';
 import CategoriesList from './components/admin/categories/CategoriesList';
 import OrdersList from './components/admin/orders/OrdersList';
 import UsersList from './components/admin/users/UsersList';
+import UpdateUser from './components/admin/users/UpdateUser';
 
 
 
@@ -36,6 +37,7 @@ function App() {
           <Route path='/admin/categories' element={<CategoriesList/>} />
           <Route path='/admin/orders' element={<OrdersList/>} />
           <Route path='/admin/users' element={<UsersList/>} />
+          <Route path='/admin/users/:id' element={<UpdateUser/>} />
         </Routes>
       </div>
     </Router>

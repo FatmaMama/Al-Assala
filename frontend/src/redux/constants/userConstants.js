@@ -8,6 +8,7 @@ export const REGISTER_FAIL = 'REGISTER_FAIL';
 
 export const LOGOUT_SUCCESS = 'LOGOUT_SUCCESS';
 export const LOGOUT_FAIL = 'LOGOUT_FAIL';
+export const LOGOUT_RESET = 'LOGOUT_RESET';
 
 export const LOAD_USER_REQUEST = 'LOAD_USER_REQUEST';
 export const LOAD_USER_SUCCESS = 'LOAD_USER_SUCCESS';

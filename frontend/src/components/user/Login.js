@@ -26,8 +26,9 @@ export default function Login() {
 
         if(error){
             dispatch(notifyUser(error, 'error'));
+            setTimeout(() => dispatch(clearErrors()), 5000)
         };
-        setTimeout(() => dispatch(clearErrors()), 5000) 
+
     }, [isAuthenticated, navigate, error, dispatch])
 
     const submitHandler = (e) => {
@@ -40,11 +41,11 @@ export default function Login() {
         <Fragment>
             {loading ? <Loader/> : (
                 <div className='login'>
-                    <div className="login__wrapper"> 
+                    <div className="wrapper"> 
                         <div className="login__col col-10 col-lg-6">
                             <form onSubmit={submitHandler} >
-                                <h1 className="login__title mb-3 text-center">Connectez-vous à votre compte</h1>
-                                {error !== null && <Alert message={message} messageType={messageType} />}
+                                <h1 className="wrapper__title mb-3 text-center">Connectez-vous à votre compte</h1>
+                                {error !== null && messageType!=='success' && <Alert message={message} messageType={messageType} />}
                                 
                                 <div className="form-group pt-5">
                                     <label htmlFor="email_field">Email</label>
@@ -78,7 +79,7 @@ export default function Login() {
                                     <button
                                         id="login_button"
                                         type="submit"
-                                        className="login__button btn py-3"
+                                        className="wrapper__button btn py-3"
                                         >
                                         connexion
                                     </button>

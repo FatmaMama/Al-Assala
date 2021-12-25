@@ -7,7 +7,7 @@ export default function Alert({ message, messageType }) {
     // const { message, messageType } = useSelector(state => state.notify)
 
     return (
-        <div className={classNames('text-center','alert', {
+        <div className={classNames('text-center fs-4','alert', {
             'alert-danger': messageType === 'error',
             'alert-success': messageType === 'success'
         })}>

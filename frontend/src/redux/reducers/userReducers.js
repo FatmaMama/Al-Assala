@@ -7,6 +7,7 @@ import {
     REGISTER_FAIL,
     LOGOUT_SUCCESS,
     LOGOUT_FAIL,
+    LOGOUT_RESET,
     LOAD_USER_REQUEST,
     LOAD_USER_SUCCESS,
     LOAD_USER_FAIL,
@@ -51,7 +52,7 @@ export const authReducer = (state = { user : {}}, action) => {
             return {
                 loading : false,
                 isAuthenticated : false,
-                user : null
+                isLogout: action.payload
             }
         case LOAD_USER_FAIL:
             return {
@@ -64,6 +65,12 @@ export const authReducer = (state = { user : {}}, action) => {
             return{
                 ...state,
                 error: action.payload
+            }
+
+        case LOGOUT_RESET:
+            return {
+                ...state,
+                isLogout: false
             }
 
         case LOGIN_FAIL:

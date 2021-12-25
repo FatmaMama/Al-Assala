@@ -49,10 +49,10 @@ export default function Register() {
 
     return (
         <div className="register">
-            <div className="login__wrapper register__wrapper">
+            <div className="wrapper register__wrapper">
 		        <div className="login__col col-10 col-lg-6 ">
                     <form onSubmit={submitHandler} encType='multipart/form-data'>
-                        <h1 className="login__title mb-3 text-center">Créez votre compte</h1>
+                        <h1 className="wrapper__title mb-3 text-center">Créez votre compte</h1>
                         {error !== null && <Alert message={message} messageType={messageType} />}
 
                         <div className="form-group pt-5">
@@ -109,7 +109,7 @@ export default function Register() {
                             <button
                                 id="register_button"
                                 type="submit"
-                                className="login__button btn btn-block py-3 mt-5"
+                                className="wrapper__button btn btn-block py-3 mt-5"
                                 disabled={loading ? true : false}
                                 >
                                 Enregistrer

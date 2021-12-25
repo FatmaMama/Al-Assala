@@ -16,3 +16,16 @@ body {
     line-height: 1.6;
     // background-color: #eee;
 }
+
+.wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-top: 5rem;
+    font-weight: 700;
+    font-size: 1.6rem;
+
+    form {
+        padding: 2.5rem 3rem;
+    }
+}

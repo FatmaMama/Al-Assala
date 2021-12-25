@@ -1,20 +1,26 @@
-import React, { Fragment } from 'react';
+import React, { Fragment, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { logout } from '../../redux/actions/userActions';
 import { notifyUser } from '../../redux/actions/notifyActions';
-// import Alert from './Alert';
+import { LOGOUT_RESET } from '../../redux/constants/userConstants';
+import Alert from './Alert';
 
 export default function Header() {
     const dispatch= useDispatch();
 
-    const { user, loading } = useSelector(state => state.auth);
-    // const { message, messageType } = useSelector(state => state.notify)
+    const { user, loading, isLogout } = useSelector(state => state.auth);
+    const { message, messageType } = useSelector(state => state.notify)
+
+    useEffect(() => {
+        if(isLogout){
+            dispatch(notifyUser('Déconnecté avec succès', 'success'));
+            setTimeout(() => dispatch({type: LOGOUT_RESET}), 5000)
+        }
+    }, [isLogout, dispatch])
    
     const logoutHandler = () =>{
-        dispatch(logout());
-        dispatch(notifyUser('Déconnecté avec succès', 'success'));
-        // setTimeout(() => dispatch(clearErrors()), 5000)  
+        dispatch(logout()); 
     }
 
     return (
@@ -80,6 +86,7 @@ export default function Header() {
                 </nav>
                 
             </header>
+            {isLogout && <Alert message={message} messageType={messageType} /> }
            
         </Fragment>
     )
