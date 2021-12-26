@@ -1,15 +1,12 @@
 import React, {Fragment, useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { clearErrors, updateUser, getUserDetails } from '../../../redux/actions/userActions';
-import { UPDATE_USER_RESET } from '../../../redux/constants/userConstants';
+import { updateUser, getUserDetails } from '../../../redux/actions/userActions';
 import Loader from '../../layouts/Loader';
 import SideBar from '../../layouts/Sidebar';
-import Alert from '../../layouts/Alert';
 import { useNavigate, useParams } from 'react-router-dom';
-import { notifyUser } from '../../../redux/actions/notifyActions';
 
 
-export default function UpdateUser({match}) {
+export default function UpdateUser() {
 
     const [firstName, setFirstName] = useState('');
     const [lastName, setLastName] = useState('');
@@ -21,8 +18,8 @@ export default function UpdateUser({match}) {
     const params = useParams();
 
     const { user } = useSelector(state => state.userDetails);
-    const { loading, isUpdated, error} = useSelector(state => state.user);
-    const { message, messageType } = useSelector(state => state.notify)
+    const { loading, isUpdated } = useSelector(state => state.user);
+    
 
     useEffect(() => {
         if(user && user._id !== params.id){
@@ -35,15 +32,9 @@ export default function UpdateUser({match}) {
         }
 
         if(isUpdated){
-            // dispatch(notifyUser('Utilisateur mis à jour avec succès', 'success'));
             navigate('/admin/users');
-            // setTimeout(() => {dispatch({ type : UPDATE_USER_RESET})},5000) 
         }
-        // if(error){
-        //     dispatch(notifyUser(error, 'error'));
-        //     setTimeout(() => {dispatch(clearErrors())},5000)
-            
-        // }
+       
     }, [dispatch, user, params, isUpdated, navigate]);
 
     const updateHandler = (e) =>{
