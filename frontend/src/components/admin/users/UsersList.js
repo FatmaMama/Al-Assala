@@ -113,7 +113,7 @@ export default function UsersList() {
                 <div className="col-12 col-md-10 px-5">
                     <Fragment>
                         {(isDeleted || isUpdated || error) && <Alert message={message} messageType={messageType} /> }
-                        <h1 className="my-5" >All Users</h1>
+                        <h1 className="text-uppercase my-5" >Utilisateurs</h1>
                         {loading ? <Loader /> : (
                             <MDBDataTable 
                             data={setUsers()}

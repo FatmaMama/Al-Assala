@@ -9,7 +9,7 @@ export default function OrdersList() {
                 </div>
 
                 <div className="col-12 col-md-10 px-5">
-                    <h1>Orders</h1>
+                    <h1 className="text-uppercase my-5">Commandes</h1>
                 </div>
         </div>
     )

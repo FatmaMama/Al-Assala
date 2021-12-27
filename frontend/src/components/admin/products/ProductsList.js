@@ -54,7 +54,7 @@ export default function ProductsList() {
                     sort: 'asc'
                 },
                 {
-                    label: 'Name',
+                    label: 'Nom',
                     field: 'name'
                 },
                 {
@@ -62,15 +62,15 @@ export default function ProductsList() {
                     field: 'category'
                 },
                 {
-                    label: 'Price',
+                    label: 'Prix',
                     field: 'price'
                 },
                 {
-                    label: 'Color',
+                    label: 'Couleur',
                     field: 'color'
                 },
                 {
-                    label: 'Sizes',
+                    label: 'Tailles',
                     field: 'sizes'
                 },
                 {
@@ -117,7 +117,7 @@ export default function ProductsList() {
                 <div className="col-12 col-md-10 px-5">
                     <Fragment>
                         {(isDeleted || error) && <Alert message={message} messageType={messageType} /> }
-                        <h1 className="my-5" >All Products</h1>
+                        <h1 className="text-uppercase my-5" >Produits</h1>
                         {loading ? <Loader /> : (
                             <MDBDataTable 
                             data={setProducts()}

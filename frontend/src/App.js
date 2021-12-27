@@ -38,6 +38,7 @@ function App() {
           <Route path='/admin/orders' element={<OrdersList/>} />
           <Route path='/admin/users' element={<UsersList/>} />
           <Route path='/admin/users/:id' element={<UpdateUser/>} />
+          <Route path='/admin/categories' element={<CategoriesList/>} />
         </Routes>
       </div>
     </Router>

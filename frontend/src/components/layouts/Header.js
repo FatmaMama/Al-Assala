@@ -59,17 +59,17 @@ export default function Header() {
                                     <ul className="dropdown-menu" aria-labelledby="dropdownMenuButton1">
                                         {user && user.role === "admin" && (
                                             <li>
-                                                <Link  to="/dashboard" className="dropdown-item">Dashboard</Link>
+                                                <Link  to="/dashboard" className="dropdown-item">Tableau de bord</Link>
                                             </li>
                                         )} 
                                         <li>
-                                            <Link  to="/orders/me" className="dropdown-item">Orders</Link>
+                                            <Link  to="/orders/me" className="dropdown-item">Commandes</Link>
                                         </li>
                                         <li>
-                                            <Link to="/me" className="dropdown-item">Profile</Link>
+                                            <Link to="/me" className="dropdown-item">Profil</Link>
                                         </li>
                                         <li> 
-                                            <Link to="/" className="dropdown-item text-danger" onClick={logoutHandler}>Logout</Link>
+                                            <Link to="/" className="dropdown-item text-danger" onClick={logoutHandler}>Se déconnecter</Link>
                                         </li>
                                     </ul>
                                 </div>
