@@ -2,6 +2,10 @@ import {
     ALL_CATEGORIES_REQUEST,
     ALL_CATEGORIES_SUCCESS,
     ALL_CATEGORIES_FAIL,
+    NEW_CATEGORY_REQUEST,
+    NEW_CATEGORY_SUCCESS,
+    NEW_CATEGORY_FAIL,
+    NEW_CATEGORY_RESET,
     GET_CATEGORY_REQUEST,
     GET_CATEGORY_SUCCESS,
     GET_CATEGORY_FAIL,
@@ -44,6 +48,40 @@ export const categoriesReducer = (state= { categories: []}, action) => {
     }
 };
 
+export const newCategoryReducer = (state= { category: {}}, action) => {
+    switch (action.type) {
+        case NEW_CATEGORY_REQUEST:
+            return {
+                ...state,
+                loading: true
+            }
+        case NEW_CATEGORY_SUCCESS:
+            return {
+                loading: false,
+                category: action.payload,
+                success: true
+            }
+        case NEW_CATEGORY_FAIL:
+            return {
+                loading: false,
+                error: action.payload
+            }
+        case NEW_CATEGORY_RESET:
+            return {
+                ...state,
+                success: false
+            }
+        case CLEAR_ERRORS:
+            return {
+                ...state,
+                error: null
+            }
+
+        default:
+            return state
+    }
+}
+
 
 export const categoryDetailsReducer = (state= { category: {}}, action) => {
     switch (action.type) {
@@ -55,7 +93,8 @@ export const categoryDetailsReducer = (state= { category: {}}, action) => {
         case GET_CATEGORY_SUCCESS:
             return {
                 loading: false,
-                category: action.payload
+                category: action.payload,
+                success: true
             }
         case GET_CATEGORY_FAIL:
             return {

@@ -1,9 +1,11 @@
 import React, {Fragment, useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { updateUser, getUserDetails } from '../../../redux/actions/userActions';
+import { updateUser, getUserDetails, clearErrors } from '../../../redux/actions/userActions';
 import Loader from '../../layouts/Loader';
 import SideBar from '../../layouts/Sidebar';
 import { useNavigate, useParams } from 'react-router-dom';
+import { notifyUser } from '../../../redux/actions/notifyActions';
+import Alert from '../../layouts/Alert';
 
 
 export default function UpdateUser() {
@@ -18,8 +20,8 @@ export default function UpdateUser() {
     const params = useParams();
 
     const { user } = useSelector(state => state.userDetails);
-    const { loading, isUpdated } = useSelector(state => state.user);
-    
+    const { loading, isUpdated, error } = useSelector(state => state.user);
+    const { message, messageType } = useSelector(state => state.notify);
 
     useEffect(() => {
         if(user && user._id !== params.id){
@@ -29,6 +31,11 @@ export default function UpdateUser() {
             setLastName(user.lastName);
             setEmail(user.email);
             setRole(user.role);
+        }
+
+        if(error){
+            dispatch(notifyUser(error, 'error'));
+            setTimeout(() => dispatch(clearErrors()), 5000)
         }
 
         if(isUpdated){
@@ -63,7 +70,7 @@ export default function UpdateUser() {
                                 <div className="col-10 col-lg-7">
                                     <form className="shadow-lg" onSubmit={updateHandler}>
                                         <h1 className="mt-2 mb-5 wrapper__title text-center">Mise à jour de l'utilisateur</h1>
-                                        
+                                        {error && <Alert message={message} messageType={messageType} /> }
                 
                                         <div className="form-group">
                                             <label htmlFor="fname_field">Nom</label>
@@ -117,7 +124,13 @@ export default function UpdateUser() {
                                                 </div>
 
                                         <div className="d-grid gap-5 mt-3">
-                                            <button type="submit" className="btn wrapper__button btn-block mt-4 mb-3" >Mettre à jour</button>
+                                            <button 
+                                                type="submit" 
+                                                className="btn wrapper__button btn-block mt-4 mb-3"
+                                                disabled= {loading? true : false} 
+                                            >
+                                                Mettre à jour
+                                            </button>
                                         </div>
                                     </form>
                                 </div>

@@ -6,6 +6,9 @@ import {
     GET_CATEGORY_REQUEST,
     GET_CATEGORY_SUCCESS,
     GET_CATEGORY_FAIL,
+    NEW_CATEGORY_REQUEST,
+    NEW_CATEGORY_SUCCESS,
+    NEW_CATEGORY_FAIL,
     DELETE_CATEGORY_REQUEST,
     DELETE_CATEGORY_SUCCESS,
     DELETE_CATEGORY_FAIL,
@@ -49,6 +52,31 @@ export const getCategory = (id) => async (dispatch) => {
     } catch (error) {
         dispatch({
             type: GET_CATEGORY_FAIL,
+            payload: error.response.data.message
+        })
+    }
+};
+
+export const newCategory = (categoryData) => async (dispatch) => {
+    try {
+        dispatch({type: NEW_CATEGORY_REQUEST});
+
+        const config = {
+            headers: {
+                "content-type" : "application/json"
+            }
+        }
+
+        const {data} = await axios.post('/api/v1/categories', categoryData, config);
+
+        dispatch({
+            type: NEW_CATEGORY_SUCCESS,
+            payload: data.category
+        })
+        
+    } catch (error) {
+        dispatch({
+            type: NEW_CATEGORY_FAIL,
             payload: error.response.data.message
         })
     }

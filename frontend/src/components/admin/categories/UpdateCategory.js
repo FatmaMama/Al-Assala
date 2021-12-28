@@ -4,22 +4,32 @@ import { useDispatch, useSelector } from 'react-redux';
 import { notifyUser } from '../../../redux/actions/notifyActions';
 import Alert from '../../layouts/Alert';
 import Loader from '../../layouts/Loader';
-import { getCategories, clearErrors, newCategory } from '../../../redux/actions/categoryActions';
-import { useNavigate } from 'react-router-dom';
+import { getCategories, clearErrors, getCategory, updateCategory } from '../../../redux/actions/categoryActions';
+import { useNavigate, useParams } from 'react-router-dom';
 
-export default function AddCategory() {
+export default function UpdateCategory() {
 
     const dispatch = useDispatch();
     const navigate = useNavigate();
 
     const [name, setName] = useState('');
     const [parent, setParent] = useState('');
+    const params = useParams();
 
+    const { category } = useSelector(state => state.categoryDetails);
+    const { loading: updateLoading, isUpdated, error: updateError } = useSelector(state => state.category);
     const { loading, categories, error } = useSelector(state => state.categories);
-    const { success, error: addError } = useSelector(state => state.newCategory);
     const { message, messageType } = useSelector(state => state.notify);
 
     useEffect(() => {
+        if(category && category._id !== params.id){
+            dispatch(getCategory(params.id))
+        } else {
+            setName(category.name);
+            if(category.parentId){
+                setParent(category.parentId)
+            }
+        }
         dispatch(getCategories());
 
         if(error){
@@ -27,18 +37,18 @@ export default function AddCategory() {
             setTimeout(() => dispatch(clearErrors()), 5000)
         }
 
-        if(addError){
-            dispatch(notifyUser(addError, 'error'));
+        if(updateError){
+            dispatch(notifyUser(updateError, 'error'));
             setTimeout(() => dispatch(clearErrors()), 5000)
         }
 
-        if(success){
+        if(isUpdated){
             navigate('/admin/categories')
         }
 
-    }, [dispatch, error, addError, success]);
+    }, [dispatch, error, updateError, isUpdated]);
 
-    const addHandler = (e) => {
+    const updateHandler = (e) => {
         e.preventDefault();
         const categoryData = {
             name
@@ -47,7 +57,7 @@ export default function AddCategory() {
         if(parent !== ''){
             categoryData.parentId = parent
         }
-        dispatch(newCategory(categoryData))
+        dispatch(updateCategory(categoryData))
     }
 
     const createCategoryList = (categories, options = []) => {
@@ -71,8 +81,8 @@ export default function AddCategory() {
                         {loading ? <Loader /> : (
                             <div className="row wrapper">
                                 <div className="col-10 col-lg-7">
-                                    <form className="shadow-lg" onSubmit={addHandler} >
-                                        <h1 className="mt-2 mb-5 wrapper__title text-center">Ajouter une catégorie</h1>
+                                    <form className="shadow-lg" onSubmit={updateHandler} >
+                                        <h1 className="mt-2 mb-5 wrapper__title text-center">Mise à jour de la catégorie</h1>
                                         {error && <Alert message={message} messageType={messageType} />}
                 
                                         <div className="form-group">
@@ -104,7 +114,11 @@ export default function AddCategory() {
                 
 
                                         <div className="d-grid gap-5 mt-3">
-                                            <button type="submit" className="btn wrapper__button btn-block mt-4 mb-3" >Ajouter</button>
+                                            <button 
+                                                type="submit" 
+                                                className="btn wrapper__button btn-block mt-4 mb-3"
+                                                disabled= {updateLoading? true : false}
+                                                 >Mettre à jour</button>
                                         </div>
                                     </form>
                                 </div>

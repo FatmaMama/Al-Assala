@@ -33,13 +33,11 @@ export default function UsersList() {
 
         if(isDeleted){
             dispatch(notifyUser('Utilisateur supprimé avec succès', 'success'));
-            navigate('/admin/users')
             setTimeout(() => dispatch({type: DELETE_USER_RESET}), 5000)
         } 
 
         if(isUpdated){
             dispatch(notifyUser('Utilisateur mis à jour avec succès', 'success'));
-            navigate('/admin/users');
             setTimeout(() => {dispatch({ type : UPDATE_USER_RESET})},5000) 
         }
         
