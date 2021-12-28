@@ -40,7 +40,7 @@ export const productsReducer = (state = {products: []}, action) => {
 };
 
 
-export const productReducer = (state= {product: {}}, action) => {
+export const productReducer = (state= { }, action) => {
     switch (action.type) {
         case DELETE_PRODUCT_REQUEST: 
             return {

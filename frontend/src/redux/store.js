@@ -4,7 +4,7 @@ import { composeWithDevTools } from 'redux-devtools-extension';
 import { allUsersReducer, authReducer, userDetailsReducer, userReducer } from './reducers/userReducers';
 import { notifyReducer } from './reducers/notifyReducer';
 import { productReducer, productsReducer } from './reducers/productReducers';
-import { categoriesReducer } from './reducers/categoryReducer';
+import { categoriesReducer, categoryDetailsReducer, categoryReducer } from './reducers/categoryReducer';
 
 const reducers = combineReducers({
     auth: authReducer,
@@ -14,7 +14,9 @@ const reducers = combineReducers({
     users: allUsersReducer,
     user: userReducer,
     userDetails: userDetailsReducer,
-    categories: categoriesReducer
+    categories: categoriesReducer,
+    categoryDetails: categoryDetailsReducer,
+    category: categoryReducer
 });
 
 let initialState = {

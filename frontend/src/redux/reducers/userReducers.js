@@ -126,7 +126,7 @@ export const allUsersReducer = (state = {users: []}, action) => {
     }
 };
 
-export const userReducer = (state= {user: {}}, action) => {
+export const userReducer = (state= { }, action) => {
     switch (action.type) {
         case DELETE_USER_REQUEST: 
         case UPDATE_USER_REQUEST:

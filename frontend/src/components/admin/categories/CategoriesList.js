@@ -11,6 +11,7 @@ export default function CategoriesList() {
     const dispatch = useDispatch();
 
     const { loading, categories, error } = useSelector(state => state.categories);
+    const { message, messageType } = useSelector(state => state.notify);
 
     useEffect(() => {
         dispatch(getCategories());
@@ -54,6 +55,7 @@ export default function CategoriesList() {
                     {loading ? <Loader/> : (
                         <Fragment>
                             <h1 className="text-uppercase my-5">Catégories</h1>
+                            {error && <Alert message={message} messageType={messageType} />}
                             <ul>
                                 {categories && renderCategories(categories)}
                             </ul>
