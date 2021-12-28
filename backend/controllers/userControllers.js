@@ -60,6 +60,10 @@ exports.deleteUser = catchAsync(async (req, res, next) => {
     };
 
     //delete avatar
+    const image_id = user.avatar.public_id;
+    if(image_id !== "Al-Assala/avatars/default-avatar_zhm2mo"){
+        await cloudinary.v2.uploader.destroy(image_id);
+    }
 
     res.status(200).json({
         success: true

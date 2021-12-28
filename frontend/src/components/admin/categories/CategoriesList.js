@@ -14,7 +14,7 @@ export default function CategoriesList() {
 
     const { loading, categories, error } = useSelector(state => state.categories);
     const { success } = useSelector(state => state.newCategory);
-    const { isUpdated, isDeleted, error: deleteError } = useSelector(state => state.user);
+    const { isUpdated, isDeleted, error: deleteError } = useSelector(state => state.category);
     const { message, messageType } = useSelector(state => state.notify);
 
     useEffect(() => {
@@ -85,7 +85,7 @@ export default function CategoriesList() {
                         <Fragment>
                             {success && <Alert message={message} messageType={messageType} /> }
                             <h1 className="text-uppercase my-5">Catégories</h1>
-                            {error && <Alert message={message} messageType={messageType} />}
+                            {(error || isDeleted || isUpdated) && <Alert message={message} messageType={messageType} />}
                             <ul>
                                 {categories && renderCategories(categories)}
                             </ul>

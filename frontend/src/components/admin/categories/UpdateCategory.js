@@ -46,7 +46,7 @@ export default function UpdateCategory() {
             navigate('/admin/categories')
         }
 
-    }, [dispatch, error, updateError, isUpdated]);
+    }, [dispatch, category, params, error, updateError, isUpdated]);
 
     const updateHandler = (e) => {
         e.preventDefault();
@@ -57,7 +57,7 @@ export default function UpdateCategory() {
         if(parent !== ''){
             categoryData.parentId = parent
         }
-        dispatch(updateCategory(categoryData))
+        dispatch(updateCategory(category._id, categoryData))
     }
 
     const createCategoryList = (categories, options = []) => {
@@ -83,7 +83,7 @@ export default function UpdateCategory() {
                                 <div className="col-10 col-lg-7">
                                     <form className="shadow-lg" onSubmit={updateHandler} >
                                         <h1 className="mt-2 mb-5 wrapper__title text-center">Mise à jour de la catégorie</h1>
-                                        {error && <Alert message={message} messageType={messageType} />}
+                                        {(error || updateError) && <Alert message={message} messageType={messageType} />}
                 
                                         <div className="form-group">
                                             <label htmlFor="name_field">Nom</label>

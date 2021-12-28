@@ -3,7 +3,7 @@
         "name" : "Chemise Coton",
         "price" : 49.99,
         "description" : "Nous travaillons avec des programmes de suivi pour garantir le respect des normes de sécurité, de santé et de qualité de nos produits. ",
-        "category" : "61b0f31367e9fe5ba92e4337",
+        "category" : "61cb39566406f778eea24b04",
         "sizes" : [{
             "name" : "S",
             "stock" : 10
@@ -50,7 +50,7 @@
         "name" : "Chemise Coton",
         "price" : 49.99,
         "description" : "Nous travaillons avec des programmes de suivi pour garantir le respect des normes de sécurité, de santé et de qualité de nos produits. ",
-        "category" : "61b0f31367e9fe5ba92e4337",
+        "category" : "61cb39566406f778eea24b04",
         "sizes" : [{
             "name" : "S",
             "stock" : 0
@@ -97,7 +97,7 @@
         "name" : "Chemise Coton",
         "price" : 49.99,
         "description" : "Nous travaillons avec des programmes de suivi pour garantir le respect des normes de sécurité, de santé et de qualité de nos produits. ",
-        "category" : "61b0f31367e9fe5ba92e4337",
+        "category" : "61cb39566406f778eea24b04",
         "sizes" : [{
             "name" : "S",
             "stock" : 0
@@ -144,7 +144,7 @@
         "name" : "Robe ajustée",
         "price" : 79.99,
         "description" : "Nous travaillons avec des programmes de suivi pour garantir le respect des normes de sécurité, de santé et de qualité de nos produits. ",
-        "category" : "61b0f9f0e27403bea5223fe3",
+        "category" : "61cb39196406f778eea24afd",
         "sizes" : [{
             "name" : "S",
             "stock" : 2
@@ -187,7 +187,7 @@
         "name" : "Robe ajustée",
         "price" : 79.99,
         "description" : "Nous travaillons avec des programmes de suivi pour garantir le respect des normes de sécurité, de santé et de qualité de nos produits. ",
-        "category" : "61b0f9f0e27403bea5223fe3",
+        "category" : "61cb39196406f778eea24afd",
         "sizes" : [{
             "name" : "S",
             "stock" : 0
@@ -230,7 +230,7 @@
         "name" : "Chemise Classique",
         "price" : 69.99,
         "description" : "Nous travaillons avec des programmes de suivi pour garantir le respect des normes de sécurité, de santé et de qualité de nos produits. ",
-        "category" : "61b0fb868920be730c7b6cd7",
+        "category" : "61cb39786406f778eea24b14",
         "sizes" : [{
             "name" : "S",
             "stock" : 10
@@ -273,7 +273,7 @@
         "name" : "Chemise Classique",
         "price" : 69.99,
         "description" : "Nous travaillons avec des programmes de suivi pour garantir le respect des normes de sécurité, de santé et de qualité de nos produits. ",
-        "category" : "61b0fb868920be730c7b6cd7",
+        "category" : "61cb39786406f778eea24b14",
         "sizes" : [{
             "name" : "S",
             "stock" : 3
