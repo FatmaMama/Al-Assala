@@ -36,7 +36,7 @@ export default function Sidebar() {
                         </li>
             
                         <li className='sidebar__item'>
-                            <Link to="#" className='sidebar__link ms-4 pt-1'><i className="fas fa-plus me-2"></i>Ajouter</Link>
+                            <Link to="/admin/products/new" className='sidebar__link ms-4 pt-1'><i className="fas fa-plus me-2"></i>Ajouter</Link>
                         </li>
                     </ul>
                 </li>

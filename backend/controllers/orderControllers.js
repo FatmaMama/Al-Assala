@@ -112,10 +112,14 @@ const updateStock = async function(id, size, quantity, status){
    
     if(status === "retournée"){
         foundSize[0].stock = foundSize[0].stock + quantity;
+        if(product.numOfSells > 0){
+            product.numOfSells = product.numOfSells - 1
+        }
     };
 
     if(status === "expédiée"){
         foundSize[0].stock = foundSize[0].stock - quantity;
+        product.numOfSells = product.numOfSells + 1
     };
 
     await product.save( { validateBeforeSave : false });

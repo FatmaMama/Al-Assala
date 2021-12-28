@@ -15,6 +15,8 @@ import UsersList from './components/admin/users/UsersList';
 import UpdateUser from './components/admin/users/UpdateUser';
 import AddCategory from './components/admin/categories/AddCategory';
 import UpdateCategory from './components/admin/categories/UpdateCategory';
+import AddProduct from './components/admin/products/AddProduct';
+import { updateProduct } from './redux/actions/productActions';
 
 
 
@@ -36,7 +38,9 @@ function App() {
 
           <Route path='/dashboard' element={<Dashboard/>} />
           <Route path='/admin/products' element={<ProductsList/>} />
-          <Route path='/admin/categories' element={<CategoriesList/>} />
+          <Route path='/admin/products/new' element={<AddProduct/>}/>
+          <Route path='/admin/products/:id' element={<updateProduct/>}/>
+
           <Route path='/admin/orders' element={<OrdersList/>} />
           <Route path='/admin/users' element={<UsersList/>} />
           <Route path='/admin/users/:id' element={<UpdateUser/>} />
