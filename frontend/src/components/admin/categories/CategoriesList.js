@@ -19,7 +19,7 @@ export default function CategoriesList() {
 
     useEffect(() => {
         dispatch(getCategories());
-
+        
         if(error){
             dispatch(notifyUser(error, 'error'))
             setTimeout(() => dispatch(clearErrors()), 5000)
@@ -70,6 +70,7 @@ export default function CategoriesList() {
                 </li>
             )
         };
+        console.log(categories)
         return myCategories
     };
 

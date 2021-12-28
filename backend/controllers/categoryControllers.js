@@ -1,4 +1,5 @@
 const Category = require('../models/categoryModel');
+const Product = require('../models/productModel');
 const AppError = require('../utils/appError');
 const catchAsync = require('../utils/catchAsync')
 
@@ -48,7 +49,7 @@ exports.getCategories = catchAsync(async (req, res, next) => {
     const categories = await Category.find();
 
     if(categories){
-        const categoryList = createCategories(categories)
+        const categoryList = createCategories(categories);
 
         res.status(200).json({
             success: true,
@@ -90,24 +91,58 @@ exports.updateCategory = catchAsync(async (req, res, next) => {
 })
 
 //DELETE CATEGORY  =>  DELETE : api/v1/categories/:id
-exports.deleteCategory = catchAsync(async (req, res, next) => {
+// exports.deleteCategory = catchAsync(async (req, res, next) => {
+
+//     const categories = await Category.find();
+
+//     let categoryList;
+//     if(categories){
+//         categoryList = createCategories(categories)
+//     }
     
-    const category = await Category.findById(req.params.id);
-    const subCategories = await Category.find({ parentId : req.params.id });
+//     const category = await Category.findById(req.params.id);
+//     const subCategories = await Category.find({ parentId : req.params.id });
+    
+//     if(!category){
+//         return next(new AppError('No category found with this ID', 404))
+//     }
 
-    if(!category){
-        return next(new AppError('No category found with this ID', 404))
-    }
+//     await category.remove();
 
-    await category.remove();
+//     if(subCategories.length > 0){
+//         for (let cat of subCategories){
+//             await cat.remove();
+//         }
+//     }
+//     res.status(200).json({
+//         success: true
+//     })
+// });
 
-    if(subCategories.length > 0){
-        for (let cat of subCategories){
-            await cat.remove();
+
+exports.deleteCategory = catchAsync(async (req, res, next) => {
+
+    const deleteCategoryProducts = async (id = req.params.id) => {
+        const category = await Category.findById(id);
+        const subCategories = await Category.find({ parentId : id });
+        
+        if(!category){
+            return next(new AppError('No category found with this ID', 404))
+        }
+    
+        await category.remove();
+        await Product.deleteMany({category: category._id})
+    
+        if(subCategories.length > 0){
+            for (let cat of subCategories){
+                deleteCategoryProducts(cat._id)
+            }
         }
     }
+
+    deleteCategoryProducts();
     
     res.status(200).json({
         success: true
     })
-})
+});
