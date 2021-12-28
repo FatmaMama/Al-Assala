@@ -115,7 +115,7 @@ export const updateCategory = (id, categoryData) => async (dispatch) => {
 
         dispatch({
             type: UPDATE_CATEGORY_SUCCESS,
-            payload: data.category
+            payload: data.success
         })
         
     } catch (error) {
