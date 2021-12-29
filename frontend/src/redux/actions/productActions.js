@@ -60,8 +60,11 @@ export const newProduct = (productData) => async (dispatch) => {
         dispatch({type: NEW_PRODUCT_REQUEST});
 
         const config= {
+            // headers: {
+            //     "content-type" : "application/json"
+            // }
             headers: {
-                "content-type" : "application/json"
+                "content-type" : "multipart/form-data"
             }
         }
 

@@ -70,7 +70,6 @@ export default function CategoriesList() {
                 </li>
             )
         };
-        console.log(categories)
         return myCategories
     };
 

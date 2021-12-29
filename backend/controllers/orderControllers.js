@@ -108,7 +108,7 @@ exports.updateOrder = catchAsync(async (req, res, next) => {
 
 const updateStock = async function(id, size, quantity, status){
     const product = await Product.findById(id);
-    const foundSize = product.sizes.filter(el => el.name === size);
+    const foundSize = product.sizes.filter(el => el.sizeName === size);
    
     if(status === "retournée"){
         foundSize[0].stock = foundSize[0].stock + quantity;

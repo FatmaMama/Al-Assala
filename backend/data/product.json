@@ -5,30 +5,30 @@
         "description" : "Nous travaillons avec des programmes de suivi pour garantir le respect des normes de sécurité, de santé et de qualité de nos produits. ",
         "category" : "61cb39566406f778eea24b04",
         "sizes" : [{
-            "name" : "S",
+            "sizeName" : "S",
             "stock" : 10
         },
         {
-            "name" : "M",
+            "sizeName" : "M",
             "stock" : 5
         },
         {
-            "name" : "L",
+            "sizeName" : "L",
             "stock" : 3
         }],
         "color" : "blanc",
         "colors" : [
             {
-                "name" : "blanc",
-                "code" : "fff"
+                "colorName" : "blanc",
+                "code" : "#fff"
                 },
             {
-            "name" : "bleu",
-            "code" : "63C5DA"
+                "colorName" : "bleu",
+                "code" : "#63C5DA"
             },
             {
-                "name" : "noir",
-                "code" : "000"
+                "colorName" : "noir",
+                "code" : "#000"
             }
         ],
         "images" : [
@@ -52,30 +52,30 @@
         "description" : "Nous travaillons avec des programmes de suivi pour garantir le respect des normes de sécurité, de santé et de qualité de nos produits. ",
         "category" : "61cb39566406f778eea24b04",
         "sizes" : [{
-            "name" : "S",
+            "sizeName" : "S",
             "stock" : 0
         },
         {
-            "name" : "M",
+            "sizeName" : "M",
             "stock" : 3
         },
         {
-            "name" : "L",
+            "sizeName" : "L",
             "stock" : 1
         }],
         "color" : "bleu",
         "colors" : [
             {
-                "name" : "blanc",
-                "code" : "fff"
+                "colorName" : "blanc",
+                "code" : "#fff"
                 },
             {
-            "name" : "bleu",
-            "code" : "63C5DA"
+                "colorName" : "bleu",
+                "code" : "#63C5DA"
             },
             {
-                "name" : "noir",
-                "code" : "000"
+                "colorName" : "noir",
+                "code" : "#000"
             }
         ],
         "images" : [
@@ -99,30 +99,30 @@
         "description" : "Nous travaillons avec des programmes de suivi pour garantir le respect des normes de sécurité, de santé et de qualité de nos produits. ",
         "category" : "61cb39566406f778eea24b04",
         "sizes" : [{
-            "name" : "S",
+            "sizeName" : "S",
             "stock" : 0
         },
         {
-            "name" : "M",
+            "sizeName" : "M",
             "stock" : 0
         },
         {
-            "name" : "L",
+            "sizeName" : "L",
             "stock" : 3
         }],
         "color" : "noir",
         "colors" : [
             {
-                "name" : "blanc",
-                "code" : "fff"
+                "colorName" : "blanc",
+                "code" : "#fff"
                 },
             {
-            "name" : "bleu",
-            "code" : "63C5DA"
+                "colorName" : "bleu",
+                "code" : "#63C5DA"
             },
             {
-                "name" : "noir",
-                "code" : "000"
+                "colorName" : "noir",
+                "code" : "#000"
             }
         ],
         "images" : [
@@ -146,26 +146,26 @@
         "description" : "Nous travaillons avec des programmes de suivi pour garantir le respect des normes de sécurité, de santé et de qualité de nos produits. ",
         "category" : "61cb39196406f778eea24afd",
         "sizes" : [{
-            "name" : "S",
+            "sizeName" : "S",
             "stock" : 2
         },
         {
-            "name" : "M",
+            "sizeName" : "M",
             "stock" : 5
         },
         {
-            "name" : "L",
+            "sizeName" : "L",
             "stock" : 3
         }],
         "color" : "noir",
         "colors" : [
             {
-                "name" : "noir",
-                "code" : "000"
+                "colorName" : "noir",
+                "code" : "#000"
             },
             {
-                "name" : "rouge",
-                "code" : "BB0B0B"
+                "colorName" : "rouge",
+                "code" : "#BB0B0B"
             }
         ],
         "images" : [
@@ -189,26 +189,26 @@
         "description" : "Nous travaillons avec des programmes de suivi pour garantir le respect des normes de sécurité, de santé et de qualité de nos produits. ",
         "category" : "61cb39196406f778eea24afd",
         "sizes" : [{
-            "name" : "S",
+            "sizeName" : "S",
             "stock" : 0
         },
         {
-            "name" : "M",
+            "sizeName" : "M",
             "stock" : 5
         },
         {
-            "name" : "L",
+            "sizeName" : "L",
             "stock" : 0
         }],
         "color" : "rouge",
         "colors" : [
             {
-                "name" : "noir",
-                "code" : "000"
+                "colorName" : "noir",
+                "code" : "#000"
             },
             {
-                "name" : "rouge",
-                "code" : "BB0B0B"
+                "colorName" : "rouge",
+                "code" : "#BB0B0B"
             }
         ],
         "images" : [
@@ -232,27 +232,27 @@
         "description" : "Nous travaillons avec des programmes de suivi pour garantir le respect des normes de sécurité, de santé et de qualité de nos produits. ",
         "category" : "61cb39786406f778eea24b14",
         "sizes" : [{
-            "name" : "S",
+            "sizeName" : "S",
             "stock" : 10
         },
         {
-            "name" : "M",
+            "sizeName" : "M",
             "stock" : 5
         },
         {
-            "name" : "L",
+            "sizeName" : "L",
             "stock" : 3
         }],
         "color" : "blanc",
         "colors" : [
             {
-                "name" : "blanc",
-                "code" : "fff"
+                "colorName" : "blanc",
+                "code" : "#fff"
             },
            
             {
-                "name" : "noir",
-                "code" : "000"
+                "colorName" : "noir",
+                "code" : "#000"
             }
         ],
         "images" : [
@@ -275,27 +275,27 @@
         "description" : "Nous travaillons avec des programmes de suivi pour garantir le respect des normes de sécurité, de santé et de qualité de nos produits. ",
         "category" : "61cb39786406f778eea24b14",
         "sizes" : [{
-            "name" : "S",
+            "sizeName" : "S",
             "stock" : 3
         },
         {
-            "name" : "M",
+            "sizeName" : "M",
             "stock" : 0
         },
         {
-            "name" : "L",
+            "sizeName" : "L",
             "stock" : 4
         }],
         "color" : "noir",
         "colors" : [
             {
-                "name" : "blanc",
-                "code" : "fff"
+                "colorName" : "blanc",
+                "code" : "#fff"
             },
            
             {
-                "name" : "noir",
-                "code" : "000"
+                "colorName" : "noir",
+                "code" : "#000"
             }
         ],
         "images" : [

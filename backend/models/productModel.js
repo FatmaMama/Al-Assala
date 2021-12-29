@@ -41,7 +41,7 @@ const productSchema = new mongoose.Schema({
 
     sizes : [
         {
-            name : {
+            sizeName : {
                 type: String,
                 required: true
             },
@@ -56,12 +56,12 @@ const productSchema = new mongoose.Schema({
 
     color : {
         type: String,
-        required: true
+        required : [ true, 'Veuillez entrer la couleur du produit'],
     },
 
     colors : [
         {
-            name: {
+            colorName: {
                 type: String
             },
 

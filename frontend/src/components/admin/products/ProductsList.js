@@ -7,7 +7,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { clearErrors, getAdminProducts, deleteProduct } from '../../../redux/actions/productActions';
 import { notifyUser } from '../../../redux/actions/notifyActions';
 import Alert from '../../layouts/Alert';
-import { DELETE_PRODUCT_RESET } from '../../../redux/constants/product_constants';
+import { DELETE_PRODUCT_RESET, NEW_PRODUCT_RESET } from '../../../redux/constants/product_constants';
 
 export default function ProductsList() {
 
@@ -16,6 +16,7 @@ export default function ProductsList() {
 
     const { loading, products, error }= useSelector(state => state.products);
     const { isDeleted, error: deleteError }= useSelector(state => state.product)
+    const { success } = useSelector(state => state.newProduct);
     const { message, messageType }= useSelector(state => state.notify);
 
     useEffect(() => {
@@ -33,11 +34,15 @@ export default function ProductsList() {
 
         if(isDeleted){
             dispatch(notifyUser('Produit supprimé avec succès', 'success'));
-            navigate('/admin/products')
             setTimeout(() => dispatch({type: DELETE_PRODUCT_RESET}), 5000)
         } 
+
+        if(success){
+            dispatch(notifyUser('Produit ajouté avec succès', 'success'));
+            setTimeout(() => dispatch({type: NEW_PRODUCT_RESET}), 5000)
+        }
         
-    }, [error, deleteError, isDeleted, navigate, dispatch]);
+    }, [error, deleteError, isDeleted, success, navigate, dispatch]);
 
 
     const deleteHandler = (id) => {
@@ -92,7 +97,7 @@ export default function ProductsList() {
                 category: product.category.name,
                 price : `$${product.price}`,
                 color : product.color,
-                sizes: product.sizes.map(size => size.name + '  /  '),
+                sizes: product.sizes.map(size => size.sizeName + '  /  '),
                 stock: product.sizes.map(size => size.stock + '  /  '),
                 actions : 
                 <Fragment>
@@ -116,7 +121,7 @@ export default function ProductsList() {
 
                 <div className="col-12 col-md-10 px-5">
                     <Fragment>
-                        {(isDeleted || error) && <Alert message={message} messageType={messageType} /> }
+                        {(isDeleted || error || success) && <Alert message={message} messageType={messageType} /> }
                         <h1 className="text-uppercase my-5" >Produits</h1>
                         {loading ? <Loader /> : (
                             <MDBDataTable 

@@ -1,11 +1,36 @@
 const Product = require('../models/productModel');
 const AppError = require('../utils/appError');
 const catchAsync = require('../utils/catchAsync');
-const ApiFeatures = require('../utils/apiFeatures')
+const ApiFeatures = require('../utils/apiFeatures');
+const cloudinary = require('cloudinary');
 
 //ADD Product  =>  POST : api/v1/products
 exports.addProduct = catchAsync(async (req, res, next) => {
+    
+    let images = [];
+    if(typeof req.body.images === 'string'){
+        images.push(req.body.images)
+    } else {
+        images = req.body.images
+    }
+
+    let imagesLinks = [];
+    for(let i=0; i<images.length; i++){
+        const result = await cloudinary.v2.uploader.upload(images[i], {
+                    folder: 'products'
+                })
+        
+        imagesLinks.push({
+            public_id : result.public_id,
+            url : result.secure_url
+        })
+    }
+
+    req.body.images = imagesLinks;
+    req.body.sizes = JSON.parse(req.body.sizes);
+    req.body.colors = JSON.parse(req.body.colors);
     req.body.user = req.user._id;
+    console.log('user: ', req.user._id)
     
     const product = await Product.create(req.body);
 
