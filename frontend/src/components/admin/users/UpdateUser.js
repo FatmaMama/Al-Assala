@@ -42,7 +42,7 @@ export default function UpdateUser() {
             navigate('/admin/users');
         }
        
-    }, [dispatch, user, params, isUpdated, navigate]);
+    }, [dispatch, user, params, isUpdated, error, navigate]);
 
     const updateHandler = (e) =>{
         e.preventDefault();

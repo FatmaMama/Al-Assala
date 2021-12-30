@@ -26,6 +26,7 @@
   "homepage": "https://github.com/FatmaMama/Al-Assala#readme",
   "dependencies": {
     "bcryptjs": "^2.4.3",
+    "body-parser": "^1.19.1",
     "cloudinary": "^1.27.1",
     "cookie-parser": "^1.4.6",
     "dotenv": "^10.0.0",

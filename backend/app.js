@@ -3,6 +3,7 @@ const app = express();
 const cookieParser = require('cookie-parser');
 const AppError = require('./utils/appError')
 const errorMiddleware = require('./middlewares/errorMiddleware');
+const bodyparser = require('body-parser');
 
 const categories = require('./routes/categoryRoutes');
 const products = require('./routes/productRoutes');
@@ -13,6 +14,7 @@ const cloudinary = require('cloudinary');
 const fileUpload = require('express-fileUpload');
 
 app.use(express.json());
+app.use(bodyparser.urlencoded({ extended : true }));
 app.use(cookieParser());
 app.use(fileUpload())
 

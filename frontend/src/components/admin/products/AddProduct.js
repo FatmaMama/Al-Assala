@@ -47,7 +47,7 @@ export default function AddProduct() {
 
         if(addError){
             dispatch(notifyUser(addError, 'error'));
-            setTimeout(() => dispatch(clearErrors()), 9000)
+            setTimeout(() => dispatch(clearErrors()), 5000)
         };
 
         if(success){
@@ -77,10 +77,6 @@ export default function AddProduct() {
 
         formData.set('sizes', JSON.stringify(sizes));
         formData.set('colors', JSON.stringify(colors));
-
-        // sizes.forEach(size => {
-        //     formData.append('sizes', size)
-        // });
 
         images.forEach(image => {
             formData.append('images', image)
