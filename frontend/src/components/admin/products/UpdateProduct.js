@@ -9,6 +9,7 @@ import { getCategories, clearErrors} from '../../../redux/actions/categoryAction
 import { getProduct, updateProduct } from '../../../redux/actions/productActions';
 import AddSizeModal from './AddSizeModal';
 import AddColorModal from './AddColorModal';
+import EditColorModal from './EditColorModal';
 
 export default function UpdateProduct() {
 
@@ -44,7 +45,7 @@ export default function UpdateProduct() {
     const { message, messageType } = useSelector(state => state.notify);
 
     useEffect(() => {
-        console.log(product)
+
         dispatch(getCategories());
 
         if(product && product._id !== params.id){
@@ -61,26 +62,26 @@ export default function UpdateProduct() {
             setSizes(product.sizes);
             setColors(product.colors);
             setOldImages(product.images)
-        }
+        };
 
         if(isUpdated){
             navigate('/admin/products');
-        }
+        };
 
         if(error){
             dispatch(notifyUser(error, 'error'));
             setTimeout(() => dispatch(clearErrors()), 5000)
-        }
+        };
 
         if(productError){
             dispatch(notifyUser(error, 'error'));
             setTimeout(() => dispatch(clearErrors()), 5000)
-        }
+        };
 
         if(updateError){
             dispatch(notifyUser(updateError, 'error'));
             setTimeout(() => dispatch(clearErrors()), 5000)
-        }
+        };
        
     }, [dispatch, error, productError, isUpdated, updateError, product, navigate, params]);
 
@@ -145,7 +146,19 @@ export default function UpdateProduct() {
     const deleteSize = (name) => {
         const newSizes = sizes.filter(size => size.sizeName !== name);
         setSizes(newSizes)
-    }
+    };
+
+    const editSize = (value, index) => {
+        const newSizes = [...sizes];
+        newSizes[index].sizeName = value;
+        setSizes(newSizes)
+     }; 
+
+    const editStock = (value, index) => {
+        const newSizes = [...sizes];
+        newSizes[index].stock = value;
+        setSizes(newSizes)
+    }; 
 
     const addColor = () => {
         if(colorName !== '' && code !== ''){
@@ -156,7 +169,19 @@ export default function UpdateProduct() {
     const deleteColor = (name) => {
         const newcolors = colors.filter(color => color.colorName !== name);
         setColors(newcolors)
-    }
+    };
+
+    const editColor = (value, index) => {
+       const newColors = [...colors];
+       newColors[index].colorName = value;
+       setColors(newColors)
+    }; 
+
+    const editColorCode = (value, index) => {
+        const newColors = [...colors];
+        newColors[index].code = value;
+        setColors(newColors)
+     }; 
 
     const deleteOldImage = (id) => {
         const newImages = oldImages.filter(image => image.public_id !== id)
@@ -251,27 +276,31 @@ export default function UpdateProduct() {
 
                                             {sizes.length > 0 && 
                                             <div className='border p-2 mt-4'>
-                                            {sizes.map(size => (
+                                            {sizes.map((size, index) => (
                                                 <div key={size.sizeName} className='d-flex gap-5 p-2'>
                                                 <div className="form-group fs-5 d-flex gap-2 align-items-center">
                                                     <label htmlFor="sizeName_field">Nom</label>
                                                     <input
-                                                    readOnly
                                                     type="text"
                                                     id="sizeName_field"
                                                     className="form-control"
+                                                    name="sizeName"
                                                     value={size.sizeName}
+                                                    autoFocus
+                                                    onChange={(e) => editSize(e.target.value, index)}
                                                     />
                                                 </div>
 
                                                 <div className="form-group fs-5 d-flex gap-2 align-items-center">
                                                     <label htmlFor="stock_field">Stock</label>
                                                     <input
-                                                    readOnly
                                                     type="text"
                                                     id="stock_field"
                                                     className="form-control"
+                                                    name='stock'
                                                     value={size.stock}
+                                                    
+                                                    onChange={(e) => editStock(e.target.value, index)}
                                                     />
                                                 </div>
                                                 <span><i className="fa fa-pencil-alt"></i></span>
@@ -292,71 +321,32 @@ export default function UpdateProduct() {
                                             </button>
 
                                             <AddColorModal color={color} setColorName={setColorName} code={code} setCode={setCode} addColor={addColor} />
-                                            {/* <div className="modal fade" id="colorsModal" tabIndex="-1" aria-labelledby="colorsModalLabel" aria-hidden="true">
-                                                <div className="modal-dialog modal-dialog-centered">
-                                                    <div className="modal-content">
-                                                    <div className="modal-header">
-                                                        <h5 className="modal-title fs-2" id="colorsModalLabel">Ajouter une couleur</h5>
-                                                        <button type="button" className="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                                                    </div>
-                                                    <div className="modal-body">
-                                                        <div className='d-flex gap-5'>
-                                                            <div className="form-group">
-                                                                <label htmlFor="colorName_field">Nom</label>
-                                                                <input
-                                                                type="text"
-                                                                id="colorName_field"
-                                                                className="form-control"
-                                                                name= "colorName"
-                                                                value={colorName}
-                                                                onChange={(e) => setColorName(e.target.value)}
-                                                                />
-                                                            </div>
-
-                                                            <div className="form-group">
-                                                                <label htmlFor="code_field">Code</label>
-                                                                <input
-                                                                type="text"
-                                                                id="code_field"
-                                                                className="form-control"
-                                                                name= "code"
-                                                                value={code}
-                                                                onChange={(e) => setCode(e.target.value)}
-                                                                />
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    <div className="modal-footer">
-                                                        <button type="button" className="btn btn-secondary fs-4" data-bs-dismiss="modal">Fermer</button>
-                                                        <button type="button" className="btn btn-warning fs-4 fw-bold" data-bs-dismiss="modal" onClick={addColor} >Ajouter</button>
-                                                    </div>
-                                                    </div>
-                                                </div>
-                                            </div> */}
 
                                             {colors.length > 0 &&
                                                 <div className='border p-2 mt-4'>
-                                                {colors.map(color => (
+                                                {colors.map((color, index) => (
                                                     <div key={color.colorName} className='d-flex gap-5 p-2'>
                                                     <div className="form-group fs-5 d-flex gap-2 align-items-center">
                                                         <label htmlFor="colorName_field">Nom</label>
                                                         <input
-                                                        readOnly
                                                         type="text"
                                                         id="colorName_field"
                                                         className="form-control"
                                                         value={color.colorName}
+                                                        autoFocus
+                                                        onChange={(e) => editColor(e.target.value, index)}
                                                         />
                                                     </div>
 
                                                     <div className="form-group fs-5 d-flex gap-2 align-items-center">
                                                         <label htmlFor="code_field">Code</label>
                                                         <input
-                                                        readOnly
                                                         type="text"
                                                         id="code_field"
                                                         className="form-control"
                                                         value={color.code}
+                                                        
+                                                        onChange={(e) => editColorCode(e.target.value, index)}
                                                         />
                                                     </div>
                                                     <span onClick={() => deleteColor(color.colorName)}><i className="fas fa-trash-alt"></i></span>
