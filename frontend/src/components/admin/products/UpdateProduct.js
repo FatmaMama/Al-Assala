@@ -7,6 +7,8 @@ import Loader from '../../layouts/Loader';
 import { useNavigate, useParams } from 'react-router-dom';
 import { getCategories, clearErrors} from '../../../redux/actions/categoryActions';
 import { getProduct, updateProduct } from '../../../redux/actions/productActions';
+import AddSizeModal from './AddSizeModal';
+import AddColorModal from './AddColorModal';
 
 export default function UpdateProduct() {
 
@@ -245,48 +247,7 @@ export default function UpdateProduct() {
                                                 <i className="fas fa-plus fs-2"></i>
                                             </button>
 
-
-                                            <div className="modal fade" id="sizesModal" tabIndex="-1" aria-labelledby="sizesModalLabel" aria-hidden="true">
-                                                <div className="modal-dialog modal-dialog-centered">
-                                                    <div className="modal-content">
-                                                        <div className="modal-header">
-                                                            <h5 className="modal-title fs-2" id="sizesModalLabel">Ajouter une taille</h5>
-                                                            <button type="button" className="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                                                        </div>
-                                                        <div className="modal-body">
-                                                            <div className='d-flex gap-5'>
-                                                                <div className="form-group">
-                                                                    <label htmlFor="sizeName_field">Nom</label>
-                                                                    <input
-                                                                    type="text"
-                                                                    id="sizeName_field"
-                                                                    className="form-control"
-                                                                    name= "sizeName"
-                                                                    value={sizeName}
-                                                                    onChange={(e) => setSizeName(e.target.value)}
-                                                                    />
-                                                                </div>
-
-                                                                <div className="form-group">
-                                                                    <label htmlFor="stock_field">Stock</label>
-                                                                    <input
-                                                                    type="text"
-                                                                    id="stock_field"
-                                                                    className="form-control"
-                                                                    name= "stock"
-                                                                    value={stock}
-                                                                    onChange={(e) => setStock(e.target.value)}
-                                                                    />
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                        <div className="modal-footer">
-                                                            <button type="button" className="btn btn-secondary fs-4" data-bs-dismiss="modal">Fermer</button>
-                                                            <button type="button" className="btn btn-warning fs-4 fw-bold" data-bs-dismiss="modal" onClick={addSize} >Ajouter</button>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
+                                            <AddSizeModal  sizeName={sizeName} setSizeName={setSizeName} stock={stock} setStock={setStock} addSize={addSize} />
 
                                             {sizes.length > 0 && 
                                             <div className='border p-2 mt-4'>
@@ -313,6 +274,7 @@ export default function UpdateProduct() {
                                                     value={size.stock}
                                                     />
                                                 </div>
+                                                <span><i className="fa fa-pencil-alt"></i></span>
                                                 <span onClick={() => deleteSize(size.sizeName)}><i className="fas fa-trash-alt"></i></span>
                                             </div>
                                             
@@ -329,8 +291,8 @@ export default function UpdateProduct() {
                                                 <i className="fas fa-plus fs-2"></i>
                                             </button>
 
-
-                                            <div className="modal fade" id="colorsModal" tabIndex="-1" aria-labelledby="colorsModalLabel" aria-hidden="true">
+                                            <AddColorModal color={color} setColorName={setColorName} code={code} setCode={setCode} addColor={addColor} />
+                                            {/* <div className="modal fade" id="colorsModal" tabIndex="-1" aria-labelledby="colorsModalLabel" aria-hidden="true">
                                                 <div className="modal-dialog modal-dialog-centered">
                                                     <div className="modal-content">
                                                     <div className="modal-header">
@@ -370,7 +332,7 @@ export default function UpdateProduct() {
                                                     </div>
                                                     </div>
                                                 </div>
-                                            </div>
+                                            </div> */}
 
                                             {colors.length > 0 &&
                                                 <div className='border p-2 mt-4'>
