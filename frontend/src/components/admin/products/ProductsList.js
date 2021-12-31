@@ -133,7 +133,7 @@ export default function ProductsList() {
 
                 <div className="col-12 col-md-10 px-5">
                     <Fragment>
-                        {(isDeleted || error || success || isUpdated) && <Alert message={message} messageType={messageType} /> }
+                        {(isDeleted || deleteError || error || success || isUpdated) && <Alert message={message} messageType={messageType} /> }
                         <h1 className="text-uppercase my-5" >Produits</h1>
                         {loading ? <Loader /> : (
                             <MDBDataTable 
