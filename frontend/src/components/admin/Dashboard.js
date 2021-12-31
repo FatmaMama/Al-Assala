@@ -4,11 +4,13 @@ import { Link } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { getAllUsers } from '../../redux/actions/userActions';
 import { getAdminProducts } from '../../redux/actions/productActions';
+import { getOrders } from '../../redux/actions/orderActions';
 
 export default function Dashboard() {
 
     const dispatch = useDispatch();
     const { products, productsCount } = useSelector(state => state.products);
+    const {totalAmount, ordersCount} = useSelector(state => state.orders);
     const { usersCount } = useSelector(state => state.users);
 
     let outOfStock = 0
@@ -23,7 +25,8 @@ export default function Dashboard() {
 
     useEffect(() => {
         dispatch(getAllUsers());
-        dispatch(getAdminProducts())
+        dispatch(getAdminProducts());
+        dispatch(getOrders())
     }, [])
 
     return (
@@ -39,7 +42,7 @@ export default function Dashboard() {
                                 <div className="col-xl-12 col-sm-12 mb-3">
                                     <div className="card text-white bg-primary o-hidden h-100">
                                         <div className="card-body">
-                                            <div className="text-center card-font-size">Total Amount<br /> <b>$4567</b>
+                                            <div className="text-center card-font-size">Montant Total<br /> <b>{`$${totalAmount}`}</b>
                                             </div>
                                         </div>
                                     </div>
@@ -65,7 +68,7 @@ export default function Dashboard() {
                                 <div className="col-xl-3 col-sm-6 mb-3 mt-3">
                                     <div className="card text-white bg-danger o-hidden h-100">
                                         <div className="card-body">
-                                            <div className="text-center card-font-size">Orders<br /> <b>125</b></div>
+                                            <div className="text-center card-font-size">Orders<br /> <b>{ordersCount}</b></div>
                                         </div>
                                         <Link className="card-footer text-white clearfix small z-1" to="/admin/orders">
                                             <span className="float-start">View Details</span>

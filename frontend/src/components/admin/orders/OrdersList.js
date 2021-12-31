@@ -4,12 +4,10 @@ import Sidebar from '../../layouts/Sidebar';
 import { MDBDataTable } from 'mdbreact';
 import Loader from '../../layouts/Loader';
 import { useDispatch, useSelector } from 'react-redux';
-import { clearErrors, getAdminProducts, deleteProduct } from '../../../redux/actions/productActions';
 import { notifyUser } from '../../../redux/actions/notifyActions';
 import Alert from '../../layouts/Alert';
-import { DELETE_PRODUCT_RESET, NEW_PRODUCT_RESET, UPDATE_PRODUCT_RESET } from '../../../redux/constants/product_constants';
 import DeleteModal from '../DeleteModal';
-import { deleteOrder, getOrders } from '../../../redux/actions/orderActions';
+import { deleteOrder, getOrders, clearErrors } from '../../../redux/actions/orderActions';
 import { DELETE_ORDER_RESET, UPDATE_ORDER_RESET } from '../../../redux/constants/orderConstants';
 
 export default function OrdersList() {

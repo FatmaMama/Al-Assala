@@ -35,6 +35,7 @@ export const ordersReducer = (state= { orders: []}, action) => {
             return {
                 loading: false,
                 orders: action.payload.orders,
+                ordersCount: action.payload.numOfOrders,
                 totalAmount: action.payload.totalAmount
             }
         case GET_MY_ORDERS_SUCCESS:
