@@ -6,13 +6,15 @@ const catchAsync = require('../utils/catchAsync');
 //NEW ORDER  =>  POST : api/v1/order
 exports.newOrder = catchAsync(async (req, res, next) => {
 
-    const { shippingInfo, orderItems, itemsPrice, totalPrice } = req.body;
+    const { shippingInfo, orderItems, itemsPrice, totalPrice, shippingPrice, saleCoupon } = req.body;
 
     const newOrder = {
         shippingInfo, 
         orderItems, 
         itemsPrice, 
         totalPrice,
+        shippingPrice,
+        saleCoupon,
         user: req.user._id
     };
 
