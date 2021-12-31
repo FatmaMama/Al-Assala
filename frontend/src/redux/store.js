@@ -5,6 +5,7 @@ import { allUsersReducer, authReducer, userDetailsReducer, userReducer } from '.
 import { notifyReducer } from './reducers/notifyReducer';
 import { newProductReducer, productDetailsReducer, productReducer, productsReducer } from './reducers/productReducers';
 import { categoriesReducer, categoryDetailsReducer, categoryReducer, newCategoryReducer } from './reducers/categoryReducer';
+import { newOrderReducer, orderDetailsReducer, orderReducer, ordersReducer } from './reducers/orderReducers';
 
 const reducers = combineReducers({
     auth: authReducer,
@@ -22,7 +23,12 @@ const reducers = combineReducers({
     categories: categoriesReducer,
     categoryDetails: categoryDetailsReducer,
     category: categoryReducer,
-    newCategory: newCategoryReducer
+    newCategory: newCategoryReducer,
+
+    orders: ordersReducer,
+    orderDetails: orderDetailsReducer,
+    order: orderReducer,
+    newOrder: newOrderReducer
 });
 
 let initialState = {
