@@ -72,6 +72,22 @@ const orderSchema = new mongoose.Schema ({
         required : true,
         default : 0.0
     },
+    shippingPrice : {
+        type : Number,
+        required : true,
+        default : 0.0
+    },
+    saleCoupon : {
+        type: Number,
+        default: 0,
+        validate: {
+            //Only works on save or create (not update)
+            validator: function(el){
+                return el < 1
+            },
+            message: "la valeur doit être inférieure à 1"
+        }
+    },
     totalPrice : {
         type : Number,
         required : true,

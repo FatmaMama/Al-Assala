@@ -7,6 +7,7 @@ import Loader from '../../layouts/Loader';
 import { getCategories, clearErrors, deleteCategory } from '../../../redux/actions/categoryActions';
 import { NEW_CATEGORY_RESET, UPDATE_CATEGORY_RESET, DELETE_CATEGORY_RESET } from '../../../redux/constants/categoryConstants';
 import { Link } from 'react-router-dom';
+import DeleteModal from '../DeleteModal';
 
 export default function CategoriesList() {
 
@@ -60,13 +61,22 @@ export default function CategoriesList() {
                         <span>{category.name}</span>
                         <span>{category._id}</span>
                         <div className='ms-auto'>
-                            <Link to={`/admin/categories/${category._id}`} className="btn py-1 px-2 me-3 fs-4 bg-primary"><i className="fa fa-pencil-alt"></i></Link>
-                            <span className="btn py-1 px-2 ml-2 fs-4 bg-danger" onClick={() => deleteHandler(category._id)} > <i className="fa fa-trash"></i></span>
+                            <Link to={`/admin/categories/${category._id}`} className="btn py-1 px-2 me-3 fs-4 bg-primary">
+                                <i className="fa fa-pencil-alt"></i>
+                            </Link>
+                            <button className="btn py-1 px-2 ml-2 fs-4 bg-danger" onClick={() => deleteHandler(category._id)} >
+                                <i className="fa fa-trash"></i>
+                            </button>
+                            {/* <button type="button" className="btn py-1 px-2 ml-2 fs-4 bg-danger" data-bs-toggle="modal" data-bs-target="#deleteModal">
+                                <i className="fa fa-trash"></i>
+                            </button> */}
+                            {/* <DeleteModal asset='catégorie' name={category.name} deleteHandler={deleteHandler} index={category._id} /> */}
                         </div>
                         
                     </div>
                     
                     {category.children.length > 0 && (<ul className='ms-5'>{renderCategories(category.children)}</ul>)}
+                    
                 </li>
             )
         };

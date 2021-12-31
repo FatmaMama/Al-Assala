@@ -8,6 +8,7 @@ import { clearErrors, getAdminProducts, deleteProduct } from '../../../redux/act
 import { notifyUser } from '../../../redux/actions/notifyActions';
 import Alert from '../../layouts/Alert';
 import { DELETE_PRODUCT_RESET, NEW_PRODUCT_RESET, UPDATE_PRODUCT_RESET } from '../../../redux/constants/product_constants';
+import DeleteModal from '../DeleteModal';
 
 export default function ProductsList() {
 
@@ -113,8 +114,13 @@ export default function ProductsList() {
                     <button className="btn py-1 px-2 ml-2 fs-4 bg-danger" onClick={() => deleteHandler(product._id)} >
                         <i className="fa fa-trash"></i>
                     </button>
+                    {/* <button type="button" className="btn py-1 px-2 ml-2 fs-4 bg-danger" data-bs-toggle="modal" data-bs-target="#deleteModal">
+                        <i className="fa fa-trash"></i>
+                    </button>
+                    <DeleteModal asset='produit' name={product.name} deleteHandler={deleteHandler} index={product._id} /> */}
                 </Fragment>
             })
+            
         });
         return data
     };

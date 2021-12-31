@@ -7,6 +7,8 @@ import Loader from '../../layouts/Loader';
 import { useNavigate } from 'react-router-dom';
 import { getCategories, clearErrors} from '../../../redux/actions/categoryActions';
 import { newProduct } from '../../../redux/actions/productActions';
+import AddSizeModal from './AddSizeModal';
+import AddColorModal from './AddColorModal';
 
 export default function AddProduct() {
 
@@ -201,48 +203,7 @@ export default function AddProduct() {
                                                 <i className="fas fa-plus fs-2"></i>
                                             </button>
 
-
-                                            <div className="modal fade" id="sizesModal" tabIndex="-1" aria-labelledby="sizesModalLabel" aria-hidden="true">
-                                                <div className="modal-dialog modal-dialog-centered">
-                                                    <div className="modal-content">
-                                                        <div className="modal-header">
-                                                            <h5 className="modal-title fs-2" id="sizesModalLabel">Ajouter une taille</h5>
-                                                            <button type="button" className="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                                                        </div>
-                                                        <div className="modal-body">
-                                                            <div className='d-flex gap-5'>
-                                                                <div className="form-group">
-                                                                    <label htmlFor="sizeName_field">Nom</label>
-                                                                    <input
-                                                                    type="text"
-                                                                    id="sizeName_field"
-                                                                    className="form-control"
-                                                                    name= "sizeName"
-                                                                    value={sizeName}
-                                                                    onChange={(e) => setSizeName(e.target.value)}
-                                                                    />
-                                                                </div>
-
-                                                                <div className="form-group">
-                                                                    <label htmlFor="stock_field">Stock</label>
-                                                                    <input
-                                                                    type="text"
-                                                                    id="stock_field"
-                                                                    className="form-control"
-                                                                    name= "stock"
-                                                                    value={stock}
-                                                                    onChange={(e) => setStock(e.target.value)}
-                                                                    />
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                        <div className="modal-footer">
-                                                            <button type="button" className="btn btn-secondary fs-4" data-bs-dismiss="modal">Fermer</button>
-                                                            <button type="button" className="btn btn-warning fs-4 fw-bold" data-bs-dismiss="modal" onClick={addSize} >Ajouter</button>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
+                                            <AddSizeModal  sizeName={sizeName} setSizeName={setSizeName} stock={stock} setStock={setStock} addSize={addSize} />
 
                                             {sizes.length > 0 && 
                                             <div className='border p-2 mt-4'>
@@ -283,49 +244,8 @@ export default function AddProduct() {
                                                 <i className="fas fa-plus fs-2"></i>
                                             </button>
 
-
-                                            <div className="modal fade" id="colorsModal" tabIndex="-1" aria-labelledby="colorsModalLabel" aria-hidden="true">
-                                                <div className="modal-dialog modal-dialog-centered">
-                                                    <div className="modal-content">
-                                                    <div className="modal-header">
-                                                        <h5 className="modal-title fs-2" id="colorsModalLabel">Ajouter une couleur</h5>
-                                                        <button type="button" className="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                                                    </div>
-                                                    <div className="modal-body">
-                                                        <div className='d-flex gap-5'>
-                                                            <div className="form-group">
-                                                                <label htmlFor="colorName_field">Nom</label>
-                                                                <input
-                                                                type="text"
-                                                                id="colorName_field"
-                                                                className="form-control"
-                                                                name= "colorName"
-                                                                value={colorName}
-                                                                onChange={(e) => setColorName(e.target.value)}
-                                                                />
-                                                            </div>
-
-                                                            <div className="form-group">
-                                                                <label htmlFor="code_field">Code</label>
-                                                                <input
-                                                                type="text"
-                                                                id="code_field"
-                                                                className="form-control"
-                                                                name= "code"
-                                                                value={code}
-                                                                onChange={(e) => setCode(e.target.value)}
-                                                                />
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    <div className="modal-footer">
-                                                        <button type="button" className="btn btn-secondary fs-4" data-bs-dismiss="modal">Fermer</button>
-                                                        <button type="button" className="btn btn-warning fs-4 fw-bold" data-bs-dismiss="modal" onClick={addColor} >Ajouter</button>
-                                                    </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-
+                                            <AddColorModal color={color} setColorName={setColorName} code={code} setCode={setCode} addColor={addColor} />
+                                            
                                             {colors.length > 0 &&
                                                 <div className='border p-2 mt-4'>
                                                 {colors.map(color => (

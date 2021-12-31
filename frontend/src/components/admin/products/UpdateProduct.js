@@ -9,7 +9,6 @@ import { getCategories, clearErrors} from '../../../redux/actions/categoryAction
 import { getProduct, updateProduct } from '../../../redux/actions/productActions';
 import AddSizeModal from './AddSizeModal';
 import AddColorModal from './AddColorModal';
-import EditColorModal from './EditColorModal';
 
 export default function UpdateProduct() {
 

@@ -8,6 +8,7 @@ import { notifyUser } from '../../../redux/actions/notifyActions';
 import Alert from '../../layouts/Alert';
 import { deleteUser, getAllUsers, clearErrors } from '../../../redux/actions/userActions';
 import { DELETE_USER_RESET, UPDATE_USER_RESET } from '../../../redux/constants/userConstants';
+import DeleteModal from '../DeleteModal';
 
 export default function UsersList() {
 
@@ -93,6 +94,10 @@ export default function UsersList() {
                     <Link to={`/admin/users/${user._id}`} className="btn py-1 px-2 me-3 fs-4 bg-primary">
                         <i className="fa fa-pencil-alt"></i>
                     </Link>
+                    {/* <button type="button" className="btn py-1 px-2 ml-2 fs-4 bg-danger" data-bs-toggle="modal" data-bs-target="#deleteModal">
+                        <i className="fa fa-trash"></i>
+                    </button>
+                    <DeleteModal asset='utilisateur' name={user.name} deleteHandler={deleteHandler} index={user._id} /> */}
                     <button className="btn py-1 px-2 ml-2 fs-4 bg-danger" onClick={() => deleteHandler(user._id)} >
                         <i className="fa fa-trash"></i>
                     </button>
