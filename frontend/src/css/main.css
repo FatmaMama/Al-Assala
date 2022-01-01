@@ -267,3 +267,26 @@ header .avatar {
   position: absolute;
   left: 4.6rem;
 }
+
+.order {
+  font-size: 1.6rem;
+}
+.order__title {
+  color: #c92a2a;
+  font-size: 3.2rem;
+  font-weight: 600;
+}
+.order__subTitle {
+  display: inline-block;
+  font-size: 2.2rem;
+  font-weight: 500;
+}
+
+.order_button {
+  font-size: 2rem;
+  background-color: #c92a2a;
+  color: #eee;
+}
+.order_button:hover {
+  color: #eee;
+}

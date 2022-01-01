@@ -59,6 +59,10 @@ export default function Sidebar() {
                 <li className='sidebar__item'>
                     <Link to="/admin/users" className='sidebar__link'><i className="fas fa-users me-2"></i>Utilisateurs</Link>
                 </li>
+
+                <li className='sidebar__item'>
+                    <Link to="#" className='sidebar__link'><i className="fas fa-chart-line me-2"></i>Statistiques</Link>
+                </li>
             
             </ul>
         </nav>

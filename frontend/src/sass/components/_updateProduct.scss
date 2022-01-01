@@ -6,3 +6,30 @@
         left: 4.6rem;
     }
 }
+
+
+.order {
+    font-size: 1.6rem;
+
+    &__title {
+        color: $color-primary;
+        font-size: 3.2rem;
+        font-weight: 600;
+    }
+
+    &__subTitle {
+        display: inline-block;
+        font-size: 2.2rem;
+        font-weight: 500;
+    } 
+}
+
+.order_button {
+    font-size: 2rem;
+    background-color: $color-primary;
+    color: $color-grey-light-1;
+
+    &:hover {
+        color: $color-grey-light-1;
+    }
+}

@@ -78,7 +78,14 @@ exports.updateOrder = catchAsync(async (req, res, next) => {
         return next(new AppError(`Cette commande est déjà ${order.orderStatus}`, 400))
     }
 
-    order.orderItems.forEach(async item => {
+    let newOrderItems;
+    if(req.body.orderItems){
+        newOrderItems = req.body.orderItems
+    } else {
+        newOrderItems = order.orderItems
+    };
+
+    newOrderItems.forEach(async item => {
         await updateStock(item.product, item.size, item.quantity, req.body.status)
     });
    

@@ -17,7 +17,7 @@ import AddCategory from './components/admin/categories/AddCategory';
 import UpdateCategory from './components/admin/categories/UpdateCategory';
 import AddProduct from './components/admin/products/AddProduct';
 import UpdateProduct from './components/admin/products/UpdateProduct';
-
+import UpdateOrder from './components/admin/orders/UpdateOrder';
 
 
 function App() {
@@ -27,8 +27,6 @@ function App() {
   }, []);
 
   
-
-
   return (
     <Router>
       <div className="App">
@@ -44,8 +42,11 @@ function App() {
           <Route path='/admin/products/:id' element={<UpdateProduct/>}/>
 
           <Route path='/admin/orders' element={<OrdersList/>} />
+          <Route path='/admin/orders/:id' element={<UpdateOrder/>} />
+
           <Route path='/admin/users' element={<UsersList/>} />
           <Route path='/admin/users/:id' element={<UpdateUser/>} />
+
           <Route path='/admin/categories' element={<CategoriesList/>} />
           <Route path='/admin/categories/new' element={<AddCategory/>} />
           <Route path='/admin/categories/:id' element={<UpdateCategory/>} />

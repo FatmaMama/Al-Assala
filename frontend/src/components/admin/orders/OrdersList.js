@@ -67,8 +67,8 @@ export default function OrdersList() {
                     field: 'amount'
                 },
                 {
-                    label: 'Status',
-                    field: 'statut'
+                    label: 'Statut',
+                    field: 'status'
                 },
                 {
                     label: 'Actions',
