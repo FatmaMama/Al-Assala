@@ -290,3 +290,36 @@ header .avatar {
 .order_button:hover {
   color: #eee;
 }
+
+.statistics__title {
+  font-size: 2.8rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+.statistics .card-body {
+  font-size: 2.6rem;
+  letter-spacing: 1px;
+  font-weight: 500;
+  padding: 1.6rem;
+}
+.statistics .card-footer {
+  font-size: 2.2rem;
+  font-weight: 500;
+  text-decoration: none;
+  padding: 0.8rem;
+}
+.statistics .today {
+  background-color: #c92a2a;
+}
+.statistics .yesterday {
+  background-color: #d45555;
+}
+.statistics .week {
+  background-color: #eb984e;
+}
+.statistics .month {
+  background-color: #e67e22;
+}
+.statistics .allTime {
+  background-color: #555;
+}

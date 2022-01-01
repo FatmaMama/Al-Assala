@@ -20,6 +20,7 @@ import UpdateProduct from './components/admin/products/UpdateProduct';
 import UpdateOrder from './components/admin/orders/UpdateOrder';
 import OrdersRecap from './components/admin/orders/OrdersRecap';
 import OrdersByStatus from './components/admin/orders/OrdersByStatus';
+import Statistics from './components/admin/stats/Statistics';
 
 
 function App() {
@@ -47,6 +48,7 @@ function App() {
           <Route path='/admin/orders/:id' element={<UpdateOrder/>} />
           <Route path='/admin/orders/recap' element={<OrdersRecap/>} />
           <Route path='/admin/orders/status/:status' element={<OrdersByStatus/>} />
+          <Route path='/admin/orders/stats' element={<Statistics/>} />
 
           <Route path='/admin/users' element={<UsersList/>} />
           <Route path='/admin/users/:id' element={<UpdateUser/>} />

@@ -1,17 +1,14 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect } from 'react';
 import Sidebar from '../../layouts/Sidebar';
 import { Link } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { clearErrors, getByStatusOrders } from '../../../redux/actions/orderActions';
 import { notifyUser } from '../../../redux/actions/notifyActions';
 import Alert from '../../layouts/Alert';
-import OrdersByStatusModal from './OrdersByStatus';
 
 export default function OrdersRecap() {
 
     const dispatch = useDispatch();
-
-    // const [nonTreatedOrders, setNonTreatedOrders] = useState({});
 
     const { orders, error } = useSelector(state => state.orders);
     const { message, messageType } = useSelector(state => state.notify)
@@ -23,11 +20,6 @@ export default function OrdersRecap() {
 
     useEffect(() => {
         dispatch(getByStatusOrders());
-        // console.log(orders);
-        // if(orders){
-        //     setNonTreatedOrders(() => orders.find(order => order.orderStatus === "non traitée"))
-        // }
-        // console.log(nonTreatedOrders)
         
         if(error) {
             dispatch(notifyUser(error, 'error'));

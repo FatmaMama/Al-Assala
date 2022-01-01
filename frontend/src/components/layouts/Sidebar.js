@@ -65,7 +65,7 @@ export default function Sidebar() {
                 </li>
 
                 <li className='sidebar__item'>
-                    <Link to="#" className='sidebar__link'><i className="fas fa-chart-line me-2"></i>Statistiques</Link>
+                    <Link to="/admin/orders/stats" className='sidebar__link'><i className="fas fa-chart-line me-2"></i>Statistiques</Link>
                 </li>
             
             </ul>
