@@ -28,12 +28,12 @@ export default function OrdersList() {
         }
 
         if(deleteError){
-            dispatch(notifyUser(error, 'error'));
+            dispatch(notifyUser(deleteError, 'error'));
             setTimeout(() => dispatch(clearErrors()), 5000)
         }
 
         if(isDeleted){
-            dispatch(notifyUser('Commandesupprimée avec succès', 'success'));
+            dispatch(notifyUser('Commande supprimée avec succès', 'success'));
             setTimeout(() => dispatch({type: DELETE_ORDER_RESET}), 5000)
         } 
 
@@ -42,7 +42,7 @@ export default function OrdersList() {
             setTimeout(() => dispatch({type: UPDATE_ORDER_RESET}), 5000)
         }
         
-    }, [error, deleteError, isDeleted, isUpdated, navigate, dispatch]);
+    }, [error, deleteError, isDeleted, isUpdated, dispatch]);
 
 
     const deleteHandler = (id) => {

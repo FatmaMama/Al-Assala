@@ -96,7 +96,7 @@ const orderSchema = new mongoose.Schema ({
     orderStatus : {
         type : String,
         required : true,
-        default : 'non traitée'
+        default : 'non-traitée'
     },
     deliveredAt : {
         type: Date

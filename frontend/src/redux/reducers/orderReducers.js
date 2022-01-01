@@ -20,6 +20,9 @@ import {
     GET_MY_ORDERS_REQUEST,
     GET_MY_ORDERS_SUCCESS,
     GET_MY_ORDERS_FAIL,
+    GET_BY_STATUS_ORDERS_REQUEST,
+    GET_BY_STATUS_ORDERS_SUCCESS,
+    GET_BY_STATUS_ORDERS_FAIL,
     CLEAR_ERRORS
 } from '../constants/orderConstants';
 
@@ -27,6 +30,7 @@ export const ordersReducer = (state= { orders: []}, action) => {
     switch (action.type) {
         case ALL_ORDERS_REQUEST:
         case GET_MY_ORDERS_REQUEST:
+        case GET_BY_STATUS_ORDERS_REQUEST:
             return {
                 loading: true,
                 orders: []
@@ -39,12 +43,14 @@ export const ordersReducer = (state= { orders: []}, action) => {
                 totalAmount: action.payload.totalAmount
             }
         case GET_MY_ORDERS_SUCCESS:
+        case GET_BY_STATUS_ORDERS_SUCCESS:
             return {
                 loading: false,
                 orders: action.payload
             }
         case ALL_ORDERS_FAIL:
         case GET_MY_ORDERS_FAIL:
+        case GET_BY_STATUS_ORDERS_FAIL:
             return {
                 loading: false,
                 error: action.payload

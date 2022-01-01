@@ -57,7 +57,7 @@ exports.getAllOrders = catchAsync(async (req, res, next) => {
 
     let totalAmount = 0;
     orders.forEach((order) => {
-        if(order.orderStatus === "délivrée"){
+        if(order.orderStatus === "livrée"){
             totalAmount += order.itemsPrice
         }
     });
@@ -171,7 +171,7 @@ exports.getMonthlyOrdersEarnings = catchAsync(async (req, res, next) => {
                 earnings: {
                     "$sum": {
                         $cond: {
-                            if: { $eq: ['$orderStatus', 'délivrée'] }, then: '$itemsPrice', else: 0
+                            if: { $eq: ['$orderStatus', 'livrée'] }, then: '$itemsPrice', else: 0
                         }
                     }
                 }
@@ -215,7 +215,7 @@ exports.getWeeklyOrdersEarnings = catchAsync(async (req, res, next) => {
                 earnings: {
                     "$sum": {
                         $cond: {
-                            if: { $eq: ['$orderStatus', 'délivrée'] }, then: '$itemsPrice', else: 0
+                            if: { $eq: ['$orderStatus', 'livrée'] }, then: '$itemsPrice', else: 0
                         }
                     }
                 }
@@ -263,7 +263,7 @@ exports.getTodayYesterdayOrdersEarnings = catchAsync(async (req, res, next) => {
                 earnings: {
                     "$sum": {
                         $cond: {
-                            if: { $eq: ['$orderStatus', 'délivrée'] }, then: '$itemsPrice', else: 0
+                            if: { $eq: ['$orderStatus', 'livrée'] }, then: '$itemsPrice', else: 0
                         }
                     }
                 }

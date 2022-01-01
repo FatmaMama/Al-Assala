@@ -128,7 +128,7 @@ export default function UpdateOrder() {
                                         name='status'
                                         value=''
                                     >
-                                        <option value="Processing">non traitée</option>
+                                        <option value="Processing">non-traitée</option>
                                         <option value="Shipped">expédiée</option>
                                         <option value="Delivered">livrée</option>
                                         <option value="Delivered">retournée</option>

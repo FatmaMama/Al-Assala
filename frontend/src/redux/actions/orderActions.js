@@ -18,6 +18,9 @@ import {
     GET_MY_ORDERS_REQUEST,
     GET_MY_ORDERS_SUCCESS,
     GET_MY_ORDERS_FAIL,
+    GET_BY_STATUS_ORDERS_REQUEST,
+    GET_BY_STATUS_ORDERS_SUCCESS,
+    GET_BY_STATUS_ORDERS_FAIL,
     CLEAR_ERRORS
 } from '../constants/orderConstants';
 
@@ -145,6 +148,25 @@ export const updateOrder = (id, orderData) => async (dispatch) => {
     } catch (error) {
         dispatch({
             type: UPDATE_ORDER_FAIL,
+            payload: error.response.data.message
+        })
+    }
+};
+
+export const getByStatusOrders = () => async (dispatch) => {
+    try {
+        dispatch({type: GET_BY_STATUS_ORDERS_REQUEST});
+
+        const {data} = await axios.get('/api/v1/admin/status/orders');
+        
+        dispatch({
+            type: GET_BY_STATUS_ORDERS_SUCCESS,
+            payload: data.plan
+        })
+        
+    } catch (error) {
+        dispatch({
+            type: GET_BY_STATUS_ORDERS_FAIL,
             payload: error.response.data.message
         })
     }
