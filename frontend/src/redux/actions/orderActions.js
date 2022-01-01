@@ -21,6 +21,15 @@ import {
     GET_BY_STATUS_ORDERS_REQUEST,
     GET_BY_STATUS_ORDERS_SUCCESS,
     GET_BY_STATUS_ORDERS_FAIL,
+    GET_MONTHLY_ORDERS_REQUEST,
+    GET_MONTHLY_ORDERS_SUCCESS,
+    GET_MONTHLY_ORDERS_FAIL,
+    GET_WEEKLY_ORDERS_REQUEST,
+    GET_WEEKLY_ORDERS_SUCCESS,
+    GET_WEEKLY_ORDERS_FAIL,
+    GET_TODAY_ORDERS_REQUEST,
+    GET_TODAY_ORDERS_SUCCESS,
+    GET_TODAY_ORDERS_FAIL,
     CLEAR_ERRORS
 } from '../constants/orderConstants';
 
@@ -167,6 +176,63 @@ export const getByStatusOrders = () => async (dispatch) => {
     } catch (error) {
         dispatch({
             type: GET_BY_STATUS_ORDERS_FAIL,
+            payload: error.response.data.message
+        })
+    }
+};
+
+export const getMonthlyOrders = () => async (dispatch) => {
+    try {
+        dispatch({type: GET_MONTHLY_ORDERS_REQUEST});
+
+        const {data} = await axios.get('/api/v1/admin/monthly/orders');
+        
+        dispatch({
+            type: GET_MONTHLY_ORDERS_SUCCESS,
+            payload: data.plan
+        })
+        
+    } catch (error) {
+        dispatch({
+            type: GET_MONTHLY_ORDERS_FAIL,
+            payload: error.response.data.message
+        })
+    }
+};
+
+export const getWeeklyOrders = () => async (dispatch) => {
+    try {
+        dispatch({type: GET_WEEKLY_ORDERS_REQUEST});
+
+        const {data} = await axios.get('/api/v1/admin/weekly/orders');
+        
+        dispatch({
+            type: GET_WEEKLY_ORDERS_SUCCESS,
+            payload: data.plan
+        })
+        
+    } catch (error) {
+        dispatch({
+            type: GET_WEEKLY_ORDERS_FAIL,
+            payload: error.response.data.message
+        })
+    }
+};
+
+export const getTodayOrders = () => async (dispatch) => {
+    try {
+        dispatch({type: GET_TODAY_ORDERS_REQUEST});
+
+        const {data} = await axios.get('/api/v1/admin/today/orders');
+        
+        dispatch({
+            type: GET_TODAY_ORDERS_SUCCESS,
+            payload: data.plan
+        })
+        
+    } catch (error) {
+        dispatch({
+            type: GET_TODAY_ORDERS_FAIL,
             payload: error.response.data.message
         })
     }
