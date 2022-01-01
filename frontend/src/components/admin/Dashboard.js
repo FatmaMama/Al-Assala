@@ -42,7 +42,7 @@ export default function Dashboard() {
                                 <div className="col-xl-12 col-sm-12 mb-3">
                                     <div className="card text-white bg-primary o-hidden h-100">
                                         <div className="card-body">
-                                            <div className="text-center card-font-size">Montant Total<br /> <b>{`$${totalAmount}`}</b>
+                                            <div className="text-center">Montant Total<br /> <b>{`$${totalAmount}`}</b>
                                             </div>
                                         </div>
                                     </div>
@@ -53,7 +53,7 @@ export default function Dashboard() {
                                 <div className="col-xl-3 col-sm-6 mb-3 mt-3">
                                     <div className="card text-white bg-success o-hidden h-100">
                                         <div className="card-body">
-                                            <div className="text-center card-font-size">Produitss<br /> <b>{productsCount}</b></div>
+                                            <div className="text-center">Produits<br /> <b>{productsCount}</b></div>
                                         </div>
                                         <Link className="card-footer text-white clearfix small z-1" to="/admin/products">
                                             <span className="float-start">Voir Les Details</span>
@@ -68,7 +68,7 @@ export default function Dashboard() {
                                 <div className="col-xl-3 col-sm-6 mb-3 mt-3">
                                     <div className="card text-white bg-danger o-hidden h-100">
                                         <div className="card-body">
-                                            <div className="text-center card-font-size">Commandes<br /> <b>{ordersCount}</b></div>
+                                            <div className="text-center">Commandes<br /> <b>{ordersCount}</b></div>
                                         </div>
                                         <Link className="card-footer text-white clearfix small z-1" to="/admin/orders">
                                             <span className="float-start">Voir Les Details</span>
@@ -83,7 +83,7 @@ export default function Dashboard() {
                                 <div className="col-xl-3 col-sm-6 mb-3 mt-3">
                                     <div className="card text-white bg-info o-hidden h-100">
                                         <div className="card-body">
-                                            <div className="text-center card-font-size">Utilisateurs<br /> <b>{usersCount}</b></div>
+                                            <div className="text-center">Utilisateurs<br /> <b>{usersCount}</b></div>
                                         </div>
                                         <Link className="card-footer text-white clearfix small z-1" to="/admin/users">
                                             <span className="float-start">Voir Les Details</span>
@@ -98,7 +98,7 @@ export default function Dashboard() {
                                 <div className="col-xl-3 col-sm-6 mb-3 mt-3">
                                     <div className="card text-white bg-warning o-hidden h-100">
                                         <div className="card-body">
-                                            <div className="text-center card-font-size">Out of Stock<br /> <b>{outOfStock}</b></div>
+                                            <div className="text-center">Out of Stock<br /> <b>{outOfStock}</b></div>
                                         </div>
                                     </div>
                                 </div>

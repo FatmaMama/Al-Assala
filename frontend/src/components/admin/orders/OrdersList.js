@@ -83,7 +83,7 @@ export default function OrdersList() {
                 id : order._id,
                 numOfItems : order.orderItems.length,
                 amount: `$${order.totalPrice}`,
-                status : order.orderStatus && String(order.orderStatus).includes('délivrée')
+                status : order.orderStatus && String(order.orderStatus).includes('livrée')
                 ? <p style={{color : 'green'}}>{order.orderStatus}</p>
                 : <p style={{color : 'red'}}>{order.orderStatus}</p>,
                 actions : 

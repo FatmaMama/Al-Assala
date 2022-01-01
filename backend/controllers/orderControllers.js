@@ -95,7 +95,7 @@ exports.updateOrder = catchAsync(async (req, res, next) => {
         order.isPaid = false
     };
     
-    if(req.body.status === "délivrée") {
+    if(req.body.status === "livrée") {
         order.deliveredAt = Date.now();
         order.isPaid = true
     };

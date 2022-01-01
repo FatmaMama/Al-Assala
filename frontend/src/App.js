@@ -18,6 +18,7 @@ import UpdateCategory from './components/admin/categories/UpdateCategory';
 import AddProduct from './components/admin/products/AddProduct';
 import UpdateProduct from './components/admin/products/UpdateProduct';
 import UpdateOrder from './components/admin/orders/UpdateOrder';
+import OrdersRecap from './components/admin/orders/OrdersRecap';
 
 
 function App() {
@@ -43,6 +44,7 @@ function App() {
 
           <Route path='/admin/orders' element={<OrdersList/>} />
           <Route path='/admin/orders/:id' element={<UpdateOrder/>} />
+          <Route path='/admin/orders/recap' element={<OrdersRecap/>} />
 
           <Route path='/admin/users' element={<UsersList/>} />
           <Route path='/admin/users/:id' element={<UpdateUser/>} />

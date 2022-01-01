@@ -130,7 +130,7 @@ export default function UpdateOrder() {
                                     >
                                         <option value="Processing">non traitée</option>
                                         <option value="Shipped">expédiée</option>
-                                        <option value="Delivered">délivrée</option>
+                                        <option value="Delivered">livrée</option>
                                         <option value="Delivered">retournée</option>
                                     </select>
                                 </div>
