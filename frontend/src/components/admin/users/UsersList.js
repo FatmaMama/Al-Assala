@@ -8,7 +8,7 @@ import { notifyUser } from '../../../redux/actions/notifyActions';
 import Alert from '../../layouts/Alert';
 import { deleteUser, getAllUsers, clearErrors } from '../../../redux/actions/userActions';
 import { DELETE_USER_RESET, UPDATE_USER_RESET } from '../../../redux/constants/userConstants';
-import DeleteModal from '../DeleteModal';
+
 
 export default function UsersList() {
 

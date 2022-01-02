@@ -1,19 +1,17 @@
 import React, { Fragment, useEffect } from 'react';
-import { Link, useNavigate } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import Sidebar from '../../layouts/Sidebar';
 import { MDBDataTable } from 'mdbreact';
 import Loader from '../../layouts/Loader';
 import { useDispatch, useSelector } from 'react-redux';
 import { notifyUser } from '../../../redux/actions/notifyActions';
 import Alert from '../../layouts/Alert';
-import DeleteModal from '../DeleteModal';
 import { deleteOrder, getOrders, clearErrors } from '../../../redux/actions/orderActions';
 import { DELETE_ORDER_RESET, UPDATE_ORDER_RESET } from '../../../redux/constants/orderConstants';
 
 export default function OrdersList() {
 
     const dispatch= useDispatch();
-    const navigate = useNavigate();
 
     const { loading, orders, error }= useSelector(state => state.orders);
     const { isDeleted, error: deleteError, isUpdated }= useSelector(state => state.order)
@@ -111,21 +109,24 @@ export default function OrdersList() {
                     <Sidebar />
                 </div>
 
-                <div className="col-12 col-md-10 px-5">
-                    <Fragment>
-                        {(isDeleted || error || deleteError || isUpdated) && <Alert message={message} messageType={messageType} /> }
-                        <h1 className="text-uppercase my-5" >Commandes</h1>
-                        {loading ? <Loader /> : (
-                            <MDBDataTable 
-                            data={setOrders()}
-                            className="mx-3 fs-4"
-                            bordered
-                            hover
-                            striped
-                        />
-                        )}
-                    </Fragment>
-                </div>
+                {loading ? <Loader/> : (
+                    <div className="col-12 col-md-10 px-5">
+                        <Fragment>
+                            {(isDeleted || error || deleteError || isUpdated) && <Alert message={message} messageType={messageType} /> }
+                            <h1 className="text-uppercase my-5" >Commandes</h1>
+                            {loading ? <Loader /> : (
+                                <MDBDataTable 
+                                data={setOrders()}
+                                className="mx-3 fs-4"
+                                bordered
+                                hover
+                                striped
+                            />
+                            )}
+                        </Fragment>
+                    </div>
+                )}
+               
         </div>
     )
 }

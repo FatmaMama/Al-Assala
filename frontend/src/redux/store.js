@@ -5,7 +5,7 @@ import { allUsersReducer, authReducer, userDetailsReducer, userReducer } from '.
 import { notifyReducer } from './reducers/notifyReducer';
 import { newProductReducer, productDetailsReducer, productReducer, productsReducer } from './reducers/productReducers';
 import { categoriesReducer, categoryDetailsReducer, categoryReducer, newCategoryReducer } from './reducers/categoryReducer';
-import { newOrderReducer, orderDetailsReducer, orderReducer, ordersReducer, statsOrdersReducer } from './reducers/orderReducers';
+import { monthlyOrdersReducer, newOrderReducer, orderDetailsReducer, orderReducer, ordersReducer, todayYesterdayOrdersReducer, weeklyOrdersReducer } from './reducers/orderReducers';
 
 const reducers = combineReducers({
     auth: authReducer,
@@ -29,7 +29,9 @@ const reducers = combineReducers({
     orderDetails: orderDetailsReducer,
     order: orderReducer,
     newOrder: newOrderReducer,
-    statsOrders: statsOrdersReducer
+    todayYesterdayOrders: todayYesterdayOrdersReducer,
+    weeklyOrders: weeklyOrdersReducer,
+    monthlyOrders: monthlyOrdersReducer
 });
 
 let initialState = {

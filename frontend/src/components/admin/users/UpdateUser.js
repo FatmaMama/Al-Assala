@@ -19,8 +19,8 @@ export default function UpdateUser() {
     const navigate= useNavigate();
     const params = useParams();
 
-    const { user } = useSelector(state => state.userDetails);
-    const { loading, isUpdated, error } = useSelector(state => state.user);
+    const { loading, user } = useSelector(state => state.userDetails);
+    const { loading: updateLoading, isUpdated, error } = useSelector(state => state.user);
     const { message, messageType } = useSelector(state => state.notify);
 
     useEffect(() => {
@@ -127,7 +127,7 @@ export default function UpdateUser() {
                                             <button 
                                                 type="submit" 
                                                 className="btn wrapper__button btn-block mt-4 mb-3"
-                                                disabled= {loading? true : false} 
+                                                disabled= {updateLoading? true : false} 
                                             >
                                                 Mettre à jour
                                             </button>

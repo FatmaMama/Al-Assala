@@ -35,8 +35,8 @@ export default function AddProduct() {
     const [images, setImages] = useState([]);
     const [imagesPreview, setImagesPreview] = useState([]);
 
-    const { categories, error } = useSelector(state => state.categories);
-    const { loading, success, error: addError } = useSelector(state => state.newProduct);
+    const { loading, categories, error } = useSelector(state => state.categories);
+    const { loading: addLoading, success, error: addError } = useSelector(state => state.newProduct);
     const { message, messageType } = useSelector(state => state.notify);
 
     useEffect(() => {
@@ -56,7 +56,7 @@ export default function AddProduct() {
             navigate('/admin/products')
         }
 
-    }, [dispatch, error, addError, success]);
+    }, [dispatch, error, addError, success, navigate]);
 
     const createCategoryList = (categories, options = []) => {
         for(let category of categories){
@@ -300,7 +300,13 @@ export default function AddProduct() {
                 
 
                                         <div className="d-grid gap-5 mt-3">
-                                            <button type="submit" className="btn wrapper__button btn-block mt-4 mb-3" >Ajouter</button>
+                                            <button 
+                                                type="submit" 
+                                                className="btn wrapper__button btn-block mt-4 mb-3"
+                                                disabled={addLoading ? true : false} 
+                                            >
+                                                Ajouter
+                                            </button>
                                         </div>
                                     </form>
                                 </div>

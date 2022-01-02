@@ -7,7 +7,7 @@ import Loader from '../../layouts/Loader';
 import { getCategories, clearErrors, deleteCategory } from '../../../redux/actions/categoryActions';
 import { NEW_CATEGORY_RESET, UPDATE_CATEGORY_RESET, DELETE_CATEGORY_RESET } from '../../../redux/constants/categoryConstants';
 import { Link } from 'react-router-dom';
-import DeleteModal from '../DeleteModal';
+
 
 export default function CategoriesList() {
 

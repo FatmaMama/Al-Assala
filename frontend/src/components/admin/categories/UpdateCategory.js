@@ -16,7 +16,7 @@ export default function UpdateCategory() {
     const [parent, setParent] = useState('');
     const params = useParams();
 
-    const { category } = useSelector(state => state.categoryDetails);
+    const { loading: categoryLoading, category } = useSelector(state => state.categoryDetails);
     const { loading: updateLoading, isUpdated, error: updateError } = useSelector(state => state.category);
     const { loading, categories, error } = useSelector(state => state.categories);
     const { message, messageType } = useSelector(state => state.notify);
@@ -46,7 +46,7 @@ export default function UpdateCategory() {
             navigate('/admin/categories')
         }
 
-    }, [dispatch, category, params, error, updateError, isUpdated]);
+    }, [dispatch, category, params, error, updateError, isUpdated, navigate]);
 
     const updateHandler = (e) => {
         e.preventDefault();
@@ -78,7 +78,7 @@ export default function UpdateCategory() {
 
                 <div className="col-12 col-md-10 px-5">
                 <Fragment>
-                        {loading ? <Loader /> : (
+                        {(loading || categoryLoading) ? <Loader /> : (
                             <div className="row wrapper">
                                 <div className="col-10 col-lg-7">
                                     <form className="shadow-lg" onSubmit={updateHandler} >

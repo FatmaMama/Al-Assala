@@ -38,9 +38,9 @@ export default function UpdateProduct() {
     const [imagesPreview, setImagesPreview] = useState([]);
     
 
-    const { categories, error } = useSelector(state => state.categories);
-    const { loading, isUpdated, error: updateError } = useSelector(state => state.product);
-    const { product, error: productError } = useSelector(state => state.productDetails);
+    const { loading, categories, error } = useSelector(state => state.categories);
+    const { loading: updateLoading, isUpdated, error: updateError } = useSelector(state => state.product);
+    const { loading: productLoading, product, error: productError } = useSelector(state => state.productDetails);
     const { message, messageType } = useSelector(state => state.notify);
 
     useEffect(() => {
@@ -200,7 +200,7 @@ export default function UpdateProduct() {
 
                 <div className="col-12 col-md-10 px-5">
                 <Fragment>
-                        {loading ? <Loader /> : (
+                        {(loading || productLoading) ? <Loader /> : (
                             <div className="row wrapper">
                                 <div className="col-10 col-lg-7">
                                     <form className="shadow-lg" encType='multipart/form-data' onSubmit={submitHandler} >
@@ -390,7 +390,13 @@ export default function UpdateProduct() {
                 
 
                                         <div className="d-grid gap-5 mt-3">
-                                            <button type="submit" className="btn wrapper__button btn-block mt-4 mb-3" >Mettre à jour</button>
+                                            <button 
+                                                type="submit" 
+                                                className="btn wrapper__button btn-block mt-4 mb-3"
+                                                disabled={updateLoading ? true : false}
+                                            >
+                                                Mettre à jour
+                                            </button>
                                         </div>
                                     </form>
                                 </div>

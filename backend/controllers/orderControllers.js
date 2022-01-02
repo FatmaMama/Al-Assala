@@ -58,7 +58,7 @@ exports.getAllOrders = catchAsync(async (req, res, next) => {
     let totalAmount = 0;
     orders.forEach((order) => {
         if(order.orderStatus === "livrée"){
-            totalAmount += order.itemsPrice
+            totalAmount += order.totalPrice - order.shippingPrice
         }
     });
 

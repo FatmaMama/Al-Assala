@@ -8,7 +8,7 @@ import { clearErrors, getAdminProducts, deleteProduct } from '../../../redux/act
 import { notifyUser } from '../../../redux/actions/notifyActions';
 import Alert from '../../layouts/Alert';
 import { DELETE_PRODUCT_RESET, NEW_PRODUCT_RESET, UPDATE_PRODUCT_RESET } from '../../../redux/constants/product_constants';
-import DeleteModal from '../DeleteModal';
+
 
 export default function ProductsList() {
 

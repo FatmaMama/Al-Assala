@@ -5,12 +5,13 @@ import { useDispatch, useSelector } from 'react-redux';
 import { clearErrors, getByStatusOrders } from '../../../redux/actions/orderActions';
 import { notifyUser } from '../../../redux/actions/notifyActions';
 import Alert from '../../layouts/Alert';
+import Loader from '../../layouts/Loader';
 
 export default function OrdersRecap() {
 
     const dispatch = useDispatch();
 
-    const { orders, error } = useSelector(state => state.orders);
+    const { loading, orders, error } = useSelector(state => state.orders);
     const { message, messageType } = useSelector(state => state.notify)
 
     const nonTreatedOrders = orders && orders.find(order => order.orderStatus === "non-traitée");
@@ -34,7 +35,8 @@ export default function OrdersRecap() {
                 <Sidebar />
             </div>
 
-            <div className="col-12 col-md-10 px-5 dashboard">
+            {loading ? <Loader /> : (
+                <div className="col-12 col-md-10 px-5 dashboard">
                 <h1 className="text-uppercase my-5" >Récapitulation des commandes</h1>
                 {error && <Alert  message={message} messageType={messageType}/>}
                
@@ -57,7 +59,7 @@ export default function OrdersRecap() {
                     </div>
 
                     <div className="col-lg-6 col-12 mb-3 mt-3">
-                        <div className="card text-white bg-danger o-hidden h-100">
+                        <div className="card text-white bg-warning o-hidden h-100">
                             <div className="card-body">
                                 <div className="text-center">
                                     <i className="fas fa-shipping-fast me-3"></i>
@@ -94,7 +96,7 @@ export default function OrdersRecap() {
                     </div>
 
                     <div className="col-lg-6 col-12 mb-3 mt-3">
-                        <div className="card text-white bg-warning o-hidden h-100">
+                        <div className="card text-white bg-danger o-hidden h-100">
                             <div className="card-body">
                                 <div className="text-center">
                                     <i className="fas fa-angry me-3"></i>
@@ -111,6 +113,8 @@ export default function OrdersRecap() {
                     </div>
                 </div>
             </div>
+            ) }
+            
         </div>
     )
 }

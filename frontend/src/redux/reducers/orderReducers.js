@@ -188,33 +188,82 @@ export const orderReducer = (state= { }, action) => {
 };
 
 
-export const statsOrdersReducer = (state= { monthlyOrders: [], weeklyOrders: [], todayYesterdayOrders: []}, action) => {
+export const todayYesterdayOrdersReducer = (state= {todayYesterdayOrders: []}, action) => {
     switch (action.type) {
-        case GET_MONTHLY_ORDERS_REQUEST:
-        case GET_WEEKLY_ORDERS_REQUEST:
         case GET_TODAY_ORDERS_REQUEST:
             return {
                 loading: true,
+                todayYesterdayOrders: []
             }
-        case GET_MONTHLY_ORDERS_SUCCESS:
-            return {
-                loading: false,
-                monthlyOrders: action.payload,
-            }
-        case GET_WEEKLY_ORDERS_SUCCESS:
-            return {
-                loading: false,
-                weeklyOrders: action.payload
-            }
+
         case GET_TODAY_ORDERS_SUCCESS:
             return {
                 loading: false,
                 todayYesterdayOrders: action.payload
             }
 
-        case GET_MONTHLY_ORDERS_FAIL:
-        case GET_WEEKLY_ORDERS_FAIL:
         case GET_TODAY_ORDERS_FAIL:
+            return {
+                loading: false,
+                error: action.payload
+            }
+        case CLEAR_ERRORS:
+            return {
+                ...state,
+                error: null
+            }
+
+        default:
+            return state
+    }
+};
+
+export const weeklyOrdersReducer = (state= {weeklyOrders: []}, action) => {
+    switch (action.type) {
+        case GET_WEEKLY_ORDERS_REQUEST:
+            return {
+                loading: true,
+                weeklyOrders: []
+            }
+            
+        case GET_WEEKLY_ORDERS_SUCCESS:
+            return {
+                loading: false,
+                weeklyOrders: action.payload
+            }
+
+        case GET_WEEKLY_ORDERS_FAIL:
+            return {
+                loading: false,
+                error: action.payload
+            }
+        case CLEAR_ERRORS:
+            return {
+                ...state,
+                error: null
+            }
+
+        default:
+            return state
+    }
+};
+
+
+export const monthlyOrdersReducer = (state= {monthlyOrders: []}, action) => {
+    switch (action.type) {
+        case GET_MONTHLY_ORDERS_REQUEST:
+            return {
+                loading: true,
+                monthlyOrders: []
+            }
+            
+        case GET_MONTHLY_ORDERS_SUCCESS:
+            return {
+                loading: false,
+                monthlyOrders: action.payload
+            }
+
+        case GET_MONTHLY_ORDERS_FAIL:
             return {
                 loading: false,
                 error: action.payload

@@ -16,7 +16,7 @@ export default function AddCategory() {
     const [parent, setParent] = useState('');
 
     const { loading, categories, error } = useSelector(state => state.categories);
-    const { success, error: addError } = useSelector(state => state.newCategory);
+    const { loading: addLoading, success, error: addError } = useSelector(state => state.newCategory);
     const { message, messageType } = useSelector(state => state.notify);
 
     useEffect(() => {
@@ -36,7 +36,7 @@ export default function AddCategory() {
             navigate('/admin/categories')
         }
 
-    }, [dispatch, error, addError, success]);
+    }, [dispatch, error, addError, success, navigate]);
 
     const addHandler = (e) => {
         e.preventDefault();
@@ -104,7 +104,13 @@ export default function AddCategory() {
                 
 
                                         <div className="d-grid gap-5 mt-3">
-                                            <button type="submit" className="btn wrapper__button btn-block mt-4 mb-3" >Ajouter</button>
+                                            <button 
+                                                type="submit" 
+                                                className="btn wrapper__button btn-block mt-4 mb-3" 
+                                                disabled= {addLoading? true : false}
+                                            >
+                                                Ajouter
+                                            </button>
                                         </div>
                                     </form>
                                 </div>
