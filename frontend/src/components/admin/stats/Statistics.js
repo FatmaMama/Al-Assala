@@ -74,7 +74,7 @@ export default function Statistics() {
                                 <div className='fs-3 text-uppercase'>Aujourd'hui</div>
                                 <div className="text-center">
                                 <i className="fas fa-coins me-3"></i>
-                                     {`(${today ? today.earnings.toFixed(3) : 0} TND)`}
+                                     {`${today ? today.earnings.toFixed(2) : 0} TND`}
                                 </div>
                             </div>
                             <Link className="card-footer text-white clearfix small z-1" to="/admin/orders/status/non-traitée">
@@ -92,7 +92,7 @@ export default function Statistics() {
                                 <div className='fs-3 text-uppercase'>Hier</div>
                                 <div className="text-center">
                                 <i className="fas fa-coins me-3"></i>
-                                    {`(${yesterday ? yesterday.earnings.toFixed(3) : 0} TND)`}
+                                    {`${yesterday ? yesterday.earnings.toFixed(2) : 0} TND`}
                                 </div>
                             </div>
                             
@@ -113,7 +113,7 @@ export default function Statistics() {
                             <div className='fs-3 text-uppercase'>Cette semaine</div>
                                 <div className="text-center">
                                 <i className="fas fa-coins me-3"></i>
-                                {`(${thisWeek ? thisWeek.earnings.toFixed(3) : 0} TND)`}
+                                {`${thisWeek ? thisWeek.earnings.toFixed(2) : 0} TND`}
                                 </div>
                             </div>
                             <Link className="card-footer text-white clearfix small z-1" to="/admin/orders/status/livrée">
@@ -131,7 +131,7 @@ export default function Statistics() {
                             <div className='fs-3 text-uppercase'>Ce mois</div>
                                 <div className="text-center">
                                 <i className="fas fa-coins me-3"></i>
-                                {`(${thisMonth ? thisMonth.earnings.toFixed(3) : 0} TND)`}
+                                {`${thisMonth ? thisMonth.earnings.toFixed(2) : 0} TND`}
                                 </div>
                             </div>
                             <Link className="card-footer text-white clearfix small z-1" to="/admin/orders/status/retournée">
@@ -151,13 +151,13 @@ export default function Statistics() {
                                 <div className="text-center">
                                 <div className='statistics__title'>Montant Total</div>
                                 <i className="fas fa-coins me-3"></i>
-                                     {totalAmount && totalAmount.toFixed(3)} TND
+                                     {totalAmount ? totalAmount.toFixed(2) : 0} TND
                                 </div>
                                         </div>
                                         <Link className="card-footer text-white clearfix small z-1" to="/admin/orders/status/retournée">
                             <div className="float-end">
                                     <i className="fas fa-box-open me-3"></i>
-                                    <span className='me-4'>{ordersCount && ordersCount} </span>
+                                    <span className='me-4'>{ordersCount ? ordersCount : 0} </span>
                                 </div>
                             </Link>
                                     </div>

@@ -54,7 +54,7 @@ export default function OrdersList() {
                 {
                     label: 'ID',
                     field: 'id',
-                    sort: 'asc'
+                   sort: 'desc'
                 },
                 {
                     label: 'Nbr des produits',
@@ -79,7 +79,9 @@ export default function OrdersList() {
         orders && orders.forEach(order => {
             data.rows.push({
                 id : order._id,
-                numOfItems : order.orderItems.length,
+                numOfItems : order.orderItems.reduce((acc, item) => {
+                    return acc + item.quantity
+               },0),
                 amount: `$${order.totalPrice}`,
                 status : order.orderStatus && String(order.orderStatus).includes('livrée')
                 ? <p style={{color : 'green'}}>{order.orderStatus}</p>

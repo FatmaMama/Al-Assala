@@ -21,6 +21,7 @@ import UpdateOrder from './components/admin/orders/UpdateOrder';
 import OrdersRecap from './components/admin/orders/OrdersRecap';
 import OrdersByStatus from './components/admin/orders/OrdersByStatus';
 import Statistics from './components/admin/stats/Statistics';
+import Settings from './components/admin/orders/Settings';
 
 
 function App() {
@@ -48,6 +49,7 @@ function App() {
           <Route path='/admin/orders/:id' element={<UpdateOrder/>} />
           <Route path='/admin/orders/recap' element={<OrdersRecap/>} />
           <Route path='/admin/orders/status/:status' element={<OrdersByStatus/>} />
+          <Route path='/admin/orders/settings' element={<Settings/>} />
           <Route path='/admin/orders/stats' element={<Statistics/>} />
 
           <Route path='/admin/users' element={<UsersList/>} />

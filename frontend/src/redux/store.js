@@ -6,6 +6,7 @@ import { notifyReducer } from './reducers/notifyReducer';
 import { newProductReducer, productDetailsReducer, productReducer, productsReducer } from './reducers/productReducers';
 import { categoriesReducer, categoryDetailsReducer, categoryReducer, newCategoryReducer } from './reducers/categoryReducer';
 import { monthlyOrdersReducer, newOrderReducer, orderDetailsReducer, orderReducer, ordersReducer, todayYesterdayOrdersReducer, weeklyOrdersReducer } from './reducers/orderReducers';
+import { settingsReducer } from './reducers/settingsReducers';
 
 const reducers = combineReducers({
     auth: authReducer,
@@ -31,11 +32,27 @@ const reducers = combineReducers({
     newOrder: newOrderReducer,
     todayYesterdayOrders: todayYesterdayOrdersReducer,
     weeklyOrders: weeklyOrdersReducer,
-    monthlyOrders: monthlyOrdersReducer
+    monthlyOrders: monthlyOrdersReducer,
+
+    settingsInfos: settingsReducer
 });
 
-let initialState = {
+//Check for settings in localstorage
+if(localStorage.getItem('settingsInfo') == null){
+    const defaultSettings = {
+        shippingPrice : 0,
+        shippingFreeLimit : 0,
+        shippingDuration : 0,
+        coupon: '',
+        saleCoupon: 0,
+        saleDuration: 0
+    };
 
+    localStorage.setItem('settingsInfo', JSON.stringify(defaultSettings))
+}
+
+const initialState = {
+    settings : JSON.parse(localStorage.getItem('settingsInfo'))
 };
 
 const middleWare = [thunk];

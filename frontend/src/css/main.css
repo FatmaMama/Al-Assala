@@ -25,6 +25,10 @@ body {
   padding: 2.5rem 3rem;
 }
 
+form {
+  font-size: 1.6rem;
+}
+
 header {
   background-color: #eee;
   display: flex;
@@ -285,10 +289,11 @@ header .avatar {
 .order_button {
   font-size: 2rem;
   background-color: #c92a2a;
-  color: #eee;
-}
-.order_button:hover {
-  color: #eee;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  font-weight: 700;
+  padding: 0.8rem 5.2rem;
+  margin-bottom: 2.4rem;
 }
 
 .statistics__title {

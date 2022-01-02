@@ -27,11 +27,11 @@
 .order_button {
     font-size: 2rem;
     background-color: $color-primary;
-    color: $color-grey-light-1;
-
-    &:hover {
-        color: $color-grey-light-1;
-    }
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-weight: 700;
+    padding: .8rem 5.2rem;
+    margin-bottom: 2.4rem;
 }
 
 

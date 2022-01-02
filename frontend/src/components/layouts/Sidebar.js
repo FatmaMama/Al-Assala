@@ -51,7 +51,7 @@ export default function Sidebar() {
                         </li>
             
                         <li className='sidebar__item'>
-                            <Link to="#" className='sidebar__link ms-4 pt-1'><i className="fas fa-cog me-2"></i>Réglages</Link>
+                            <Link to="/admin/orders/settings" className='sidebar__link ms-4 pt-1'><i className="fas fa-cog me-2"></i>Réglages</Link>
                         </li>
 
                         <li className='sidebar__item'>
