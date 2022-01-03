@@ -26,25 +26,29 @@ export default function MonthlyChart({ monthlyOrders }) {
         plugins: {
           title: {
             display: true,
-            text: 'Monthly Revenues',
+            text: 'Revenus Mensuels',
           },
         },
-      };
+    };
+
+    const months = ['Janvier', 'Février', 'Mars', 'Avril', 'Mai', 'Juin', 'Juillet', 'Aout', 'Septembre', 'Octobre', 'Novembre', 'Decembre'];
+    monthlyOrders && monthlyOrders.map((item, index) => item.month = months[index])
       
-      let labels = [];
-      monthlyOrders.map(item => labels.unshift(item.month));
-      let newData = [];
-      monthlyOrders.map(item => newData.unshift(item.earnings));
+    let labels = [];
+    monthlyOrders && monthlyOrders.map(item => labels.push(item.month));
+    let newData = [];
+    monthlyOrders && monthlyOrders.map(item => newData.push(item.earnings));
       
-      const data = {
+    const data = {
         labels,
         datasets: [
           {
+            label: 'Revenus',
             data: newData,
             backgroundColor: '#c92a2a',
           }
         ],
-      };
+    };
 
     return (
         

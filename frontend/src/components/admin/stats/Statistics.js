@@ -144,7 +144,7 @@ export default function Statistics() {
                         </div>
                     </div>
 
-                    <div className="row mt-3 mb-3">
+                    <div className="row mt-3 statistics__amount">
                         <div className="col-xl-12 col-sm-12 ">
                             <div className="card text-white allTime o-hidden h-100">
                                 <div className="card-body">
@@ -164,8 +164,15 @@ export default function Statistics() {
                         </div>
                     </div>
 
-                    <MonthlyChart monthlyOrders={monthlyOrders} />
-                    <WeeklyChart weeklyOrders={weeklyOrders}/>
+                    <div className='p-5 mt-5'>
+                        <h1 className='p-3'>Revenus Mensuels:</h1>
+                        <MonthlyChart monthlyOrders={monthlyOrders} />
+                    </div>
+
+                    <div className='p-5 mt-5'>
+                        <h1 className='p-3'>Revenus Hebdomadaires:</h1>
+                        <WeeklyChart weeklyOrders={weeklyOrders}/>
+                    </div> 
                 </div>
                 )}
             </div>

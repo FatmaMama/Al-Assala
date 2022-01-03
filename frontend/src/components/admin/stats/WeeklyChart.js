@@ -26,20 +26,21 @@ export default function MonthlyChart({ weeklyOrders }) {
         plugins: {
           title: {
             display: true,
-            text: 'Weekly Revenues',
+            text: 'Revenus Hebdomadaires',
           },
         },
       };
       
       let labels = [];
-      weeklyOrders.map(item => labels.unshift(item.week));
+      weeklyOrders && weeklyOrders.map(item => labels.unshift(item.week));
       let newData = [];
-      weeklyOrders.map(item => newData.unshift(item.earnings));
+      weeklyOrders && weeklyOrders.map(item => newData.unshift(item.earnings));
       
       const data = {
         labels,
         datasets: [
           {
+            label: 'Revenus',
             data: newData,
             backgroundColor: '#e67e22',
           }

@@ -1,9 +1,14 @@
 .statistics {
+
     &__title {
         font-size: 2.8rem;
         text-transform: uppercase;
         letter-spacing: 1px;
         // padding: 1.2rem 0;
+    }
+
+    &__amount {
+        margin-bottom: 6.4rem
     }
    
     .card-body {

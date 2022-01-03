@@ -301,6 +301,9 @@ header .avatar {
   text-transform: uppercase;
   letter-spacing: 1px;
 }
+.statistics__amount {
+  margin-bottom: 6.4rem;
+}
 .statistics .card-body {
   font-size: 2.6rem;
   letter-spacing: 1px;
