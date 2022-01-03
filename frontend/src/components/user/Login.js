@@ -42,7 +42,7 @@ export default function Login() {
             {loading ? <Loader/> : (
                 <div className='login'>
                     <div className="wrapper"> 
-                        <div className="login__col col-10 col-lg-6">
+                        <div className="login__col col-10 col-lg-6 bg-light">
                             <form onSubmit={submitHandler} >
                                 <h1 className="wrapper__title mb-3 text-center">Connectez-vous à votre compte</h1>
                                 {error !== null && messageType!=='success' && <Alert message={message} messageType={messageType} />}

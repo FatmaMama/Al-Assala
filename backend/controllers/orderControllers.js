@@ -186,9 +186,6 @@ exports.getMonthlyOrdersEarnings = catchAsync(async (req, res, next) => {
         },
         {
             $project: { _id : 0 }
-        },
-        {
-            $sort: { month : -1 }
         }
     ]);
 

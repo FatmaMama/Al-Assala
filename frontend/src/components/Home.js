@@ -1,11 +1,10 @@
 import React from 'react'
+import Menu from './layouts/Menu'
 
 export default function Home() {
     return (
         <div>
-            <h1>Hellooooo</h1>
-            <h1>Hellooooo</h1>
-            <h1>Hellooooo</h1>
+            <Menu />
         </div>
     )
 }

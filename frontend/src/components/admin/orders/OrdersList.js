@@ -79,7 +79,7 @@ export default function OrdersList() {
         orders && orders.forEach(order => {
             data.rows.push({
                 id : order._id,
-                numOfItems : order.orderItems.reduce((acc, item) => {
+                numOfItems : order.orderItems && order.orderItems.reduce((acc, item) => {
                     return acc + item.quantity
                },0),
                 amount: `$${order.totalPrice}`,

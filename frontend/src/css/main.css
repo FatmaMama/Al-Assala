@@ -149,6 +149,81 @@ header .avatar {
   font-size: inherit;
 }
 
+.menu {
+  height: 4rem;
+  width: 100%;
+  background: #fff;
+  border-bottom: 1px solid #ececec;
+  box-shadow: 0 1px 1px -2px #333;
+}
+.menu ul {
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+.menu > ul {
+  display: flex;
+  gap: 7rem;
+  justify-content: center;
+  position: relative;
+}
+.menu > ul > li > span {
+  padding: 0 1.2rem;
+  line-height: 4rem;
+  display: block;
+  cursor: pointer;
+  font-size: 1.6rem;
+  font-weight: bold;
+  font-family: inherit;
+  color: #333;
+}
+.menu > ul > li > span:hover {
+  color: #c92a2a;
+}
+.menu > ul > li > ul {
+  position: absolute;
+  background-color: #fdf6f6;
+  padding: 1.2rem;
+  flex-wrap: wrap;
+  gap: 2.4rem;
+  max-width: 45rem;
+  display: none;
+}
+.menu > ul > li:hover > ul {
+  display: flex;
+}
+.menu > ul > li > ul > li .menu-item {
+  width: 12rem;
+  padding: 0.4rem;
+  line-height: 2rem;
+  text-decoration: none;
+  display: block;
+  cursor: pointer;
+  font-size: 1.2rem;
+  font-weight: bold;
+  font-family: inherit;
+  color: #555;
+  transition: all 0.2s;
+}
+.menu > ul > li > ul > li .menu-item:hover {
+  transform: translateX(0.5rem) scale(1.03);
+}
+.menu > ul > li > ul > li > .menu-item {
+  padding: 0.4rem;
+  border-bottom: 1px solid #333;
+  line-height: 2rem;
+  text-decoration: none;
+  display: block;
+  cursor: pointer;
+  font-size: 1.4rem;
+  font-weight: bold;
+  font-family: inherit;
+  color: #555;
+}
+.menu > ul > li > ul > li:hover > .menu-item {
+  color: #c92a2a;
+}
+
 .loader {
   display: block;
   margin-left: auto;

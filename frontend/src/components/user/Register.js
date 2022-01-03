@@ -50,7 +50,7 @@ export default function Register() {
     return (
         <div className="register">
             <div className="wrapper register__wrapper">
-		        <div className="login__col col-10 col-lg-6 ">
+		        <div className="login__col col-10 col-lg-6 bg-light">
                     <form onSubmit={submitHandler} encType='multipart/form-data'>
                         <h1 className="wrapper__title mb-3 text-center">Créez votre compte</h1>
                         {error !== null && <Alert message={message} messageType={messageType} />}
