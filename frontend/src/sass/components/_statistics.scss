@@ -1,0 +1,42 @@
+.statistics {
+    &__title {
+        font-size: 2.8rem;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        // padding: 1.2rem 0;
+    }
+   
+    .card-body {
+        font-size: 2.6rem;
+        letter-spacing: 1px;
+        font-weight: 500;
+        padding: 1.6rem;
+    }
+
+    .card-footer {
+        font-size: 2.2rem;
+        font-weight: 500;
+        text-decoration: none;
+        padding: .8rem ;
+    }
+
+    .today{
+        background-color: $color-primary;
+    }
+
+    .yesterday {
+        background-color: #d45555;
+    }
+
+    .week {
+        background-color: #eb984e;
+    }
+
+    .month {
+        background-color: #e67e22;
+    }
+
+    .allTime {
+        background-color: $color-grey-dark-2;
+    }
+}

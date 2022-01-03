@@ -6,6 +6,8 @@ import { clearErrors, getMonthlyOrders, getOrders, getTodayOrders, getWeeklyOrde
 import { notifyUser } from '../../../redux/actions/notifyActions';
 import Alert from '../../layouts/Alert';
 import Loader from '../../layouts/Loader';
+import MonthlyChart from './MonthlyChart';
+import WeeklyChart from './WeeklyChart';
 
 export default function Statistics() {
 
@@ -64,108 +66,108 @@ export default function Statistics() {
 
             {(loading || ordersLoading || weeklyLoading || monthlyLoading) ? <Loader/> : (
                 <div className="col-12 col-md-10 px-5 statistics">
-                <h1 className="text-uppercase my-5" >Statistiques des revenues</h1>
-                {(error || todayError || weeklyError || monthlyError) && <Alert  message={message} messageType={messageType}/>}
+                    <h1 className="text-uppercase my-5" >Statistiques des revenues</h1>
+                    {(error || todayError || weeklyError || monthlyError) && <Alert  message={message} messageType={messageType}/>}
                
-                <div className='row'>
-                    <div className="col-lg-6 col-12 mb-3 mt-3">
-                        <div className="card text-white o-hidden today">
-                            <div className="card-body">
-                                <div className='fs-3 text-uppercase'>Aujourd'hui</div>
-                                <div className="text-center">
-                                <i className="fas fa-coins me-3"></i>
-                                     {`${today ? today.earnings.toFixed(2) : 0} TND`}
-                                </div>
-                            </div>
-                            <Link className="card-footer text-white clearfix small z-1" to="/admin/orders/status/non-traitée">
-                                <div className="float-end">
-                                    <i className="fas fa-box-open me-3"></i>
-                                    <span className='me-4'>{today ? today.numOfOrders : 0} </span>
-                                </div>
-                            </Link>
-                        </div>
-                    </div>
-
-                    <div className="col-lg-6 col-12 mb-3 mt-3">
-                        <div className="card text-white yesterday o-hidden h-100">
-                            <div className="card-body">
-                                <div className='fs-3 text-uppercase'>Hier</div>
-                                <div className="text-center">
-                                <i className="fas fa-coins me-3"></i>
-                                    {`${yesterday ? yesterday.earnings.toFixed(2) : 0} TND`}
-                                </div>
-                            </div>
-                            
-                            <Link className="card-footer text-white clearfix small z-1" to="/admin/orders/status/expédiée">
-                            <div className="float-end">
-                                    <i className="fas fa-box-open me-3"></i>
-                                    <span className='me-4'>{yesterday ? yesterday.numOfOrders : 0}</span>
-                                </div>
-                            </Link>
-                               
-                           
-                        </div>
-                    </div>
-
-                    <div className="col-lg-6 col-12 mb-3 mt-3">
-                        <div className="card text-white week o-hidden h-100">
-                            <div className="card-body">
-                            <div className='fs-3 text-uppercase'>Cette semaine</div>
-                                <div className="text-center">
-                                <i className="fas fa-coins me-3"></i>
-                                {`${thisWeek ? thisWeek.earnings.toFixed(2) : 0} TND`}
-                                </div>
-                            </div>
-                            <Link className="card-footer text-white clearfix small z-1" to="/admin/orders/status/livrée">
-                            <div className="float-end">
-                                    <i className="fas fa-box-open me-3"></i>
-                                    <span className='me-4'>{thisWeek ? thisWeek.numOfOrders : 0}</span>
-                                </div>
-                            </Link>
-                        </div>
-                    </div>
-
-                    <div className="col-lg-6 col-12 mb-3 mt-3">
-                        <div className="card text-white month o-hidden h-100">
-                            <div className="card-body">
-                            <div className='fs-3 text-uppercase'>Ce mois</div>
-                                <div className="text-center">
-                                <i className="fas fa-coins me-3"></i>
-                                {`${thisMonth ? thisMonth.earnings.toFixed(2) : 0} TND`}
-                                </div>
-                            </div>
-                            <Link className="card-footer text-white clearfix small z-1" to="/admin/orders/status/retournée">
-                            <div className="float-end">
-                                    <i className="fas fa-box-open me-3"></i>
-                                    <span className='me-4'>{thisMonth ? thisMonth.numOfOrders : 0}</span>
-                                </div>
-                            </Link>
-                        </div>
-                    </div>
-                </div>
-                <div className="row mt-3 mb-3">
-                                <div className="col-xl-12 col-sm-12 ">
-                                    <div className="card text-white allTime o-hidden h-100">
-                                        <div className="card-body">
-                                        
-                                <div className="text-center">
-                                <div className='statistics__title'>Montant Total</div>
-                                <i className="fas fa-coins me-3"></i>
-                                     {totalAmount ? totalAmount.toFixed(2) : 0} TND
-                                </div>
-                                        </div>
-                                        <Link className="card-footer text-white clearfix small z-1" to="/admin/orders/status/retournée">
-                            <div className="float-end">
-                                    <i className="fas fa-box-open me-3"></i>
-                                    <span className='me-4'>{ordersCount ? ordersCount : 0} </span>
-                                </div>
-                            </Link>
+                    <div className='row'>
+                        <div className="col-lg-6 col-12 mb-3 mt-3">
+                            <div className="card text-white o-hidden today">
+                                <div className="card-body">
+                                    <div className='fs-3 text-uppercase'>Aujourd'hui</div>
+                                    <div className="text-center">
+                                    <i className="fas fa-coins me-3"></i>
+                                        {`${today ? today.earnings.toFixed(2) : 0} TND`}
                                     </div>
                                 </div>
+                                <Link className="card-footer text-white clearfix small z-1" to="/admin/orders/status/non-traitée">
+                                    <div className="float-end">
+                                        <i className="fas fa-box-open me-3"></i>
+                                        <span className='me-4'>{today ? today.numOfOrders : 0} </span>
+                                    </div>
+                                </Link>
                             </div>
+                        </div>
+
+                        <div className="col-lg-6 col-12 mb-3 mt-3">
+                            <div className="card text-white yesterday o-hidden h-100">
+                                <div className="card-body">
+                                    <div className='fs-3 text-uppercase'>Hier</div>
+                                    <div className="text-center">
+                                        <i className="fas fa-coins me-3"></i>
+                                        {`${yesterday ? yesterday.earnings.toFixed(2) : 0} TND`}
+                                     </div>
+                                </div>
+                            
+                                <Link className="card-footer text-white clearfix small z-1" to="/admin/orders/status/expédiée">
+                                    <div className="float-end">
+                                        <i className="fas fa-box-open me-3"></i>
+                                        <span className='me-4'>{yesterday ? yesterday.numOfOrders : 0}</span>
+                                    </div>
+                                </Link>
+                            </div>
+                        </div>
+
+                        <div className="col-lg-6 col-12 mb-3 mt-3">
+                            <div className="card text-white week o-hidden h-100">
+                                <div className="card-body">
+                                    <div className='fs-3 text-uppercase'>Cette semaine</div>
+                                    <div className="text-center">
+                                    <i className="fas fa-coins me-3"></i>
+                                    {`${thisWeek ? thisWeek.earnings.toFixed(2) : 0} TND`}
+                                    </div>
+                                </div>
+                                <Link className="card-footer text-white clearfix small z-1" to="/admin/orders/status/livrée">
+                                <div className="float-end">
+                                        <i className="fas fa-box-open me-3"></i>
+                                        <span className='me-4'>{thisWeek ? thisWeek.numOfOrders : 0}</span>
+                                    </div>
+                                </Link>
+                            </div>
+                        </div>
+
+                        <div className="col-lg-6 col-12 mb-3 mt-3">
+                            <div className="card text-white month o-hidden h-100">
+                                <div className="card-body">
+                                    <div className='fs-3 text-uppercase'>Ce mois</div>
+                                    <div className="text-center">
+                                    <i className="fas fa-coins me-3"></i>
+                                    {`${thisMonth ? thisMonth.earnings.toFixed(2) : 0} TND`}
+                                    </div>
+                                </div>
+                                <Link className="card-footer text-white clearfix small z-1" to="/admin/orders/status/retournée">
+                                <div className="float-end">
+                                        <i className="fas fa-box-open me-3"></i>
+                                        <span className='me-4'>{thisMonth ? thisMonth.numOfOrders : 0}</span>
+                                    </div>
+                                </Link>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div className="row mt-3 mb-3">
+                        <div className="col-xl-12 col-sm-12 ">
+                            <div className="card text-white allTime o-hidden h-100">
+                                <div className="card-body">
+                                    <div className="text-center">
+                                    <div className='statistics__title'>Montant Total</div>
+                                    <i className="fas fa-coins me-3"></i>
+                                        {totalAmount ? totalAmount.toFixed(2) : 0} TND
+                                    </div>
+                                </div>
+                                <Link className="card-footer text-white clearfix small z-1" to="/admin/orders/status/retournée">
+                                    <div className="float-end">
+                                        <i className="fas fa-box-open me-3"></i>
+                                        <span className='me-4'>{ordersCount ? ordersCount : 0} </span>
+                                    </div>
+                                </Link>
+                            </div>
+                        </div>
+                    </div>
+
+                    <MonthlyChart monthlyOrders={monthlyOrders} />
+                    <WeeklyChart weeklyOrders={weeklyOrders}/>
+                </div>
+                )}
             </div>
-            )}
-            
-        </div>
     )
 }

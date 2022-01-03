@@ -28,9 +28,6 @@ body {
 form {
   font-size: 1.6rem;
 }
-form input {
-  font-size: inherit;
-}
 
 header {
   background-color: #eee;
