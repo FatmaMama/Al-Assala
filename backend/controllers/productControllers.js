@@ -96,11 +96,11 @@ exports.getProducts = catchAsync(async (req, res, next) => {
         products = [...newProducts]
     }
     
-        
 
     res.status(200).json({
         success: true,
         numOfProducts : products.length,
+        resPerPage,
         products
     })
 });

@@ -202,7 +202,8 @@ header .avatar {
     display: none;
   }
 }
-.menu > ul > li > span {
+.menu > ul > li > .menu-head {
+  text-decoration: none;
   padding: 0 1.2rem;
   line-height: 4rem;
   display: block;
@@ -212,7 +213,7 @@ header .avatar {
   font-family: inherit;
   color: #333;
 }
-.menu > ul > li > span:hover {
+.menu > ul > li > .menu-head:hover {
   color: #c92a2a;
 }
 .menu > ul > li > ul {

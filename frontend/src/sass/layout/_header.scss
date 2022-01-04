@@ -210,7 +210,8 @@ header {
          }
     }
 
-    & > ul > li > span{
+    & > ul > li > .menu-head{
+        text-decoration: none;
         padding: 0 1.2rem;
         line-height: 4rem;
         display: block;
@@ -221,7 +222,7 @@ header {
         color: $color-grey-dark-1;
     }
 
-    & > ul > li > span:hover{
+    & > ul > li > .menu-head:hover{
         color: $color-primary;
     }
 

@@ -14,6 +14,9 @@ import { ADMIN_PRODUCTS_REQUEST,
     UPDATE_PRODUCT_REQUEST,
     UPDATE_PRODUCT_SUCCESS,
     UPDATE_PRODUCT_FAIL,
+    GET_PRODUCTS_REQUEST,
+    GET_PRODUCTS_SUCCESS,
+    GET_PRODUCTS_FAIL,
     CLEAR_ERRORS} from '../constants/product_constants';
 
 export const getAdminProducts = () => async (dispatch) => {
@@ -30,6 +33,28 @@ export const getAdminProducts = () => async (dispatch) => {
     } catch (error) {
         dispatch({
             type: ADMIN_PRODUCTS_FAIL,
+            payload: error.response.data.message
+        })
+    }
+};
+
+export const getProducts = (keyword='', currentPage = 1, category) => async (dispatch) => {
+    try {
+        dispatch({ type : GET_PRODUCTS_REQUEST });
+        console.log(category)
+        let link = `/api/v1/products?keyword=${keyword}&page=${currentPage}&category=${category}`;
+
+        const { data } = await axios.get(link);
+      
+        dispatch({ 
+            type : GET_PRODUCTS_SUCCESS,
+            payload : data
+         })
+         
+
+    } catch (error) {
+        dispatch({
+            type: GET_PRODUCTS_FAIL,
             payload: error.response.data.message
         })
     }

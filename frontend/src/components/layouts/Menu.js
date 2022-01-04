@@ -22,9 +22,12 @@ export default function Menu() {
                 <li key={category._id}>
                     
                         {category.parentId ? 
-                        <Link className='menu-item' to={`/products?category=${category._id}`}>{category.name}</Link>
-                        : <span >{category.name}{category.children.length > 0 && <i className="fas fa-angle-down ms-2"></i>}</span>
-                          
+                            <Link className='menu-item' to={`/products?category=${category._id}`}>{category.name}</Link>
+                            :
+                            <Link className='menu-head' to={`/products?category=${category._id}`}>
+                                {category.name}
+                                {category.children.length > 0 && <i className="fas fa-angle-down ms-2"></i>}
+                            </Link>
                         }
                     
                     {category.children.length > 0 && (<ul>{renderCategories(category.children)}</ul>)}
