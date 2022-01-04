@@ -3,11 +3,12 @@ import { useDispatch, useSelector } from 'react-redux';
 import { getCategories } from '../../redux/actions/categoryActions';
 import { Link } from 'react-router-dom';
 
+
 export default function Menu() {
 
     const dispatch = useDispatch();
 
-    const { loading, categories, error } = useSelector(state => state.categories);
+    const { categories } = useSelector(state => state.categories);
 
     useEffect(() => {
         dispatch(getCategories());
@@ -21,8 +22,8 @@ export default function Menu() {
                 <li key={category._id}>
                     
                         {category.parentId ? 
-                        <Link className='menu-item' to='/login'>{category.name}</Link>
-                        : <span >{category.name}{category.children.length > 0 && <i class="fas fa-angle-down ms-2"></i>}</span>
+                        <Link className='menu-item' to={`/products?category=${category._id}`}>{category.name}</Link>
+                        : <span >{category.name}{category.children.length > 0 && <i className="fas fa-angle-down ms-2"></i>}</span>
                           
                         }
                     
@@ -35,8 +36,9 @@ export default function Menu() {
 
 
     return (
-        <div className='menu'>
+        <div className='menu sidebar-menu'>
             <ul>
+                <button className='menu__btn'></button>
                 {categories && renderCategories(categories)}
             </ul> 
         </div>

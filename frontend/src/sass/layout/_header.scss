@@ -156,8 +156,39 @@ header {
     width: 100%;
     background: #fff;
     border-bottom: 1px solid #ececec;
-    box-shadow: 0 1px 1px -2px #333;
-    
+    box-shadow: 0 1px 1px -2px $color-grey-dark-1;
+
+    &__btn {
+        display: none;
+        border: none;
+        border-radius: 0;
+        background-color: $color-grey-dark-1;
+        height: 3px;
+        width: 2.8rem;
+        margin-top: 2rem;
+        margin-right: auto;
+        margin-left: 1.6rem;
+
+        &::before, &::after {
+            content: '';
+            display: block;
+            background-color: $color-grey-dark-1;
+            height: 3px;
+            width: 2.8rem;
+        }
+
+        &::before {
+            transform: translateY(1rem);
+        }
+
+        &::after {
+            transform: translateY(-1.3rem);
+        }
+
+        @media only screen and (max-width: 900px) {
+           display: block;
+        }
+    }
 
     ul{
         padding: 0;
@@ -169,7 +200,14 @@ header {
         display: flex;
         gap: 7rem;
         justify-content: center;
+        align-items: center;
         position: relative;
+    }
+
+    & > ul > li {
+        @media only screen and (max-width: 900px) {
+            display: none;
+         }
     }
 
     & > ul > li > span{

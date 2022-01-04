@@ -1,5 +1,5 @@
 import React from 'react'
-import Menu from './layouts/Menu'
+import Menu from '../layouts/Menu'
 
 export default function Home() {
     return (

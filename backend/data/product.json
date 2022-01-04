@@ -225,6 +225,48 @@
         "sale" : 0.3,
         "user" : "61c23bf94ef7be3ae01e4c56"
     },
+    {
+        "name" : "Robe ajustée",
+        "price" : 79.99,
+        "description" : "Nous travaillons avec des programmes de suivi pour garantir le respect des normes de sécurité, de santé et de qualité de nos produits. ",
+        "category" : "61d34ab31892ee30e7bc67b4",
+        "sizes" : [{
+            "sizeName" : "S",
+            "stock" : 0
+        },
+        {
+            "sizeName" : "M",
+            "stock" : 5
+        },
+        {
+            "sizeName" : "L",
+            "stock" : 0
+        }],
+        "color" : "rouge",
+        "colors" : [
+            {
+                "colorName" : "noir",
+                "code" : "#000"
+            },
+            {
+                "colorName" : "rouge",
+                "code" : "#BB0B0B"
+            }
+        ],
+        "images" : [
+            {
+                "public_id": "Al-Assala/products/robe-rouge1_hnmvg5",
+                "url": "https://res.cloudinary.com/fantasy2021/image/upload/v1638988456/Al-Assala/products/robe-rouge1_hnmvg5.jpg"
+            },
+            {
+                "public_id": "Al-Assala/products/robe-rouge2_lhvznx",
+                "url": "https://res.cloudinary.com/fantasy2021/image/upload/v1638988462/Al-Assala/products/robe-rouge2_lhvznx.jpg"
+            }
+        ],
+        "numOfSells" : 15,
+        "sale" : 0.3,
+        "user" : "61c23bf94ef7be3ae01e4c56"
+    },
 
     {
         "name" : "Chemise Classique",

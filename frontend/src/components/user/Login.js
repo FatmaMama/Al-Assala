@@ -7,12 +7,11 @@ import Loader from '../layouts/Loader';
 import Alert from '../layouts/Alert';
 
 
-
 export default function Login() {
 
     const dispatch = useDispatch();
     const navigate = useNavigate();
-
+    
     const [email, setEmail]= useState('');
     const [password, setPassword] = useState('');
 
@@ -68,11 +67,6 @@ export default function Login() {
                                         onChange={(e) => setPassword(e.target.value)}
                                     />
                                 </div>
-
-                                <div className="float-end mb-4">
-                                    
-                                </div>
-                                
 
                                 <div className="d-grid gap-5 mt-3">
                                     <Link to="/forgot/password" className="text-end">Mot de passe oublié?</Link>

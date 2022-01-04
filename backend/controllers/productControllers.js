@@ -1,4 +1,5 @@
 const Product = require('../models/productModel');
+const Category = require('../models/categoryModel');
 const AppError = require('../utils/appError');
 const catchAsync = require('../utils/catchAsync');
 const ApiFeatures = require('../utils/apiFeatures');
@@ -60,13 +61,42 @@ exports.getAdminProducts = catchAsync(async (req, res, next) => {
 
 //GET ALL PRODUCTS  => 
 exports.getProducts = catchAsync(async (req, res, next) => {
-
+    
+    const resPerPage = 12
     const features = new ApiFeatures(Product.find().populate('category', 'name parentId'), req.query)
                         .search()
                         .filter()
                         .sort()
-                        .pagination();
-    const products = await features.query;
+                        .pagination(resPerPage);
+    let products = await features.query;
+    
+    // let newProducts = [];
+    let filteredProducts = [];
+    const findCategoryProducts = async (products, id = req.query.category) => {
+        id = String(id);
+        const subCategories = await Category.find({ parentId : id });
+        // console.log("subCategories ", subCategories)
+        
+        const foundProducts = products.filter(product => {
+            return String(product.category._id) === id
+        });
+        
+        filteredProducts.push(...foundProducts)
+    
+        if(subCategories.length > 0){
+            for (let cat of subCategories){
+                await findCategoryProducts(products, cat._id)
+            }
+        } 
+        return filteredProducts;
+    }
+   
+    if(req.query.category) {
+        const newProducts = await findCategoryProducts(products);
+        products = [...newProducts]
+    }
+    
+        
 
     res.status(200).json({
         success: true,

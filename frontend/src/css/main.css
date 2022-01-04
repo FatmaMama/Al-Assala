@@ -156,6 +156,35 @@ header .avatar {
   border-bottom: 1px solid #ececec;
   box-shadow: 0 1px 1px -2px #333;
 }
+.menu__btn {
+  display: none;
+  border: none;
+  border-radius: 0;
+  background-color: #333;
+  height: 3px;
+  width: 2.8rem;
+  margin-top: 2rem;
+  margin-right: auto;
+  margin-left: 1.6rem;
+}
+.menu__btn::before, .menu__btn::after {
+  content: "";
+  display: block;
+  background-color: #333;
+  height: 3px;
+  width: 2.8rem;
+}
+.menu__btn::before {
+  transform: translateY(1rem);
+}
+.menu__btn::after {
+  transform: translateY(-1.3rem);
+}
+@media only screen and (max-width: 900px) {
+  .menu__btn {
+    display: block;
+  }
+}
 .menu ul {
   padding: 0;
   margin: 0;
@@ -165,7 +194,13 @@ header .avatar {
   display: flex;
   gap: 7rem;
   justify-content: center;
+  align-items: center;
   position: relative;
+}
+@media only screen and (max-width: 900px) {
+  .menu > ul > li {
+    display: none;
+  }
 }
 .menu > ul > li > span {
   padding: 0 1.2rem;

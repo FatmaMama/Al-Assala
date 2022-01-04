@@ -52,7 +52,7 @@ if(localStorage.getItem('settingsInfo') == null){
 }
 
 const initialState = {
-    settings : JSON.parse(localStorage.getItem('settingsInfo'))
+    settingsInfos : JSON.parse(localStorage.getItem('settingsInfo'))
 };
 
 const middleWare = [thunk];
