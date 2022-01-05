@@ -2,13 +2,14 @@ import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { getCategories } from '../../redux/actions/categoryActions';
 import { Link } from 'react-router-dom';
+import Loader from './Loader';
 
 
 export default function Menu() {
 
     const dispatch = useDispatch();
 
-    const { categories } = useSelector(state => state.categories);
+    const { loading, categories } = useSelector(state => state.categories);
 
     useEffect(() => {
         dispatch(getCategories());
@@ -40,10 +41,12 @@ export default function Menu() {
 
     return (
         <div className='menu sidebar-menu'>
-            <ul>
-                <button className='menu__btn'></button>
-                {categories && renderCategories(categories)}
-            </ul> 
+            {loading ? <Loader /> : (
+                <ul>
+                    <button className='menu__btn'></button>
+                    {categories && renderCategories(categories)}
+                </ul> 
+            )}
         </div>
     )
 }

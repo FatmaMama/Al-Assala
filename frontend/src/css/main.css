@@ -464,6 +464,12 @@ header .avatar {
   background-color: #555;
 }
 
+.result-text {
+  padding: 2.4rem;
+  font-weight: 200;
+  letter-spacing: 2px;
+}
+
 .display {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(20rem, 25rem));
