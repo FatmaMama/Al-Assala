@@ -25,7 +25,7 @@ export default function Settings() {
 
             dispatch(getSettings())
             setNewSettings({...settings})
-    }, [dispatch, settings.shippingPrice]);
+    }, [dispatch, JSON.stringify(settings)]);
 
     const changeData = (e) => {
         e.preventDefault();

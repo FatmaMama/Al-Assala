@@ -55,7 +55,7 @@ export default function Sidebar() {
                         </li>
 
                         <li className='sidebar__item'>
-                            <Link to="/admin/orders/recap" className='sidebar__link ms-4 pt-1'>Récap</Link>
+                            <Link to="/admin/orders/recap" className='sidebar__link ms-4 pt-1'><i className="fas fa-box-open me-2"></i>Récap</Link>
                         </li>
                     </ul>
                 </li>
