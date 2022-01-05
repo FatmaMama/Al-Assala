@@ -222,7 +222,7 @@
             }
         ],
         "numOfSells" : 15,
-        "sale" : 0.3,
+        "sale" : 0,
         "user" : "61c23bf94ef7be3ae01e4c56"
     },
     {
@@ -264,7 +264,7 @@
             }
         ],
         "numOfSells" : 15,
-        "sale" : 0.3,
+        "sale" : 0,
         "user" : "61c23bf94ef7be3ae01e4c56"
     },
 
@@ -350,6 +350,7 @@
                 "url": "https://res.cloudinary.com/fantasy2021/image/upload/v1638988833/Al-Assala/products/chemise-homme-n2_ydzam1.jpg"
             }
         ],
+        "sale" : 0.2,
         "numOfSells" : 17,
         "user" : "61c23bf94ef7be3ae01e4c56"
     }

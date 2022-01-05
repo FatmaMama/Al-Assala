@@ -1,11 +1,13 @@
+@import 'base/variables';
 @import 'base/base';
 @import 'base/mixins';
 @import 'base/typography';
-@import 'base/variables';
+
 
 @import 'layout/header';
 @import 'layout/footer';
 @import 'layout/loader';
+@import 'layout/menu';
 
 @import 'components/form_card';
 @import 'components/login-register';
@@ -13,3 +15,4 @@
 @import 'components/updateProduct';
 @import 'components/order';
 @import 'components/statistics';
+@import 'components/displayProducts';

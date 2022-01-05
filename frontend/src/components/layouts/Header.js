@@ -81,7 +81,8 @@ export default function Header() {
                     <ul className="user-nav__list">
                         <li className="user-nav__item--1">
                             <Link to='#' className="user-nav__link">
-                                <i className="fas fa-shopping-bag user-nav__icon"></i>
+                                {/* <i className="fas fa-shopping-bag user-nav__icon"></i> */}
+                                <i className="fas fa-shopping-cart user-nav__icon"></i>
                                 <span className="user-nav__notification">7</span>
                                 <span className="user-nav__text">Panier</span>
                             </Link>
