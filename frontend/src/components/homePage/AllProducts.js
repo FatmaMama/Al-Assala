@@ -13,16 +13,14 @@ export default function AllProducts() {
 
     const location = useLocation();
     const category = new URLSearchParams(location.search).get('category') ? new URLSearchParams(location.search).get('category') : '';
-    // const keyword = new URLSearchParams(location.search).get('keyword') ? new URLSearchParams(location.search).get('keyword') : '';
-    const keyword = params.keyword
     const currentPage = new URLSearchParams(location.search).get('currentPage') ? new URLSearchParams(location.search).get('currentPage') : 1;
 
     const { loading, products, productsCount, resPerPage, error } = useSelector(state => state.products);
 
     useEffect(() => {
-        dispatch(getProducts(keyword, currentPage, category))
+        dispatch(getProducts(currentPage, category))
        
-    }, [dispatch, keyword, currentPage, category])
+    }, [dispatch, currentPage, category])
 
     return (
         <div>

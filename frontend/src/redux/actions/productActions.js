@@ -17,6 +17,9 @@ import { ADMIN_PRODUCTS_REQUEST,
     GET_PRODUCTS_REQUEST,
     GET_PRODUCTS_SUCCESS,
     GET_PRODUCTS_FAIL,
+    GET_SEARCH_PRODUCTS_REQUEST,
+    GET_SEARCH_PRODUCTS_SUCCESS,
+    GET_SEARCH_PRODUCTS_FAIL,
     CLEAR_ERRORS} from '../constants/product_constants';
 
 export const getAdminProducts = () => async (dispatch) => {
@@ -38,11 +41,33 @@ export const getAdminProducts = () => async (dispatch) => {
     }
 };
 
-export const getProducts = (keyword='', currentPage = 1, category) => async (dispatch) => {
+export const getSearchProducts = (currentPage = 1, category) => async (dispatch) => {
+    try {
+        dispatch({ type : GET_SEARCH_PRODUCTS_REQUEST });
+       
+        let link = `/api/v1/products?page=${currentPage}&category=${category}`;
+
+        const { data } = await axios.get(link);
+      
+        dispatch({ 
+            type : GET_SEARCH_PRODUCTS_SUCCESS,
+            payload : data
+         })
+         
+
+    } catch (error) {
+        dispatch({
+            type: GET_SEARCH_PRODUCTS_FAIL,
+            payload: error.response.data.message
+        })
+    }
+};
+
+export const getSearchProducts = (keyword='', currentPage = 1) => async (dispatch) => {
     try {
         dispatch({ type : GET_PRODUCTS_REQUEST });
-        console.log('keyword', keyword)
-        let link = `/api/v1/products?keyword=${keyword}&page=${currentPage}&category=${category}`;
+        
+        let link = `/api/v1/products?keyword=${keyword}&page=${currentPage}`;
 
         const { data } = await axios.get(link);
       

@@ -65,6 +65,39 @@ export const productsReducer = (state = {products: []}, action) => {
 };
 
 
+export const searchProductsReducer = (state = {searchProducts: []}, action) => {
+    switch (action.type) {
+        case GET_SEARCH_PRODUCTS_REQUEST:
+            return {
+                loading: true,
+                searchProducts: []
+            }
+
+        case GET_SEARCH_PRODUCTS_SUCCESS:
+            return {
+                loading: false,
+                searchProducts: action.payload.products,
+                productsCount: action.payload.numOfProducts,
+                resPerPage: action.payload.resPerPage
+            }
+        case GET_SEARCH_PRODUCTS_FAIL:
+            return {
+                loading: false,
+                error: action.payload
+            }
+
+        case CLEAR_ERRORS:
+            return {
+                ...state,
+                error: null
+            }
+    
+        default:
+            return state;
+    }
+};
+
+
 export const newProductReducer = (state= { product: {}}, action) => {
     switch (action.type) {
         case NEW_PRODUCT_REQUEST:
