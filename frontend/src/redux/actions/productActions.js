@@ -41,33 +41,11 @@ export const getAdminProducts = () => async (dispatch) => {
     }
 };
 
-export const getSearchProducts = (currentPage = 1, category) => async (dispatch) => {
-    try {
-        dispatch({ type : GET_SEARCH_PRODUCTS_REQUEST });
-       
-        let link = `/api/v1/products?page=${currentPage}&category=${category}`;
-
-        const { data } = await axios.get(link);
-      
-        dispatch({ 
-            type : GET_SEARCH_PRODUCTS_SUCCESS,
-            payload : data
-         })
-         
-
-    } catch (error) {
-        dispatch({
-            type: GET_SEARCH_PRODUCTS_FAIL,
-            payload: error.response.data.message
-        })
-    }
-};
-
-export const getSearchProducts = (keyword='', currentPage = 1) => async (dispatch) => {
+export const getProducts = (currentPage = 1, category) => async (dispatch) => {
     try {
         dispatch({ type : GET_PRODUCTS_REQUEST });
-        
-        let link = `/api/v1/products?keyword=${keyword}&page=${currentPage}`;
+       
+        let link = `/api/v1/products?page=${currentPage}&category=${category}`;
 
         const { data } = await axios.get(link);
       
@@ -80,6 +58,28 @@ export const getSearchProducts = (keyword='', currentPage = 1) => async (dispatc
     } catch (error) {
         dispatch({
             type: GET_PRODUCTS_FAIL,
+            payload: error.response.data.message
+        })
+    }
+};
+
+export const getSearchProducts = (keyword='', currentPage = 1) => async (dispatch) => {
+    try {
+        dispatch({ type : GET_SEARCH_PRODUCTS_REQUEST });
+        
+        let link = `/api/v1/search/products?keyword=${keyword}&page=${currentPage}`;
+
+        const { data } = await axios.get(link);
+      
+        dispatch({ 
+            type : GET_SEARCH_PRODUCTS_SUCCESS,
+            payload : data
+         })
+         
+
+    } catch (error) {
+        dispatch({
+            type: GET_SEARCH_PRODUCTS_FAIL,
             payload: error.response.data.message
         })
     }

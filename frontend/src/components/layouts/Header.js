@@ -5,7 +5,7 @@ import { logout } from '../../redux/actions/userActions';
 import { notifyUser } from '../../redux/actions/notifyActions';
 import { LOGOUT_RESET } from '../../redux/constants/userConstants';
 import Alert from './Alert';
-import { getProducts } from '../../redux/actions/productActions';
+import { getProducts, getSearchProducts } from '../../redux/actions/productActions';
 
 export default function Header() {
     const dispatch= useDispatch();
@@ -16,15 +16,13 @@ export default function Header() {
     const { user, loading, isLogout } = useSelector(state => state.auth);
     const { message, messageType } = useSelector(state => state.notify);
 
-    const {loading: productsLoading, products} = useSelector(state => state.products);
+    const {loading: productsLoading, searchProducts} = useSelector(state => state.searchProducts);
 
 
     useEffect(() => {
         if(keyword.trim()){
-            navigate(`/search/${keyword}`)
-        } else {
-            navigate('/')
-        }
+            dispatch(getSearchProducts(keyword))
+        } 
         
         if(isLogout){
             dispatch(notifyUser('Déconnecté avec succès', 'success'));
@@ -53,7 +51,7 @@ export default function Header() {
                         <i className="fas fa-search search__icon"></i>
                     </button>
                     <h1>{console.log(keyword)} </h1>
-                    <h1>{console.log(products.length)} </h1>
+                    <h1>{console.log(searchProducts.length)} </h1>
                 </form>
 
                 <nav className="user-nav" >

@@ -19,6 +19,9 @@ import { ADMIN_PRODUCTS_REQUEST,
         GET_PRODUCTS_REQUEST,
         GET_PRODUCTS_SUCCESS,
         GET_PRODUCTS_FAIL,
+        GET_SEARCH_PRODUCTS_REQUEST,
+        GET_SEARCH_PRODUCTS_SUCCESS,
+        GET_SEARCH_PRODUCTS_FAIL,
         CLEAR_ERRORS
         } from '../constants/product_constants';
 
