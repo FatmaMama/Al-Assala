@@ -22,9 +22,10 @@ header {
     display: flex;
     align-items: center;
     justify-content: center;
+    position: relative;
 
     &__input {
-        width: 90%;
+        width: 95%;
         border: none;
         border-radius: 50px;
         padding: .7rem 2rem;
@@ -37,7 +38,7 @@ header {
 
         &:focus {
             outline: none;
-            width: 100%
+            // width: 100%
         }
 
         &::-webkit-input-placeholder {
@@ -60,6 +61,22 @@ header {
     &__icon {
         font-size: 1.5rem;
         color: $color-grey-dark-3
+    }
+
+    &__result {
+        position: absolute;
+        top: 4.2rem;
+        background-color: lighten(#faeaea, 3%);
+        border-radius: 3px;
+        width: 90%;
+        padding: 1.2rem;
+        z-index: 10;
+
+        &__btn {
+            width: 100%;
+            border: none;
+            background-color: transparent;
+        }
     }
 }
 

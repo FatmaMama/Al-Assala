@@ -32,6 +32,16 @@ export default function Header() {
    
     const logoutHandler = () =>{
         dispatch(logout()); 
+    };
+
+    const submitHandler = (event) => {
+        event.preventDefault();
+        Array.from(event.target).forEach((e) => (e.value = ""));
+        navigate({
+            pathname: '/search/products',
+            search: `?keyword=${keyword}`,
+          });
+        setKeyword('')
     }
 
     return (
@@ -41,17 +51,30 @@ export default function Header() {
                     <img src='./images/al-assala-logo.png' alt='Al Assala Logo' className='logo' />
                 </Link>
 
-                <form action="#" className="search">
+                <form action="#" className="search" onSubmit={submitHandler}>
                     <input type="text" className="search__input" placeholder="Chercher votre produit..."
-                            onChange={(e) => {
-                                setKeyword(e.target.value);
-                                
-                                }} />
-                    <button className="search__button">
+                            onChange={(e) => setKeyword(e.target.value)} />
+                    <button  type="submit" className="search__button">
                         <i className="fas fa-search search__icon"></i>
                     </button>
-                    <h1>{console.log(keyword)} </h1>
-                    <h1>{console.log(searchProducts.length)} </h1>
+                    {keyword.trim() && searchProducts && 
+                        <div className='search__result'>
+                            {searchProducts.map(product => (
+                                <div key={product._id} >
+                                    <img src={product.images[0].url} alt={product.name} width="52" height="52" />
+                                    <span className='ms-4'>{product.name} </span>
+                                    <span className='float-end'>{product.price + ' TND'} </span>
+                                    <hr/>
+                                </div>
+                            ))}
+                            {/* <Link to={`/search/products?keyword=${keyword}&page=1`} > */}
+                                <button type="submit" className='search__result__btn' >
+                                    <span className='text-center'>Voir tout<i className="fas fa-angle-double-right ms-2"></i></span>
+                                    <span className='float-end'>{searchProducts.length + ' résultats'}</span>
+                                </button>
+                            {/* </Link> */}
+                        </div>
+                    }
                 </form>
 
                 <nav className="user-nav" >
@@ -104,7 +127,9 @@ export default function Header() {
                 
             </header>
             {isLogout && <Alert message={message} messageType={messageType} /> }
-           
+
+            
+            
         </Fragment>
     )
 }

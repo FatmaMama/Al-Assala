@@ -23,6 +23,7 @@ import OrdersByStatus from './components/admin/orders/OrdersByStatus';
 import Statistics from './components/admin/stats/Statistics';
 import Settings from './components/admin/orders/Settings';
 import AllProducts from './components/homePage/AllProducts';
+import SearchProducts from './components/products/SearchProducts';
 
 
 function App() {
@@ -41,7 +42,7 @@ function App() {
           <Route path='/login' element={<Login/>} />
           <Route path='/register' element={<Register/>} />
           <Route path='/products' element={<AllProducts/>} />
-          <Route path="/search/products" element={<AllProducts/>} />
+          <Route path="/search/products" element={<SearchProducts/>} />
 
           <Route path='/dashboard' element={<Dashboard/>} />
           <Route path='/admin/products' element={<ProductsList/>} />
