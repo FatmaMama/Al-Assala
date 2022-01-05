@@ -8,7 +8,8 @@ const { addProduct,
         deleteProduct, 
         getOnSaleProducts, 
         getBestSellers, 
-        getAdminProducts } = require('../controllers/productControllers');
+        getAdminProducts, 
+        getSearchProducts} = require('../controllers/productControllers');
 const { isAuthenticated, authorizeRoles } = require('../middlewares/authMiddleware');
 
 router.route('/products')
@@ -27,5 +28,7 @@ router.get('/products-on-sale', getOnSaleProducts);
 router.get('/best-sellers', getBestSellers);
         
 router.get('/admin/products', getAdminProducts);
+
+router.get('/search/products', getSearchProducts);
 
 module.exports = router;

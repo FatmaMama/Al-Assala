@@ -41,7 +41,7 @@ export const getAdminProducts = () => async (dispatch) => {
 export const getProducts = (keyword='', currentPage = 1, category) => async (dispatch) => {
     try {
         dispatch({ type : GET_PRODUCTS_REQUEST });
-        console.log(category)
+        console.log('keyword', keyword)
         let link = `/api/v1/products?keyword=${keyword}&page=${currentPage}&category=${category}`;
 
         const { data } = await axios.get(link);

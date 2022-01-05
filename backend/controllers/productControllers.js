@@ -64,18 +64,15 @@ exports.getProducts = catchAsync(async (req, res, next) => {
     
     const resPerPage = 12
     const features = new ApiFeatures(Product.find().populate('category', 'name parentId'), req.query)
-                        .search()
                         .filter()
                         .sort()
                         .pagination(resPerPage);
     let products = await features.query;
     
-    // let newProducts = [];
     let filteredProducts = [];
     const findCategoryProducts = async (products, id = req.query.category) => {
         id = String(id);
         const subCategories = await Category.find({ parentId : id });
-        // console.log("subCategories ", subCategories)
         
         const foundProducts = products.filter(product => {
             return String(product.category._id) === id
@@ -89,14 +86,31 @@ exports.getProducts = catchAsync(async (req, res, next) => {
             }
         } 
         return filteredProducts;
-    }
+    };
    
     if(req.query.category) {
         const newProducts = await findCategoryProducts(products);
         products = [...newProducts]
-    }
+    };
     
+    res.status(200).json({
+        success: true,
+        numOfProducts : products.length,
+        resPerPage,
+        products
+    })
+});
 
+
+exports.getSearchProducts = catchAsync(async (req, res, next) => {
+    
+    const resPerPage = 12;
+    const features = new ApiFeatures(Product.find().populate('category', 'name parentId'), req.query)
+                        .search()
+                        .sort()
+                        .pagination(resPerPage);
+    const products = await features.query;
+    
     res.status(200).json({
         success: true,
         numOfProducts : products.length,

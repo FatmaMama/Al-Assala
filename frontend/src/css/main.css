@@ -11,6 +11,8 @@ html {
 
 body {
   line-height: 1.6;
+  font-family: "Oswald", sans-serif;
+  letter-spacing: 1px;
 }
 
 .wrapper {
@@ -70,6 +72,7 @@ header .avatar {
 .search__input::-webkit-input-placeholder {
   font-weight: 100;
   font-size: 1.6rem;
+  letter-spacing: 2px;
   color: #ccc;
 }
 .search__button {
@@ -210,6 +213,7 @@ header .avatar {
   cursor: pointer;
   font-size: 1.6rem;
   font-weight: bold;
+  letter-spacing: 2px;
   font-family: inherit;
   color: #333;
 }
@@ -236,6 +240,7 @@ header .avatar {
   display: block;
   cursor: pointer;
   font-size: 1.2rem;
+  letter-spacing: 1px;
   font-weight: bold;
   font-family: inherit;
   color: #555;

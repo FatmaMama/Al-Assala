@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import { Link, useLocation  } from 'react-router-dom';
+import { Link, useLocation, useParams  } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import Menu from '../layouts/Menu';
 import { getProducts } from '../../redux/actions/productActions';
@@ -8,11 +8,13 @@ import { getCategories } from '../../redux/actions/categoryActions';
 
 export default function AllProducts() {
 
-    const dispatch = useDispatch()
+    const dispatch = useDispatch();
+    const params = useParams()
 
     const location = useLocation();
     const category = new URLSearchParams(location.search).get('category') ? new URLSearchParams(location.search).get('category') : '';
-    const keyword = new URLSearchParams(location.search).get('keyword') ? new URLSearchParams(location.search).get('keyword') : '';
+    // const keyword = new URLSearchParams(location.search).get('keyword') ? new URLSearchParams(location.search).get('keyword') : '';
+    const keyword = params.keyword
     const currentPage = new URLSearchParams(location.search).get('currentPage') ? new URLSearchParams(location.search).get('currentPage') : 1;
 
     const { loading, products, productsCount, resPerPage, error } = useSelector(state => state.products);

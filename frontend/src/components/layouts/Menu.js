@@ -22,7 +22,7 @@ export default function Menu() {
                 <li key={category._id}>
                     
                         {category.parentId ? 
-                            <Link className='menu-item' to={`/products?category=${category._id}`}>{category.name}</Link>
+                            <Link className='menu-item' to={`/products?keyword=&page=1&category=${category._id}`}>{category.name}</Link>
                             :
                             <Link className='menu-head' to={`/products?category=${category._id}`}>
                                 {category.name}
