@@ -4,11 +4,11 @@ import { useDispatch, useSelector } from 'react-redux';
 import Menu from '../layouts/Menu';
 import { getProducts, clearErrors } from '../../redux/actions/productActions';
 import Loader from '../layouts/Loader';
-import ProductsDisplay from '../products/ProductsDisplay';
+import ProductsDisplay from './ProductsDisplay';
 import { notifyUser } from '../../redux/actions/notifyActions';
 import Alert from '../layouts/Alert';
 
-export default function AllProducts() {
+export default function ProductsByCategory() {
 
     const dispatch = useDispatch();
 
