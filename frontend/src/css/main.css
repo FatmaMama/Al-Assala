@@ -404,6 +404,11 @@ header .avatar {
   left: 4.6rem;
 }
 
+.text-area {
+  font-size: 1.4rem;
+  letter-spacing: 2px;
+}
+
 .order {
   font-size: 1.6rem;
 }

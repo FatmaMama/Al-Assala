@@ -21,9 +21,10 @@ export default function UpdateProduct() {
         price: 0,
         description: '',
         category: '',
-        color: ''
+        color: '',
+        sizeGuide: ''
     });
-    const { name, price, description, category, color } = productToUpdate;
+    const { name, price, description, category, color, sizeGuide } = productToUpdate;
 
     const [sizes, setSizes] = useState([]);
     const [sizeName, setSizeName] = useState('');
@@ -56,7 +57,8 @@ export default function UpdateProduct() {
                 price: product.price,
                 description: product.description,
                 category: product.category._id,
-                color: product.color
+                color: product.color,
+                sizeGuide: product.sizeGuide
             })
             setSizes(product.sizes);
             setColors(product.colors);
@@ -102,6 +104,7 @@ export default function UpdateProduct() {
         formData.set('description', description);
         formData.set('color', color);
         formData.set('category', category);
+        formData.set('sizeGuide', sizeGuide);
 
         formData.set('sizes', JSON.stringify(sizes));
         formData.set('colors', JSON.stringify(colors));
@@ -233,7 +236,7 @@ export default function UpdateProduct() {
 
                                         <div className="form-group mt-3">
                                             <label htmlFor="description_field">Description</label>
-                                            <textarea className="form-control" id="description_field" rows="8" name= "description"
+                                            <textarea className="form-control text-area" id="description_field" rows="5" name= "description"
                                             value={description} onChange={onChange}></textarea>
                                         </div>
 
@@ -262,6 +265,12 @@ export default function UpdateProduct() {
                                                 value={color}
                                                 onChange={onChange}
                                             />
+                                        </div>
+
+                                        <div className="form-group mt-3">
+                                            <label htmlFor="sizeGuide_field">Guide des tailles</label>
+                                            <textarea className="form-control" id="sizeGuide_field" rows="5" name= "sizeGuide"
+                                            value={sizeGuide} onChange={onChange}></textarea>
                                         </div>
 
                                         <div className="form-group mt-5">

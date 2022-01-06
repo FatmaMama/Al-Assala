@@ -20,9 +20,10 @@ export default function AddProduct() {
         price: 0,
         description: '',
         category: '',
-        color: ''
+        color: '',
+        sizeGuide: ''
     });
-    const { name, price, description, category, color } = product;
+    const { name, price, description, category, color, sizeGuide } = product;
 
     const [sizes, setSizes] = useState([]);
     const [sizeName, setSizeName] = useState('');
@@ -76,6 +77,7 @@ export default function AddProduct() {
         formData.set('description', description);
         formData.set('color', color);
         formData.set('category', category);
+        formData.set('sizeGuide', sizeGuide);
 
         formData.set('sizes', JSON.stringify(sizes));
         formData.set('colors', JSON.stringify(colors));
@@ -165,7 +167,7 @@ export default function AddProduct() {
 
                                         <div className="form-group mt-3">
                                             <label htmlFor="description_field">Description</label>
-                                            <textarea className="form-control" id="description_field" rows="8" name= "description"
+                                            <textarea className="form-control" id="description_field" rows="5" name= "description"
                                             value={description} onChange={onChange}></textarea>
                                         </div>
 
@@ -194,6 +196,12 @@ export default function AddProduct() {
                                                 value={color}
                                                 onChange={onChange}
                                             />
+                                        </div>
+
+                                        <div className="form-group mt-3">
+                                            <label htmlFor="sizeGuide_field">Guide des tailles</label>
+                                            <textarea className="form-control" id="sizeGuide_field" rows="5" name= "sizeGuide"
+                                            value={sizeGuide} onChange={onChange}></textarea>
                                         </div>
 
                                         <div className="form-group mt-5">

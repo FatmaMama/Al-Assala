@@ -20,6 +20,10 @@ const productSchema = new mongoose.Schema({
         required : [ true, 'Veuillez entrer la description du produit'],
     },
 
+    sizeGuide : {
+        type: String
+    },
+
     images : [
         {
             public_id: {
