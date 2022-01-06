@@ -24,6 +24,7 @@ import Statistics from './components/admin/stats/Statistics';
 import Settings from './components/admin/orders/Settings';
 import ProductsByCategory from './components/products/ProductsByCategory';
 import SearchProducts from './components/products/SearchProducts';
+import ProductDetails from './components/products/ProductDetails';
 
 
 function App() {
@@ -42,6 +43,7 @@ function App() {
           <Route path='/login' element={<Login/>} />
           <Route path='/register' element={<Register/>} />
           <Route path='/products' element={<ProductsByCategory/>} />
+          <Route path='/products/:id' element={<ProductDetails/>} />
           <Route path="/search/products" element={<SearchProducts/>} />
 
           <Route path='/dashboard' element={<Dashboard/>} />

@@ -484,6 +484,9 @@ header .avatar {
   box-shadow: 0 0.8rem 0.8rem rgba(51, 51, 51, 0.1);
   position: relative;
 }
+.product-cart__img-container {
+  position: relative;
+}
 .product-cart__img {
   width: 100%;
   height: 32rem;
@@ -491,6 +494,23 @@ header .avatar {
 }
 .product-cart__img:hover {
   transform: scale(1.05);
+}
+.product-cart__view {
+  display: none;
+  position: absolute;
+  top: 14rem;
+  background-color: #f0eeee;
+  opacity: 0.8;
+  color: #c92a2a;
+  width: 100%;
+  padding: 0.8rem;
+  font-size: 1.2rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  z-index: 5;
+}
+.product-cart__img-container:hover .product-cart__view {
+  display: block;
 }
 .product-cart__category {
   color: #999;
