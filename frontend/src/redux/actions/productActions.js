@@ -20,6 +20,9 @@ import { ADMIN_PRODUCTS_REQUEST,
     GET_SEARCH_PRODUCTS_REQUEST,
     GET_SEARCH_PRODUCTS_SUCCESS,
     GET_SEARCH_PRODUCTS_FAIL,
+    GET_PRODUCT_BY_COLOR_REQUEST,
+    GET_PRODUCT_BY_COLOR_SUCCESS,
+    GET_PRODUCT_BY_COLOR_FAIL,
     CLEAR_ERRORS} from '../constants/product_constants';
 
 export const getAdminProducts = () => async (dispatch) => {
@@ -85,6 +88,7 @@ export const getSearchProducts = (keyword='', currentPage = 1) => async (dispatc
     }
 };
 
+
 export const getProduct = (id) => async (dispatch) => {
     try {
         dispatch({type: GET_PRODUCT_REQUEST})
@@ -99,6 +103,26 @@ export const getProduct = (id) => async (dispatch) => {
     } catch (error) {
         dispatch({
             type: GET_PRODUCT_FAIL,
+            payload: error.response.data.message
+        })
+    }
+};
+
+
+export const getProductByColor = (color, name) => async (dispatch) => {
+    try {
+        dispatch({type: GET_PRODUCT_BY_COLOR_REQUEST})
+
+        const {data} = await axios.get(`/api/v1/products/${color}/${name}`);
+
+        dispatch({
+            type: GET_PRODUCT_BY_COLOR_SUCCESS,
+            payload: data.product
+        })
+        
+    } catch (error) {
+        dispatch({
+            type: GET_PRODUCT_BY_COLOR_FAIL,
             payload: error.response.data.message
         })
     }

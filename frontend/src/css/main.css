@@ -90,7 +90,7 @@ header .avatar {
 .search__result {
   position: absolute;
   top: 4.2rem;
-  background-color: #fdf6f6;
+  background-color: #fdf5f5;
   border-radius: 3px;
   width: 90%;
   padding: 1.2rem;
@@ -267,7 +267,7 @@ header .avatar {
 }
 .menu > ul > li > ul {
   position: absolute;
-  background-color: #fdf6f6;
+  background-color: #fdf5f5;
   padding: 1.2rem;
   flex-wrap: wrap;
   gap: 2.4rem;

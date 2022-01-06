@@ -22,6 +22,9 @@ import { ADMIN_PRODUCTS_REQUEST,
         GET_SEARCH_PRODUCTS_REQUEST,
         GET_SEARCH_PRODUCTS_SUCCESS,
         GET_SEARCH_PRODUCTS_FAIL,
+        GET_PRODUCT_BY_COLOR_REQUEST,
+        GET_PRODUCT_BY_COLOR_SUCCESS,
+        GET_PRODUCT_BY_COLOR_FAIL,
         CLEAR_ERRORS
         } from '../constants/product_constants';
 
@@ -139,17 +142,20 @@ export const newProductReducer = (state= { product: {}}, action) => {
 export const productDetailsReducer = (state= { product: {}}, action) => {
     switch (action.type) {
         case GET_PRODUCT_REQUEST:
+        case GET_PRODUCT_BY_COLOR_REQUEST: 
             return {
                 ...state,
                 loading: true
             }
         case GET_PRODUCT_SUCCESS:
+        case GET_PRODUCT_BY_COLOR_SUCCESS:
             return {
                 loading: false,
                 product: action.payload,
                 success: true
             }
         case GET_PRODUCT_FAIL:
+        case GET_PRODUCT_BY_COLOR_FAIL:
             return {
                 loading: false,
                 error: action.payload
