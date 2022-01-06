@@ -562,3 +562,76 @@ header .avatar {
   color: #eee;
   padding: 0 0.4rem;
 }
+
+.product {
+  display: flex;
+  justify-content: space-around;
+  margin-top: 3.8rem;
+  font-size: 1.4rem;
+}
+.product__main-img {
+  width: 100%;
+}
+.product__img {
+  width: 100%;
+  margin-bottom: 1.2rem;
+  opacity: 0.7;
+  overflow: hidden;
+  transition: all 0.3s;
+}
+.product__img:hover {
+  transform: scale(1.03);
+}
+.product__title {
+  font-size: 2.8rem;
+}
+.product__id {
+  font-size: 1rem;
+}
+.product__description {
+  font-size: 1.6rem;
+}
+.product__price {
+  font-size: 2.4rem;
+}
+.product__color-container, .product__size-container {
+  display: flex;
+  gap: 0.6rem;
+}
+.product__color {
+  width: 2rem;
+  height: 2rem;
+  border-radius: 50%;
+  border: 1px solid #ccc;
+}
+.product__size {
+  border: 1px solid #ccc;
+  padding: 0.2rem 0.6rem;
+}
+.product__add-container {
+  margin-top: 3.2rem;
+  display: flex;
+  gap: 2rem;
+}
+.product__qty-container {
+  flex: 1;
+  display: flex;
+  gap: 0.6rem;
+}
+.product__btn {
+  background-color: transparent;
+  color: #333;
+  border: 2px solid #ccc;
+  padding: 0.4rem 1.6rem;
+}
+.product__qty {
+  font-size: 1.8rem;
+}
+.product__add-btn {
+  flex: 2;
+  font-size: 2rem;
+  text-transform: uppercase;
+  background-color: #c92a2a;
+  border: none;
+  padding: 1.2rem 3.6rem;
+}
