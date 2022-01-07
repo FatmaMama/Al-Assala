@@ -1,7 +1,7 @@
 .product {
     display: flex;
     justify-content: space-around;
-    margin-top: 3.8rem;
+    margin-top: 4.6rem;
     font-size: 1.4rem;
 
     &__main-img {
@@ -49,8 +49,29 @@
     }
 
     &__size {
-        border: 1px solid $color-grey-light-4;
+       
         padding: .2rem .6rem;
+    }
+
+    &__outOfStock {
+        border: 1px solid $color-grey-light-4;
+    }
+
+
+    &__inStock {
+        border: 1px solid $color-grey-dark-1;
+        transition: all .2s;
+    }
+
+    &__inStock:hover {
+        background-color: $color-grey-dark-1;
+        color: $color-grey-light-1;
+        transform: scale(1.08)
+    }
+
+    &__activeSize {
+        background-color: $color-grey-dark-1;
+        color: $color-grey-light-1;
     }
 
     &__add-container {

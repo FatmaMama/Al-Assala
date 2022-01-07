@@ -566,7 +566,7 @@ header .avatar {
 .product {
   display: flex;
   justify-content: space-around;
-  margin-top: 3.8rem;
+  margin-top: 4.6rem;
   font-size: 1.4rem;
 }
 .product__main-img {
@@ -605,8 +605,23 @@ header .avatar {
   border: 1px solid #ccc;
 }
 .product__size {
-  border: 1px solid #ccc;
   padding: 0.2rem 0.6rem;
+}
+.product__outOfStock {
+  border: 1px solid #ccc;
+}
+.product__inStock {
+  border: 1px solid #333;
+  transition: all 0.2s;
+}
+.product__inStock:hover {
+  background-color: #333;
+  color: #eee;
+  transform: scale(1.08);
+}
+.product__activeSize {
+  background-color: #333;
+  color: #eee;
 }
 .product__add-container {
   margin-top: 3.2rem;
