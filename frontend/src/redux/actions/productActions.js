@@ -94,7 +94,7 @@ export const getProduct = (id) => async (dispatch) => {
         dispatch({type: GET_PRODUCT_REQUEST})
 
         const {data} = await axios.get(`/api/v1/products/${id}`);
-
+       
         dispatch({
             type: GET_PRODUCT_SUCCESS,
             payload: data.product
@@ -114,10 +114,10 @@ export const getProductByColor = (color, name) => async (dispatch) => {
         dispatch({type: GET_PRODUCT_BY_COLOR_REQUEST})
 
         const {data} = await axios.get(`/api/v1/products/${color}/${name}`);
-
+        
         dispatch({
             type: GET_PRODUCT_BY_COLOR_SUCCESS,
-            payload: data.product
+            payload: data.product[0]
         })
         
     } catch (error) {

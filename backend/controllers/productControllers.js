@@ -143,6 +143,9 @@ exports.getProductByColorName = catchAsync(async (req,res, next) => {
         return next(new AppError('Produit non trouvé', 404))
     };
 
+    // const product = productByColor[0];
+    // console.log('product Backend: ', product)
+
     res.status(200).json({
         success: true,
         product

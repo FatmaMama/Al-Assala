@@ -3,7 +3,7 @@ import thunk from 'redux-thunk';
 import { composeWithDevTools } from 'redux-devtools-extension';
 import { allUsersReducer, authReducer, userDetailsReducer, userReducer } from './reducers/userReducers';
 import { notifyReducer } from './reducers/notifyReducer';
-import { newProductReducer, productDetailsReducer, productReducer, productsReducer, searchProductsReducer } from './reducers/productReducers';
+import { newProductReducer, productDetailsByColorReducer, productDetailsReducer, productReducer, productsReducer, searchProductsReducer } from './reducers/productReducers';
 import { categoriesReducer, categoryDetailsReducer, categoryReducer, newCategoryReducer } from './reducers/categoryReducer';
 import { monthlyOrdersReducer, newOrderReducer, orderDetailsReducer, orderReducer, ordersReducer, todayYesterdayOrdersReducer, weeklyOrdersReducer } from './reducers/orderReducers';
 import { settingsReducer } from './reducers/settingsReducers';
@@ -15,6 +15,7 @@ const reducers = combineReducers({
     products: productsReducer,
     product: productReducer,
     productDetails: productDetailsReducer,
+    productDetailsByColor: productDetailsByColorReducer,
     newProduct: newProductReducer,
     searchProducts: searchProductsReducer,
 

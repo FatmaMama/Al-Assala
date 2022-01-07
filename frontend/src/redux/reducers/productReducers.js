@@ -142,19 +142,47 @@ export const newProductReducer = (state= { product: {}}, action) => {
 export const productDetailsReducer = (state= { product: {}}, action) => {
     switch (action.type) {
         case GET_PRODUCT_REQUEST:
-        case GET_PRODUCT_BY_COLOR_REQUEST: 
             return {
                 ...state,
                 loading: true
             }
         case GET_PRODUCT_SUCCESS:
-        case GET_PRODUCT_BY_COLOR_SUCCESS:
             return {
                 loading: false,
                 product: action.payload,
                 success: true
             }
         case GET_PRODUCT_FAIL:
+            return {
+                loading: false,
+                error: action.payload
+            }
+        case CLEAR_ERRORS:
+            return {
+                ...state,
+                error: null
+            }
+
+        default:
+            return state
+    }
+}
+
+export const productDetailsByColorReducer = (state= { productByColor: {}}, action) => {
+    switch (action.type) {
+        case GET_PRODUCT_BY_COLOR_REQUEST: 
+            return {
+                ...state,
+                loading: true
+            }
+        
+        case GET_PRODUCT_BY_COLOR_SUCCESS:
+            return {
+                loading: false,
+                productByColor: action.payload,
+                success: true
+            }
+        
         case GET_PRODUCT_BY_COLOR_FAIL:
             return {
                 loading: false,
