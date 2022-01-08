@@ -102,7 +102,9 @@ export default function ProductDetails() {
                             <div className='col-2 col-sm-2'>
                                 {productToDisplay && productToDisplay.images && productToDisplay.images.map(image => (
                                 <div key={image.public_id}>
-                                    <img className='product__img' key={image.public_id} src={image.url} alt="photo du produit" onClick={() => setMainImage(image.url)}/>
+                                    <img className={classNames('product__img', {
+                                            'product__activeImg' : image.url === mainImage
+                                        })} key={image.public_id} src={image.url} alt="photo du produit" onClick={() => setMainImage(image.url)}/>
                                 </div>
                                 ))} 
                             </div>

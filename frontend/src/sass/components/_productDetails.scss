@@ -16,6 +16,10 @@
         transition: all .3s;
     }
 
+    &__activeImg {
+        opacity: 1;
+    }
+
     &__img:hover {
         transform: scale(1.03)
     }
