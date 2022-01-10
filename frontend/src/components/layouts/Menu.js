@@ -46,7 +46,7 @@ export default function Menu() {
             {loading ? <Loader /> : (
                 <ul>
                     <button className='menu__btn sidebar-menu__btn' onClick={() => setIsShow(!isShow)} ></button>
-                    <h1>{console.log(isShow)} </h1>
+                    {/* <h1>{console.log(isShow)} </h1> */}
                     {categories && renderCategories(categories)}
                 </ul> 
             )}

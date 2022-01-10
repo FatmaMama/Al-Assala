@@ -1,25 +1,26 @@
 import React, { useEffect, useState, useMemo } from 'react'
 import { useDispatch, useSelector } from 'react-redux';
-import { useNavigate, useParams, useLocation } from 'react-router-dom'
+import { useNavigate, useParams } from 'react-router-dom'
 import { notifyUser } from '../../redux/actions/notifyActions';
 import { getProductByColor, clearErrors, getProduct } from '../../redux/actions/productActions';
 import Loader from '../layouts/Loader';
 import Menu from '../layouts/Menu';
+import Alert from '../layouts/Alert';
 import classNames from 'classnames';
+import { addToCart } from '../../redux/actions/cartActions';
 
 export default function ProductDetails() {
 
     const dispatch = useDispatch();
     const params = useParams();
-    const location = useLocation()
     const navigate = useNavigate();
 
     const [mainImage, setMainImage] = useState('');
     const [newColor, setNewColor] = useState('');
     const [newSize, setNewSize] = useState('');
+    const [newSizeStock, setNewSizeStock] = useState(0);
     const [quantity, setQuantity] = useState(1);
-    const [productToDisplay, setProductToDisplay] = useState({})
-   
+    const [productToDisplay, setProductToDisplay] = useState({});
 
     const { loading, product, error } = useSelector(state => state.productDetails);
     const { loading: byColorLoading, productByColor, error: byColorError } = useSelector(state => state.productDetailsByColor);
@@ -42,19 +43,6 @@ export default function ProductDetails() {
                 setMainImage(data.images[0].url)
             }
         }
-
-        // if(newColor === ''){
-        //     dispatch(getProduct(params.id));
-        //     if(product){
-        //         setProductToDisplay(product);
-        //     }
-        // } else if (product && newColor !== '') {
-        //     dispatch(getProductByColor(newColor, product.name));
-        //     if(productByColor){
-        //         console.log('productByColor', productByColor)
-        //         setProductToDisplay(productByColor[0])
-        //     }
-        // }
 
         if(error){
             dispatch(notifyUser(error, 'error'));
@@ -83,18 +71,28 @@ export default function ProductDetails() {
         setQuantity(qty)
     };
 
+    const setSizeAndStock = (size) => {
+        if(size.stock > 0){
+            setNewSize(size.sizeName); 
+            setNewSizeStock(size.stock)
+        } else {
+            setNewSize('');
+            setNewSizeStock(0)
+        }
+    };
+
+    const addItemToCart = () => {
+        dispatch(addToCart(productToDisplay._id, quantity, newSize, newSizeStock));
+    }
+
     return (
         <div>
             <Menu />
             {loading ? <Loader/> : (
                 
                 <div className="row  product">
+                    {error && <Alert message={message} messageType={messageType} /> }
                     <div className='col-12 col-lg-5'>
-                        
-                        <h1>{console.log('productByColor', productByColor)}</h1>
-                        <h1>{console.log('data', data)}</h1>
-                        <h1>{console.log("product to display: ", productToDisplay)} </h1>
-                        
                         <div className="row d-flex justify-content-around">
                             <div className=' col-9 col-sm-9'>
                                 <img src={mainImage} alt="photo du produit" className='product__main-img'/>
@@ -147,7 +145,7 @@ export default function ProductDetails() {
                                 <div className='product__size-container'>
                                     {productToDisplay && productToDisplay.sizes && productToDisplay.sizes.map(size => (
                                         <div key={size._id} 
-                                            onClick={() => size.stock > 0 ? setNewSize(size.sizeName) : setNewSize('')}
+                                            onClick={() => setSizeAndStock(size)}
                                             className={classNames('product__size', {
                                             'product__outOfStock' : size.stock <= 0,
                                             'product__inStock' : size.stock > 0,
@@ -169,7 +167,13 @@ export default function ProductDetails() {
                                 <input type="number" className="form-control product__qty" value={quantity} readOnly />
                                 <button className='product__btn' onClick={increaseQty}><i className="fas fa-plus"></i></button>
                             </div>
-                            <button type="button" className="product__add-btn">Ajouter au panier</button>
+                            <button type="button" 
+                                    className="product__add-btn"
+                                    onClick= {addItemToCart}
+                                    disabled={newSizeStock === 0 ? true : false}
+                            >
+                                Ajouter au panier
+                            </button>
                         </div>
                         
 
