@@ -6,19 +6,28 @@ import Menu from '../layouts/Menu';
 export default function Cart() {
 
     const {cartItems} = useSelector(state => state.cart);
-    // const {settings} = useSelector(state => state.settingsInfos)
+    const {settings} = useSelector(state => state.settingsInfos)
 
     const getCartCount = () => {
         return cartItems.reduce((qty, item) => Number(item.quantity) + qty, 0)
     };
 
-   
+    const getSubTotalPrice = () => {
+        return cartItems.reduce((total,item) => {
+            return item.salePrice === 0 ?
+                total + item.price * item.quantity
+            :
+                total + item.salePrice * item.quantity
+        }, 0)
+    }
+
+    const subTotalPrice = getSubTotalPrice()
 
     return (
         <div>
              <Menu />
              <div className='p-5'>
-                {cartItems.length === 0 ? <h2>Votre panier est vide...</h2> : (
+                {cartItems.length === 0 ? <h2 className='text-center'>Votre panier est vide...</h2> : (
                     <Fragment>
                         <h1>Votre panier: <b>{getCartCount()} Articles</b></h1>
         
@@ -79,7 +88,7 @@ export default function Cart() {
                             <div className='cart__summary'>
                                 <h2 className='text-center'>Total Panier</h2>
                                 <hr />
-                                <h4 className='cart__summary-item'>Sous-total:  <span className="order-summary-values"></span></h4>
+                                <h4 className='cart__summary-item'>Sous-total:  <span className="order-summary-values">{subTotalPrice.toFixed(2) + ' TND'}</span></h4>
                                 <h4 className='cart__summary-item'>Livraison:  <span className="order-summary-values">3 (Units)</span></h4>
                                 <hr/>
                                 <h4 className='cart__summary-item'>Total: <span className="order-summary-values">$765.56</span></h4>

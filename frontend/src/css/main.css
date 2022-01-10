@@ -679,6 +679,7 @@ header .avatar {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  margin: 1.4rem 0;
 }
 .cart__item {
   display: flex;
