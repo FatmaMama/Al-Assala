@@ -7,6 +7,7 @@ import { newProductReducer, productDetailsByColorReducer, productDetailsReducer,
 import { categoriesReducer, categoryDetailsReducer, categoryReducer, newCategoryReducer } from './reducers/categoryReducer';
 import { monthlyOrdersReducer, newOrderReducer, orderDetailsReducer, orderReducer, ordersReducer, todayYesterdayOrdersReducer, weeklyOrdersReducer } from './reducers/orderReducers';
 import { settingsReducer } from './reducers/settingsReducers';
+import { cartReducer } from './reducers/cartReducers';
 
 const reducers = combineReducers({
     auth: authReducer,
@@ -35,6 +36,8 @@ const reducers = combineReducers({
     todayYesterdayOrders: todayYesterdayOrdersReducer,
     weeklyOrders: weeklyOrdersReducer,
     monthlyOrders: monthlyOrdersReducer,
+
+    cart: cartReducer,
 
     settingsInfos: settingsReducer
 });

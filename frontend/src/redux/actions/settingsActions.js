@@ -3,7 +3,7 @@ import { GET_SETTINGS, SET_SETTINGS } from "../constants/settingsConstants";
 export const getSettings = () => (dispatch) => {
 
     const settings = JSON.parse(localStorage.getItem('settingsInfo'));
-    console.log('settings: ', settings)
+    
     dispatch({
         type : GET_SETTINGS,
         payload : settings

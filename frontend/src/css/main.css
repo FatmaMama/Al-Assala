@@ -245,11 +245,6 @@ header .avatar {
   align-items: center;
   position: relative;
 }
-@media only screen and (max-width: 900px) {
-  .menu > ul > li {
-    display: none;
-  }
-}
 .menu > ul > li > .menu-head {
   text-decoration: none;
   padding: 0 1.2rem;

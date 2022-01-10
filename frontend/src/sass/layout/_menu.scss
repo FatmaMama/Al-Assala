@@ -5,6 +5,12 @@
     border-bottom: 1px solid #ececec;
     box-shadow: 0 1px 1px -2px $color-grey-dark-1;
 
+    // @media only screen and (max-width: 900px) {
+    //     height: 100vh;
+    //     background-color: rgba(#000, 0.8);
+    
+    // }
+
     &__btn {
         display: none;
         border: none;
@@ -49,13 +55,34 @@
         justify-content: center;
         align-items: center;
         position: relative;
+
+        // @media only screen and (max-width: 900px) {
+        //     height: 100vh;
+        //     width: 30%;
+        //     background-color: bisque;
+        //     display: flex;
+        //     flex-direction: column;
+        //     justify-content: start;
+        //     align-items: flex-start;
+        //     gap: 2rem;
+        //     padding-left: 2rem;
+        //     // z-index: 5;
+        // }
     }
 
-    & > ul > li {
-        @media only screen and (max-width: 900px) {
-            display: none;
-         }
-    }
+    // @media only screen and (max-width: 900px) {
+    //     & > ul > li {
+    //         display: none;
+    //     }
+    //  }
+
+    // & > ul > .menu-show {
+    //     display: block;
+    // }
+
+    // & > ul > .menu-notShow {
+    //     display: none;
+    // }
 
     & > ul > li > .menu-head{
         text-decoration: none;
@@ -73,7 +100,6 @@
     & > ul > li > .menu-head:hover{
         color: $color-primary;
     }
-
 
     & > ul > li  > ul{
         position: absolute;
@@ -125,5 +151,28 @@
     & > ul > li  > ul > li:hover > .menu-item {
         color: $color-primary;
     }
+
+    // @media only screen and (max-width: 900px) {
+    //     &__btn {
+    //         display: block;
+    //     }
+
+    //     & > ul > .menu-show {
+    //         display: block;
+    //     }
+
+    //     &  > ul{
+    //         display: flex;
+    //         flex-direction: column;
+    //         gap: 7rem;
+    //         // justify-content: center;
+    //         // align-items: center;
+    //         // position: relative;
+    //     }
+    // }
     
+}
+
+@media only screen and (max-width: 900px) {
+   
 }

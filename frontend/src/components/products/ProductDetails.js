@@ -104,7 +104,10 @@ export default function ProductDetails() {
                                 <div key={image.public_id}>
                                     <img className={classNames('product__img', {
                                             'product__activeImg' : image.url === mainImage
-                                        })} key={image.public_id} src={image.url} alt="photo du produit" onClick={() => setMainImage(image.url)}/>
+                                        })} 
+                                        key={image.public_id} src={image.url} 
+                                        alt="photo du produit" 
+                                        onClick={() => setMainImage(image.url)}/>
                                 </div>
                                 ))} 
                             </div>
