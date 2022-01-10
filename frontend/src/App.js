@@ -25,6 +25,7 @@ import Settings from './components/admin/orders/Settings';
 import ProductsByCategory from './components/products/ProductsByCategory';
 import SearchProducts from './components/products/SearchProducts';
 import ProductDetails from './components/products/ProductDetails';
+import Cart from './components/cart/Cart';
 
 
 function App() {
@@ -45,6 +46,8 @@ function App() {
           <Route path='/products' element={<ProductsByCategory/>} />
           <Route path='/products/:id' element={<ProductDetails/>} />
           <Route path="/search/products" element={<SearchProducts/>} />
+
+          <Route path="/cart" element={<Cart/>} />
 
           <Route path='/dashboard' element={<Dashboard/>} />
           <Route path='/admin/products' element={<ProductsList/>} />

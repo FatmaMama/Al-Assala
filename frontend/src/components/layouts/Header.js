@@ -15,8 +15,8 @@ export default function Header() {
 
     const { user, loading, isLogout } = useSelector(state => state.auth);
     const { message, messageType } = useSelector(state => state.notify);
-
-    const {loading: productsLoading, searchProducts} = useSelector(state => state.searchProducts);
+    const { cartItems } = useSelector(state => state.cart);
+    const {searchProducts} = useSelector(state => state.searchProducts);
 
 
     useEffect(() => {
@@ -67,12 +67,10 @@ export default function Header() {
                                     <hr/>
                                 </div>
                             ))}
-                            {/* <Link to={`/search/products?keyword=${keyword}&page=1`} > */}
-                                <button type="submit" className='search__result__btn' >
-                                    <span className='text-center'>Voir tout<i className="fas fa-angle-double-right ms-2"></i></span>
-                                    <span className='float-end'>{searchProducts.length + ' résultats'}</span>
-                                </button>
-                            {/* </Link> */}
+                            <button type="submit" className='search__result__btn' >
+                                <span className='text-center'>Voir tout<i className="fas fa-angle-double-right ms-2"></i></span>
+                                <span className='float-end'>{searchProducts.length + ' résultats'}</span>
+                            </button>
                         </div>
                     }
                 </form>
@@ -80,10 +78,12 @@ export default function Header() {
                 <nav className="user-nav" >
                     <ul className="user-nav__list">
                         <li className="user-nav__item--1">
-                            <Link to='#' className="user-nav__link">
+                            <Link to='/cart' className="user-nav__link">
                                 {/* <i className="fas fa-shopping-bag user-nav__icon"></i> */}
                                 <i className="fas fa-shopping-cart user-nav__icon"></i>
-                                <span className="user-nav__notification">7</span>
+                                <span className="user-nav__notification">{cartItems && cartItems.reduce((acc,item) => {
+                                                                            return acc + item.quantity
+                                                                        },0)}</span>
                                 <span className="user-nav__text">Panier</span>
                             </Link>
                         </li>

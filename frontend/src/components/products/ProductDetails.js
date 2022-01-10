@@ -21,6 +21,7 @@ export default function ProductDetails() {
     const [newSizeStock, setNewSizeStock] = useState(0);
     const [quantity, setQuantity] = useState(1);
     const [productToDisplay, setProductToDisplay] = useState({});
+    const [successAdd, setSuccessAdd] = useState(false)
 
     const { loading, product, error } = useSelector(state => state.productDetails);
     const { loading: byColorLoading, productByColor, error: byColorError } = useSelector(state => state.productDetailsByColor);
@@ -83,6 +84,9 @@ export default function ProductDetails() {
 
     const addItemToCart = () => {
         dispatch(addToCart(productToDisplay._id, quantity, newSize, newSizeStock));
+        setSuccessAdd(true)
+        dispatch(notifyUser(`${productToDisplay.name} a été ajouté à votre panier`, 'success'))
+        setTimeout(() => setSuccessAdd(false), 4000)
     }
 
     return (
@@ -91,11 +95,11 @@ export default function ProductDetails() {
             {loading ? <Loader/> : (
                 
                 <div className="row  product">
-                    {error && <Alert message={message} messageType={messageType} /> }
+                    {(error || successAdd) && <Alert message={message} messageType={messageType} /> }
                     <div className='col-12 col-lg-5'>
                         <div className="row d-flex justify-content-around">
                             <div className=' col-9 col-sm-9'>
-                                <img src={mainImage} alt="photo du produit" className='product__main-img'/>
+                                <img src={mainImage} alt={productToDisplay.name} className='product__main-img'/>
                             </div>
                             <div className='col-2 col-sm-2'>
                                 {productToDisplay && productToDisplay.images && productToDisplay.images.map(image => (
@@ -121,7 +125,17 @@ export default function ProductDetails() {
                         <p>{productToDisplay && productToDisplay.description}</p>
                         <hr/>
 
-                        <p className='product__price'>{`${productToDisplay && productToDisplay.price} TND`}</p>
+                        
+                        <div>
+                            {product.sale === 0 ?  <p className='product__price'>{`${productToDisplay && productToDisplay.price} TND`}</p>
+                            : (
+                                <div className='product__price-container'>
+                                    <span className='product-cart__sale'>{`-${product.sale * 100}%`} </span>
+                                    <span className='product__price'>{`${(product.price * (1 - product.sale)).toFixed(2)} TND`}</span>
+                                    <span className='product-cart__prev-price'>{product.price + ' TND'} </span>
+                                </div>
+                            )}
+                        </div>
 
                         <div className='row'>
                             <div className='col-6 col-md-6'>
@@ -175,7 +189,7 @@ export default function ProductDetails() {
                                 Ajouter au panier
                             </button>
                         </div>
-                        
+                        {successAdd && <Alert message={message} messageType={messageType}/>}
 
                     </div>
                 </div>

@@ -36,6 +36,13 @@
         font-size: 1.6rem;
     }
 
+    &__price-container {
+        display: flex;
+        align-items: center;
+        gap: 3rem;
+        margin-bottom: 2.4rem;
+    }
+
     &__price {
         font-size: 2.4rem;
     }
@@ -80,6 +87,7 @@
 
     &__add-container {
         margin-top: 3.2rem;
+        margin-bottom: 2.4rem;
         display: flex;
         gap: 2rem;
     }
@@ -99,6 +107,13 @@
 
     &__qty {
         font-size: 1.8rem;
+        text-align: center;
+        min-width: 4rem;
+
+        &::-webkit-outer-spin-button, &::-webkit-inner-spin-button {
+            -webkit-appearance: none;
+            margin: 0;
+        }
     }
 
     &__add-btn {
@@ -109,4 +124,80 @@
         border: none;
         padding: 1.2rem 3.6rem;
     }
+}
+
+.cart {
+    display: flex;
+    justify-content: space-between;
+
+    &__container {
+        width: 75%;
+    }
+
+    &__summary {
+        width: 22%;
+        border: 2px solid $color-grey-light-4;
+        padding: 1.2rem;
+        align-self: flex-start;
+    }
+
+    &__summary-item {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    &__item {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        position: relative;
+    }
+
+    &__img {
+        max-width: 9rem;
+        max-height: 10rem;
+    }
+
+    &__name, &__price {
+        text-decoration: none;
+        color: $color-grey-dark-1;
+        font-size: 1.8rem;
+    }
+
+    &__color, &__size {
+        font-size: 1.4rem;
+        text-transform: uppercase;
+    }
+
+    &__qty-container{
+        display: flex;
+        gap: .5rem;
+    }
+
+    &__btn{
+        border: 2px solid $color-grey-light-4;
+        background-color: transparent;
+        padding: 0 .5rem;
+    }
+
+    &__qty{
+        max-width: 3rem;
+        text-align: center;
+        font-size: 1.2rem;
+        font-weight: 700;
+
+        &::-webkit-outer-spin-button, &::-webkit-inner-spin-button {
+            -webkit-appearance: none;
+            margin: 0;
+        }
+    }
+
+    &__delete {
+        position: absolute;
+        color: $color-primary;
+        font-size: 1.4rem;
+        left: 95rem;
+    }
+
 }

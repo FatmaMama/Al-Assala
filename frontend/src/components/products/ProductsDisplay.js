@@ -36,10 +36,12 @@ export default function ProductsDisplay({ products, productsCount, resPerPage })
                             </div>
                         </div>
                        
-                        <button className='product-cart__button'>
-                            <i className="fas fa-cart-plus me-2"></i>
-                            Ajouter au panier
-                        </button>
+                        <Link to={`/products/${product._id}`} >
+                            <button className='product-cart__button'>
+                                <i className="fas fa-cart-plus me-2"></i>
+                                Ajouter au panier
+                            </button>
+                        </Link>
                     </div>
                 ))}
             </div>

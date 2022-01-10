@@ -3,10 +3,14 @@ import { ADD_TO_CART } from "../constants/cartConstants";
 
 export const addToCart = (id, quantity, size, stock) => async (dispatch, getState) => {
     const {data} = await axios.get(`/api/v1/products/${id}`);
-    console.log('product: ', data.product.name);
-    console.log('size: ', size);
-    console.log('quatity: ', quantity);
-    console.log('stock: ', stock)
+    
+    let salePrice;
+    if(data.product.sale !== 0){
+        salePrice = data.product.price * (1 - data.product.sale)
+    } else {
+        salePrice = 0
+    }
+
     dispatch ({
         type: ADD_TO_CART,
         payload: {
@@ -14,6 +18,8 @@ export const addToCart = (id, quantity, size, stock) => async (dispatch, getStat
             name: data.product.name,
             image: data.product.images[0].url,
             color: data.product.color,
+            price: data.product.price,
+            salePrice,
             size,
             quantity,
             stock
