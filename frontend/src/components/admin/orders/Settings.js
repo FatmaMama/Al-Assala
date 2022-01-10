@@ -7,8 +7,6 @@ export default function Settings() {
 
     const dispatch = useDispatch();
 
-    
-
     const [newSettings, setNewSettings] = useState({
         shippingPrice : 0,
         shippingFreeLimit : 0,
@@ -48,7 +46,7 @@ export default function Settings() {
                     <div className='row'>
                         <div className='col-12 col-lg-6 px-5 mt-5'>
                             <h1 className="pb-3">Paramètres de Livraison</h1>
-                            <h1>{console.log(settings)}</h1>
+                           
                             <div className="form-group">
                                 <label htmlFor="shippingPrice_field">Frais de Livraison:</label>
                                 <input 

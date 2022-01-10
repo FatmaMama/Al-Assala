@@ -660,6 +660,10 @@ header .avatar {
   background-color: #c92a2a;
   border: none;
   padding: 1.2rem 3.6rem;
+  transition: all 0.2s;
+}
+.product__add-btn:hover {
+  transform: scale(1.05);
 }
 
 .cart {
@@ -668,18 +672,6 @@ header .avatar {
 }
 .cart__container {
   width: 75%;
-}
-.cart__summary {
-  width: 22%;
-  border: 2px solid #ccc;
-  padding: 1.2rem;
-  align-self: flex-start;
-}
-.cart__summary-item {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin: 1.4rem 0;
 }
 .cart__item {
   display: flex;
@@ -724,4 +716,33 @@ header .avatar {
   color: #c92a2a;
   font-size: 1.4rem;
   left: 95rem;
+}
+.cart__summary {
+  width: 22%;
+  border: 2px solid #ccc;
+  padding: 1.6rem;
+  align-self: flex-start;
+}
+.cart__summary-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 1.4rem 0;
+  font-size: 1.8rem;
+}
+.cart__summary-value {
+  font-weight: 400;
+}
+.cart__btn-order {
+  width: 100%;
+  border: none;
+  background-color: #c92a2a;
+  font-size: 2rem;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  padding: 0.8rem;
+  transition: all 0.2s;
+}
+.cart__btn-order:hover {
+  transform: scale(1.05);
 }

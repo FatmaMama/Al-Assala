@@ -1,12 +1,19 @@
-import React, {Fragment} from 'react';
-import { useSelector } from 'react-redux';
+import React, {Fragment, useEffect} from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
+import { getSettings } from '../../redux/actions/settingsActions';
 import Menu from '../layouts/Menu';
 
 export default function Cart() {
 
+    const dispatch = useDispatch();
+
     const {cartItems} = useSelector(state => state.cart);
     const {settings} = useSelector(state => state.settingsInfos)
+
+    // useEffect(()=>{
+    //     dispatch(getSettings())
+    // }, [dispatch])
 
     const getCartCount = () => {
         return cartItems.reduce((qty, item) => Number(item.quantity) + qty, 0)
@@ -21,7 +28,15 @@ export default function Cart() {
         }, 0)
     }
 
-    const subTotalPrice = getSubTotalPrice()
+    const subTotalPrice = getSubTotalPrice();
+
+    const handleShippingPrice = () => {
+        const today = new Date();
+        console.log(today <= settings.shippingDuration)
+        return settings && subTotalPrice >=  settings.shippingFreeLimit && today <= new Date(settings.shippingDuration) ? '0.00' : settings.shippingPrice
+    }
+
+    const newShippingPrice = handleShippingPrice()
 
     return (
         <div>
@@ -88,17 +103,19 @@ export default function Cart() {
                             <div className='cart__summary'>
                                 <h2 className='text-center'>Total Panier</h2>
                                 <hr />
-                                <h4 className='cart__summary-item'>Sous-total:  <span className="order-summary-values">{subTotalPrice.toFixed(2) + ' TND'}</span></h4>
-                                <h4 className='cart__summary-item'>Livraison:  <span className="order-summary-values">3 (Units)</span></h4>
+                                <h4 className='cart__summary-item'>Sous-total:  <span className='cart__summary-value'>{subTotalPrice.toFixed(2) + ' TND'}</span></h4>
+                                <h4 className='cart__summary-item'>Livraison:  <span className='cart__summary-value'>{newShippingPrice + ' TND'}</span></h4>
                                 <hr/>
-                                <h4 className='cart__summary-item'>Total: <span className="order-summary-values">$765.56</span></h4>
+                                <h4 className='cart__summary-item'>Total: <span className='cart__summary-value'>{(subTotalPrice + Number(newShippingPrice)).toFixed(2) + ' TND'}</span></h4>
                     
                                 <hr />
-                                <button  className="cart__btn">Commander</button>
+                                <button  className="cart__btn-order">Commander</button>
                             </div>
                         </div>
                     </Fragment>
                  )}
+
+                <button  className="cart__btn-shopBack">Continuer Vos Achats</button>
                 
              </div>
         </div>

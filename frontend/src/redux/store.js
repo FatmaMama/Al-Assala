@@ -57,7 +57,9 @@ if(localStorage.getItem('settingsInfo') == null){
 }
 
 const initialState = {
-    settingsInfos : JSON.parse(localStorage.getItem('settingsInfo')),
+    settingsInfos : {
+        settings : JSON.parse(localStorage.getItem('settingsInfo'))
+    },
     cart : {
         cartItems : localStorage.getItem('cartItems') ? JSON.parse(localStorage.getItem('cartItems')) : []
     }
