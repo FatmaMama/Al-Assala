@@ -1,0 +1,132 @@
+.cart {
+    display: flex;
+    justify-content: space-between;
+
+    &__container {
+        width: 70%;
+    }
+
+    &__item {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        position: relative;
+    }
+
+    &__img {
+        max-width: 9rem;
+        max-height: 10rem;
+    }
+
+    &__name, &__price {
+        text-decoration: none;
+        color: $color-grey-dark-1;
+        font-size: 1.8rem;
+
+        &:hover {
+            color: $color-grey-dark-1;
+        }
+    }
+
+    &__color, &__size {
+        font-size: 1.4rem;
+        text-transform: uppercase;
+    }
+
+    &__qty-container{
+        display: flex;
+        gap: .5rem;
+    }
+
+    &__btn{
+        border: 2px solid $color-grey-light-4;
+        background-color: transparent;
+        padding: 0 .5rem;
+    }
+
+    &__qty{
+        max-width: 3rem;
+        text-align: center;
+        font-size: 1.2rem;
+        font-weight: 700;
+
+        &::-webkit-outer-spin-button, &::-webkit-inner-spin-button {
+            -webkit-appearance: none;
+            margin: 0;
+        }
+    }
+
+    &__delete {
+        position: absolute;
+        color: $color-primary;
+        font-size: 1.4rem;
+        left: 96%;
+    }
+
+    &__summary {
+        width: 26%;
+        border: 2px solid $color-grey-light-4;
+        padding: 1.6rem;
+        align-self: flex-start;
+    }
+
+    &__summary-item {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin: 2rem 0;
+        font-size: 1.8rem;
+        font-weight: 400;
+    }
+
+    &__summary-saleValue {
+        color: $color-primary;
+        font-size: 1.6rem;
+    }
+
+    &__summary-afterSaleValue, &__summary-totalValue {
+        font-weight: 600;
+    }
+
+    &__coupon {
+        background-color: $color-grey-light-3;
+        padding: 1.6rem;
+    }
+
+    &__input-sale {
+        font-size: 1.4rem;
+        letter-spacing: 2px;
+    }
+
+    &__btn-sale {
+        font-size: 1.4rem;
+        border: none;
+        width: 50%;
+        padding: .6rem;
+        margin-left: .5rem;
+    }
+
+    &__btn-order {
+        width: 100%;
+        border: none;
+        background-color: $color-primary;
+        font-size: 2rem;
+        text-transform: uppercase;
+        letter-spacing: 2px;
+        padding: .8rem;
+        transition: all .2s;
+
+        &:hover {
+            transform: scale(1.05);
+        }
+    }
+
+    &__btn-shopBack {
+        border: none;
+        background-color: $color-primary;
+        font-size: 1.8rem;
+        padding: .4rem 2.4rem;
+        margin-top: 1.8rem;
+    }
+
+}

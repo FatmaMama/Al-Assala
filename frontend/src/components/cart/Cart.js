@@ -1,19 +1,21 @@
-import React, {Fragment, useEffect} from 'react';
+import React, {Fragment, useEffect, useState} from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
+import { addToCart } from '../../redux/actions/cartActions';
 import { getSettings } from '../../redux/actions/settingsActions';
 import Menu from '../layouts/Menu';
+import Alert from '../layouts/Alert';
 
 export default function Cart() {
 
     const dispatch = useDispatch();
 
-    const {cartItems} = useSelector(state => state.cart);
-    const {settings} = useSelector(state => state.settingsInfos)
+    const [userCoupon, setUserCoupon] = useState('');
+    const [newSubtotalPrice, setNewSubtotalPrice ] = useState(0);
 
-    // useEffect(()=>{
-    //     dispatch(getSettings())
-    // }, [dispatch])
+    const {cartItems} = useSelector(state => state.cart);
+    const {settings} = useSelector(state => state.settingsInfos);
+    const { shippingPrice, shippingFreeLimit, shippingDuration, coupon, saleCoupon, saleDuration} = settings;
 
     const getCartCount = () => {
         return cartItems.reduce((qty, item) => Number(item.quantity) + qty, 0)
@@ -32,11 +34,32 @@ export default function Cart() {
 
     const handleShippingPrice = () => {
         const today = new Date();
-        console.log(today <= settings.shippingDuration)
-        return settings && subTotalPrice >=  settings.shippingFreeLimit && today <= new Date(settings.shippingDuration) ? '0.00' : settings.shippingPrice
+        console.log(today <= shippingDuration)
+        return settings && subTotalPrice >=  shippingFreeLimit && today <= new Date(shippingDuration) ? '0.00' : shippingPrice
     }
 
-    const newShippingPrice = handleShippingPrice()
+    const newShippingPrice = handleShippingPrice();
+
+    const increaseQty = (id, quantity, size, stock) => {
+        const newQty = quantity + 1
+
+        if(newQty > stock) return ;
+        dispatch(addToCart(id,newQty, size, stock))
+    };
+
+    const decreaseQty = (id, quantity, size, stock) => {
+        const newQty = quantity - 1
+
+        if(newQty < 1) return ;
+        dispatch(addToCart(id,newQty, size, stock))
+    };
+
+    const getNewSubtotalPrice = () => {
+        userCoupon === coupon && new Date() <= new Date(saleDuration) ?
+        setNewSubtotalPrice((subTotalPrice * (1 - saleCoupon)).toFixed(2))
+        :
+        setNewSubtotalPrice(0)
+    }
 
     return (
         <div>
@@ -82,9 +105,13 @@ export default function Cart() {
 
                                                 <div className="col-3 col-md-2 mt-4 mt-md-0">
                                                     <div className="cart__qty-container">
-                                                        <button className='cart__btn' ><i className="fas fa-minus"></i></button>
+                                                        <button className='cart__btn' onClick={() => decreaseQty(item.product, item.quantity, item.size, item.stock)}>
+                                                            <i className="fas fa-minus"></i>
+                                                        </button>
                                                         <input type="number" className="form-control cart__qty" value={item.quantity} readOnly />
-                                                        <button className='cart__btn' ><i className="fas fa-plus"></i></button>
+                                                        <button className='cart__btn' onClick={() => increaseQty(item.product, item.quantity, item.size, item.stock)}>
+                                                            <i className="fas fa-plus"></i>
+                                                        </button>
                                                     </div>
                                                 </div>
 
@@ -104,10 +131,32 @@ export default function Cart() {
                                 <h2 className='text-center'>Total Panier</h2>
                                 <hr />
                                 <h4 className='cart__summary-item'>Sous-total:  <span className='cart__summary-value'>{subTotalPrice.toFixed(2) + ' TND'}</span></h4>
+
+                                <div className='cart__summary-item cart__coupon'>
+                                    <input type='text' className='form-control cart__input-sale' placeholder='Code Promo ?' onChange={(e) => setUserCoupon(e.target.value)}/>
+                                    <button className='cart__btn-sale' data-bs-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample" onClick={getNewSubtotalPrice}>Appliquer</button>
+                                </div>
+
+                                <div class="collapse" id="collapseExample">
+                                    {userCoupon === coupon && new Date() <= new Date(saleDuration) ? 
+                                    <div>
+                                        <hr/>
+                                        <h4 className='cart__summary-item'>Réduction:  
+                                            <span className='cart__summary-saleValue'>{`- ${saleCoupon * 100}%`}</span>
+                                        </h4>
+                                        <h4 className='cart__summary-item'>Nouveau sous-total:  
+                                            <span className='cart__summary-afterSaleValue'>{newSubtotalPrice + ' TND'}</span>
+                                        </h4>
+                                        <hr/>
+                                    </div>
+                                    :
+                                    <Alert message={"Code promo n'est pas valide"}  messageType={"error"} />
+                                    }
+                                </div>
+                                
                                 <h4 className='cart__summary-item'>Livraison:  <span className='cart__summary-value'>{newShippingPrice + ' TND'}</span></h4>
                                 <hr/>
-                                <h4 className='cart__summary-item'>Total: <span className='cart__summary-value'>{(subTotalPrice + Number(newShippingPrice)).toFixed(2) + ' TND'}</span></h4>
-                    
+                                <h4 className='cart__summary-item'>Total: <span className='cart__summary-totalValue'>{newSubtotalPrice !== 0 ? (Number(newSubtotalPrice) + Number(newShippingPrice)).toFixed(2) + ' TND' : (subTotalPrice + Number(newShippingPrice)).toFixed(2) + ' TND'}</span></h4>
                                 <hr />
                                 <button  className="cart__btn-order">Commander</button>
                             </div>
@@ -115,8 +164,9 @@ export default function Cart() {
                     </Fragment>
                  )}
 
-                <button  className="cart__btn-shopBack">Continuer Vos Achats</button>
-                
+                <Link to='/' >
+                    <button  className="cart__btn-shopBack"><i className="fas fa-angle-double-left me-3"></i>Continuer Vos Achats</button>
+                </Link>
              </div>
         </div>
     )
