@@ -670,8 +670,19 @@ header .avatar {
   display: flex;
   justify-content: space-between;
 }
+@media only screen and (max-width: 1200px) {
+  .cart {
+    flex-direction: column;
+  }
+}
 .cart__container {
   width: 70%;
+}
+@media only screen and (max-width: 1200px) {
+  .cart__container {
+    width: 90%;
+    margin: auto;
+  }
 }
 .cart__item {
   display: flex;
@@ -726,6 +737,12 @@ header .avatar {
   padding: 1.6rem;
   align-self: flex-start;
 }
+@media only screen and (max-width: 1200px) {
+  .cart__summary {
+    width: 90%;
+    margin: auto;
+  }
+}
 .cart__summary-item {
   display: flex;
   justify-content: space-between;
@@ -775,4 +792,10 @@ header .avatar {
   font-size: 1.8rem;
   padding: 0.4rem 2.4rem;
   margin-top: 1.8rem;
+}
+
+@media only screen and (max-width: 1200px) {
+  .cart-title {
+    margin-left: 5rem;
+  }
 }

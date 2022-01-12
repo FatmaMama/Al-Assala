@@ -2,8 +2,17 @@
     display: flex;
     justify-content: space-between;
 
+    @media only screen and (max-width: 1200px) {
+        flex-direction: column;
+    }
+
     &__container {
         width: 70%;
+
+        @media only screen and (max-width: 1200px) {
+            width: 90%;
+            margin: auto;
+        }
     }
 
     &__item {
@@ -68,6 +77,11 @@
         border: 2px solid $color-grey-light-4;
         padding: 1.6rem;
         align-self: flex-start;
+
+        @media only screen and (max-width: 1200px) {
+            width: 90%;
+            margin: auto;
+        }
     }
 
     &__summary-item {
@@ -128,5 +142,10 @@
         padding: .4rem 2.4rem;
         margin-top: 1.8rem;
     }
+}
 
+@media only screen and (max-width: 1200px) {
+    .cart-title {
+        margin-left: 5rem;
+    }
 }
