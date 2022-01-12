@@ -8,6 +8,8 @@ import Menu from '../layouts/Menu';
 import Alert from '../layouts/Alert';
 import classNames from 'classnames';
 import { addToCart } from '../../redux/actions/cartActions';
+import ReactImageMagnify from 'react-image-magnify';
+import { TransformWrapper, TransformComponent} from 'react-zoom-pan-pinch'
 
 export default function ProductDetails() {
 

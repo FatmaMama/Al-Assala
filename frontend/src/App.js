@@ -26,6 +26,7 @@ import ProductsByCategory from './components/products/ProductsByCategory';
 import SearchProducts from './components/products/SearchProducts';
 import ProductDetails from './components/products/ProductDetails';
 import Cart from './components/cart/Cart';
+import MyOrders from './components/user/MyOrders';
 
 
 function App() {
@@ -43,6 +44,8 @@ function App() {
           <Route path='/'  element={<Home/>} />
           <Route path='/login' element={<Login/>} />
           <Route path='/register' element={<Register/>} />
+          <Route path='/user/orders' element={<MyOrders/>} />
+
           <Route path='/products' element={<ProductsByCategory/>} />
           <Route path='/products/:id' element={<ProductDetails/>} />
           <Route path="/search/products" element={<SearchProducts/>} />

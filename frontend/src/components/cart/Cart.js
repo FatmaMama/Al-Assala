@@ -1,7 +1,7 @@
 import React, {Fragment, useEffect, useState} from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
-import { addToCart } from '../../redux/actions/cartActions';
+import { addToCart, removeFromCart } from '../../redux/actions/cartActions';
 import { getSettings } from '../../redux/actions/settingsActions';
 import Menu from '../layouts/Menu';
 import Alert from '../layouts/Alert';
@@ -59,7 +59,11 @@ export default function Cart() {
         setNewSubtotalPrice((subTotalPrice * (1 - saleCoupon)).toFixed(2))
         :
         setNewSubtotalPrice(0)
-    }
+    };
+
+    const removeItemHandler = (id, size) => {
+        dispatch(removeFromCart(id, size))
+    };
 
     return (
         <div>
@@ -115,7 +119,7 @@ export default function Cart() {
                                                     </div>
                                                 </div>
 
-                                                <div className="cart__delete">
+                                                <div className="cart__delete" onClick={()=>{removeItemHandler(item.product, item.size)}}>
                                                     <i className="fa fa-trash"></i>
                                                 </div>
 

@@ -104,7 +104,7 @@ export default function Header() {
                                             </li>
                                         )} 
                                         <li>
-                                            <Link  to="/orders/me" className="dropdown-item">Commandes</Link>
+                                            <Link  to="/user/orders" className="dropdown-item">Commandes</Link>
                                         </li>
                                         <li>
                                             <Link to="/me" className="dropdown-item">Profil</Link>
