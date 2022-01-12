@@ -5,7 +5,7 @@ import { logout } from '../../redux/actions/userActions';
 import { notifyUser } from '../../redux/actions/notifyActions';
 import { LOGOUT_RESET } from '../../redux/constants/userConstants';
 import Alert from './Alert';
-import { getProducts, getSearchProducts } from '../../redux/actions/productActions';
+import { getSearchProducts } from '../../redux/actions/productActions';
 
 export default function Header() {
     const dispatch= useDispatch();

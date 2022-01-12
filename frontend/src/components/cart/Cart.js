@@ -1,8 +1,7 @@
-import React, {Fragment, useEffect, useState} from 'react';
+import React, {Fragment, useState} from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
 import { addToCart, removeFromCart } from '../../redux/actions/cartActions';
-import { getSettings } from '../../redux/actions/settingsActions';
 import Menu from '../layouts/Menu';
 import Alert from '../layouts/Alert';
 
@@ -138,7 +137,7 @@ export default function Cart() {
 
                                 <div className='cart__summary-item cart__coupon'>
                                     <input type='text' className='form-control cart__input-sale' placeholder='Code Promo ?' onChange={(e) => setUserCoupon(e.target.value)}/>
-                                    <button className='cart__btn-sale' data-bs-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample" onClick={getNewSubtotalPrice}>Appliquer</button>
+                                    <button className='cart__btn-sale' data-bs-toggle="collapse" href="#collapseExample" aria-expanded="false" aria-controls="collapseExample" onClick={getNewSubtotalPrice}>Appliquer</button>
                                 </div>
 
                                 <div class="collapse" id="collapseExample">

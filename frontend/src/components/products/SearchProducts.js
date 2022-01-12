@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import { Link, useLocation } from 'react-router-dom';
+import { useLocation } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import Menu from '../layouts/Menu';
 import { getSearchProducts, clearErrors } from '../../redux/actions/productActions';
@@ -33,14 +33,7 @@ export default function SearchProducts() {
             {error && <Alert message={message} messageType={messageType} />}
 
             {loading ? <Loader/> : (
-                // <div>
-                // {searchProducts && searchProducts.map(product => (
-                //     <div key={product._id}>
-                //        <h1>{product.name} </h1>
-                //     </div>
-                // ))}
                 <ProductsDisplay products={searchProducts} productsCount={productsCount} resPerPage={resPerPage}/>
-                // </div>
             )}
         </div>
     )

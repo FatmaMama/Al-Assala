@@ -8,8 +8,8 @@ import Menu from '../layouts/Menu';
 import Alert from '../layouts/Alert';
 import classNames from 'classnames';
 import { addToCart } from '../../redux/actions/cartActions';
-import ReactImageMagnify from 'react-image-magnify';
-import { TransformWrapper, TransformComponent} from 'react-zoom-pan-pinch'
+// import ReactImageMagnify from 'react-image-magnify';
+// import { TransformWrapper, TransformComponent} from 'react-zoom-pan-pinch'
 
 export default function ProductDetails() {
 
@@ -26,7 +26,7 @@ export default function ProductDetails() {
     const [successAdd, setSuccessAdd] = useState(false)
 
     const { loading, product, error } = useSelector(state => state.productDetails);
-    const { loading: byColorLoading, productByColor, error: byColorError } = useSelector(state => state.productDetailsByColor);
+    const { productByColor } = useSelector(state => state.productDetailsByColor);
     const { message, messageType } = useSelector(state => state.notify);
 
     const data = useMemo(()=>(productByColor), [productByColor._id]);
@@ -52,7 +52,7 @@ export default function ProductDetails() {
             setTimeout(() => dispatch(clearErrors()), 5000)
         };
 
-    }, [dispatch, params, JSON.stringify(product), data, newColor,  navigate]);
+    }, [dispatch, params, error, product, data, newColor,  navigate]);
 
     const increaseQty = () => {
         const count = document.querySelector('.product__qty');
@@ -110,7 +110,7 @@ export default function ProductDetails() {
                                             'product__activeImg' : image.url === mainImage
                                         })} 
                                         key={image.public_id} src={image.url} 
-                                        alt="photo du produit" 
+                                        alt={image.public_id} 
                                         onClick={() => setMainImage(image.url)}/>
                                 </div>
                                 ))} 
