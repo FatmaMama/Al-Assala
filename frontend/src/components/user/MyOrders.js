@@ -66,7 +66,7 @@ export default function MyOrders() {
                 : <p style={{color : 'red'}}>{order.orderStatus}</p>,
                 actions : 
                 <Fragment>
-                    <Link to={`/admin/orders/${order._id}`} className="btn py-1 px-2 me-3 fs-4 bg-primary">
+                    <Link to={`/user/orders/${order._id}`} className="btn py-1 px-2 me-3 fs-4 bg-primary">
                         <i className="fa fa-eye"></i>
                     </Link>
                 </Fragment>

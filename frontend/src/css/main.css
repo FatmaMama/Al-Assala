@@ -32,6 +32,21 @@ form {
   font-size: 1.6rem;
 }
 
+.btn--1 {
+  text-transform: uppercase;
+  font-weight: 500;
+  font-size: 1.8rem;
+  letter-spacing: 2px;
+  background-color: #c92a2a;
+  border-color: #c92a2a;
+  width: 100%;
+  padding: 0.8rem;
+  transition: all 0.2s;
+}
+.btn--1:hover {
+  transform: scale(1.05);
+}
+
 header {
   background-color: #eee;
   display: flex;
@@ -325,9 +340,9 @@ header .avatar {
 }
 .wrapper__button {
   text-transform: uppercase;
-  font-weight: 700;
+  font-weight: 600;
   font-size: 1.8rem;
-  letter-spacing: 1.4px;
+  letter-spacing: 2px;
   background-color: #c92a2a;
   border-color: #c92a2a;
 }
@@ -426,6 +441,57 @@ header .avatar {
   font-weight: 700;
   padding: 0.8rem 5.2rem;
   margin-bottom: 2.4rem;
+}
+
+.steps {
+  display: flex;
+  justify-content: center;
+  gap: 2.4rem;
+  padding: 4.8rem 6.4rem;
+}
+.steps__step {
+  flex: 1;
+  text-align: center;
+  font-size: 1.4rem;
+}
+.steps__1 {
+  display: grid;
+  grid-template-columns: 1fr max-content 1fr;
+  align-items: center;
+}
+.steps__1 span {
+  width: 3rem;
+  height: 3rem;
+  border-radius: 50%;
+  border: 1px solid #ccc;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.steps__1::before, .steps__1::after {
+  content: "";
+  display: block;
+  height: 2px;
+  background-color: #ccc;
+}
+.steps__active span {
+  border: 2px solid #c92a2a;
+  background-color: #c92a2a;
+  color: #eee;
+}
+.steps__active::before, .steps__active::after {
+  background-color: #c92a2a;
+}
+
+.shipping {
+  padding: 0 6.4rem;
+  display: flex;
+  justify-content: center;
+}
+.shipping input {
+  height: 4rem;
+  font-size: 1.6rem;
+  color: #555;
 }
 
 .statistics__title {
@@ -684,15 +750,16 @@ header .avatar {
     margin: auto;
   }
 }
+@media only screen and (max-width: 1200px) {
+  .cart__container {
+    width: 95%;
+  }
+}
 .cart__item {
   display: flex;
   align-items: center;
   justify-content: center;
   position: relative;
-}
-.cart__img {
-  max-width: 9rem;
-  max-height: 10rem;
 }
 .cart__name, .cart__price {
   text-decoration: none;

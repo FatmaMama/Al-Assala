@@ -3,30 +3,40 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import store from './redux/store'
 import { useEffect } from 'react';
 import { loadUser } from './redux/actions/userActions';
+
 import Header from './components/layouts/Header';
-import Login from './components/user/Login';
 import Home from './components/homePage/Home';
+import Login from './components/user/Login';
 import Register from './components/user/Register';
+
+import MyOrders from './components/user/MyOrders';
+import UserOrderDetails from './components/user/UserOrderDetails';
+
+import ProductsByCategory from './components/products/ProductsByCategory';
+import ProductDetails from './components/products/ProductDetails';
+import SearchProducts from './components/products/SearchProducts';
+
+import Cart from './components/cart/Cart';
+import Shipping from './components/cart/Shipping';
+
 import Dashboard from './components/admin/Dashboard';
 import ProductsList from './components/admin/products/ProductsList';
-import CategoriesList from './components/admin/categories/CategoriesList';
-import OrdersList from './components/admin/orders/OrdersList';
-import UsersList from './components/admin/users/UsersList';
-import UpdateUser from './components/admin/users/UpdateUser';
-import AddCategory from './components/admin/categories/AddCategory';
-import UpdateCategory from './components/admin/categories/UpdateCategory';
 import AddProduct from './components/admin/products/AddProduct';
 import UpdateProduct from './components/admin/products/UpdateProduct';
+
+import OrdersList from './components/admin/orders/OrdersList';
 import UpdateOrder from './components/admin/orders/UpdateOrder';
 import OrdersRecap from './components/admin/orders/OrdersRecap';
 import OrdersByStatus from './components/admin/orders/OrdersByStatus';
-import Statistics from './components/admin/stats/Statistics';
 import Settings from './components/admin/orders/Settings';
-import ProductsByCategory from './components/products/ProductsByCategory';
-import SearchProducts from './components/products/SearchProducts';
-import ProductDetails from './components/products/ProductDetails';
-import Cart from './components/cart/Cart';
-import MyOrders from './components/user/MyOrders';
+import Statistics from './components/admin/stats/Statistics';
+
+import UsersList from './components/admin/users/UsersList';
+import UpdateUser from './components/admin/users/UpdateUser';
+
+import CategoriesList from './components/admin/categories/CategoriesList';
+import AddCategory from './components/admin/categories/AddCategory';
+import UpdateCategory from './components/admin/categories/UpdateCategory';
 
 
 function App() {
@@ -44,13 +54,16 @@ function App() {
           <Route path='/'  element={<Home/>} />
           <Route path='/login' element={<Login/>} />
           <Route path='/register' element={<Register/>} />
+
           <Route path='/user/orders' element={<MyOrders/>} />
+          <Route path='/user/orders/:id' element={<UserOrderDetails/>} />
 
           <Route path='/products' element={<ProductsByCategory/>} />
           <Route path='/products/:id' element={<ProductDetails/>} />
           <Route path="/search/products" element={<SearchProducts/>} />
 
           <Route path="/cart" element={<Cart/>} />
+          <Route path="/register/shipping" element={<Shipping/>} />
 
           <Route path='/dashboard' element={<Dashboard/>} />
           <Route path='/admin/products' element={<ProductsList/>} />

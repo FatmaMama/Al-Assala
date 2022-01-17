@@ -1,6 +1,6 @@
 import React, { useState, useEffect} from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { Link, useNavigate } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import {register, clearErrors} from '../../redux/actions/userActions';
 import {notifyUser} from '../../redux/actions/notifyActions';
 import Alert from '../layouts/Alert';
@@ -9,6 +9,7 @@ import Alert from '../layouts/Alert';
 export default function Register() {
     const dispatch = useDispatch();
     const navigate = useNavigate();
+    const location = useLocation();
 
     const [user, setUser]= useState({
         firstName: '',
@@ -20,18 +21,20 @@ export default function Register() {
     
 
     const {loading, isAuthenticated, error} = useSelector(state => state.auth);
-    const {message, messageType} = useSelector(state => state.notify)
+    const {message, messageType} = useSelector(state => state.notify);
+
+    const redirect = location.search ? location.search.split('=')[1] : '/'
 
     useEffect(() => {
         if(isAuthenticated){
-            navigate('/')
+            navigate(redirect)
         };
 
         if(error){
             dispatch(notifyUser(error, 'error'));
         };
         setTimeout(() => dispatch(clearErrors()), 9000) 
-    }, [isAuthenticated, navigate, error, dispatch])
+    }, [isAuthenticated, navigate, error, dispatch, redirect])
 
     const submitHandler = (e) => {
         e.preventDefault();
@@ -53,7 +56,7 @@ export default function Register() {
 		        <div className="login__col col-10 col-lg-6 bg-light">
                     <form onSubmit={submitHandler} encType='multipart/form-data'>
                         <h1 className="wrapper__title mb-3 text-center">Créez votre compte</h1>
-                        {error !== null && <Alert message={message} messageType={messageType} />}
+                        {error && <Alert message={message} messageType={messageType} />}
 
                         <div className="form-group pt-5">
                             <label htmlFor="firstName_field">Nom</label>

@@ -1,6 +1,6 @@
 import React, {Fragment, useState} from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { addToCart, removeFromCart } from '../../redux/actions/cartActions';
 import Menu from '../layouts/Menu';
 import Alert from '../layouts/Alert';
@@ -8,6 +8,7 @@ import Alert from '../layouts/Alert';
 export default function Cart() {
 
     const dispatch = useDispatch();
+    const navigate = useNavigate();
 
     const [userCoupon, setUserCoupon] = useState('');
     const [newSubtotalPrice, setNewSubtotalPrice ] = useState(0);
@@ -64,6 +65,13 @@ export default function Cart() {
         dispatch(removeFromCart(id, size))
     };
 
+    const checkoutHandler = () => {
+        navigate({
+            pathname: '/register',
+            search: `?redirect=shipping`,
+        });
+    }
+
     return (
         <div>
              <Menu />
@@ -77,25 +85,25 @@ export default function Cart() {
                                  {cartItems.map(item => (
                                      <Fragment key={item.product}>
                                         <hr />
-                                        <div >
+                                        <div>
                                             <div className="row cart__item">
                                                 <div className="col-2 col-md-1">
-                                                    <img src={item.image} alt={item.name} className='cart__img'/>
+                                                    <img src={item.image} alt={item.name} className='img-fluid'/>
                                                 </div>
 
-                                                <div className="col-5 col-md-3 d-flex justify-content-center align-items-center">
+                                                <div className="col-5 col-md-3 d-flex justify-content-center align-items-center bg-info">
                                                     <Link to={`/products/${item.product}`} className='cart__name' >{item.name}</Link>
                                                 </div>
 
-                                                <div className="col-3 col-md-2 d-flex justify-content-center align-items-center">
+                                                <div className="col-3 col-md-2 d-flex justify-content-center align-items-center bg-warning">
                                                     <p className='cart__color'>{item.color}</p>
                                                 </div>
 
-                                                <div className="col-2 col-md-1 mt-md-0 d-flex justify-content-center align-items-center">
+                                                <div className="col-2 col-md-1 d-flex justify-content-center align-items-center bg-danger">
                                                     <p className='cart__size'><b>{item.size}</b></p>
                                                 </div>
 
-                                                <div className="col-6 col-md-3 mt-4 mt-md-0 d-flex justify-content-center align-items-center">
+                                                <div className="col-6 col-md-3 mt-4 mt-md-0 d-flex justify-content-center align-items-center bg-success">
                                                     {item.salePrice === 0 ? <p className='cart__price'>{`${item.price} TND`}</p>
                                                     : (
                                                         <div className='d-flex align-items-center gap-5'>
@@ -161,7 +169,7 @@ export default function Cart() {
                                 <hr/>
                                 <h4 className='cart__summary-item'>Total: <span className='cart__summary-totalValue'>{newSubtotalPrice !== 0 ? (Number(newSubtotalPrice) + Number(newShippingPrice)).toFixed(2) + ' TND' : (subTotalPrice + Number(newShippingPrice)).toFixed(2) + ' TND'}</span></h4>
                                 <hr />
-                                <button  className="cart__btn-order">Commander</button>
+                                <button  className="btn btn--1" onClick={checkoutHandler}>Commander</button>
                             </div>
                         </div>
                     </Fragment>

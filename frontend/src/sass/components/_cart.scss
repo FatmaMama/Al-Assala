@@ -13,6 +13,10 @@
             width: 90%;
             margin: auto;
         }
+
+        @media only screen and (max-width: 1200px) {
+            width: 95%;
+        }
     }
 
     &__item {
@@ -20,11 +24,6 @@
         align-items: center;
         justify-content: center;
         position: relative;
-    }
-
-    &__img {
-        max-width: 9rem;
-        max-height: 10rem;
     }
 
     &__name, &__price {
