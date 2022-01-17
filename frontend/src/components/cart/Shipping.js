@@ -17,9 +17,10 @@ export default function Shipping() {
     const [phoneNo,setPhoneNo] = useState(shippingInfo.phoneNo);
     const [postalCode,setPostalCode] = useState(shippingInfo.postalCode);
 
+
     const submitHandler = (e) => {
         e.preventDefault();
-        dispatch(saveShippingInfo({address, city, phoneNo, postalCode}));
+        dispatch(saveShippingInfo({address, city, phoneNo, postalCode, country: 'Tunisia'}));
         navigate('/order/confirm')
     };
 
@@ -29,7 +30,7 @@ export default function Shipping() {
             <CheckoutSteps shipping />
 
             <div className="row shipping">
-                <div className="col-12 col-lg-9">
+                <div className="col-12 col-md-9">
                     <form onSubmit={submitHandler}>
                         <h1 className="text-center mb-4">Informations de livraison</h1>
                         <div className="form-group mb-4">

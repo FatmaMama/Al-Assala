@@ -26,7 +26,6 @@ export default function Register() {
     const redirect = location.search ? location.search.split('=')[1] : '/'
 
     useEffect(() => {
-        console.log('location', location)
         if(isAuthenticated){
             navigate('/'+ redirect)
         };
@@ -58,7 +57,7 @@ export default function Register() {
                     <form onSubmit={submitHandler} encType='multipart/form-data'>
                         <h1 className="wrapper__title mb-3 text-center">Créez votre compte</h1>
                         {error && <Alert message={message} messageType={messageType} />}
-                        <h1>{console.log('location', location)}</h1>
+                        
                         <div className="form-group pt-5">
                             <label htmlFor="firstName_field">Nom</label>
                             <input 

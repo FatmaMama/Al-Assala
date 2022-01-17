@@ -87,3 +87,40 @@
         color: $color-grey-dark-2;
     }
 }
+
+.info {
+    padding: 0 6.4rem;
+    display: flex;
+    justify-content: space-around;
+    
+    &__box {
+        border: 1px solid $color-grey-light-4;
+        border-radius: 3px;
+        padding: 1.8rem;
+    }
+
+    &__items {
+        font-size: 1.6rem;
+        display: flex;
+        gap: 1.2rem;
+    }
+
+    &__item-1 {
+        color: $color-grey-dark-2;
+        font-weight: 300;
+    }
+
+    &__item-2 {
+        flex: 1;
+    }
+
+    &__item-3 {
+        color: $color-primary;
+        text-decoration: none;
+        font-size: 1.2rem;
+
+        &:hover {
+            color: $color-primary;
+        }
+    }
+}

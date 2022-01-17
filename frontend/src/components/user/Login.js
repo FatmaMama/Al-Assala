@@ -48,7 +48,7 @@ export default function Login() {
                             <form onSubmit={submitHandler} >
                                 <h1 className="wrapper__title mb-3 text-center">Connectez-vous à votre compte</h1>
                                 {error !== null && messageType!=='success' && <Alert message={message} messageType={messageType} />}
-                                <h1>{console.log('location', location)}</h1>
+                                
                                 <div className="form-group pt-5">
                                     <label htmlFor="email_field">Email</label>
                                     <input

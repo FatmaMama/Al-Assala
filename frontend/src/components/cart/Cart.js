@@ -1,7 +1,7 @@
 import React, {Fragment, useState} from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Link, useNavigate } from 'react-router-dom';
-import { addToCart, removeFromCart } from '../../redux/actions/cartActions';
+import { addToCart, removeFromCart, saveCartPrice } from '../../redux/actions/cartActions';
 import Menu from '../layouts/Menu';
 import Alert from '../layouts/Alert';
 
@@ -66,6 +66,7 @@ export default function Cart() {
     };
 
     const checkoutHandler = () => {
+        dispatch(saveCartPrice({subTotalPrice, newShippingPrice, newSubtotalPrice}))
         navigate({
             pathname: '/register',
             search: `?redirect=shipping`,
