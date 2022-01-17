@@ -37,6 +37,7 @@ import UpdateUser from './components/admin/users/UpdateUser';
 import CategoriesList from './components/admin/categories/CategoriesList';
 import AddCategory from './components/admin/categories/AddCategory';
 import UpdateCategory from './components/admin/categories/UpdateCategory';
+import ConfirmOrder from './components/cart/ConfirmOrder';
 
 
 function App() {
@@ -63,7 +64,8 @@ function App() {
           <Route path="/search/products" element={<SearchProducts/>} />
 
           <Route path="/cart" element={<Cart/>} />
-          <Route path="/register/shipping" element={<Shipping/>} />
+          <Route path="/shipping" element={<Shipping/>} />
+          <Route path="/order/confirm" element={<ConfirmOrder/>} />
 
           <Route path='/dashboard' element={<Dashboard/>} />
           <Route path='/admin/products' element={<ProductsList/>} />

@@ -1,8 +1,28 @@
-import React from 'react'
+import React, { useState } from 'react'
+import { useDispatch, useSelector } from 'react-redux';
+import { useNavigate } from 'react-router-dom';
+import { saveShippingInfo } from '../../redux/actions/cartActions';
 import Menu from '../layouts/Menu'
 import CheckoutSteps from './CheckoutSteps'
 
 export default function Shipping() {
+
+    const dispatch = useDispatch();
+    const navigate = useNavigate();
+
+    const { shippingInfo } = useSelector(state => state.cart);
+
+    const [address,setAddress] = useState(shippingInfo.address);
+    const [city,setCity] = useState(shippingInfo.city);
+    const [phoneNo,setPhoneNo] = useState(shippingInfo.phoneNo);
+    const [postalCode,setPostalCode] = useState(shippingInfo.postalCode);
+
+    const submitHandler = (e) => {
+        e.preventDefault();
+        dispatch(saveShippingInfo({address, city, phoneNo, postalCode}));
+        navigate('/order/confirm')
+    };
+
     return (
         <div>
             <Menu />
@@ -10,7 +30,7 @@ export default function Shipping() {
 
             <div className="row shipping">
                 <div className="col-12 col-lg-9">
-                    <form>
+                    <form onSubmit={submitHandler}>
                         <h1 className="text-center mb-4">Informations de livraison</h1>
                         <div className="form-group mb-4">
                             <label for="address_field">Adresse</label>
@@ -18,7 +38,8 @@ export default function Shipping() {
                                 type="text"
                                 id="address_field"
                                 className="form-control mt-1"
-                                value=''
+                                value={address}
+                                onChange={(e) => setAddress(e.target.value)}
                                 required
                             />
                         </div>
@@ -29,7 +50,8 @@ export default function Shipping() {
                                 type="text"
                                 id="city_field"
                                 className="form-control mt-1"
-                                value=''
+                                value={city}
+                                onChange={(e) => setCity(e.target.value)}
                                 required
                             />
                         </div>
@@ -51,7 +73,8 @@ export default function Shipping() {
                                 type="phone"
                                 id="phone_field"
                                 className="form-control mt-1"
-                                value=''
+                                value={phoneNo}
+                                onChange={(e) => setPhoneNo(e.target.value)}
                                 required
                             />
                         </div>
@@ -62,7 +85,8 @@ export default function Shipping() {
                                 type="text"
                                 id="postal_code_field"
                                 className="form-control mt-1"
-                                value=''
+                                value={postalCode}
+                                onChange={(e) => setPostalCode(e.target.value)}
                                 required
                             />
                         </div>

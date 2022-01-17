@@ -27,7 +27,8 @@ export default function Register() {
 
     useEffect(() => {
         if(isAuthenticated){
-            navigate(redirect)
+            console.log('redirect: ', redirect)
+            navigate('/'+ redirect)
         };
 
         if(error){

@@ -20,7 +20,8 @@ const orderSchema = new mongoose.Schema ({
         },
         country : {
             type : String,
-            required : true
+            required : true,
+            default: 'Tunisia'
         },
     },
 
