@@ -766,6 +766,7 @@ header .avatar {
 .cart {
   display: flex;
   justify-content: space-between;
+  margin-top: 3.2rem;
 }
 @media only screen and (max-width: 1200px) {
   .cart {
@@ -773,36 +774,73 @@ header .avatar {
   }
 }
 .cart__container {
-  width: 70%;
+  width: 69%;
 }
-@media only screen and (max-width: 1200px) {
+@media only screen and (max-width: 75em) {
   .cart__container {
     width: 90%;
     margin: auto;
   }
 }
-@media only screen and (max-width: 1200px) {
+@media only screen and (max-width: 52em) {
   .cart__container {
     width: 95%;
+    margin: auto;
   }
 }
-.cart__item {
-  display: flex;
-  align-items: center;
-  justify-content: center;
+.cart__grid {
+  display: grid;
+  grid-template-columns: 10rem 28% 10% 10% 30% 10%;
   position: relative;
 }
-.cart__name, .cart__price {
+@media only screen and (max-width: 56em) {
+  .cart__grid {
+    grid-template-columns: 15rem 1fr;
+    grid-template-rows: repeat(5, min-content);
+    column-gap: 2.4rem;
+  }
+}
+.cart__img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+.cart__label {
+  display: none;
+}
+@media only screen and (max-width: 56em) {
+  .cart__label {
+    display: inline-block;
+    font-size: 1.4rem;
+    text-transform: lowercase;
+    margin-right: 1.2rem;
+  }
+}
+.cart__name {
   text-decoration: none;
   color: #333;
   font-size: 1.8rem;
 }
-.cart__name:hover, .cart__price:hover {
+.cart__name:hover {
   color: #333;
+}
+@media only screen and (max-width: 56em) {
+  .cart__name {
+    font-size: 2.4rem;
+  }
 }
 .cart__color, .cart__size {
   font-size: 1.4rem;
   text-transform: uppercase;
+}
+@media only screen and (max-width: 56em) {
+  .cart__color {
+    margin-top: 1.2rem;
+  }
+}
+.cart__price {
+  font-size: 1.8rem;
 }
 .cart__qty-container {
   display: flex;
@@ -825,9 +863,19 @@ header .avatar {
 }
 .cart__delete {
   position: absolute;
+  color: #999;
+  font-size: 1.6rem;
+  left: 101%;
+  top: -6%;
+}
+.cart__delete:hover {
   color: #c92a2a;
-  font-size: 1.4rem;
-  left: 96%;
+}
+@media only screen and (max-width: 56em) {
+  .cart__delete {
+    left: 95%;
+    top: 2%;
+  }
 }
 .cart__summary {
   width: 26%;
@@ -835,10 +883,11 @@ header .avatar {
   padding: 1.6rem;
   align-self: flex-start;
 }
-@media only screen and (max-width: 1200px) {
+@media only screen and (max-width: 75em) {
   .cart__summary {
     width: 90%;
     margin: auto;
+    margin-top: 3.2rem;
   }
 }
 .cart__summary-item {
@@ -892,8 +941,130 @@ header .avatar {
   margin-top: 1.8rem;
 }
 
+.center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+@media only screen and (max-width: 56em) {
+  .center {
+    justify-content: flex-start;
+    padding: 0 4.6rem;
+  }
+}
+
 @media only screen and (max-width: 1200px) {
   .cart-title {
     margin-left: 5rem;
   }
+}
+@media only screen and (max-width: 56em) {
+  .cart__head {
+    display: none;
+  }
+  .cart__img-container {
+    grid-row: 1/6;
+  }
+  .cart__name-container {
+    grid-column: 2/3;
+    grid-row: 1/2;
+    border-bottom: 1px solid #ccc;
+  }
+  .cart__color-container {
+    grid-column: 2/3;
+    grid-row: 2/3;
+  }
+  .cart__size-container {
+    grid-column: 2/3;
+    grid-row: 3/4;
+  }
+  .cart__price-container {
+    grid-column: 2/3;
+    grid-row: 4/5;
+  }
+  .cart__qty-container-1 {
+    grid-column: 2/3;
+    grid-row: 5/6;
+  }
+}
+.steps {
+  display: flex;
+  justify-content: center;
+  gap: 2.4rem;
+  padding: 4.8rem 6.4rem;
+}
+.steps__step {
+  flex: 1;
+  text-align: center;
+  font-size: 1.4rem;
+}
+.steps__1 {
+  display: grid;
+  grid-template-columns: 1fr max-content 1fr;
+  align-items: center;
+}
+.steps__1 span {
+  width: 3rem;
+  height: 3rem;
+  border-radius: 50%;
+  border: 1px solid #ccc;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.steps__1::before, .steps__1::after {
+  content: "";
+  display: block;
+  height: 2px;
+  background-color: #ccc;
+}
+.steps__active span {
+  border: 2px solid #c92a2a;
+  background-color: #c92a2a;
+  color: #eee;
+}
+.steps__active::before, .steps__active::after {
+  background-color: #c92a2a;
+}
+
+.shipping {
+  padding: 0 6.4rem;
+  display: flex;
+  justify-content: center;
+}
+.shipping input {
+  height: 4rem;
+  font-size: 1.6rem;
+  color: #555;
+}
+
+.info {
+  padding: 0 6.4rem;
+  display: flex;
+  justify-content: space-around;
+}
+.info__box {
+  border: 1px solid #ccc;
+  border-radius: 3px;
+  padding: 1.8rem;
+}
+.info__items {
+  font-size: 1.6rem;
+  display: flex;
+  gap: 1.2rem;
+}
+.info__item-1 {
+  color: #555;
+  font-weight: 300;
+}
+.info__item-2 {
+  flex: 1;
+}
+.info__item-3 {
+  color: #c92a2a;
+  text-decoration: none;
+  font-size: 1.2rem;
+}
+.info__item-3:hover {
+  color: #c92a2a;
 }

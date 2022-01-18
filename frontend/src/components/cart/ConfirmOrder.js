@@ -1,20 +1,54 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux';
-import { Link } from 'react-router-dom';
-import Menu from '../layouts/Menu'
-import CheckoutSteps from './CheckoutSteps'
+import { Link, useNavigate } from 'react-router-dom';
+import Menu from '../layouts/Menu';
+import CheckoutSteps from './CheckoutSteps';
+import { notifyUser } from '../../redux/actions/notifyActions';
+import { clearErrors, newOrder } from '../../redux/actions/orderActions';
+import Alert from '../layouts/Alert';
 
 export default function ConfirmOrder() {
 
     const dispatch = useDispatch();
+    const navigate = useNavigate();
 
     const { cartItems, shippingInfo, cartPrice } = useSelector(state => state.cart);
     const { user } = useSelector(state => state.auth);
+    const { loading, error } = useSelector(state => state.newOrder);
+    const { message, messageType } = useSelector(state => state.notify);
+
+    const order = {
+        orderItems : cartItems,
+        shippingInfo,
+        itemsPrice : cartPrice.subTotalPrice,
+        shippingPrice : cartPrice.newShippingPrice,
+        saleCoupon : cartPrice.saleCoupon ,
+        totalPrice : cartPrice.newSubtotalPrice ? cartPrice.newSubtotalPrice : cartPrice.totalPrice
+    };
+
+    useEffect(() => {
+        if(error) {
+            dispatch(notifyUser(error, 'error'))
+            dispatch(clearErrors());
+        }
+    },[dispatch, alert, error]);
+
+
+    const placeOrderHandler = (order) => {
+        dispatch(newOrder(order));
+        navigate('/success/order')
+
+        if(error){
+            dispatch(notifyUser(error, 'error'));
+            setTimeout(() => dispatch(clearErrors()), 5000)
+        };
+    }
 
     return (
         <div>
             <Menu />
             <CheckoutSteps payment />
+            {error && <Alert  message={message} messageType={messageType} /> }
 
             <div className='row info'>
                 <div className='col-12 col-md-5 info__box'>

@@ -61,12 +61,14 @@ export default function Cart() {
         setNewSubtotalPrice(0)
     };
 
+    const totalPrice = newSubtotalPrice !== 0 ? (Number(newSubtotalPrice) + Number(newShippingPrice)).toFixed(2)  : (subTotalPrice + Number(newShippingPrice)).toFixed(2) 
+
     const removeItemHandler = (id, size) => {
         dispatch(removeFromCart(id, size))
     };
 
     const checkoutHandler = () => {
-        dispatch(saveCartPrice({subTotalPrice, newShippingPrice, newSubtotalPrice}))
+        dispatch(saveCartPrice({subTotalPrice, newShippingPrice, newSubtotalPrice, saleCoupon, totalPrice}))
         navigate({
             pathname: '/register',
             search: `?redirect=shipping`,
@@ -82,8 +84,68 @@ export default function Cart() {
                         <h1 className='cart-title'>Votre panier: <b>{getCartCount()} Articles</b></h1>
         
                         <div className="cart">
-                             <div className='cart__container'>
-                                 {cartItems.map(item => (
+                            <div className='cart__container'>
+                                <div className='cart__grid cart__head'>
+                                    <h4></h4>
+                                    <h4 className='center'>Produit</h4>
+                                    <h4 className='center'>Couleur</h4>
+                                    <h4 className='center'>Taille</h4>
+                                    <h4 className='center'>Prix</h4>
+                                    <h4 className='center'>Quantité</h4>
+                                </div>
+
+                                {cartItems.map(item => (
+                                    <Fragment key={item.product}>
+                                    <hr />
+                                    <div key={item.product} className='cart__grid'>
+                                        <div className='cart__img-container'>
+                                            <img src={item.image} alt={item.name} className='cart__img' />
+                                        </div>
+                                        <div className='center cart__name-container'>
+                                            <Link to={`/products/${item.product}`} className='cart__name' >{item.name}</Link>
+                                        </div>
+                                        <div className='center cart__color-container'>
+                                            <span className='cart__color'><span className='cart__label'>Couleur: </span>{item.color}</span>
+                                        </div>
+                                        <div className='center cart__size-container'>
+                                            <span className='cart__size'><span className='cart__label'>Taille: </span><b>{item.size}</b></span>
+                                        </div>
+
+                                        <div className='center cart__price-container'>
+                                            {item.salePrice === 0 ? <p className='cart__price'><span className='cart__label'>Prix: </span>{`${item.price} TND`}</p>
+                                                    : (
+                                                        <Fragment>
+                                                            <span className='cart__label'>Prix: </span>
+                                                            <div className='d-flex gap-5 align-items-center justify-content-md-center'>
+                                                                <span className='cart__price'>{`${item.salePrice && item.salePrice.toFixed(2)} TND`}</span>
+                                                                <span className='product-cart__prev-price'>{`${item.price} TND`}</span>
+                                                            </div>
+                                                        </Fragment>
+                                                    )}
+                                        </div>
+
+                                        <div className='center cart__qty-container-1'>
+                                            <div className="cart__qty-container">
+                                            <span className='cart__label'>Quantité: </span>
+                                                <button className='cart__btn' onClick={() => decreaseQty(item.product, item.quantity, item.size, item.stock)}>
+                                                    <i className="fas fa-minus"></i>
+                                                </button>
+                                                <input type="number" className="form-control cart__qty" value={item.quantity} readOnly />
+                                                <button className='cart__btn' onClick={() => increaseQty(item.product, item.quantity, item.size, item.stock)}>
+                                                    <i className="fas fa-plus"></i>
+                                                </button>
+                                            </div>
+                                        </div>
+
+                                        <div className="cart__delete" onClick={()=>{removeItemHandler(item.product, item.size)}}>
+                                            <i className="far fa-times-circle"></i>
+                                        </div>
+                                    </div>
+                                     </Fragment>
+                                ))}
+                                <hr/>
+                                
+                                 {/* {cartItems.map(item => (
                                      <Fragment key={item.product}>
                                         <hr />
                                         <div>
@@ -135,7 +197,7 @@ export default function Cart() {
                                         </div>
                                         <hr />
                                      </Fragment>
-                                 ))}
+                                 ))} */}
                                 
                             </div>
 
@@ -168,7 +230,7 @@ export default function Cart() {
                                 
                                 <h4 className='cart__summary-item'>Livraison:  <span className='cart__summary-value'>{newShippingPrice + ' TND'}</span></h4>
                                 <hr/>
-                                <h4 className='cart__summary-item'>Total: <span className='cart__summary-totalValue'>{newSubtotalPrice !== 0 ? (Number(newSubtotalPrice) + Number(newShippingPrice)).toFixed(2) + ' TND' : (subTotalPrice + Number(newShippingPrice)).toFixed(2) + ' TND'}</span></h4>
+                                <h4 className='cart__summary-item'>Total: <span className='cart__summary-totalValue'></span>{totalPrice + ' TND'}</h4>
                                 <hr />
                                 <button  className="btn btn--1" onClick={checkoutHandler}>Commander</button>
                             </div>
