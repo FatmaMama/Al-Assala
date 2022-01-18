@@ -82,7 +82,7 @@ export default function OrdersList() {
                 numOfItems : order.orderItems && order.orderItems.reduce((acc, item) => {
                     return acc + item.quantity
                },0),
-                amount: `$${order.totalPrice}`,
+                amount: `${order.totalPrice} TND`,
                 status : order.orderStatus && String(order.orderStatus).includes('livrée')
                 ? <p style={{color : 'green'}}>{order.orderStatus}</p>
                 : <p style={{color : 'red'}}>{order.orderStatus}</p>,

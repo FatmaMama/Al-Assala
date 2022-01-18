@@ -1,6 +1,6 @@
 .cart {
-    display: flex;
-    justify-content: space-between;
+    // display: flex;
+    // justify-content: space-between;
     margin-top: 3.2rem;
 
     @media only screen and (max-width: 1200px) {
@@ -9,15 +9,30 @@
 
     &__container {
         width: 69%;
-
+       
         @media only screen and (max-width: 75em) {  //1200px
             width: 90%;
-            margin: auto;
+            margin: 0 auto;
         }
 
         @media only screen and (max-width: 52em) {
             width: 95%;
-            margin: auto;
+            margin: 0 auto;
+        }
+    }
+
+    &__order, &__order-title {
+        width: 80%;
+        margin: 0 auto;
+
+        @media only screen and (max-width: 75em) {  //1200px
+            width: 90%;
+            margin: 0 auto;
+        }
+
+        @media only screen and (max-width: 52em) {
+            width: 95%;
+            margin: 0 auto;
         }
     }
 
@@ -32,6 +47,7 @@
             column-gap: 2.4rem;
         }
     }
+
 
     &__img {
         width: 100%;
@@ -132,6 +148,11 @@
             margin: auto;
             margin-top: 3.2rem;
         }
+    }
+
+    &__order-summary {
+        width: 80%;
+        margin: 3.8rem auto;
     }
 
     &__summary-item {

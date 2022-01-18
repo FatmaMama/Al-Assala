@@ -25,10 +25,10 @@ export default function UpdateOrder() {
         if(order && order._id !== params.id){
             dispatch(getOrder(params.id));
         } else {
-            setStatus(order.orderStatus);
-            setNewOrderItems(order.orderItems);
-            setNewItemsPrice(order.itemsPrice);
-            setNewTotalPrice(order.totalPrice)
+            setStatus(orderStatus);
+            setNewOrderItems(orderItems);
+            setNewItemsPrice(itemsPrice);
+            setNewTotalPrice(totalPrice)
         }
         
         if(error) {
@@ -163,7 +163,7 @@ export default function UpdateOrder() {
                                 </div>
 
                                 <div className="col-5 col-lg-5">
-                                    <p>Livraison 3-4 jours</p>
+                                    <p>Livraison 2-3 jours</p>
                                 </div>
 
 

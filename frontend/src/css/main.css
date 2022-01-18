@@ -764,8 +764,6 @@ header .avatar {
 }
 
 .cart {
-  display: flex;
-  justify-content: space-between;
   margin-top: 3.2rem;
 }
 @media only screen and (max-width: 1200px) {
@@ -779,13 +777,29 @@ header .avatar {
 @media only screen and (max-width: 75em) {
   .cart__container {
     width: 90%;
-    margin: auto;
+    margin: 0 auto;
   }
 }
 @media only screen and (max-width: 52em) {
   .cart__container {
     width: 95%;
-    margin: auto;
+    margin: 0 auto;
+  }
+}
+.cart__order, .cart__order-title {
+  width: 80%;
+  margin: 0 auto;
+}
+@media only screen and (max-width: 75em) {
+  .cart__order, .cart__order-title {
+    width: 90%;
+    margin: 0 auto;
+  }
+}
+@media only screen and (max-width: 52em) {
+  .cart__order, .cart__order-title {
+    width: 95%;
+    margin: 0 auto;
   }
 }
 .cart__grid {
@@ -889,6 +903,10 @@ header .avatar {
     margin: auto;
     margin-top: 3.2rem;
   }
+}
+.cart__order-summary {
+  width: 80%;
+  margin: 3.8rem auto;
 }
 .cart__summary-item {
   display: flex;

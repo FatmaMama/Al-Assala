@@ -42,7 +42,11 @@ exports.getOrder = catchAsync(async (req, res, next) => {
 
 //GET logged in user orders   =>  GET : api/v1/orders/me
 exports.getMyOrders = catchAsync(async (req, res, next) => {
-    const myOrders = await Order.find({ user : req.user._id});
+    // const myOrders = await Order.find({ user : req.user._id});
+
+    let query = Order.find();
+    query = query.sort('-createdAt');
+    const myOrders = await query;
 
     res.status(200).json({
         success: true,

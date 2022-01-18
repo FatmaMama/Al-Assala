@@ -18,6 +18,8 @@ import SearchProducts from './components/products/SearchProducts';
 
 import Cart from './components/cart/Cart';
 import Shipping from './components/cart/Shipping';
+import ConfirmOrder from './components/cart/ConfirmOrder';
+import OrderSuccess from './components/cart/OrderSuccess';
 
 import Dashboard from './components/admin/Dashboard';
 import ProductsList from './components/admin/products/ProductsList';
@@ -37,7 +39,7 @@ import UpdateUser from './components/admin/users/UpdateUser';
 import CategoriesList from './components/admin/categories/CategoriesList';
 import AddCategory from './components/admin/categories/AddCategory';
 import UpdateCategory from './components/admin/categories/UpdateCategory';
-import ConfirmOrder from './components/cart/ConfirmOrder';
+
 
 
 function App() {
@@ -66,6 +68,7 @@ function App() {
           <Route path="/cart" element={<Cart/>} />
           <Route path="/shipping" element={<Shipping/>} />
           <Route path="/order/confirm" element={<ConfirmOrder/>} />
+          <Route path="/success/order" element={<OrderSuccess/>} />
 
           <Route path='/dashboard' element={<Dashboard/>} />
           <Route path='/admin/products' element={<ProductsList/>} />
