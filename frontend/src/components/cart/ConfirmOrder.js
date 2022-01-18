@@ -80,15 +80,13 @@ export default function ConfirmOrder() {
                     <div className='info__items'>
                         <span className='info__item-1'>Moyen de paiement:</span>
                         <span className='info__item-2'>Paiement à la livraison <p>Payer en argent comptant à la livraison</p></span>
-                        <span>{cartPrice.newSubtotalPrice !== 0 ? (Number(cartPrice.newSubtotalPrice) + Number(cartPrice.newShippingPrice)).toFixed(2) + ' TND' : (cartPrice.subTotalPrice + Number(cartPrice.newShippingPrice)).toFixed(2) + ' TND'}</span>
+                        <span>{cartPrice.totalPrice + ' TND'}</span>
                     </div>
                 </div>
             </div>
 
             <div className='p-5 mt-5'>
-                {cartItems.length === 0 ? <h2 className='text-center'>Votre panier est vide...</h2> : (
-                    <Fragment>
-                        <h2 className='cart-title cart__order-title'>Votre commande: <b>{getCartCount()} Articles</b></h2>
+                <h2 className='cart-title cart__order-title'>Votre commande: <b>{getCartCount()} Articles</b></h2>
         
                         <div>
                             <div className='cart__container cart__order'>
@@ -179,9 +177,7 @@ export default function ConfirmOrder() {
                                 </button>
                             </div>
                         </div>
-                    </Fragment>
-                 )}
-
+                    
              </div>
         </div>
     )
