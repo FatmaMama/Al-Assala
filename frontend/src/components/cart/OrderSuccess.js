@@ -17,13 +17,16 @@ export default function OrderSuccess() {
     return (
         <div>
             <Menu />
-            <div>
-                <i className="far fa-check-circle"></i>
-                <span>Merci {user.firstName}!</span>
-                <p>Vous pouvez suivre vos commandes à travers votre profil</p>
+            <div className='order-success'>
+                <div className='order-success__container'>
+                    <i className="far fa-check-circle order-success__icon"></i>
+                    <span className='order-success__title'>Merci {user.firstName}!</span>
+                </div>
+                <p className='order-success__text'>Votre commande est maintenant confirmée.</p>
+                <p className='order-success__text'>Vous pouvez suivre vos commandes à travers votre profil.</p>
             </div>
 
-            
+
         </div>
     )
 }

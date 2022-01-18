@@ -764,6 +764,8 @@ header .avatar {
 }
 
 .cart {
+  display: flex;
+  justify-content: space-between;
   margin-top: 3.2rem;
 }
 @media only screen and (max-width: 1200px) {
@@ -1085,4 +1087,29 @@ header .avatar {
 }
 .info__item-3:hover {
   color: #c92a2a;
+}
+
+.order-success {
+  margin-top: 2.4rem;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+}
+.order-success__container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 2.4rem;
+}
+.order-success__icon {
+  font-size: 3.2rem;
+  color: #c92a2a;
+  margin-right: 1.2rem;
+}
+.order-success__title {
+  font-size: 2.6rem;
+}
+.order-success__text {
+  text-align: center;
+  font-size: 1.6rem;
 }

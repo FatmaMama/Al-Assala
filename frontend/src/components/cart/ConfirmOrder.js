@@ -90,7 +90,7 @@ export default function ConfirmOrder() {
                     <Fragment>
                         <h2 className='cart-title cart__order-title'>Votre commande: <b>{getCartCount()} Articles</b></h2>
         
-                        <div className="cart">
+                        <div>
                             <div className='cart__container cart__order'>
                                 <div className='cart__grid cart__head'>
                                     <h4></h4>
