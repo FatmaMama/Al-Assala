@@ -34,7 +34,6 @@ export default function Cart() {
 
     const handleShippingPrice = () => {
         const today = new Date();
-        console.log(today <= shippingDuration)
         return settings && subTotalPrice >=  shippingFreeLimit && today <= new Date(shippingDuration) ? '0.00' : shippingPrice
     }
 

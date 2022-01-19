@@ -5,7 +5,7 @@ import { allUsersReducer, authReducer, userDetailsReducer, userReducer } from '.
 import { notifyReducer } from './reducers/notifyReducer';
 import { newProductReducer, productDetailsByColorReducer, productDetailsReducer, productReducer, productsReducer, searchProductsReducer } from './reducers/productReducers';
 import { categoriesReducer, categoryDetailsReducer, categoryReducer, newCategoryReducer } from './reducers/categoryReducer';
-import { monthlyOrdersReducer, newOrderReducer, orderDetailsReducer, orderReducer, ordersReducer, todayYesterdayOrdersReducer, weeklyOrdersReducer } from './reducers/orderReducers';
+import { monthlyOrdersReducer, newOrderReducer, orderDetailsReducer, orderReducer, ordersReducer, todayYesterdayOrdersReducer, toUpdateOrderReducer, weeklyOrdersReducer } from './reducers/orderReducers';
 import { settingsReducer } from './reducers/settingsReducers';
 import { cartReducer } from './reducers/cartReducers';
 
@@ -36,6 +36,7 @@ const reducers = combineReducers({
     todayYesterdayOrders: todayYesterdayOrdersReducer,
     weeklyOrders: weeklyOrdersReducer,
     monthlyOrders: monthlyOrdersReducer,
+    orderToUpdate: toUpdateOrderReducer,
 
     cart: cartReducer,
 

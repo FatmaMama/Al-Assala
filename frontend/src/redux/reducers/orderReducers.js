@@ -32,7 +32,9 @@ import {
     GET_TODAY_ORDERS_REQUEST,
     GET_TODAY_ORDERS_SUCCESS,
     GET_TODAY_ORDERS_FAIL,
-    CLEAR_ERRORS
+    REMOVE_ORDER_ITEM,
+    CLEAR_ERRORS,
+    TO_UPDATE_ORDER
 } from '../constants/orderConstants';
 
 export const ordersReducer = (state= { orders: []}, action) => {
@@ -273,6 +275,31 @@ export const monthlyOrdersReducer = (state= {monthlyOrders: []}, action) => {
                 ...state,
                 error: null
             }
+
+        default:
+            return state
+    }
+};
+
+
+export const toUpdateOrderReducer = (state= {toUpdateOrder: {}}, action) => {
+    switch (action.type) {
+        case TO_UPDATE_ORDER:
+            return {
+                ...state,
+                toUpdateOrder : action.payload
+            }
+
+        case REMOVE_ORDER_ITEM :
+            return {
+                ...state,
+                toUpdateOrder : {...state.toUpdateOrder, orderItems : state.toUpdateOrder.orderItems.filter(i => {if(i.product !== action.payload.id || (i.size !== action.payload.size && i.product === action.payload.id)) {
+                    return true
+                } else {
+                    return false
+                }} )}
+                
+        }
 
         default:
             return state

@@ -30,7 +30,9 @@ import {
     GET_TODAY_ORDERS_REQUEST,
     GET_TODAY_ORDERS_SUCCESS,
     GET_TODAY_ORDERS_FAIL,
-    CLEAR_ERRORS
+    REMOVE_ORDER_ITEM,
+    CLEAR_ERRORS,
+    TO_UPDATE_ORDER
 } from '../constants/orderConstants';
 
 
@@ -236,6 +238,26 @@ export const getTodayOrders = () => async (dispatch) => {
             payload: error.response.data.message
         })
     }
+};
+
+
+export const getToUpdateOrder = (data) => (dispatch) => {
+
+    dispatch({
+        type: TO_UPDATE_ORDER,
+        payload: data
+    });
+};
+
+export const removeFromOrder = (id, size) => (dispatch) => {
+
+    dispatch({
+        type: REMOVE_ORDER_ITEM,
+        payload: {
+            id,
+            size
+        }
+    });
 };
 
 export const clearErrors = () => async (dispatch) => {
