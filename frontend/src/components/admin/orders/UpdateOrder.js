@@ -1,58 +1,64 @@
 import React, { useEffect, useState, Fragment, useRef } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { useParams, Link } from 'react-router-dom';
+import { useParams, Link, useNavigate } from 'react-router-dom';
 import { notifyUser } from '../../../redux/actions/notifyActions';
-import { getOrder, clearErrors, getToUpdateOrder, removeFromOrder } from '../../../redux/actions/orderActions';
+import { getOrder, clearErrors, getToUpdateOrder, removeFromOrder, addToUpdateOrder, updateOrder } from '../../../redux/actions/orderActions';
 import Alert from '../../layouts/Alert';
 import Loader from '../../layouts/Loader';
 import Sidebar from '../../layouts/Sidebar';
 import { PDFExport, savePDF } from "@progress/kendo-react-pdf";
+import AddProductToOrderUpdateModal from './AddProductToOrderUpdateModal';
 
 export default function UpdateOrder() {
 
     const pdfExportComponent = useRef(null);
 
     const dispatch = useDispatch();
+    const navigate = useNavigate();
     const params = useParams();
 
     const [status, setStatus] = useState('');
-    // const [newOrderItems, setNewOrderItems] = useState([]);
-    // const [newItemsPrice, setNewItemsPrice] = useState(0);
-    // const [newTotalPrice, setNewTotalPrice] = useState(0);
+    const [productId, setProductId] = useState('');
+    const [size, setSize] = useState('');
+    const [quantity, setQuantity] = useState(0);
 
     const {loading, order, error} = useSelector(state => state.orderDetails);
     
     const { message, messageType }= useSelector(state => state.notify);
     const {settings} = useSelector(state => state.settingsInfos);
     const { toUpdateOrder } = useSelector(state => state.orderToUpdate);
-    const {shippingInfo, orderItems, user, shippingPrice, orderStatus, isPaid, saleCoupon} = toUpdateOrder;
+    const {shippingInfo, orderItems, user, shippingPrice, itemsPrice, totalPrice, orderStatus, isPaid, saleCoupon} = toUpdateOrder;
+    const { error: updateError, isUpdated } = useSelector(state => state.order)
 
     useEffect(() => {
         if(order && order._id !== params.id){
             dispatch(getOrder(params.id));
+        } else {
+            setStatus(order.orderStatus)
         }
-        // } else {
-            // setStatus(orderStatus);
-            // setNewOrderItems(orderItems);
-            // setNewItemsPrice(itemsPrice);
-            // setNewTotalPrice(totalPrice);
-            // setNewShippingPrice(shippingPrice)
-            
-        // }
+        
         if(order){
             dispatch(getToUpdateOrder(order))
-        }
+        };
        
-        
         if(error) {
             dispatch(notifyUser(error, 'error'));
             setTimeout(() => dispatch(clearErrors()), 5000)
-        }
+        };
+
+        if(isUpdated){
+            navigate('/admin/orders');
+        };
+
+        if(updateError){
+            dispatch(notifyUser(updateError, 'error'));
+            setTimeout(() => dispatch(clearErrors()), 5000)
+        };
         
-    }, [order, params, error, dispatch]);
+    }, [order, params, error, dispatch, isUpdated, updateError]);
 
     const productsQty = toUpdateOrder && orderItems && orderItems.reduce((acc, item) => {
-        return acc + item.quantity
+        return acc + Number(item.quantity)
     },0);
 
 
@@ -64,28 +70,41 @@ export default function UpdateOrder() {
                 total + item.salePrice * item.quantity
         }, 0)
     }
-
     const subTotalPrice = getSubTotalPrice();
-
-    const handleShippingPrice = () => {
-        return settings && subTotalPrice >=  settings.shippingFreeLimit  ? '0.00' : shippingPrice
-    }
-
-    const newShippingPrice = handleShippingPrice();
 
 
     const getNewSubtotalPrice = () => {
         return saleCoupon !== 0 ? (subTotalPrice * (1 - saleCoupon)).toFixed(2) : 0
     };
-
     const newSubtotalPrice = getNewSubtotalPrice();
 
-    const totalPrice = newSubtotalPrice !== 0 ? (Number(newSubtotalPrice) + Number(newShippingPrice)).toFixed(2)  : (subTotalPrice + Number(newShippingPrice)).toFixed(2) 
+
+    const handleShippingPrice = () => {
+        let price;
+        newSubtotalPrice !== 0 ? price = newSubtotalPrice : price = subTotalPrice;
+        return settings && price >=  Number(settings.shippingFreeLimit)  ? '0.00' : settings.shippingPrice
+    }
+    const newShippingPrice = handleShippingPrice();
+
+    const newTotalPrice = newSubtotalPrice !== 0 ? (Number(newSubtotalPrice) + Number(newShippingPrice)).toFixed(2)  : (subTotalPrice + Number(newShippingPrice)).toFixed(2) 
 
     const removeItemHandler = (id, size) => {
         dispatch(removeFromOrder(id, size))
     };
 
+    const addToOrder = (id, quantity, size) => {
+        dispatch(addToUpdateOrder(id, quantity, size));
+        setProductId('');
+        setSize('');
+        setQuantity(0)
+    }
+
+    const updateOrderHandler = () => {
+        toUpdateOrder.itemsPrice = subTotalPrice;
+        toUpdateOrder.totalPrice = newTotalPrice;
+        toUpdateOrder.shippingPrice = newShippingPrice;
+        dispatch(updateOrder(params.id, toUpdateOrder))
+    }
 
    const exportPDFWithComponent = () => {
         if (pdfExportComponent.current) {
@@ -101,7 +120,7 @@ export default function UpdateOrder() {
 
             {loading ? <Loader/> : (
                 <div className="col-12 col-md-10 px-5 order">
-                    {error && <Alert message={message} messageType={messageType} /> }
+                    {(error || updateError) && <Alert message={message} messageType={messageType} /> }
 
                     <div className='d-flex justify-content-between my-5'>
                         <h1 className="text-uppercase" >Mettre à jour la commande</h1>
@@ -201,9 +220,11 @@ export default function UpdateOrder() {
                                             </div>
                                         </div>
 
-                                        <div className="order__delete" onClick={()=>{removeItemHandler(item.product, item.size)}}>
+                                        <button className="order__delete" 
+                                            onClick={()=>{removeItemHandler(item.product, item.size)}} 
+                                            disabled={status === "expédiée" || status === "livrée" ? true : false} >
                                             <i className="far fa-trash-alt"></i>
-                                        </div>
+                                        </button>
                                     </div>
                                      </Fragment>
                                 ))}
@@ -240,7 +261,7 @@ export default function UpdateOrder() {
                                 
                                 <div className='cart__summary-item'>
                                     <h1>Total:</h1>
-                                    <h1 className='cart__summary-totalValue'>{totalPrice + ' TND'}</h1>
+                                    <h1 className='cart__summary-totalValue'>{newTotalPrice + ' TND'}</h1>
                                 </div>
                                
                             </div>
@@ -250,9 +271,11 @@ export default function UpdateOrder() {
                     <div className='mt-5 order__cart'>
                         <div className='row d-flex justify-content-around'>
                             <div className='col-md-5 col-12'>
-                                <button className='btn order__button'>
+                                <button className='btn order__button' data-bs-toggle="modal" data-bs-target="#productModal" disabled={status === "expédiée" || status === "livrée" ? true : false}>
                                     Ajouter un produit <i className="fas fa-plus ms-2"></i>
                                 </button>
+                                <AddProductToOrderUpdateModal  productId={productId} size={size} quantity={quantity} addToOrder={addToOrder}
+                                                               setProductId={setProductId} setSize={setSize} setQuantity={setQuantity} />
                                 
                             </div>
 
@@ -263,7 +286,7 @@ export default function UpdateOrder() {
                                         className="form-control fs-4 order__status"
                                         name='status'
                                         value={status}
-                                        onChange={(e) => setStatus(e.target.value)}
+                                        onChange={(e) => {setStatus(e.target.value); toUpdateOrder.orderStatus = e.target.value}}
                                     >
                                         <option value="non-traitée">non-traitée</option>
                                         <option value="expédiée">expédiée</option>
@@ -278,7 +301,7 @@ export default function UpdateOrder() {
 
                     <div className='row d-flex justify-content-center'>
                         <div className='col-md-5 col-12 d-flex justify-content-center'>
-                            <button className="btn btn--1 m-5">
+                            <button className="btn btn--1 m-5" onClick={updateOrderHandler}>
                                 Mettre à jour
                             </button>
                         </div>

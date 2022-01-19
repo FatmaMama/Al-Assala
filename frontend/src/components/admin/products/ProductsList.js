@@ -102,7 +102,7 @@ export default function ProductsList() {
                 id : product._id,
                 name : product.name,
                 category: product.category.name,
-                price : `$${product.price}`,
+                price : `${product.price} TND`,
                 color : product.color,
                 sizes: product.sizes.map(size => size.sizeName + '  /  '),
                 stock: product.sizes.map(size => size.stock + '  /  '),
