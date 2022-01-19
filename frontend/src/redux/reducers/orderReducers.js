@@ -33,6 +33,7 @@ import {
     GET_TODAY_ORDERS_SUCCESS,
     GET_TODAY_ORDERS_FAIL,
     REMOVE_ORDER_ITEM,
+    ADD_TO_UPDATE_ORDER,
     CLEAR_ERRORS,
     TO_UPDATE_ORDER
 } from '../constants/orderConstants';
@@ -290,6 +291,22 @@ export const toUpdateOrderReducer = (state= {toUpdateOrder: {}}, action) => {
                 toUpdateOrder : action.payload
             }
 
+        case ADD_TO_UPDATE_ORDER:
+            const item = action.payload
+            const isItemExist = state.toUpdateOrder.orderItems.find(i => i.product === item.product && i.size === item.size)
+
+            if(isItemExist){
+                return {
+                    ...state,
+                    toUpdateOrder: {...state.toUpdateOrder, orderItems : state.toUpdateOrder.orderItems.map(i => i.product === isItemExist.product && i.size === item.size ? item : i)}
+                }
+            } else {
+                return {
+                    ...state,
+                    toUpdateOrder: {...state.toUpdateOrder, orderItems : [...state.toUpdateOrder.orderItems, item]}
+                }
+            }
+
         case REMOVE_ORDER_ITEM :
             return {
                 ...state,
@@ -298,7 +315,6 @@ export const toUpdateOrderReducer = (state= {toUpdateOrder: {}}, action) => {
                 } else {
                     return false
                 }} )}
-                
         }
 
         default:

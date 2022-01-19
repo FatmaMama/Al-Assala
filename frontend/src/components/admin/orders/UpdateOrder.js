@@ -102,7 +102,7 @@ export default function UpdateOrder() {
             {loading ? <Loader/> : (
                 <div className="col-12 col-md-10 px-5 order">
                     {error && <Alert message={message} messageType={messageType} /> }
-<h1>{console.log(toUpdateOrder)} </h1>
+
                     <div className='d-flex justify-content-between my-5'>
                         <h1 className="text-uppercase" >Mettre à jour la commande</h1>
                         <button className='btn order__button' onClick={exportPDFWithComponent}>Télécharger</button>
@@ -250,11 +250,10 @@ export default function UpdateOrder() {
                     <div className='mt-5 order__cart'>
                         <div className='row d-flex justify-content-around'>
                             <div className='col-md-5 col-12'>
-                                <Link to='/products' >
-                                    <button className='btn order__button'>
-                                        Ajouter un produit <i className="fas fa-plus ms-2"></i>
-                                    </button>
-                                </Link>
+                                <button className='btn order__button'>
+                                    Ajouter un produit <i className="fas fa-plus ms-2"></i>
+                                </button>
+                                
                             </div>
 
                             <div className='col-md-5 col-12 d-flex gap-4 align-items-center'>
@@ -264,11 +263,12 @@ export default function UpdateOrder() {
                                         className="form-control fs-4 order__status"
                                         name='status'
                                         value={status}
+                                        onChange={(e) => setStatus(e.target.value)}
                                     >
-                                        <option value="Processing">non-traitée</option>
-                                        <option value="Shipped">expédiée</option>
-                                        <option value="Delivered">livrée</option>
-                                        <option value="Delivered">retournée</option>
+                                        <option value="non-traitée">non-traitée</option>
+                                        <option value="expédiée">expédiée</option>
+                                        <option value="livrée">livrée</option>
+                                        <option value="retournée">retournée</option>
                                     </select>
                                 </div>
                             </div>

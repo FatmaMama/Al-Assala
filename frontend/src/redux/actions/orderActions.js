@@ -31,6 +31,7 @@ import {
     GET_TODAY_ORDERS_SUCCESS,
     GET_TODAY_ORDERS_FAIL,
     REMOVE_ORDER_ITEM,
+    ADD_TO_UPDATE_ORDER,
     CLEAR_ERRORS,
     TO_UPDATE_ORDER
 } from '../constants/orderConstants';
@@ -246,6 +247,31 @@ export const getToUpdateOrder = (data) => (dispatch) => {
     dispatch({
         type: TO_UPDATE_ORDER,
         payload: data
+    });
+};
+
+export const addToUpdateOrder = (id, quantity, size) => async (dispatch) => {
+    const {data} = await axios.get(`/api/v1/products/${id}`);
+    
+    let salePrice;
+    if(data.product.sale !== 0){
+        salePrice = data.product.price * (1 - data.product.sale)
+    } else {
+        salePrice = 0
+    }
+
+    dispatch ({
+        type: ADD_TO_UPDATE_ORDER,
+        payload: {
+            product: data.product._id,
+            name: data.product.name,
+            image: data.product.images[0].url,
+            color: data.product.color,
+            price: data.product.price,
+            salePrice,
+            size,
+            quantity,
+        }
     });
 };
 
