@@ -432,15 +432,38 @@ header .avatar {
   font-size: 2.2rem;
   font-weight: 500;
 }
-
-.order_button {
-  font-size: 2rem;
-  background-color: #c92a2a;
+.order__cart {
+  border: 2px solid #ccc;
+  border-radius: 3px;
+  padding: 3.2rem;
+  width: 97%;
+  margin: 0 auto;
+}
+.order__item {
+  position: relative;
+}
+.order__delete {
+  position: absolute;
+  left: 98%;
+  top: 35%;
+  color: #999;
+}
+.order__delete:hover {
+  color: #c92a2a;
+}
+.order__button {
+  font-size: 1.8rem;
+  background-color: #555;
+  color: #eee;
   text-transform: uppercase;
   letter-spacing: 2px;
-  font-weight: 700;
+  font-weight: 500;
   padding: 0.8rem 5.2rem;
-  margin-bottom: 2.4rem;
+}
+.order__status {
+  width: 130%;
+  letter-spacing: 2px;
+  font-size: 1.6rem;
 }
 
 .steps {
@@ -1064,7 +1087,7 @@ header .avatar {
   justify-content: space-around;
 }
 .info__box {
-  border: 1px solid #ccc;
+  border: 2px solid #ccc;
   border-radius: 3px;
   padding: 1.8rem;
 }

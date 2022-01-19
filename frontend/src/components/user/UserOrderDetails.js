@@ -46,7 +46,7 @@ export default function UserOrderDetails() {
                     </div>
 
                     <div className='row info'>
-                        <div className='col-12 col-lg-5 info__box'>
+                        <div className='col-12 col-lg-6 info__box'>
                             
                             <div className='info__items mt-2'>
                                 <span className='info__item-1'>Nom et Prénom:</span>
@@ -63,9 +63,9 @@ export default function UserOrderDetails() {
                             </div>
                         </div>
 
-                        <div className='col-12 col-lg-6 mt-5 mt-lg-0 info__box'>
+                        <div className='col-12 col-lg-5 mt-5 mt-lg-0 info__box'>
                             <div className='info__items'>
-                                <span className='info__item-1'>Paiment:</span>
+                                <span className='info__item-1'>Paiement:</span>
                                 <span className='info__item-2 text-uppercase'>{order && isPaid ? "payé" : "non payé"}</span>
                             </div>
                                 
@@ -78,18 +78,6 @@ export default function UserOrderDetails() {
                                 <span className='info__item-1'>Montant:</span>
                                 <span className='info__item-2'><b>{order && totalPrice + ' TND'}</b></span>
                             </div>
-                            {/* <div className='info__items'>
-                                <span className='info__item-1'>Mode d'expédition:</span>
-                                <span className='info__item-2'>Livraison 2-3 jours</span>
-                                <span>{order && order.shippingPrice === 0 ? 'Gratuite' : order.shippingPrice + ' TND'}</span>
-                            </div>
-                            <hr/>
-
-                            <div className='info__items'>
-                                <span className='info__item-1'>Moyen de paiement:</span>
-                                <span className='info__item-2'>Paiement à la livraison <p>Payer en argent comptant à la livraison</p></span>
-                                <span>{order.totalPrice + ' TND'}</span>
-                            </div> */}
                         </div>
                     </div>
 
@@ -152,8 +140,6 @@ export default function UserOrderDetails() {
                             </div>
 
                             <div className='cart__summary cart__order-summary'>
-                                <h2 className='text-center'>Total Panier</h2>
-                                <hr />
                                 <h4 className='cart__summary-item'>Sous-total:  <span className='cart__summary-value'>{order && itemsPrice && itemsPrice.toFixed(2) + ' TND'}</span></h4>
 
                                 <div>

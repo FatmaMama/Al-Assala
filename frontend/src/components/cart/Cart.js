@@ -143,62 +143,7 @@ export default function Cart() {
                                     </div>
                                      </Fragment>
                                 ))}
-                                <hr/>
-                                
-                                 {/* {cartItems.map(item => (
-                                     <Fragment key={item.product}>
-                                        <hr />
-                                        <div>
-                                            <div className="row cart__item">
-                                                <div className="col-2 col-md-1">
-                                                    <img src={item.image} alt={item.name} className='img-fluid'/>
-                                                </div>
-
-                                                <div className="col-5 col-md-3 d-flex justify-content-center align-items-center bg-info">
-                                                    <Link to={`/products/${item.product}`} className='cart__name' >{item.name}</Link>
-                                                </div>
-
-                                                <div className="col-3 col-md-2 d-flex justify-content-center align-items-center bg-warning">
-                                                    <p className='cart__color'>{item.color}</p>
-                                                </div>
-
-                                                <div className="col-2 col-md-1 d-flex justify-content-center align-items-center bg-danger">
-                                                    <p className='cart__size'><b>{item.size}</b></p>
-                                                </div>
-
-                                                <div className="col-6 col-md-3 mt-4 mt-md-0 d-flex justify-content-center align-items-center bg-success">
-                                                    {item.salePrice === 0 ? <p className='cart__price'>{`${item.price} TND`}</p>
-                                                    : (
-                                                        <div className='d-flex align-items-center gap-5'>
-                                                            <span className='cart__price'>{`${item.salePrice && item.salePrice.toFixed(2)} TND`}</span>
-                                                            <span className='product-cart__prev-price'>{`${item.price} TND`}</span>
-                                                        </div>
-                                                    )}
-                                                    
-                                                </div>
-
-                                                <div className="col-3 col-md-2 mt-4 mt-md-0">
-                                                    <div className="cart__qty-container">
-                                                        <button className='cart__btn' onClick={() => decreaseQty(item.product, item.quantity, item.size, item.stock)}>
-                                                            <i className="fas fa-minus"></i>
-                                                        </button>
-                                                        <input type="number" className="form-control cart__qty" value={item.quantity} readOnly />
-                                                        <button className='cart__btn' onClick={() => increaseQty(item.product, item.quantity, item.size, item.stock)}>
-                                                            <i className="fas fa-plus"></i>
-                                                        </button>
-                                                    </div>
-                                                </div>
-
-                                                <div className="cart__delete" onClick={()=>{removeItemHandler(item.product, item.size)}}>
-                                                    <i className="fa fa-trash"></i>
-                                                </div>
-
-                                            </div>
-                                        </div>
-                                        <hr />
-                                     </Fragment>
-                                 ))} */}
-                                
+                                <hr/>   
                             </div>
 
                             <div className='cart__summary'>

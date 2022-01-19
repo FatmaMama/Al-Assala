@@ -27,7 +27,7 @@ export default function ConfirmOrder() {
         itemsPrice : cartPrice.subTotalPrice,
         shippingPrice : cartPrice.newShippingPrice,
         saleCoupon : cartPrice.newSubtotalPrice ? cartPrice.saleCoupon : 0 ,
-        totalPrice : cartPrice.newSubtotalPrice ? cartPrice.newSubtotalPrice : cartPrice.totalPrice
+        totalPrice : cartPrice.totalPrice
     };
 
     useEffect(() => {
@@ -88,7 +88,7 @@ export default function ConfirmOrder() {
             <div className='p-5 mt-5'>
                 <h2 className='cart-title cart__order-title'>Votre commande: <b>{getCartCount()} Articles</b></h2>
         
-                        <div>
+                        <div className='pt-5'>
                             <div className='cart__container cart__order'>
                                 <div className='cart__grid cart__head'>
                                     <h4></h4>
@@ -146,7 +146,7 @@ export default function ConfirmOrder() {
                             <div className='cart__summary cart__order-summary'>
                                 <h2 className='text-center'>Total Panier</h2>
                                 <hr />
-                                <h4 className='cart__summary-item'>Sous-total:  <span className='cart__summary-value'>{cartPrice.subTotalPrice + ' TND'}</span></h4>
+                                <h4 className='cart__summary-item'>Sous-total:  <span className='cart__summary-value'>{cartPrice.subTotalPrice.toFixed(2) + ' TND'}</span></h4>
 
                                 <div>
                                     {cartPrice.newSubtotalPrice !== 0 &&
@@ -166,7 +166,7 @@ export default function ConfirmOrder() {
                                 
                                 <h4 className='cart__summary-item'>Livraison:  <span className='cart__summary-value'>{cartPrice.newShippingPrice + ' TND'}</span></h4>
                                 <hr/>
-                                <h4 className='cart__summary-item'>Total: <span className='cart__summary-totalValue'></span>{cartPrice.totalPrice + ' TND'}</h4>
+                                <h4 className='cart__summary-item'>Total: <span className='cart__summary-totalValue'>{cartPrice.totalPrice + ' TND'}</span></h4>
                                 <hr />
                                 <button  
                                     className="btn btn--1" 

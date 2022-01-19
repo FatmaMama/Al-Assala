@@ -44,7 +44,7 @@ export default function Dashboard() {
                             <div className="col-xl-12 col-sm-12 mb-3">
                                 <div className="card text-white bg-primary o-hidden h-100">
                                     <div className="card-body">
-                                        <div className="text-center">Montant Total<br /> <b>{`$${totalAmount}`}</b>
+                                        <div className="text-center">Montant Total<br /> <b>{`${totalAmount} TND`}</b>
                                         </div>
                                     </div>
                                 </div>
