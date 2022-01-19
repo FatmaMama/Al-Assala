@@ -1,4 +1,4 @@
-import React, { useEffect, useState, Fragment } from 'react';
+import React, { useEffect, useState, Fragment, useRef } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useParams, Link } from 'react-router-dom';
 import { notifyUser } from '../../../redux/actions/notifyActions';
@@ -6,8 +6,11 @@ import { getOrder, clearErrors } from '../../../redux/actions/orderActions';
 import Alert from '../../layouts/Alert';
 import Loader from '../../layouts/Loader';
 import Sidebar from '../../layouts/Sidebar';
+import { PDFExport, savePDF } from "@progress/kendo-react-pdf";
 
 export default function UpdateOrder() {
+
+    const pdfExportComponent = useRef(null);
 
     const dispatch = useDispatch();
     const params = useParams();
@@ -42,7 +45,14 @@ export default function UpdateOrder() {
 
     const productsQty = order && orderItems && newOrderItems.reduce((acc, item) => {
         return acc + item.quantity
-   },0)
+   },0);
+
+
+   const exportPDFWithComponent = () => {
+        if (pdfExportComponent.current) {
+        pdfExportComponent.current.save();
+        }
+    };
 
     return (
         <div className="row">
@@ -52,12 +62,17 @@ export default function UpdateOrder() {
 
             {loading ? <Loader/> : (
                 <div className="col-12 col-md-10 px-5 order">
-                    <h1 className="text-uppercase my-5" >Mettre à jour la commande</h1>
                     {error && <Alert message={message} messageType={messageType} /> }
 
+                    <div className='d-flex justify-content-between my-5'>
+                        <h1 className="text-uppercase" >Mettre à jour la commande</h1>
+                        <button className='btn order__button' onClick={exportPDFWithComponent}>Télécharger</button>
+                    </div>
+                    
+                    <PDFExport ref={pdfExportComponent} scale={0.5} paperSize="A4" margin="0.5cm">
                         <div className="my-4">
-                            <span className="me-4 order__title">Commande #{order && order._id}</span>
-                            <span><b>( {order && order.createdAt && order.createdAt.slice(0,10)} )</b></span>
+                            <span className="order__title">{order && `Commande #${order._id}`}</span>
+                            <div className="order__date"><b>{order && order.createdAt && order.createdAt.slice(0,10)}</b></div>
                         </div>
 
                         <div className='row px-1 mt-5 py-5 info'>
@@ -186,11 +201,12 @@ export default function UpdateOrder() {
                                 
                                 <div className='cart__summary-item'>
                                     <h1>Total:</h1>
-                                    <h1 className='cart__summary-totalValue'>{totalPrice + ' TND'}</h1>
+                                    <h1 className='cart__summary-totalValue'>{newTotalPrice + ' TND'}</h1>
                                 </div>
                                
                             </div>
                             </div>
+                    </PDFExport>
 
                     <div className='mt-5 order__cart'>
                         <div className='row d-flex justify-content-around'>

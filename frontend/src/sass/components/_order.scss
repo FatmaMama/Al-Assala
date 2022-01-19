@@ -5,6 +5,12 @@
         color: $color-primary;
         font-size: 3.2rem;
         font-weight: 600;
+        margin-right: 5.4rem;
+    }
+
+    &__date {
+        font-size: 2.2rem;
+        padding: 0 .8rem;
     }
 
     &__subTitle {
@@ -44,12 +50,18 @@
         letter-spacing: 2px;
         font-weight: 500;
         padding: .8rem 5.2rem;
+        transition: all .2s;
+
+        &:hover {
+            color: $color-grey-light-1;
+            transform: scale(1.05);
+        }
     }
 
     &__status {
         width: 130%;
         letter-spacing: 2px;
-        font-size: 1.6rem;
+        font-size: 1.8rem;
     }
 }
 

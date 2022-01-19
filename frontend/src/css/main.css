@@ -426,6 +426,11 @@ header .avatar {
   color: #c92a2a;
   font-size: 3.2rem;
   font-weight: 600;
+  margin-right: 5.4rem;
+}
+.order__date {
+  font-size: 2.2rem;
+  padding: 0 0.8rem;
 }
 .order__subTitle {
   display: inline-block;
@@ -459,11 +464,16 @@ header .avatar {
   letter-spacing: 2px;
   font-weight: 500;
   padding: 0.8rem 5.2rem;
+  transition: all 0.2s;
+}
+.order__button:hover {
+  color: #eee;
+  transform: scale(1.05);
 }
 .order__status {
   width: 130%;
   letter-spacing: 2px;
-  font-size: 1.6rem;
+  font-size: 1.8rem;
 }
 
 .steps {
