@@ -6,7 +6,7 @@ import { notifyUser } from '../../redux/actions/notifyActions';
 import { getOrder, clearErrors } from '../../redux/actions/orderActions';
 import Alert from '../layouts/Alert';
 import Loader from '../layouts/Loader';
-import Menu from '../layouts/Menu';
+import Menu from '../layouts/menu/Menu';
 
 export default function UserOrderDetails() {
 

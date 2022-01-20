@@ -1,0 +1,63 @@
+import React, { Fragment, useEffect, useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { getCategories } from '../../../redux/actions/categoryActions';
+import { Link } from 'react-router-dom';
+import Loader from '../Loader';
+
+export default function MobileNavigation() {
+
+    const dispatch = useDispatch();
+
+    const [open, setOpen] = useState(false)
+
+    const { loading, categories } = useSelector(state => state.categories);
+
+    useEffect(() => {
+        dispatch(getCategories());
+
+    }, [dispatch]);
+
+    const renderCategories = (categories) => {
+        let myCategories = []
+        for(let category of categories){
+            myCategories.push(
+                <li key={category._id} onClick={closeMobileMenu}>
+                    
+                        {category.parentId ? 
+                            <Link className='navigation-item' to={`/products?page=1&category=${category._id}`}>{category.name}</Link>
+                            :
+                            <Link className='navigation-head' to={`/products?category=${category._id}`}>
+                                {category.name}
+                                {category.children.length > 0 && <i className="fas fa-angle-down ms-2"></i>}
+                            </Link>
+                        }
+                    
+                    {category.children.length > 0 && (<ul>{renderCategories(category.children)}</ul>)}
+                </li>
+            )
+        };
+        return myCategories
+    };
+
+    const closeMobileMenu = () => {
+        setOpen(false)
+    }
+
+    return (
+        <nav className='mobileNavigation'>
+            {loading ? <Loader /> : (
+                <Fragment>
+                    {open ? <button onClick={() => setOpen(!open)}><i class="far fa-times-circle"></i></button> 
+                    :
+                    <button onClick={() => setOpen(!open)} ><i className="fas fa-bars"></i></button>
+                    }
+                    
+                    {open && <ul>
+                                {categories && renderCategories(categories)}
+                            </ul>
+                    }
+                </Fragment>
+            )}
+        </nav>
+    )
+}

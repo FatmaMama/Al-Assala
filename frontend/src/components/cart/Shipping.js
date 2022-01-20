@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import { saveShippingInfo } from '../../redux/actions/cartActions';
-import Menu from '../layouts/Menu'
+import Menu from '../layouts/menu/Menu';
 import CheckoutSteps from './CheckoutSteps'
 
 export default function Shipping() {
@@ -94,7 +94,7 @@ export default function Shipping() {
 
                         <div className='row d-flex justify-content-center'>
                             <div className='col-md-5 col-12 d-flex justify-content-center'>
-                                <button id="shipping_btn" type="submit" className="btn mt-5 btn--1">
+                                <button id="shipping_btn" type="submit" className="btn m-5 btn--1">
                                     continuer
                                 </button>
                             </div>

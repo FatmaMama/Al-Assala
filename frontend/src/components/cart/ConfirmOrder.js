@@ -1,7 +1,7 @@
 import React, { useEffect, Fragment } from 'react'
 import { useDispatch, useSelector } from 'react-redux';
 import { Link, useNavigate } from 'react-router-dom';
-import Menu from '../layouts/Menu';
+import Menu from '../layouts/menu/Menu';
 import CheckoutSteps from './CheckoutSteps';
 import { notifyUser } from '../../redux/actions/notifyActions';
 import { clearErrors, newOrder } from '../../redux/actions/orderActions';

@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { resetCart } from '../../redux/actions/cartActions';
-import Menu from '../layouts/Menu'
+import Menu from '../layouts/menu/Menu'
 
 export default function OrderSuccess() {
 

@@ -6,7 +6,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { notifyUser } from '../../redux/actions/notifyActions';
 import Alert from '../layouts/Alert';
 import { getMyOrders, clearErrors } from '../../redux/actions/orderActions';
-import Menu from '../layouts/Menu';
+import Menu from '../layouts/menu/Menu';
 
 export default function MyOrders() {
 

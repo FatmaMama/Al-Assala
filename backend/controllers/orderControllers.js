@@ -80,9 +80,9 @@ exports.getAllOrders = catchAsync(async (req, res, next) => {
 
 //UPDATE ORDER  =>  PATCH : api/v1/admin/orders/:id
 exports.updateOrder = catchAsync(async (req, res, next) => {
-    const order = await Order.findById(req.params.id);
+    let order = await Order.findById(req.params.id);
 
-    if(order.orderStatus === req.body.status){
+    if(order.orderStatus === req.body.orderStatus){
         return next(new AppError(`Cette commande est déjà ${order.orderStatus}`, 400))
     }
 
@@ -94,28 +94,31 @@ exports.updateOrder = catchAsync(async (req, res, next) => {
     };
 
     newOrderItems.forEach(async item => {
-        await updateStock(item.product, item.size, item.quantity, req.body.status)
+        await updateStock(item.product, item.size, item.quantity, req.body.orderStatus)
     });
    
-    if(req.body.status === "expédiée") {
-        order.shippedAt = Date.now();
-        order.deliveredAt = undefined;
-        order.isPaid = false
+    if(req.body.orderStatus === "expédiée") {
+        req.body.shippedAt = Date.now();
+        req.body.deliveredAt = undefined;
+        req.body.isPaid = false
     };
     
-    if(req.body.status === "livrée") {
-        order.deliveredAt = Date.now();
-        order.isPaid = true
+    if(req.body.orderStatus === "livrée") {
+        req.body.deliveredAt = Date.now();
+        req.body.isPaid = true
     };
 
-    if(req.body.status === "retournée") {
-        order.shippedAt = undefined;
-        order.deliveredAt = undefined;
-        order.isPaid = false
+    if(req.body.orderStatus === "retournée") {
+        req.body.shippedAt = undefined;
+        req.body.deliveredAt = undefined;
+        req.body.isPaid = false
     };
 
-    order.orderStatus = req.body.status;
-    await order.save();
+    order = await Order.findByIdAndUpdate(req.params.id, req.body, {
+        new: true,
+        runValidators: true,
+        useFindAndModify: false
+    });
 
     res.status(200).json({
         success : true,

@@ -1,47 +1,41 @@
-.menu{
+.navbar .navigation{
     height: 4rem;
     width: 100%;
     background: #fff;
     border-bottom: 1px solid #ececec;
     box-shadow: 0 1px 1px -2px $color-grey-dark-1;
 
-    // @media only screen and (max-width: 900px) {
-    //     height: 100vh;
-    //     background-color: rgba(#000, 0.8);
-    
+    // &__btn {
+    //     display: none;
+    //     border: none;
+    //     border-radius: 0;
+    //     background-color: $color-grey-dark-1;
+    //     height: 3px;
+    //     width: 2.8rem;
+    //     margin-top: 2rem;
+    //     margin-right: auto;
+    //     margin-left: 1.6rem;
+
+    //     &::before, &::after {
+    //         content: '';
+    //         display: block;
+    //         background-color: $color-grey-dark-1;
+    //         height: 3px;
+    //         width: 2.8rem;
+    //     }
+
+    //     &::before {
+    //         transform: translateY(1rem);
+    //     }
+
+    //     &::after {
+    //         transform: translateY(-1.3rem);
+    //     }
+
+    //     @media only screen and (max-width: 900px) {
+    //        display: block;
+    //     }
     // }
-
-    &__btn {
-        display: none;
-        border: none;
-        border-radius: 0;
-        background-color: $color-grey-dark-1;
-        height: 3px;
-        width: 2.8rem;
-        margin-top: 2rem;
-        margin-right: auto;
-        margin-left: 1.6rem;
-
-        &::before, &::after {
-            content: '';
-            display: block;
-            background-color: $color-grey-dark-1;
-            height: 3px;
-            width: 2.8rem;
-        }
-
-        &::before {
-            transform: translateY(1rem);
-        }
-
-        &::after {
-            transform: translateY(-1.3rem);
-        }
-
-        @media only screen and (max-width: 900px) {
-           display: block;
-        }
-    }
 
     ul{
         padding: 0;
@@ -55,36 +49,9 @@
         justify-content: center;
         align-items: center;
         position: relative;
-
-        // @media only screen and (max-width: 900px) {
-        //     height: 100vh;
-        //     width: 30%;
-        //     background-color: bisque;
-        //     display: flex;
-        //     flex-direction: column;
-        //     justify-content: start;
-        //     align-items: flex-start;
-        //     gap: 2rem;
-        //     padding-left: 2rem;
-        //     // z-index: 5;
-        // }
     }
 
-    // @media only screen and (max-width: 900px) {
-    //     & > ul > li {
-    //         display: none;
-    //     }
-    //  }
-
-    // & > ul > .menu-show {
-    //     display: block;
-    // }
-
-    // & > ul > .menu-notShow {
-    //     display: none;
-    // }
-
-    & > ul > li > .menu-head{
+    & > ul > li > .navigation-head{
         text-decoration: none;
         padding: 0 1.2rem;
         line-height: 4rem;
@@ -97,7 +64,7 @@
         color: $color-grey-dark-1;
     }
 
-    & > ul > li > .menu-head:hover{
+    & > ul > li > .navigation-head:hover{
         color: $color-primary;
     }
 
@@ -116,7 +83,7 @@
         display: flex;
     }
 
-    & > ul > li  > ul > li .menu-item{
+    & > ul > li  > ul > li .navigation-item{
         width: 12rem;
         padding: .4rem;
         line-height: 2rem;
@@ -131,11 +98,11 @@
         transition: all .2s;
     }
 
-    & > ul > li  > ul > li .menu-item:hover {
+    & > ul > li  > ul > li .navigation-item:hover {
         transform: translateX(.5rem) scale(1.03);
     }
 
-    & > ul > li  > ul > li > .menu-item{
+    & > ul > li  > ul > li > .navigation-item{
         padding: .4rem;
         border-bottom: 1px solid $color-grey-dark-1;
         line-height: 2rem;
@@ -148,31 +115,21 @@
         color: $color-grey-dark-2;
     }
 
-    & > ul > li  > ul > li:hover > .menu-item {
+    & > ul > li  > ul > li:hover > .navigation-item {
         color: $color-primary;
     }
-
-    // @media only screen and (max-width: 900px) {
-    //     &__btn {
-    //         display: block;
-    //     }
-
-    //     & > ul > .menu-show {
-    //         display: block;
-    //     }
-
-    //     &  > ul{
-    //         display: flex;
-    //         flex-direction: column;
-    //         gap: 7rem;
-    //         // justify-content: center;
-    //         // align-items: center;
-    //         // position: relative;
-    //     }
-    // }
-    
 }
 
-@media only screen and (max-width: 900px) {
-   
+.navbar .mobileNavigation {
+    display: none;
+}
+
+@media only screen and (max-width: 56em) {
+    .navbar .navigation {
+        display: none;
+    }
+
+    .navbar .mobileNavigation {
+        display: flex;
+    }
 }
