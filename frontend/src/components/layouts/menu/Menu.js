@@ -1,14 +1,20 @@
-import React, { Fragment } from 'react';
+import React, { useState } from 'react';
 import MobileNavigation from './MobileNavigation';
 import Navigation from './Navigation';
-
+import classNames from 'classnames';
 
 export default function Menu() {
 
+    const [open, setOpen] = useState(false);
+
+    const closeMobileMenu = () => {
+        setOpen(false)
+    }
+
     return (
-        <div className='navbar'>
+        <div className={classNames('navbar', { 'navbar-open' : open})}>
             <Navigation />
-            <MobileNavigation />
+            <MobileNavigation open={open} setOpen={setOpen} closeMobileMenu={closeMobileMenu} />
         </div>
     )
 }

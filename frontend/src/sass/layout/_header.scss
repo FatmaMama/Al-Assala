@@ -5,9 +5,24 @@ header {
     align-items: center;
     height: 6rem;
 
+    @media only screen and (max-width: 56em) {
+        flex-wrap: wrap;
+        height: 14rem;
+        align-content: space-around;
+        justify-content: space-around;
+    }
+
     .logo {
         width: 15rem;
         margin-left: 5rem;
+
+        @media only screen and (max-width: 75em) {
+            margin-left: 2rem;
+        }
+
+        @media only screen and (max-width: 56em) {
+            margin-left: 0;
+        }
     }
 
     .avatar {
@@ -24,6 +39,16 @@ header {
     justify-content: center;
     position: relative;
 
+    @media only screen and (max-width: 75em) {
+        flex: 0 0 42%;
+    }
+
+    @media only screen and (max-width: 56em) {
+        order: 1;
+        flex: 0 0 80%;
+        justify-self: flex-end;
+    }
+
     &__input {
         width: 95%;
         border: none;
@@ -34,11 +59,9 @@ header {
         color: inherit;
         transition: all .2s;
         margin-right: -3rem;
-        // background-color: ;
 
         &:focus {
             outline: none;
-            // width: 100%
         }
 
         &::-webkit-input-placeholder {
@@ -88,13 +111,24 @@ header {
     font-size: 1.6rem;
     position: relative;
 
+    @media only screen and (max-width: 75em) {
+        margin-right: 2rem;
+    }
+
+    @media only screen and (max-width: 56em) {
+        margin-right: 0;
+    }
+
     &__list {
         height: 100%;
         list-style: none;
         display: flex;
         gap: 3.2rem;
         align-items: center;
-        
+    
+        @media only screen and (max-width: 75em) {
+            gap: 0rem;
+        }
 
         & > * {
             padding: 0 2rem;

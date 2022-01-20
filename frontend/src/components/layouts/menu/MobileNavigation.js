@@ -4,11 +4,11 @@ import { getCategories } from '../../../redux/actions/categoryActions';
 import { Link } from 'react-router-dom';
 import Loader from '../Loader';
 
-export default function MobileNavigation() {
+export default function MobileNavigation({open, setOpen, closeMobileMenu}) {
 
     const dispatch = useDispatch();
 
-    const [open, setOpen] = useState(false)
+    // const [open, setOpen] = useState(false)
 
     const { loading, categories } = useSelector(state => state.categories);
 
@@ -24,9 +24,9 @@ export default function MobileNavigation() {
                 <li key={category._id} onClick={closeMobileMenu}>
                     
                         {category.parentId ? 
-                            <Link className='navigation-item' to={`/products?page=1&category=${category._id}`}>{category.name}</Link>
+                            <Link className='mobileNavigation-item' to={`/products?page=1&category=${category._id}`}>{category.name}</Link>
                             :
-                            <Link className='navigation-head' to={`/products?category=${category._id}`}>
+                            <Link className='mobileNavigation-head' to={`/products?category=${category._id}`}>
                                 {category.name}
                                 {category.children.length > 0 && <i className="fas fa-angle-down ms-2"></i>}
                             </Link>
@@ -39,17 +39,17 @@ export default function MobileNavigation() {
         return myCategories
     };
 
-    const closeMobileMenu = () => {
-        setOpen(false)
-    }
+    // const closeMobileMenu = () => {
+    //     setOpen(false)
+    // }
 
     return (
         <nav className='mobileNavigation'>
             {loading ? <Loader /> : (
                 <Fragment>
-                    {open ? <button onClick={() => setOpen(!open)}><i class="far fa-times-circle"></i></button> 
+                    {open ? <button className='mobileNavigation__close' onClick={() => setOpen(!open)}><i className="far fa-times-circle"></i></button> 
                     :
-                    <button onClick={() => setOpen(!open)} ><i className="fas fa-bars"></i></button>
+                    <button className='mobileNavigation__hamburger' onClick={() => setOpen(!open)} ><i className="fas fa-bars"></i></button>
                     }
                     
                     {open && <ul>

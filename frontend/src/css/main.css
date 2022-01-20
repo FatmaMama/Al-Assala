@@ -14,6 +14,7 @@ body {
   font-family: "Oswald", sans-serif;
   color: #333;
   letter-spacing: 1px;
+  position: relative;
 }
 
 .wrapper {
@@ -54,9 +55,27 @@ header {
   align-items: center;
   height: 6rem;
 }
+@media only screen and (max-width: 56em) {
+  header {
+    flex-wrap: wrap;
+    height: 14rem;
+    align-content: space-around;
+    justify-content: space-around;
+  }
+}
 header .logo {
   width: 15rem;
   margin-left: 5rem;
+}
+@media only screen and (max-width: 75em) {
+  header .logo {
+    margin-left: 2rem;
+  }
+}
+@media only screen and (max-width: 56em) {
+  header .logo {
+    margin-left: 0;
+  }
 }
 header .avatar {
   width: 3rem;
@@ -70,6 +89,18 @@ header .avatar {
   align-items: center;
   justify-content: center;
   position: relative;
+}
+@media only screen and (max-width: 75em) {
+  .search {
+    flex: 0 0 42%;
+  }
+}
+@media only screen and (max-width: 56em) {
+  .search {
+    order: 1;
+    flex: 0 0 80%;
+    justify-self: flex-end;
+  }
 }
 .search__input {
   width: 95%;
@@ -125,12 +156,27 @@ header .avatar {
   font-size: 1.6rem;
   position: relative;
 }
+@media only screen and (max-width: 75em) {
+  .user-nav {
+    margin-right: 2rem;
+  }
+}
+@media only screen and (max-width: 56em) {
+  .user-nav {
+    margin-right: 0;
+  }
+}
 .user-nav__list {
   height: 100%;
   list-style: none;
   display: flex;
   gap: 3.2rem;
   align-items: center;
+}
+@media only screen and (max-width: 75em) {
+  .user-nav__list {
+    gap: 0rem;
+  }
 }
 .user-nav__list > * {
   padding: 0 2rem;
@@ -297,12 +343,114 @@ header .avatar {
 }
 
 @media only screen and (max-width: 56em) {
+  .navbar {
+    position: absolute;
+    width: 100%;
+    min-height: 100vh;
+    z-index: 2;
+    top: -1rem;
+    padding-bottom: 4.8rem;
+  }
+
+  .navbar-open {
+    background-image: linear-gradient(to right, rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6));
+  }
+
   .navbar .navigation {
     display: none;
   }
 
   .navbar .mobileNavigation {
     display: flex;
+    z-index: 15;
+  }
+  .navbar .mobileNavigation__hamburger {
+    border: none;
+    background-color: transparent;
+    font-size: 3.6rem;
+    padding: 0 1.2rem;
+    margin-left: 1.2rem;
+    position: absolute;
+    top: 14.5%;
+    left: 2%;
+  }
+  .navbar .mobileNavigation__close {
+    position: absolute;
+    font-size: 3.6rem;
+    border: none;
+    background-color: transparent;
+    left: 33%;
+    top: 1%;
+    color: #555;
+    z-index: 3;
+  }
+  .navbar .mobileNavigation ul {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+  }
+  .navbar .mobileNavigation > ul {
+    position: absolute;
+    top: 0%;
+    width: 40%;
+    height: 100%;
+    background-color: #fdf5f5;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    padding: 4.8rem;
+  }
+  .navbar .mobileNavigation > ul > li > .mobileNavigation-head {
+    text-decoration: none;
+    line-height: 4rem;
+    display: block;
+    cursor: pointer;
+    font-size: 1.8rem;
+    font-weight: bold;
+    letter-spacing: 2px;
+    font-family: inherit;
+    color: #333;
+    transition: all 0.2s;
+  }
+  .navbar .mobileNavigation > ul > li > .mobileNavigation-head:hover {
+    color: #c92a2a;
+    transform: translateX(0.5rem) scale(1.03);
+  }
+  .navbar .mobileNavigation > ul > li > ul {
+    display: flex;
+    flex-direction: column;
+    gap: 1.4rem;
+    padding: 0 1.2rem;
+  }
+  .navbar .mobileNavigation > ul > li > ul > li .mobileNavigation-item {
+    padding: 0 2.4rem;
+    line-height: 0.8rem 2rem;
+    text-decoration: none;
+    display: block;
+    cursor: pointer;
+    font-size: 1.2rem;
+    letter-spacing: 1px;
+    font-weight: bold;
+    font-family: inherit;
+    color: #555;
+    transition: all 0.2s;
+  }
+  .navbar .mobileNavigation > ul > li > ul > li .mobileNavigation-item:hover {
+    transform: translateX(0.5rem) scale(1.03);
+  }
+  .navbar .mobileNavigation > ul > li > ul > li > .mobileNavigation-item {
+    font-size: 1.6rem;
+    padding: 0.4rem;
+    line-height: 2rem;
+    text-decoration: none;
+    display: block;
+    cursor: pointer;
+    font-weight: 500;
+    font-family: inherit;
+    color: #555;
+  }
+  .navbar .mobileNavigation > ul > li > ul > li:hover > .mobileNavigation-item {
+    color: #c92a2a;
   }
 }
 .wrapper {
