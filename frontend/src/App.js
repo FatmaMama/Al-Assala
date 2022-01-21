@@ -11,6 +11,9 @@ import Register from './components/user/Register';
 
 import MyOrders from './components/user/MyOrders';
 import UserOrderDetails from './components/user/UserOrderDetails';
+import Profile from './components/user/Profile';
+import UpdateProfile from './components/user/UpdateProfile';
+import UpdatePassword from './components/user/UpdatePassword';
 
 import ProductsByCategory from './components/products/ProductsByCategory';
 import ProductDetails from './components/products/ProductDetails';
@@ -39,8 +42,7 @@ import UpdateUser from './components/admin/users/UpdateUser';
 import CategoriesList from './components/admin/categories/CategoriesList';
 import AddCategory from './components/admin/categories/AddCategory';
 import UpdateCategory from './components/admin/categories/UpdateCategory';
-import Profile from './components/user/Profile';
-import UpdateProfile from './components/user/UpdateProfile';
+
 
 
 
@@ -64,6 +66,7 @@ function App() {
           <Route path='/user/orders/:id' element={<UserOrderDetails/>} />
           <Route path='/user/profile' element={<Profile/>} />
           <Route path='/user/update' element={<UpdateProfile/>} />
+          <Route path='/password/update' element={<UpdatePassword/>} />
 
           <Route path='/products' element={<ProductsByCategory/>} />
           <Route path='/products/:id' element={<ProductDetails/>} />
