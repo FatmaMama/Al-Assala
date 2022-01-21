@@ -107,7 +107,7 @@ export default function Header() {
                                             <Link  to="/user/orders" className="dropdown-item">Commandes</Link>
                                         </li>
                                         <li>
-                                            <Link to="/me" className="dropdown-item">Profil</Link>
+                                            <Link to="/user/profile" className="dropdown-item">Profil</Link>
                                         </li>
                                         <li> 
                                             <Link to="/" className="dropdown-item text-danger" onClick={logoutHandler}>Se déconnecter</Link>

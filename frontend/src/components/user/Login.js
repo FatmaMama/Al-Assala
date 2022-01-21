@@ -19,7 +19,7 @@ export default function Login() {
     const {loading, isAuthenticated, error} = useSelector(state => state.auth);
     const {message, messageType} = useSelector(state => state.notify);
 
-    const redirect = location.search ? location.search.split('=')[1] : '/'
+    const redirect = location.search ? location.search.split('=')[1] : '';
 
     useEffect(() => {
         if(isAuthenticated){

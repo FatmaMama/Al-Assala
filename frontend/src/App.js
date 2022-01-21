@@ -39,6 +39,7 @@ import UpdateUser from './components/admin/users/UpdateUser';
 import CategoriesList from './components/admin/categories/CategoriesList';
 import AddCategory from './components/admin/categories/AddCategory';
 import UpdateCategory from './components/admin/categories/UpdateCategory';
+import Profile from './components/user/Profile';
 
 
 
@@ -60,6 +61,7 @@ function App() {
 
           <Route path='/user/orders' element={<MyOrders/>} />
           <Route path='/user/orders/:id' element={<UserOrderDetails/>} />
+          <Route path='/user/profile' element={<Profile/>} />
 
           <Route path='/products' element={<ProductsByCategory/>} />
           <Route path='/products/:id' element={<ProductDetails/>} />

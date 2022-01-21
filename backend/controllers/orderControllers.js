@@ -57,7 +57,6 @@ exports.getMyOrders = catchAsync(async (req, res, next) => {
 //ADMIN
 //GET ALL ORDERS  =>  GET : api/v1/admin/orders
 exports.getAllOrders = catchAsync(async (req, res, next) => {
-    // const orders = await Order.find();
 
     let query = Order.find();
     query = query.sort('-createdAt');
