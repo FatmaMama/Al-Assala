@@ -1,6 +1,7 @@
 const User = require('../models/userModel');
 const catchAsync = require('../utils/catchAsync');
 const AppError = require('../utils/appError');
+const cloudinary = require('cloudinary');
 
 //GET currently logged in user  =>  GET :  api/v1/me
 exports.getUserProfile = catchAsync( async (req, res, next) => {
@@ -67,5 +68,45 @@ exports.deleteUser = catchAsync(async (req, res, next) => {
 
     res.status(200).json({
         success: true
+    })
+});
+
+
+//UPDATE USER PROFILE  => PATCH :  api/v1/user/update
+exports.updateProfile = catchAsync( async (req, res, next) => {
+    const newUserData = {
+        name: req.body.name,
+        email: req.body.email
+    };
+
+    if(req.body.avatar !== ''){
+        const user = await User.findById(req.user.id);
+
+        const image_id = user.avatar.public_id;
+        if(image_id !== "Al-Assala/avatars/default-avatar_zhm2mo"){
+            await cloudinary.v2.uploader.destroy(image_id);
+        }
+
+        const result = await cloudinary.v2.uploader.upload(req.body.avatar, {
+            folder: 'Al-Assala/avatars',
+            width: 150,
+            crop: 'scale'
+        });
+
+        newUserData.avatar = {
+            public_id : result.public_id,
+            url : result.secure_url
+        }
+    }
+
+    const user = await User.findByIdAndUpdate(req.user.id, newUserData, {
+        new: true,
+        runValidators: true,
+        useFindAndModify : false
+    });
+
+    res.status(200).json({
+        success: true,
+        user
     })
 });
