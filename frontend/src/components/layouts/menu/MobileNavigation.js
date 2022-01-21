@@ -8,8 +8,6 @@ export default function MobileNavigation({open, setOpen, closeMobileMenu}) {
 
     const dispatch = useDispatch();
 
-    // const [open, setOpen] = useState(false)
-
     const { loading, categories } = useSelector(state => state.categories);
 
     useEffect(() => {
@@ -26,22 +24,18 @@ export default function MobileNavigation({open, setOpen, closeMobileMenu}) {
                         {category.parentId ? 
                             <Link className='mobileNavigation-item' to={`/products?page=1&category=${category._id}`}>{category.name}</Link>
                             :
-                            <Link className='mobileNavigation-head' to={`/products?category=${category._id}`}>
+                            <Link className='mobileNavigation-head' to={`/products?category=${category._id}`} >
                                 {category.name}
                                 {category.children.length > 0 && <i className="fas fa-angle-down ms-2"></i>}
                             </Link>
                         }
                     
-                    {category.children.length > 0 && (<ul>{renderCategories(category.children)}</ul>)}
+                    {category.children.length > 0 && (<ul >{renderCategories(category.children)}</ul>)}
                 </li>
             )
         };
         return myCategories
     };
-
-    // const closeMobileMenu = () => {
-    //     setOpen(false)
-    // }
 
     return (
         <nav className='mobileNavigation'>
