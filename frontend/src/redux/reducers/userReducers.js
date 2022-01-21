@@ -157,7 +157,7 @@ export const userReducer = (state= { }, action) => {
 
         case DELETE_USER_FAIL:
         case UPDATE_USER_FAIL:
-        case UPDATE_PROFILE_RESET:
+        case UPDATE_PROFILE_FAIL:
             return {
                 ...state,
                 loading: false,

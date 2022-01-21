@@ -75,7 +75,8 @@ exports.deleteUser = catchAsync(async (req, res, next) => {
 //UPDATE USER PROFILE  => PATCH :  api/v1/user/update
 exports.updateProfile = catchAsync( async (req, res, next) => {
     const newUserData = {
-        name: req.body.name,
+        firstName: req.body.firstName,
+        lastName: req.body.lastName,
         email: req.body.email
     };
 

@@ -1412,3 +1412,9 @@ header .avatar {
   background-color: #d45555;
   margin-bottom: 1.2rem;
 }
+
+.avatar {
+  width: 5rem;
+  height: 5rem;
+  border-radius: 50%;
+}

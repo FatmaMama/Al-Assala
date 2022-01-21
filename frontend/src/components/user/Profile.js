@@ -1,15 +1,30 @@
-import React, { Fragment } from 'react';
+import React, { Fragment, useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import Loader from '../layouts/Loader';
+import { notifyUser } from '../../redux/actions/notifyActions';
+import { UPDATE_PROFILE_RESET } from '../../redux/constants/userConstants';
+import Alert from '../layouts/Alert';
 
 export default function Profile() {
+    const dispatch = useDispatch();
+
     const { user, loading } = useSelector(state => state.auth);
+    const { isUpdated } = useSelector(state => state.user);
+    const { message, messageType } = useSelector(state => state.notify);
+
+    useEffect(() => {
+        if(isUpdated){
+            dispatch(notifyUser('Profil mis à jour avec succès', 'success'));
+            setTimeout(() => dispatch({type: UPDATE_PROFILE_RESET}), 4000)
+        }
+    }, [isUpdated, dispatch])
 
     return (
         <Fragment>
             {loading ? <Loader/> : (
                 <Fragment>
+                    {isUpdated && <Alert message={message} messageType={messageType} />}
                     <h2 className="profile-title">Mon Profil</h2>
                     <div className="row justify-content-around mt-5 profile">
                         <div className="col-12 col-md-4 profile__box1">
