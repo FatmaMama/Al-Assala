@@ -14,9 +14,9 @@ export default function Profile() {
                     <div className="row justify-content-around mt-5 profile">
                         <div className="col-12 col-md-4 profile__box1">
                             <figure className='profile__avatar'>
-                                <img className="rounded-circle img-fluid" src={user && user.avatar && user.avatar.url} alt={user.firstName} />
+                                <img className="rounded-circle img-fluid" src={user && user.avatar && user.avatar.url} alt={user && user.firstName} />
                             </figure>
-                            <Link to="/me/update" className="btn profile__btn">
+                            <Link to="/user/update" className="btn profile__btn">
                                 Modifier le profil
                             </Link>
                         </div>
