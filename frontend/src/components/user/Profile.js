@@ -10,34 +10,39 @@ export default function Profile() {
         <Fragment>
             {loading ? <Loader/> : (
                 <Fragment>
-                    <h2 className="mt-5 ml-5">Mon Profil</h2>
-                    <div className="row justify-content-around mt-5 user-info">
-                        <div className="col-12 col-md-3">
-                            <figure className='avatar avatar-profile'>
-                                <img className="rounded-circle img-fluid" src={user.avatar.url} alt={user.firstName} />
+                    <h2 className="profile-title">Mon Profil</h2>
+                    <div className="row justify-content-around mt-5 profile">
+                        <div className="col-12 col-md-4 profile__box1">
+                            <figure className='profile__avatar'>
+                                <img className="rounded-circle img-fluid" src={user && user.avatar && user.avatar.url} alt={user.firstName} />
                             </figure>
-                            <Link to="/me/update" id="edit_profile" className="btn btn-primary btn-block my-5">
+                            <Link to="/me/update" className="btn profile__btn">
                                 Modifier le profil
                             </Link>
                         </div>
                 
-                        <div className="col-12 col-md-5">
-                            <h4>Nom et Prénom</h4>
-                            <p>{`${user.firstName} ${user.lastName}`}</p>
-                
-                            <h4>Email</h4>
-                            <p>{user.email}</p>
-
-                            <h4>Rejoint le</h4>
-                            <p>{String(user.createdAt).substring(0, 10)}</p>
-
+                        <div className="col-12 col-md-4 profile__box2">
+                            <div className='profile__info'>
+                                <div>
+                                    <h4 className='profile__title'>Nom et Prénom</h4>
+                                    <p className='profile__subTitle'>{`${user.firstName} ${user.lastName}`}</p>
+                                </div>
+                                <div>
+                                    <h4 className='profile__title'>Email</h4>
+                                    <p className='profile__subTitle'>{user.email}</p>
+                                </div>
+                                <div>
+                                    <h4 className='profile__title'>Rejoint le</h4>
+                                    <p className='profile__subTitle'>{String(user.createdAt).substring(0, 10)}</p>
+                                </div>
+                            </div>
                             {user.role !== "admin" && (
-                                <Link to="/user/orders" className="btn btn-block mt-5 myOrders-btn">
+                                <Link to="/user/orders" className="btn profile__btn profile__btn2">
                                     Mes Commandes
                                 </Link>
                             )}
 
-                            <Link to="/password/update" className="btn btn-block mt-3 changePassword-btn">
+                            <Link to="/password/update" className="btn profile__btn profile__btn3">
                                 Changer le mot de passe
                             </Link>
                         </div>
