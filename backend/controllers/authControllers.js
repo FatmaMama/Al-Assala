@@ -83,12 +83,13 @@ exports.forgotPassword = catchAsync(async (req, res, next) => {
     //Generate the random reset token
     const resetToken = user.setPasswordResetToken();
     await user.save({validateBeforeSave : false});
-    
+
     //Send it to user's email
     const resetUrl = `${req.protocol}://${req.get('host')}/password/reset/${resetToken}`;
 
-    const message = `your password reset token is as follow: \n\n${resetUrl}\n\n
-    if you have not requested this email, then ignore it.`;
+    const message = `Quelqu'un (vous, espérons-le) a demandé une réinitialisation du mot de passe pour votre compte Al-Assala.
+    \n\nSuivez le lien ci-dessous pour définir un nouveau mot de passe:\n\n \n\n${resetUrl}\n\n
+    Si vous n'avez pas demandé cet e-mail, ignorez-le.`;
 
     try {
         await sendEmail({
@@ -99,7 +100,7 @@ exports.forgotPassword = catchAsync(async (req, res, next) => {
 
         res.status(200).json({
             success: true,
-            message: `email sent to ${user.email}`
+            message: `Email envoyé à ${user.email}! \n\nVérifiez votre boîte de réception pour les prochaines étapes.\n\n`
         })
         
     } catch (error) {

@@ -11,8 +11,8 @@ router.get('/me',isAuthenticated, getUserProfile);
 router.patch('/user/update',isAuthenticated, updateProfile);
 
 router.patch('/password/update',isAuthenticated, updatePassword);
-router.post('/password/forgot',isAuthenticated, forgotPassword);
-router.patch('/password/reset/:token',isAuthenticated, resetPassword);
+router.post('/password/forgot', forgotPassword);
+router.patch('/password/reset/:token', resetPassword);
 
 router.get('/admin/users',isAuthenticated, authorizeRoles('admin'), getAllUsers);
 
