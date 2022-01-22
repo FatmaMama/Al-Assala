@@ -8,20 +8,20 @@ export default function UpdatePassword() {
                     <h1 className="mb-5 mt-2">Changer le mot de passe</h1>
 
                     <div className="form-group">
-                        <label for="password_field">Mot de passe</label>
+                        <label for="oldPassword_field">Mot de passe</label>
                         <input
                             type="password"
-                            id="password_field"
+                            id="oldPassword_field"
                             className="form-control"
                             value=''
                         />
                     </div>
 
                     <div className="form-group mt-4">
-                        <label for="confirm_password_field">Confirmer le mot de passe</label>
+                        <label for="newPassword_field">Nouveau mot de passe</label>
                         <input
                             type="password"
-                            id="confirm_password_field"
+                            id="newPassword_field"
                             className="form-control"
                             value=''
                         />
