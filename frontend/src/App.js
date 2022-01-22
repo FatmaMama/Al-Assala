@@ -42,6 +42,8 @@ import UpdateUser from './components/admin/users/UpdateUser';
 import CategoriesList from './components/admin/categories/CategoriesList';
 import AddCategory from './components/admin/categories/AddCategory';
 import UpdateCategory from './components/admin/categories/UpdateCategory';
+import ForgotPassword from './components/user/ForgotPassword';
+import NewPassword from './components/user/NewPassword';
 
 
 
@@ -66,7 +68,10 @@ function App() {
           <Route path='/user/orders/:id' element={<UserOrderDetails/>} />
           <Route path='/user/profile' element={<Profile/>} />
           <Route path='/user/update' element={<UpdateProfile/>} />
+
           <Route path='/password/update' element={<UpdatePassword/>} />
+          <Route path='/password/forgot' element={<ForgotPassword/>} />
+          <Route path='/password/reset/:token' element={<NewPassword/>} />
 
           <Route path='/products' element={<ProductsByCategory/>} />
           <Route path='/products/:id' element={<ProductDetails/>} />

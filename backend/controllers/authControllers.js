@@ -1,9 +1,8 @@
 const User = require('../models/userModel');
 const catchAsync = require('../utils/catchAsync');
-
 const AppError = require('../utils/appError');
 const sendToken = require('../utils/sendToken');
-
+const sendEmail = require('../utils/email');
 
 exports.signupUser = catchAsync(async (req, res, next) => {
     const {firstName, lastName, email, password, passwordChangedAt} = req.body;
@@ -73,4 +72,46 @@ exports.updatePassword = catchAsync(async (req, res, next) => {
 
     //login, send JWT
     sendToken(user, 200, res)
-})
+});
+
+
+exports.forgotPassword = catchAsync(async (req, res, next) => {
+    const user = await User.findOne({email : req.body.email});
+    if(!user){
+        return next(new AppError("il n'y a pas d'utilisateur avec cette adresse e-mail", 404))
+    };
+    //Generate the random reset token
+    const resetToken = user.setPasswordResetToken();
+    await user.save({validateBeforeSave : false});
+    
+    //Send it to user's email
+    const resetUrl = `${req.protocol}://${req.get('host')}/password/reset/${resetToken}`;
+
+    const message = `your password reset token is as follow: \n\n${resetUrl}\n\n
+    if you have not requested this email, then ignore it.`;
+
+    try {
+        await sendEmail({
+            email: user.email,
+            subject: 'Al-Assala password recovery',
+            message
+        });
+
+        res.status(200).json({
+            success: true,
+            message: `email sent to ${user.email}`
+        })
+        
+    } catch (error) {
+        user.passwordResetToken = undefined;
+        user.passwordResetExpires = undefined;
+
+        await user.save({ validateBeforeSave: false });
+        return next(new AppError(error.message, 500))
+    }
+});
+
+
+exports.resetPassword = catchAsync(async (req, res, next) => {
+    
+});

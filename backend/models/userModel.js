@@ -2,6 +2,7 @@ const mongoose = require('mongoose');
 const validator = require('validator');
 const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
+const crypto = require('crypto');
 
 const userSchema = new mongoose.Schema({
     firstName: {
@@ -31,18 +32,6 @@ const userSchema = new mongoose.Schema({
         select: false
     },
 
-    // passwordConfirm: {
-    //     type: String,
-    //     required: [true, "Veuillez entrer la confirmation de votre mot de passe"],
-    //     validate: {
-    //         //Only works on save or create (not update)
-    //         validator: function(el){
-    //             return el === this.password
-    //         },
-    //         message: "les deux mots de passe ne sont pas les mêmes!"
-    //     }
-    // },
-
     avatar: {
         public_id: {
             type: String
@@ -57,7 +46,9 @@ const userSchema = new mongoose.Schema({
         default: "user"
     },
 
-    passwordChangedAt: Date
+    passwordChangedAt: Date,
+    passwordResetToken: String,
+    passwordResetExpires: Date
 
 }, {timestamps: true});
 
@@ -85,6 +76,14 @@ userSchema.methods.changedPasswordAfter = function(JWTTimestamp) {
 
     //Password Not changed
     return false
+}
+
+userSchema.methods.setPasswordResetToken = function() {
+    const resetToken = crypto.randomBytes(32).toString('hex');
+    this.passwordResetToken = crypto.createHash('sha256').update(resetToken).digest('hex');
+    this.passwordResetExpires = Date.now() + 10 * 60 *1000;
+
+    return resetToken
 }
 
 const User = mongoose.model('User', userSchema);
