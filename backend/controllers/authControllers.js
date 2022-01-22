@@ -3,6 +3,7 @@ const catchAsync = require('../utils/catchAsync');
 const AppError = require('../utils/appError');
 const sendToken = require('../utils/sendToken');
 const sendEmail = require('../utils/email');
+const crypto = require('crypto');
 
 exports.signupUser = catchAsync(async (req, res, next) => {
     const {firstName, lastName, email, password, passwordChangedAt} = req.body;
@@ -114,5 +115,25 @@ exports.forgotPassword = catchAsync(async (req, res, next) => {
 
 
 exports.resetPassword = catchAsync(async (req, res, next) => {
-    
+    const hashedToken = crypto.createHash('sha256').update(req.params.token).digest('hex');
+
+    const user = await User.findOne({
+        passwordResetToken: hashedToken,
+        passwordResetExpires : { $gt : Date.now() }
+    });
+
+    if(!user){
+        return next(new AppError("Le jeton de réinitialisation du mot de passe n'est pas valide ou a expiré", 400))
+    };
+
+    if(req.body.password !== req.body.confirmPassword){
+        return next(new AppError('les mots de passe ne sont pas les mêmes', 400))
+    };
+
+    user.password = req.body.password;
+    user.passwordResetToken = undefined;
+    user.passwordResetExpires = undefined;
+
+    await user.save();
+    sendToken(user, 200, res)
 });
