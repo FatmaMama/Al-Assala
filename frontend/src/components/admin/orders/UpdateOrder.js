@@ -6,7 +6,7 @@ import { getOrder, clearErrors, getToUpdateOrder, removeFromOrder, addToUpdateOr
 import Alert from '../../layouts/Alert';
 import Loader from '../../layouts/Loader';
 import Sidebar from '../../layouts/Sidebar';
-import { PDFExport, savePDF } from "@progress/kendo-react-pdf";
+import { PDFExport } from "@progress/kendo-react-pdf";
 import AddProductToOrderUpdateModal from './AddProductToOrderUpdateModal';
 
 export default function UpdateOrder() {
@@ -27,7 +27,7 @@ export default function UpdateOrder() {
     const { message, messageType }= useSelector(state => state.notify);
     const {settings} = useSelector(state => state.settingsInfos);
     const { toUpdateOrder } = useSelector(state => state.orderToUpdate);
-    const {shippingInfo, orderItems, user, shippingPrice, itemsPrice, totalPrice, orderStatus, isPaid, saleCoupon} = toUpdateOrder;
+    const {shippingInfo, orderItems, user, totalPrice, orderStatus, isPaid, saleCoupon} = toUpdateOrder;
     const { error: updateError, isUpdated } = useSelector(state => state.order)
 
     useEffect(() => {
@@ -55,7 +55,7 @@ export default function UpdateOrder() {
             setTimeout(() => dispatch(clearErrors()), 5000)
         };
         
-    }, [order, params, error, dispatch, isUpdated, updateError]);
+    }, [order, params, error, dispatch, isUpdated, updateError, navigate]);
 
     const productsQty = toUpdateOrder && orderItems && orderItems.reduce((acc, item) => {
         return acc + Number(item.quantity)
@@ -174,7 +174,7 @@ export default function UpdateOrder() {
                     <h4 className="order__subTitle">({productsQty && productsQty}) Articles commandés:</h4>
                     <div className='mt-5'>
                                 <div className='cart__grid cart__head'>
-                                    <h4></h4>
+                                    <h4>&nbsp;</h4>
                                     <h4 className='center'>Produit</h4>
                                     <h4 className='center'>Couleur</h4>
                                     <h4 className='center'>Taille</h4>

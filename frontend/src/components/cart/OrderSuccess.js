@@ -7,7 +7,6 @@ export default function OrderSuccess() {
 
     const dispatch = useDispatch();
 
-    const { cartItems, shippingInfo, cartPrice } = useSelector(state => state.cart);
     const { user } = useSelector(state => state.auth);
 
     useEffect(() => {

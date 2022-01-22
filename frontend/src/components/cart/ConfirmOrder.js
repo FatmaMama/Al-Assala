@@ -35,7 +35,7 @@ export default function ConfirmOrder() {
             dispatch(notifyUser(error, 'error'))
             dispatch(clearErrors());
         }
-    },[dispatch, alert, error]);
+    },[dispatch, error]);
 
 
     const placeOrderHandler = (order) => {
@@ -91,7 +91,7 @@ export default function ConfirmOrder() {
                         <div className='pt-5'>
                             <div className='cart__container cart__order'>
                                 <div className='cart__grid cart__head'>
-                                    <h4></h4>
+                                    <h4>&nbsp;</h4>
                                     <h4 className='center'>Produit</h4>
                                     <h4 className='center'>Couleur</h4>
                                     <h4 className='center'>Taille</h4>

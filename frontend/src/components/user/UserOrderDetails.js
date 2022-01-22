@@ -87,7 +87,7 @@ export default function UserOrderDetails() {
                         <div className='mt-5'>
                             <div className='cart__container cart__order'>
                                 <div className='cart__grid cart__head'>
-                                    <h4></h4>
+                                    <h4>&nbsp;</h4>
                                     <h4 className='center'>Produit</h4>
                                     <h4 className='center'>Couleur</h4>
                                     <h4 className='center'>Taille</h4>

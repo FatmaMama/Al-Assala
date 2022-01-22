@@ -118,7 +118,7 @@ export default function ProductDetails() {
                         </div>
                     </div>
 
-                    <div className='col-12 col-lg-5'>
+                    <div className='col-12 col-lg-5 p-5 m-5 p-lg-0 m-lg-0'>
                         <h3 className='product__title'>{productToDisplay && productToDisplay.name}</h3>
                         <p className='product__id'>Produit #{productToDisplay && productToDisplay._id}</p>
 
@@ -154,7 +154,6 @@ export default function ProductDetails() {
                                         ></div>
                                     ))}
                                 </div>
-                                <h1>{console.log(newColor)}</h1>
                             </div>
                             <div className='col-6 col-md-6'>
                                 <p>Tailles</p>

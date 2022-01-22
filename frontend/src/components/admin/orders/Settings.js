@@ -125,9 +125,9 @@ export default function Settings() {
 
                     </div>
                         
-                    <div className='row d-flex justify-content-center'>
+                    <div className='row d-flex justify-content-center mt-5'>
                         <div className='col-md-5 col-12 d-flex justify-content-center'>
-                            <button className="btn mt-5 order_button" onClick={updateHandler}>
+                            <button className="btn mt-5 btn--1" onClick={updateHandler}>
                                 Enregistrer
                             </button>
                         </div>
