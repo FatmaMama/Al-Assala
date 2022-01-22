@@ -9,7 +9,7 @@ router.post('/login', loginUser);
 router.get('/logout', logoutUser);
 router.get('/me',isAuthenticated, getUserProfile);
 router.patch('/user/update',isAuthenticated, updateProfile);
-router.patch('/update/password',isAuthenticated, updatePassword);
+router.patch('/password/update',isAuthenticated, updatePassword);
 
 router.get('/admin/users',isAuthenticated, authorizeRoles('admin'), getAllUsers);
 

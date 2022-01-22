@@ -1,10 +1,11 @@
-import React, { Fragment, useEffect } from 'react';
+import React, { Fragment, useEffect, useRef } from 'react';
 import { Link } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import Loader from '../layouts/Loader';
 import { notifyUser } from '../../redux/actions/notifyActions';
 import { UPDATE_PROFILE_RESET } from '../../redux/constants/userConstants';
 import Alert from '../layouts/Alert';
+
 
 export default function Profile() {
     const dispatch = useDispatch();
@@ -26,6 +27,7 @@ export default function Profile() {
                 <Fragment>
                     {isUpdated && <Alert message={message} messageType={messageType} />}
                     <h2 className="profile-title">Mon Profil</h2>
+                   
                     <div className="row justify-content-around mt-5 profile">
                         <div className="col-12 col-md-4 profile__box1">
                             <figure className='profile__avatar'>

@@ -31,7 +31,7 @@ export default function UpdateProfile() {
         }
 
         if(isUpdated){
-            dispatch(loadUser())
+            dispatch(loadUser());
             navigate('/user/profile');
         };
 
