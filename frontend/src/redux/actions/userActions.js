@@ -192,7 +192,7 @@ export const newPassword = (token, passwords) => async (dispatch) => {
             }
         }
  
-        const { data } = await axios.post(`/api/v1/password/reset/${token}`, passwords, config);
+        const { data } = await axios.patch(`/api/v1/password/reset/${token}`, passwords, config);
  
         dispatch({
             type: NEW_PASSWORD_SUCCESS,
