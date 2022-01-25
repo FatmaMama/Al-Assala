@@ -1238,11 +1238,38 @@ header .avatar {
     grid-row: 5/6;
   }
 }
-.slick-slide > div {
+.slider {
+  position: relative;
+}
+.slider__btn-left, .slider__btn-right {
+  border: none;
+  background-color: #ccc;
+  width: 4rem;
+  height: 4rem;
+  border-radius: 50%;
+  font-size: 1.6rem;
+  transition: all 0.2s;
+  box-shadow: 0 0.4rem 0.8rem rgba(0, 0, 0, 0.2);
+  z-index: 2;
+  position: absolute;
+  top: 30%;
+}
+.slider__btn-left {
+  left: -2%;
+}
+.slider__btn-left:hover {
+  transform: translateX(-3px) scale(1.05);
+}
+.slider__btn-right {
+  left: 99%;
+}
+.slider__btn-right:hover {
+  transform: translateX(3px) scale(1.05);
+}
+.slider .slick-slide > div {
   margin: 0 1.6rem;
 }
-
-.slick-list {
+.slider .slick-list {
   margin: 0 -1.6rem;
 }
 
