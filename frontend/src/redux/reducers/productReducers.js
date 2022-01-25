@@ -110,6 +110,68 @@ export const searchProductsReducer = (state = {searchProducts: []}, action) => {
 };
 
 
+export const onSaleProductsReducer = (state = {onSaleProducts: []}, action) => {
+    switch (action.type) {
+        case GET_PRODUCTS_ONSALE_REQUEST:
+            return {
+                loading: true,
+                onSaleProducts: []
+            }
+
+        case GET_PRODUCTS_ONSALE_SUCCESS:
+            return {
+                loading: false,
+                onSaleProducts: action.payload
+            }
+        case GET_PRODUCTS_ONSALE_FAIL:
+            return {
+                loading: false,
+                error: action.payload
+            }
+
+        case CLEAR_ERRORS:
+            return {
+                ...state,
+                error: null
+            }
+    
+        default:
+            return state;
+    }
+};
+
+
+export const bestSellersReducer = (state = {bestSellers: []}, action) => {
+    switch (action.type) {
+        case GET_BEST_SELLERS_REQUEST:
+            return {
+                loading: true,
+                bestSellers: []
+            }
+
+        case GET_BEST_SELLERS_SUCCESS:
+            return {
+                loading: false,
+                bestSellers: action.payload
+            }
+        case GET_BEST_SELLERS_FAIL:
+            return {
+                loading: false,
+                error: action.payload
+            }
+
+        case CLEAR_ERRORS:
+            return {
+                ...state,
+                error: null
+            }
+    
+        default:
+            return state;
+    }
+};
+
+
 export const newProductReducer = (state= { product: {}}, action) => {
     switch (action.type) {
         case NEW_PRODUCT_REQUEST:
