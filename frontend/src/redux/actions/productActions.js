@@ -44,7 +44,7 @@ export const getAdminProducts = () => async (dispatch) => {
     }
 };
 
-export const getProducts = (currentPage = 1, category) => async (dispatch) => {
+export const getProducts = (currentPage = 1, category='') => async (dispatch) => {
     try {
         dispatch({ type : GET_PRODUCTS_REQUEST });
        

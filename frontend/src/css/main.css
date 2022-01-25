@@ -1238,6 +1238,14 @@ header .avatar {
     grid-row: 5/6;
   }
 }
+.slick-slide > div {
+  margin: 0 1.6rem;
+}
+
+.slick-list {
+  margin: 0 -1.6rem;
+}
+
 .steps {
   display: flex;
   justify-content: center;
