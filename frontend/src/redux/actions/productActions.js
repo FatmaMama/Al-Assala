@@ -23,6 +23,12 @@ import { ADMIN_PRODUCTS_REQUEST,
     GET_PRODUCT_BY_COLOR_REQUEST,
     GET_PRODUCT_BY_COLOR_SUCCESS,
     GET_PRODUCT_BY_COLOR_FAIL,
+    GET_PRODUCTS_ONSALE_REQUEST,
+    GET_PRODUCTS_ONSALE_SUCCESS,
+    GET_PRODUCTS_ONSALE_FAIL,
+    GET_BEST_SELLERS_REQUEST,
+    GET_BEST_SELLERS_SUCCESS,
+    GET_BEST_SELLERS_FAIL,
     CLEAR_ERRORS} from '../constants/product_constants';
 
 export const getAdminProducts = () => async (dispatch) => {
@@ -83,6 +89,52 @@ export const getSearchProducts = (keyword='', currentPage = 1) => async (dispatc
     } catch (error) {
         dispatch({
             type: GET_SEARCH_PRODUCTS_FAIL,
+            payload: error.response.data.message
+        })
+    }
+};
+
+
+export const getOnSaleProducts = () => async (dispatch) => {
+    try {
+        dispatch({ type : GET_PRODUCTS_ONSALE_REQUEST });
+        
+        
+
+        const { data } = await axios.get('/api/v1/products-on-sale');
+      
+        dispatch({ 
+            type : GET_PRODUCTS_ONSALE_SUCCESS,
+            payload : data.onSaleProducts
+         })
+         
+
+    } catch (error) {
+        dispatch({
+            type: GET_PRODUCTS_ONSALE_FAIL,
+            payload: error.response.data.message
+        })
+    }
+};
+
+
+export const getBestSellers = () => async (dispatch) => {
+    try {
+        dispatch({ type : GET_BEST_SELLERS_REQUEST });
+        
+        
+
+        const { data } = await axios.get('/api/v1/best-sellers');
+      
+        dispatch({ 
+            type : GET_BEST_SELLERS_SUCCESS,
+            payload : data.bestSellers
+         })
+         
+
+    } catch (error) {
+        dispatch({
+            type: GET_BEST_SELLERS_FAIL,
             payload: error.response.data.message
         })
     }

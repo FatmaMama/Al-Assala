@@ -228,9 +228,9 @@ exports.getOnSaleProducts = catchAsync(async (req, res, next) => {
 
     const onSaleProducts = await Product.find({ sale : { $gt : 0} })
     
-    if(!onSaleProducts) {
-        return next(new AppError("Il n'y aucun produit en promo ", 404))
-    };
+    // if(!onSaleProducts) {
+    //     return next(new AppError("Il n'y aucun produit en promo ", 404))
+    // };
 
     res.status(200).json({
         success: true,
