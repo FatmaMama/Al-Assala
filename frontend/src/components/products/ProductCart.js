@@ -5,7 +5,7 @@ export default function ProductCart({product}) {
   return (
     <div className='product-cart' key={product._id}>
         <Link to={`/products/${product._id}`} className='product-cart__img-container'>
-            <img src={product.images[0].url} alt={product.name} onContextMenu="return false;" className='product-cart__img' />
+            <img src={product.images[0].url} alt={product.name} className='product-cart__img' />
             <div className='text-center product-cart__view' >Aperçu</div>
         </Link>
         

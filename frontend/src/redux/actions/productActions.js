@@ -99,10 +99,8 @@ export const getOnSaleProducts = () => async (dispatch) => {
     try {
         dispatch({ type : GET_PRODUCTS_ONSALE_REQUEST });
         
-        
-
         const { data } = await axios.get('/api/v1/products-on-sale');
-      
+       
         dispatch({ 
             type : GET_PRODUCTS_ONSALE_SUCCESS,
             payload : data.onSaleProducts
@@ -122,8 +120,6 @@ export const getBestSellers = () => async (dispatch) => {
     try {
         dispatch({ type : GET_BEST_SELLERS_REQUEST });
         
-        
-
         const { data } = await axios.get('/api/v1/best-sellers');
       
         dispatch({ 

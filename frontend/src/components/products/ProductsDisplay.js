@@ -1,5 +1,4 @@
 import React, { Fragment } from 'react';
-import { Link } from 'react-router-dom';
 import ProductCart from './ProductCart';
 
 export default function ProductsDisplay({ products, productsCount, resPerPage }) {

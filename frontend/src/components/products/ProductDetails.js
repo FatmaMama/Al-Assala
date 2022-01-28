@@ -101,7 +101,7 @@ export default function ProductDetails() {
                     <div className='col-12 col-lg-5'>
                         <div className="row d-flex justify-content-around">
                             <div className=' col-9 col-sm-9'>
-                                <img src={mainImage} alt={productToDisplay.name} onContextMenu="return false;" className='product__main-img'/>
+                                <img src={mainImage} alt={productToDisplay.name}  className='product__main-img'/>
                             </div>
                             <div className='col-2 col-sm-2'>
                                 {productToDisplay && productToDisplay.images && productToDisplay.images.map(image => (

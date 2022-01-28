@@ -106,7 +106,7 @@ export default function UpdateCategory() {
                                                 value={parent}
                                                 onChange={(e) => setParent(e.target.value)}
                                             >
-                                                <option>Select Category</option>
+                                                <option>Choisir une catégorie</option>
                                                 {categories && createCategoryList(categories).map(category => 
                                                     <option key={category.value} value={category.value} >{category.name} </option> )}
                                             </select>

@@ -37,7 +37,7 @@ export default function Slide({products}) {
     };
 
   return (
-    <div className='container slider'>
+    <div className='slider'>
         <button className='slider__btn-left' onClick={() => slider?.current?.slickPrev()}>
             <i className="fa fa-chevron-left"></i>
         </button>
@@ -46,8 +46,8 @@ export default function Slide({products}) {
         </button>
         <Slider ref={slider} {...settings} className='m-5'>
             {products && products.map(product => (
-            <ProductCart product={product} />
-        ))}
+                <ProductCart product={product} key={product._id}/>
+            ))}
         </Slider>
     </div>
   )
