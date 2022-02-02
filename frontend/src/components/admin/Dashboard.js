@@ -5,7 +5,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { getAllUsers } from '../../redux/actions/userActions';
 import { getAdminProducts } from '../../redux/actions/productActions';
 import { getOrders } from '../../redux/actions/orderActions';
-import Loader from '../layouts/Loader';
+import Loader from '../utils/Loader';
 
 export default function Dashboard() {
 

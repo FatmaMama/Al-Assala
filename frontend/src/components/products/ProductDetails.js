@@ -3,9 +3,9 @@ import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate, useParams } from 'react-router-dom'
 import { notifyUser } from '../../redux/actions/notifyActions';
 import { getProductByColor, clearErrors, getProduct } from '../../redux/actions/productActions';
-import Loader from '../layouts/Loader';
+import Loader from '../utils/Loader';
 import Menu from '../layouts/menu/Menu';
-import Alert from '../layouts/Alert';
+import Alert from '../utils/Alert';
 import classNames from 'classnames';
 import { addToCart } from '../../redux/actions/cartActions';
 // import ReactImageMagnify from 'react-image-magnify';

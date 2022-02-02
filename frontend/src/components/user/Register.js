@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import {register, clearErrors} from '../../redux/actions/userActions';
 import {notifyUser} from '../../redux/actions/notifyActions';
-import Alert from '../layouts/Alert';
+import Alert from '../utils/Alert';
 
 
 export default function Register() {

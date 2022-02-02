@@ -4,8 +4,8 @@ import { useParams } from 'react-router-dom';
 import { Link } from 'react-router-dom';
 import { notifyUser } from '../../redux/actions/notifyActions';
 import { getOrder, clearErrors } from '../../redux/actions/orderActions';
-import Alert from '../layouts/Alert';
-import Loader from '../layouts/Loader';
+import Alert from '../utils/Alert';
+import Loader from '../utils/Loader';
 import Menu from '../layouts/menu/Menu';
 
 export default function UserOrderDetails() {

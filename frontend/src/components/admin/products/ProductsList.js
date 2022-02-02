@@ -2,11 +2,11 @@ import React, { Fragment, useEffect } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import Sidebar from '../../layouts/Sidebar';
 import { MDBDataTable } from 'mdbreact';
-import Loader from '../../layouts/Loader';
+import Loader from '../../utils/Loader';
 import { useDispatch, useSelector } from 'react-redux';
 import { clearErrors, getAdminProducts, deleteProduct } from '../../../redux/actions/productActions';
 import { notifyUser } from '../../../redux/actions/notifyActions';
-import Alert from '../../layouts/Alert';
+import Alert from '../../utils/Alert';
 import { DELETE_PRODUCT_RESET, NEW_PRODUCT_RESET, UPDATE_PRODUCT_RESET } from '../../../redux/constants/product_constants';
 
 

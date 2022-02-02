@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate, useParams } from 'react-router-dom';
 import { notifyUser } from '../../redux/actions/notifyActions';
 import { newPassword, clearErrors, loadUser } from '../../redux/actions/userActions';
-import Alert from '../layouts/Alert';
+import Alert from '../utils/Alert';
 
 export default function NewPassword() {
   const dispatch = useDispatch();

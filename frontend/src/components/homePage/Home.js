@@ -1,8 +1,8 @@
 import React, { Fragment, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import Menu from '../layouts/menu/Menu';
-import Loader from '../layouts/Loader';
-import Alert from '../layouts/Alert';
+import Loader from '../utils/Loader';
+import Alert from '../utils/Alert';
 import { getProducts, clearErrors, getOnSaleProducts, getBestSellers } from '../../redux/actions/productActions';
 import { notifyUser } from '../../redux/actions/notifyActions';
 import Slide from './Slide';

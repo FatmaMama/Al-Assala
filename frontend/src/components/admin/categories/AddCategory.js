@@ -2,8 +2,8 @@ import React, { useState,Fragment, useEffect } from 'react';
 import Sidebar from '../../layouts/Sidebar';
 import { useDispatch, useSelector } from 'react-redux';
 import { notifyUser } from '../../../redux/actions/notifyActions';
-import Alert from '../../layouts/Alert';
-import Loader from '../../layouts/Loader';
+import Alert from '../../utils/Alert';
+import Loader from '../../utils/Loader';
 import { getCategories, clearErrors, newCategory } from '../../../redux/actions/categoryActions';
 import { useNavigate } from 'react-router-dom';
 

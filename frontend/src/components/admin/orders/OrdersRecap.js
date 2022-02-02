@@ -4,8 +4,8 @@ import { Link } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { clearErrors, getByStatusOrders } from '../../../redux/actions/orderActions';
 import { notifyUser } from '../../../redux/actions/notifyActions';
-import Alert from '../../layouts/Alert';
-import Loader from '../../layouts/Loader';
+import Alert from '../../utils/Alert';
+import Loader from '../../utils/Loader';
 
 export default function OrdersRecap() {
 

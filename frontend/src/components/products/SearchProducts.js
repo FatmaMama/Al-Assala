@@ -3,10 +3,10 @@ import { useLocation } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import Menu from '../layouts/menu/Menu';
 import { getSearchProducts, clearErrors } from '../../redux/actions/productActions';
-import Loader from '../layouts/Loader';
+import Loader from '../utils/Loader';
 import ProductsDisplay from './ProductsDisplay';
 import { notifyUser } from '../../redux/actions/notifyActions';
-import Alert from '../layouts/Alert';
+import Alert from '../utils/Alert';
 
 export default function SearchProducts() {
     const dispatch = useDispatch();

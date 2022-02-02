@@ -4,8 +4,8 @@ import { Link } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { clearErrors, getMonthlyOrders, getOrders, getTodayOrders, getWeeklyOrders } from '../../../redux/actions/orderActions';
 import { notifyUser } from '../../../redux/actions/notifyActions';
-import Alert from '../../layouts/Alert';
-import Loader from '../../layouts/Loader';
+import Alert from '../../utils/Alert';
+import Loader from '../../utils/Loader';
 import MonthlyChart from './MonthlyChart';
 import WeeklyChart from './WeeklyChart';
 

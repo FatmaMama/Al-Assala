@@ -1,11 +1,11 @@
 import React, {Fragment, useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { updateUser, getUserDetails, clearErrors } from '../../../redux/actions/userActions';
-import Loader from '../../layouts/Loader';
+import Loader from '../../utils/Loader';
 import SideBar from '../../layouts/Sidebar';
 import { useNavigate, useParams } from 'react-router-dom';
 import { notifyUser } from '../../../redux/actions/notifyActions';
-import Alert from '../../layouts/Alert';
+import Alert from '../../utils/Alert';
 
 
 export default function UpdateUser() {

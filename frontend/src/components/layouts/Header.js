@@ -4,7 +4,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { logout } from '../../redux/actions/userActions';
 import { notifyUser } from '../../redux/actions/notifyActions';
 import { LOGOUT_RESET } from '../../redux/constants/userConstants';
-import Alert from './Alert';
+import Alert from '../utils/Alert';
 import { getSearchProducts } from '../../redux/actions/productActions';
 
 export default function Header() {

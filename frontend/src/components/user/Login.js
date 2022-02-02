@@ -3,8 +3,8 @@ import { useDispatch, useSelector } from 'react-redux';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import {login, clearErrors} from '../../redux/actions/userActions';
 import {notifyUser} from '../../redux/actions/notifyActions';
-import Loader from '../layouts/Loader';
-import Alert from '../layouts/Alert';
+import Loader from '../utils/Loader';
+import Alert from '../utils/Alert';
 
 
 export default function Login() {

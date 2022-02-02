@@ -1,10 +1,10 @@
 import React, { Fragment, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { MDBDataTable } from 'mdbreact';
-import Loader from '../layouts/Loader';
+import Loader from '../utils/Loader';
 import { useDispatch, useSelector } from 'react-redux';
 import { notifyUser } from '../../redux/actions/notifyActions';
-import Alert from '../layouts/Alert';
+import Alert from '../utils/Alert';
 import { getMyOrders, clearErrors } from '../../redux/actions/orderActions';
 import Menu from '../layouts/menu/Menu';
 

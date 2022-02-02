@@ -1,10 +1,10 @@
 import React, { Fragment, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
-import Loader from '../layouts/Loader';
+import Loader from '../utils/Loader';
 import { notifyUser } from '../../redux/actions/notifyActions';
 import { UPDATE_PROFILE_RESET } from '../../redux/constants/userConstants';
-import Alert from '../layouts/Alert';
+import Alert from '../utils/Alert';
 
 
 export default function Profile() {

@@ -1,5 +1,44 @@
 [
     {
+        "name" : "Chemise Satinée",
+        "price" : 69.99,
+        "description" : "Nous travaillons avec des programmes de suivi pour garantir le respect des normes de sécurité, de santé et de qualité de nos produits. ",
+        "category" : "61cb39566406f778eea24b04",
+        "sizeGuide" : "lorem azertyui fkkb, ezprpgph ejfmgl fhfgklblvm fldkskepm fdjsjskf fùfm dmmzpz mfmd;zs dùsù",
+        "sizes" : [{
+            "sizeName" : "S",
+            "stock" : 10
+        },
+        {
+            "sizeName" : "M",
+            "stock" : 5
+        },
+        {
+            "sizeName" : "L",
+            "stock" : 3
+        }],
+        "color" : "saumon",
+        "colors" : [
+            {
+                "colorName" : "saumon",
+                "code" : "#f88e55"
+            }
+        ],
+        "images" : [
+            {
+                "public_id": "Al-Assala/products/chemise-satin%C3%A9e2_bea6ez.webp",
+                "url": "https://res.cloudinary.com/fantasy2021/image/upload/v1643816345/Al-Assala/products/chemise-satin%C3%A9e2_bea6ez.webp"
+            },
+            {
+                "public_id": "Al-Assala/products/chemise-satin%C3%A9e1_n8zion.webp",
+                "url": "https://res.cloudinary.com/fantasy2021/image/upload/v1643816336/Al-Assala/products/chemise-satin%C3%A9e1_n8zion.webp"
+            }
+        ],
+        "numOfSells" : 12,
+        "sale" : 0.2,
+        "user" : "61c23bf94ef7be3ae01e4c56"
+    },
+    {
         "name" : "Chemise Coton",
         "price" : 49.99,
         "description" : "Nous travaillons avec des programmes de suivi pour garantir le respect des normes de sécurité, de santé et de qualité de nos produits. ",
@@ -218,12 +257,12 @@
         ],
         "images" : [
             {
-                "public_id": "Al-Assala/products/robe-rouge1_hnmvg5",
-                "url": "https://res.cloudinary.com/fantasy2021/image/upload/v1638988456/Al-Assala/products/robe-rouge1_hnmvg5.jpg"
+                "public_id": "Al-Assala/products/robe-rouge1_o4fwkb.jpg",
+                "url": "https://res.cloudinary.com/fantasy2021/image/upload/v1643816291/Al-Assala/products/robe-rouge1_o4fwkb.jpg"
             },
             {
-                "public_id": "Al-Assala/products/robe-rouge2_lhvznx",
-                "url": "https://res.cloudinary.com/fantasy2021/image/upload/v1638988462/Al-Assala/products/robe-rouge2_lhvznx.jpg"
+                "public_id": "Al-Assala/products/robe-rouge2_d7yqlq.jpg",
+                "url": "https://res.cloudinary.com/fantasy2021/image/upload/v1643816299/Al-Assala/products/robe-rouge2_d7yqlq.jpg"
             }
         ],
         "numOfSells" : 15,
@@ -231,7 +270,7 @@
         "user" : "61c23bf94ef7be3ae01e4c56"
     },
     {
-        "name" : "Robe ajustée",
+        "name" : "Robe courte fendue",
         "price" : 79.99,
         "description" : "Nous travaillons avec des programmes de suivi pour garantir le respect des normes de sécurité, de santé et de qualité de nos produits. ",
         "category" : "61d34ab31892ee30e7bc67b4",
@@ -248,25 +287,21 @@
             "sizeName" : "L",
             "stock" : 0
         }],
-        "color" : "rouge",
+        "color" : "vert",
         "colors" : [
             {
-                "colorName" : "noir",
-                "code" : "#000"
-            },
-            {
-                "colorName" : "rouge",
-                "code" : "#BB0B0B"
+                "colorName" : "vert",
+                "code" : "#062b16"
             }
         ],
         "images" : [
             {
-                "public_id": "Al-Assala/products/robe-rouge1_hnmvg5",
-                "url": "https://res.cloudinary.com/fantasy2021/image/upload/v1638988456/Al-Assala/products/robe-rouge1_hnmvg5.jpg"
+                "public_id": "Al-Assala/products/robe-courte_io3zwl.jpg",
+                "url": "https://res.cloudinary.com/fantasy2021/image/upload/v1643817102/Al-Assala/products/robe-courte_io3zwl.jpg"
             },
             {
-                "public_id": "Al-Assala/products/robe-rouge2_lhvznx",
-                "url": "https://res.cloudinary.com/fantasy2021/image/upload/v1638988462/Al-Assala/products/robe-rouge2_lhvznx.jpg"
+                "public_id": "Al-Assala/products/robe-courte2_slpsrr.jpg",
+                "url": "https://res.cloudinary.com/fantasy2021/image/upload/v1643817108/Al-Assala/products/robe-courte2_slpsrr.jpg"
             }
         ],
         "numOfSells" : 15,

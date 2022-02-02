@@ -2,10 +2,10 @@ import React, { Fragment, useEffect } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import Sidebar from '../../layouts/Sidebar';
 import { MDBDataTable } from 'mdbreact';
-import Loader from '../../layouts/Loader';
+import Loader from '../../utils/Loader';
 import { useDispatch, useSelector } from 'react-redux';
 import { notifyUser } from '../../../redux/actions/notifyActions';
-import Alert from '../../layouts/Alert';
+import Alert from '../../utils/Alert';
 import { deleteUser, getAllUsers, clearErrors } from '../../../redux/actions/userActions';
 import { DELETE_USER_RESET, UPDATE_USER_RESET } from '../../../redux/constants/userConstants';
 

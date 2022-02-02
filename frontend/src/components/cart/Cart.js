@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { Link, useNavigate } from 'react-router-dom';
 import { addToCart, removeFromCart, saveCartPrice } from '../../redux/actions/cartActions';
 import Menu from '../layouts/menu/Menu';
-import Alert from '../layouts/Alert';
+import Alert from '../utils/Alert';
 
 export default function Cart() {
 

@@ -5,7 +5,7 @@ import Menu from '../layouts/menu/Menu';
 import CheckoutSteps from './CheckoutSteps';
 import { notifyUser } from '../../redux/actions/notifyActions';
 import { clearErrors, newOrder } from '../../redux/actions/orderActions';
-import Alert from '../layouts/Alert';
+import Alert from '../utils/Alert';
 
 export default function ConfirmOrder() {
 

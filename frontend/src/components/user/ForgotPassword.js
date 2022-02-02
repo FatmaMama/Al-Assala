@@ -2,7 +2,7 @@ import React, {useState, useEffect, Fragment} from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { notifyUser } from '../../redux/actions/notifyActions';
 import { forgotPassword, clearErrors } from '../../redux/actions/userActions';
-import Alert from '../layouts/Alert';
+import Alert from '../utils/Alert';
 
 export default function ForgotPassword() {
     const dispatch = useDispatch();

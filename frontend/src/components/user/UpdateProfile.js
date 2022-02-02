@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import { notifyUser } from '../../redux/actions/notifyActions';
 import { loadUser, clearErrors, updateProfile } from '../../redux/actions/userActions';
-import Alert from '../layouts/Alert';
+import Alert from '../utils/Alert';
 
 export default function UpdateProfile() {
 

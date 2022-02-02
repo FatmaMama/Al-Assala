@@ -2,7 +2,7 @@ import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { getCategories } from '../../../redux/actions/categoryActions';
 import { Link } from 'react-router-dom';
-import Loader from '../Loader';
+import Loader from '../../utils/Loader';
 
 export default function Navigation() {
 
