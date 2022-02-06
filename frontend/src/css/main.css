@@ -614,6 +614,32 @@ header .avatar {
   letter-spacing: 2px;
 }
 
+.not-found {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 90vh;
+  background-image: linear-gradient(to right bottom, darkkhaki, #fff);
+  position: relative;
+}
+.not-found__text {
+  font-family: "Creepster", cursive;
+  font-size: 6.4rem;
+  z-index: 2;
+  color: #000;
+}
+.not-found__img1 {
+  position: absolute;
+  left: 48%;
+  top: -10%;
+}
+.not-found__img2 {
+  position: absolute;
+  left: 29%;
+  top: 16%;
+}
+
 .order {
   font-size: 1.6rem;
 }

@@ -11,3 +11,33 @@
     font-size: 1.4rem;
     letter-spacing: 2px;
 }
+
+
+.not-found {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: calc(90vh);
+    background-image: linear-gradient(to right bottom, darkkhaki, #fff);
+    position: relative;
+
+    &__text{
+        font-family: 'Creepster', cursive;
+        font-size: 6.4rem;
+        z-index: 2;
+        color: #000;
+    }
+
+    &__img1 {
+        position: absolute;
+        left: 48%;
+        top: -10%;
+    }
+
+    &__img2 {
+        position: absolute;
+        left: 29%;
+        top: 16%;
+    }
+}
