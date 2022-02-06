@@ -3,7 +3,7 @@ import { useSelector } from 'react-redux';
 import {Navigate, Outlet, useLocation } from 'react-router-dom';
 
 
-export default function UserProtectedRoute({allowedRoles}) {
+export default function ProtectedRoute({allowedRoles}) {
      
     const location = useLocation();
     const { loading, isAuthenticated, user } = useSelector(state => state.auth)

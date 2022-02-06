@@ -46,8 +46,7 @@ import CategoriesList from './components/admin/categories/CategoriesList';
 import AddCategory from './components/admin/categories/AddCategory';
 import UpdateCategory from './components/admin/categories/UpdateCategory';
 
-import UserProtectedRoute from './components/utils/UserProtectedRoute';
-import AdminProtectedRoute from './components/utils/UserProtectedRoute';
+import ProtectedRoute from './components/utils/ProtectedRoute';
 import NotFound from './components/utils/NotFound';
 import Unauthorized from './components/utils/Unauthorized';
 
@@ -67,7 +66,7 @@ function App() {
           <Route path='/login' element={<Login/>} />
           <Route path='/register' element={<Register/>} />
 
-          <Route element={<UserProtectedRoute allowedRoles={['user', 'admin']}/>}>
+          <Route element={<ProtectedRoute allowedRoles={['user', 'admin']}/>}>
             <Route path='/user/orders' element={<MyOrders/>} />
             <Route path='/user/orders/:id' element={<UserOrderDetails/>} />
             <Route path='/user/profile' element={<Profile/>} />
@@ -87,7 +86,7 @@ function App() {
           <Route path="/order/confirm" element={<ConfirmOrder/>} />
           <Route path="/success/order" element={<OrderSuccess/>} />
 
-          <Route element={<UserProtectedRoute allowedRoles={['admin']}/>}>
+          <Route element={<ProtectedRoute allowedRoles={['admin']}/>}>
             <Route path='/dashboard' element={<Dashboard/>} />
             <Route path='/admin/products' element={<ProductsList/>} />
             <Route path='/admin/products/new' element={<AddProduct/>}/>
