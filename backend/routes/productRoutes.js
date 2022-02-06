@@ -27,7 +27,7 @@ router.get('/products-on-sale', getOnSaleProducts);
         
 router.get('/best-sellers', getBestSellers);
         
-router.get('/admin/products', getAdminProducts);
+router.get('/admin/products', isAuthenticated, authorizeRoles('admin'), getAdminProducts);
 
 router.get('/search/products', getSearchProducts);
 

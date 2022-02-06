@@ -13,7 +13,10 @@ import MyOrders from './components/user/MyOrders';
 import UserOrderDetails from './components/user/UserOrderDetails';
 import Profile from './components/user/Profile';
 import UpdateProfile from './components/user/UpdateProfile';
+
 import UpdatePassword from './components/user/UpdatePassword';
+import ForgotPassword from './components/user/ForgotPassword';
+import NewPassword from './components/user/NewPassword';
 
 import ProductsByCategory from './components/products/ProductsByCategory';
 import ProductDetails from './components/products/ProductDetails';
@@ -42,11 +45,11 @@ import UpdateUser from './components/admin/users/UpdateUser';
 import CategoriesList from './components/admin/categories/CategoriesList';
 import AddCategory from './components/admin/categories/AddCategory';
 import UpdateCategory from './components/admin/categories/UpdateCategory';
-import ForgotPassword from './components/user/ForgotPassword';
-import NewPassword from './components/user/NewPassword';
 
-
-
+import UserProtectedRoute from './components/utils/UserProtectedRoute';
+import AdminProtectedRoute from './components/utils/UserProtectedRoute';
+import NotFound from './components/utils/NotFound';
+import Unauthorized from './components/utils/Unauthorized';
 
 function App() {
 
@@ -64,14 +67,16 @@ function App() {
           <Route path='/login' element={<Login/>} />
           <Route path='/register' element={<Register/>} />
 
-          <Route path='/user/orders' element={<MyOrders/>} />
-          <Route path='/user/orders/:id' element={<UserOrderDetails/>} />
-          <Route path='/user/profile' element={<Profile/>} />
-          <Route path='/user/update' element={<UpdateProfile/>} />
+          <Route element={<UserProtectedRoute allowedRoles={['user', 'admin']}/>}>
+            <Route path='/user/orders' element={<MyOrders/>} />
+            <Route path='/user/orders/:id' element={<UserOrderDetails/>} />
+            <Route path='/user/profile' element={<Profile/>} />
+            <Route path='/user/update' element={<UpdateProfile/>} />
 
-          <Route path='/password/update' element={<UpdatePassword/>} />
-          <Route path='/password/forgot' element={<ForgotPassword/>} />
-          <Route path='/password/reset/:token' element={<NewPassword/>} />
+            <Route path='/password/update' element={<UpdatePassword/>} />
+            <Route path='/password/forgot' element={<ForgotPassword/>} />
+            <Route path='/password/reset/:token' element={<NewPassword/>} />
+          </Route>
 
           <Route path='/products' element={<ProductsByCategory/>} />
           <Route path='/products/:id' element={<ProductDetails/>} />
@@ -82,24 +87,28 @@ function App() {
           <Route path="/order/confirm" element={<ConfirmOrder/>} />
           <Route path="/success/order" element={<OrderSuccess/>} />
 
-          <Route path='/dashboard' element={<Dashboard/>} />
-          <Route path='/admin/products' element={<ProductsList/>} />
-          <Route path='/admin/products/new' element={<AddProduct/>}/>
-          <Route path='/admin/products/:id' element={<UpdateProduct/>}/>
+          <Route element={<UserProtectedRoute allowedRoles={['admin']}/>}>
+            <Route path='/dashboard' element={<Dashboard/>} />
+            <Route path='/admin/products' element={<ProductsList/>} />
+            <Route path='/admin/products/new' element={<AddProduct/>}/>
+            <Route path='/admin/products/:id' element={<UpdateProduct/>}/>
 
-          <Route path='/admin/orders' element={<OrdersList/>} />
-          <Route path='/admin/orders/:id' element={<UpdateOrder/>} />
-          <Route path='/admin/orders/recap' element={<OrdersRecap/>} />
-          <Route path='/admin/orders/status/:status' element={<OrdersByStatus/>} />
-          <Route path='/admin/orders/settings' element={<Settings/>} />
-          <Route path='/admin/orders/stats' element={<Statistics/>} />
+            <Route path='/admin/orders' element={<OrdersList/>} />
+            <Route path='/admin/orders/:id' element={<UpdateOrder/>} />
+            <Route path='/admin/orders/recap' element={<OrdersRecap/>} />
+            <Route path='/admin/orders/status/:status' element={<OrdersByStatus/>} />
+            <Route path='/admin/orders/settings' element={<Settings/>} />
+            <Route path='/admin/orders/stats' element={<Statistics/>} />
 
-          <Route path='/admin/users' element={<UsersList/>} />
-          <Route path='/admin/users/:id' element={<UpdateUser/>} />
+            <Route path='/admin/users' element={<UsersList/>} />
+            <Route path='/admin/users/:id' element={<UpdateUser/>} />
 
-          <Route path='/admin/categories' element={<CategoriesList/>} />
-          <Route path='/admin/categories/new' element={<AddCategory/>} />
-          <Route path='/admin/categories/:id' element={<UpdateCategory/>} />
+            <Route path='/admin/categories' element={<CategoriesList/>} />
+            <Route path='/admin/categories/new' element={<AddCategory/>} />
+            <Route path='/admin/categories/:id' element={<UpdateCategory/>} />
+          </Route>
+          <Route path='/unauthorized' element={<Unauthorized/>} />
+          <Route path='*' element={<NotFound/>} />
         </Routes>
       </div>
     </Router>
