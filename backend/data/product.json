@@ -1,7 +1,7 @@
 [
     {
         "name" : "Jebba + Farmla ,enfants",
-        "price" : 30.00,
+        "price" : 31.00,
         "description" : "Jebba et farmla (jaquette) tunisienne en tissu polystère viscose 30/70.",
         "category" : "6217b03c0b69b799d1e316cc",
         "sizeGuide" : "Mesurez la longueur de votre enfant de l'épaule jusqu'au dessus des chevilles, et choisissez la longueur convenable.",
@@ -84,7 +84,7 @@
     },
     {
         "name" : "Jebba + Farmla ,enfants",
-        "price" : 30.00,
+        "price" : 31.00,
         "description" : "Jebba et farmla (jaquette) tunisienne en tissu polystère viscose 30/70.",
         "category" : "6217b03c0b69b799d1e316cc",
         "sizeGuide" : "Mesurez la longueur de votre enfant de l'épaule jusqu'au dessus des chevilles, et choisissez la longueur convenable.",
@@ -167,7 +167,7 @@
     },
     {
         "name" : "Jebba + Farmla ,enfants",
-        "price" : 30.00,
+        "price" : 31.00,
         "description" : "Jebba et farmla (jaquette) tunisienne en tissu polystère viscose 30/70.",
         "category" : "6217b03c0b69b799d1e316cc",
         "sizeGuide" : "Mesurez la longueur de votre enfant de l'épaule jusqu'au dessus des chevilles, et choisissez la longueur convenable.",
@@ -245,12 +245,12 @@
             }
         ],
         "numOfSells" : 0,
-        "sale" : 0,
+        "sale" : 0.1,
         "user" : "61c23bf94ef7be3ae01e4c56"
     },
     {
         "name" : "Jebba + Farmla ,enfants",
-        "price" : 30.00,
+        "price" : 31.00,
         "description" : "Jebba et farmla (jaquette) tunisienne en tissu polystère viscose 30/70.",
         "category" : "6217b03c0b69b799d1e316cc",
         "sizeGuide" : "Mesurez la longueur de votre enfant de l'épaule jusqu'au dessus des chevilles, et choisissez la longueur convenable.",
@@ -328,12 +328,12 @@
             }
         ],
         "numOfSells" : 0,
-        "sale" : 0,
+        "sale" : 0.1,
         "user" : "61c23bf94ef7be3ae01e4c56"
     },
     {
         "name" : "Jebba + Farmla ,enfants",
-        "price" : 30.00,
+        "price" : 31.00,
         "description" : "Jebba et farmla (jaquette) tunisienne en tissu polystère viscose 30/70.",
         "category" : "6217b03c0b69b799d1e316cc",
         "sizeGuide" : "Mesurez la longueur de votre enfant de l'épaule jusqu'au dessus des chevilles, et choisissez la longueur convenable.",
@@ -411,12 +411,12 @@
             }
         ],
         "numOfSells" : 0,
-        "sale" : 0,
+        "sale" : 0.1,
         "user" : "61c23bf94ef7be3ae01e4c56"
     },
     {
         "name" : "Jebba + Farmla ,enfants",
-        "price" : 30.00,
+        "price" : 31.00,
         "description" : "Jebba et farmla (jaquette) tunisienne en tissu polystère viscose 30/70.",
         "category" : "6217b03c0b69b799d1e316cc",
         "sizeGuide" : "Mesurez la longueur de votre enfant de l'épaule jusqu'au dessus des chevilles, et choisissez la longueur convenable.",
@@ -495,7 +495,7 @@
     },
     {
         "name" : "Jebba + Farmla ,enfants",
-        "price" : 30.00,
+        "price" : 31.00,
         "description" : "Jebba et farmla (jaquette) tunisienne en tissu polystère viscose 30/70.",
         "category" : "6217b03c0b69b799d1e316cc",
         "sizeGuide" : "Mesurez la longueur de votre enfant de l'épaule jusqu'au dessus des chevilles, et choisissez la longueur convenable.",
@@ -573,8 +573,162 @@
         "user" : "61c23bf94ef7be3ae01e4c56"
     },
     {
+        "name" : "Chaussures BALGHA",
+        "price" : 14.00,
+        "description" : "Chaussures brodées en simili cuir, peuvent être portées de la manière tunisienne 'BALGA' ou comme des chaussures normales",
+        "category" : "6217b08c0b69b799d1e316e5",
+        "sizeGuide" : "Ces chaussures taillent petit. Veuillez ajouter une ou deux pointures à la pointure habituelle de votre enfants.",
+        "sizes" : [{
+            "sizeName" : "23",
+            "stock" : 5
+        },
+        {
+            "sizeName" : "24",
+            "stock" : 5
+        },
+        {
+            "sizeName" : "25",
+            "stock" : 10
+        },
+        {
+            "sizeName" : "26",
+            "stock" : 5
+        },
+        {
+            "sizeName" : "27",
+            "stock" : 5
+        },
+        {
+            "sizeName" : "28",
+            "stock" : 5
+        },
+        {
+            "sizeName" : "29",
+            "stock" : 5
+        },
+        {
+            "sizeName" : "30",
+            "stock" : 5
+        },
+        {
+            "sizeName" : "31",
+            "stock" : 5
+        },
+        {
+            "sizeName" : "32",
+            "stock" : 5
+        },
+        {
+            "sizeName" : "33",
+            "stock" : 5
+        },
+        {
+            "sizeName" : "34",
+            "stock" : 5
+        }],
+        "color" : "beige",
+        "colors" : [
+            {
+                "colorName" : "beige",
+                "code" : "#f2e7bf"
+            },
+            {
+                "colorName" : "beige bordeaux",
+                "code" : "#b90e0a"
+            }
+        ],
+        "images" : [
+            {
+                "public_id": "Al-Assala/products/chaussures-beige_frm5hw.jpg",
+                "url": "https://res.cloudinary.com/fantasy2021/image/upload/v1647630571/Al-Assala/products/chaussures-beige_frm5hw.jpg"
+            },
+            {
+                "public_id": "Al-Assala/products/IMG_0006_snfmf6.jpg",
+                "url": "https://res.cloudinary.com/fantasy2021/image/upload/v1647630539/Al-Assala/products/IMG_0006_snfmf6.jpg"
+            }
+        ],
+        "numOfSells" : 0,
+        "sale" : 0.1,
+        "user" : "61c23bf94ef7be3ae01e4c56"
+    },
+    {
+        "name" : "Chaussures BALGHA",
+        "price" : 14.00,
+        "description" : "Chaussures brodées en simili cuir, peuvent être portées de la manière tunisienne 'BALGA' ou comme des chaussures normales",
+        "category" : "6217b08c0b69b799d1e316e5",
+        "sizeGuide" : "Ces chaussures taillent petit. Veuillez ajouter une ou deux pointures à la pointure habituelle de votre enfants.",
+        "sizes" : [{
+            "sizeName" : "23",
+            "stock" : 5
+        },
+        {
+            "sizeName" : "24",
+            "stock" : 5
+        },
+        {
+            "sizeName" : "25",
+            "stock" : 10
+        },
+        {
+            "sizeName" : "26",
+            "stock" : 5
+        },
+        {
+            "sizeName" : "27",
+            "stock" : 5
+        },
+        {
+            "sizeName" : "28",
+            "stock" : 5
+        },
+        {
+            "sizeName" : "29",
+            "stock" : 5
+        },
+        {
+            "sizeName" : "30",
+            "stock" : 5
+        },
+        {
+            "sizeName" : "31",
+            "stock" : 5
+        },
+        {
+            "sizeName" : "32",
+            "stock" : 5
+        },
+        {
+            "sizeName" : "33",
+            "stock" : 5
+        },
+        {
+            "sizeName" : "34",
+            "stock" : 5
+        }],
+        "color" : "beige bordeaux",
+        "colors" : [
+            {
+                "colorName" : "beige",
+                "code" : "#f2e7bf"
+            },
+            {
+                "colorName" : "beige bordeaux",
+                "code" : "#b90e0a"
+            }
+        ],
+        "images" : [
+            {
+                "public_id": "Al-Assala/products/chaussures-beige-bordeaux_mexkyl.jpg",
+                "url": "https://res.cloudinary.com/fantasy2021/image/upload/v1647630838/Al-Assala/products/chaussures-beige-bordeaux_mexkyl.jpg"
+            }
+        ],
+        "numOfSells" : 0,
+        "sale" : 0.1,
+        "user" : "61c23bf94ef7be3ae01e4c56"
+    },
+    {
         "name" : "Jebba + Farmla ,enfants",
-        "price" : 30.00,
+        "price" : 31.00,
         "description" : "Jebba et farmla (jaquette) tunisienne en tissu polystère viscose 30/70.",
         "category" : "6217b03c0b69b799d1e316cc",
         "sizeGuide" : "Mesurez la longueur de votre enfant de l'épaule jusqu'au dessus des chevilles, et choisissez la longueur convenable.",
@@ -657,6 +811,238 @@
             {
                 "public_id": "Al-Assala/products/jebba-beige-vert-_bhpqek.jpg",
                 "url": "https://res.cloudinary.com/fantasy2021/image/upload/v1647604435/Al-Assala/products/jebba-beige-vert-_bhpqek.jpg"
+            }
+        ],
+        "numOfSells" : 0,
+        "sale" : 0,
+        "user" : "61c23bf94ef7be3ae01e4c56"
+    },
+    {
+        "name" : "Ensemble Traditionnel",
+        "price" : 32.00,
+        "description" : "Ensemble traditionnel se compose de deux pièces: un pantalon et une veste avec fermeture.",
+        "category" : "6217c1c398f7d0e2b36e694f",
+        "sizes" : [{
+            "sizeName" : "2ans",
+            "stock" : 5
+        },
+        {
+            "sizeName" : "4ans",
+            "stock" : 5
+        },
+        {
+            "sizeName" : "6ans",
+            "stock" : 10
+        },
+        {
+            "sizeName" : "8ans",
+            "stock" : 5
+        },
+        {
+            "sizeName" : "10ans",
+            "stock" : 5
+        },
+        {
+            "sizeName" : "12ans",
+            "stock" : 5
+        }],
+        "color" : "bronze",
+        "colors" : [
+            {
+                "colorName" : "bronze",
+                "code" : "#b6853e"
+            },
+            {
+                "colorName" : "beige bordeaux",
+                "code" : "#f9e4b7"
+            },
+            {
+                "colorName" : "gris",
+                "code" : "#7f7f7f"
+            },
+            {
+                "colorName" : "bordeaux",
+                "code" : "#a91b0d"
+            }
+        ],
+        "images" : [
+            {
+                "public_id": "Al-Assala/products/ensemble-bronze_iv2ffz.jpg",
+                "url": "https://res.cloudinary.com/fantasy2021/image/upload/v1647631723/Al-Assala/products/ensemble-bronze_iv2ffz.jpg"
+            }
+        ],
+        "numOfSells" : 0,
+        "sale" : 0,
+        "user" : "61c23bf94ef7be3ae01e4c56"
+    },
+    {
+        "name" : "Ensemble Traditionnel",
+        "price" : 32.00,
+        "description" : "Ensemble traditionnel se compose de deux pièces: un pantalon et une veste avec fermeture.",
+        "category" : "6217c1c398f7d0e2b36e694f",
+        "sizes" : [{
+            "sizeName" : "2ans",
+            "stock" : 5
+        },
+        {
+            "sizeName" : "4ans",
+            "stock" : 5
+        },
+        {
+            "sizeName" : "6ans",
+            "stock" : 10
+        },
+        {
+            "sizeName" : "8ans",
+            "stock" : 5
+        },
+        {
+            "sizeName" : "10ans",
+            "stock" : 5
+        },
+        {
+            "sizeName" : "12ans",
+            "stock" : 5
+        }],
+        "color" : "bordeaux",
+        "colors" : [
+            {
+                "colorName" : "bronze",
+                "code" : "#b6853e"
+            },
+            {
+                "colorName" : "beige bordeaux",
+                "code" : "#f9e4b7"
+            },
+            {
+                "colorName" : "gris",
+                "code" : "#7f7f7f"
+            },
+            {
+                "colorName" : "bordeaux",
+                "code" : "#a91b0d"
+            }
+        ],
+        "images" : [
+            {
+                "public_id": "AAl-Assala/products/ensemble-bordeaux_kwoqho.jpg",
+                "url": "https://res.cloudinary.com/fantasy2021/image/upload/v1647631583/Al-Assala/products/ensemble-bordeaux_kwoqho.jpg"
+            }
+        ],
+        "numOfSells" : 0,
+        "sale" : 0,
+        "user" : "61c23bf94ef7be3ae01e4c56"
+    },
+    {
+        "name" : "Ensemble Traditionnel",
+        "price" : 32.00,
+        "description" : "Ensemble traditionnel se compose de deux pièces: un pantalon et une veste avec fermeture.",
+        "category" : "6217c1c398f7d0e2b36e694f",
+        "sizes" : [{
+            "sizeName" : "2ans",
+            "stock" : 5
+        },
+        {
+            "sizeName" : "4ans",
+            "stock" : 5
+        },
+        {
+            "sizeName" : "6ans",
+            "stock" : 10
+        },
+        {
+            "sizeName" : "8ans",
+            "stock" : 5
+        },
+        {
+            "sizeName" : "10ans",
+            "stock" : 5
+        },
+        {
+            "sizeName" : "12ans",
+            "stock" : 5
+        }],
+        "color" : "beige bordeaux",
+        "colors" : [
+            {
+                "colorName" : "bronze",
+                "code" : "#b6853e"
+            },
+            {
+                "colorName" : "beige bordeaux",
+                "code" : "#f9e4b7"
+            },
+            {
+                "colorName" : "gris",
+                "code" : "#7f7f7f"
+            },
+            {
+                "colorName" : "bordeaux",
+                "code" : "#a91b0d"
+            }
+        ],
+        "images" : [
+            {
+                "public_id": "Al-Assala/products/ensemble-sucre-bordeaux_ojz0fe.jpg",
+                "url": "https://res.cloudinary.com/fantasy2021/image/upload/v1647631767/Al-Assala/products/ensemble-sucre-bordeaux_ojz0fe.jpg"
+            }
+        ],
+        "numOfSells" : 0,
+        "sale" : 0,
+        "user" : "61c23bf94ef7be3ae01e4c56"
+    },
+    {
+        "name" : "Ensemble Traditionnel",
+        "price" : 32.00,
+        "description" : "Ensemble traditionnel se compose de deux pièces: un pantalon et une veste avec fermeture.",
+        "category" : "6217c1c398f7d0e2b36e694f",
+        "sizes" : [{
+            "sizeName" : "2ans",
+            "stock" : 5
+        },
+        {
+            "sizeName" : "4ans",
+            "stock" : 5
+        },
+        {
+            "sizeName" : "6ans",
+            "stock" : 10
+        },
+        {
+            "sizeName" : "8ans",
+            "stock" : 5
+        },
+        {
+            "sizeName" : "10ans",
+            "stock" : 5
+        },
+        {
+            "sizeName" : "12ans",
+            "stock" : 5
+        }],
+        "color" : "gris",
+        "colors" : [
+            {
+                "colorName" : "bronze",
+                "code" : "#b6853e"
+            },
+            {
+                "colorName" : "beige bordeaux",
+                "code" : "#f9e4b7"
+            },
+            {
+                "colorName" : "gris",
+                "code" : "#7f7f7f"
+            },
+            {
+                "colorName" : "bordeaux",
+                "code" : "#a91b0d"
+            }
+        ],
+        "images" : [
+            {
+                "public_id": "Al-Assala/products/ensemble-gris_bgyrzk.jpg",
+                "url": "https://res.cloudinary.com/fantasy2021/image/upload/v1647631602/Al-Assala/products/ensemble-gris_bgyrzk.jpg"
             }
         ],
         "numOfSells" : 0,

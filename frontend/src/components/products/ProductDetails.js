@@ -99,6 +99,7 @@ export default function ProductDetails() {
                 <div className="row  product">
                     {(error || successAdd) && <Alert message={message} messageType={messageType} /> }
                     <div className='col-12 col-lg-5'>
+                        <h1>{console.log(productToDisplay)}</h1>
                         <div className="row d-flex justify-content-around">
                             <div className=' col-9 col-sm-9'>
                                 <img src={mainImage} alt={productToDisplay.name}  className='product__main-img'/>
@@ -111,7 +112,6 @@ export default function ProductDetails() {
                                         })} 
                                         src={image.url} 
                                         alt={image.public_id}
-                                        onContextMenu="return false;" 
                                         onClick={() => setMainImage(image.url)}/>
                                 </div>
                                 ))} 
@@ -130,12 +130,12 @@ export default function ProductDetails() {
 
                         
                         <div>
-                            {product.sale === 0 ?  <p className='product__price'>{`${productToDisplay && productToDisplay.price.toFixed(2)} TND`}</p>
+                            {productToDisplay && productToDisplay.sale === 0 ?  <p className='product__price'>{`${productToDisplay && productToDisplay.price.toFixed(2)} TND`}</p>
                             : (
                                 <div className='product__price-container'>
-                                    <span className='product-cart__sale'>{`-${product.sale * 100}%`} </span>
-                                    <span className='product__price'>{`${(product.price * (1 - product.sale)).toFixed(2)} TND`}</span>
-                                    <span className='product-cart__prev-price'>{product.price.toFixed(2) + ' TND'} </span>
+                                    <span className='product-cart__sale'>{`-${productToDisplay.sale * 100}%`} </span>
+                                    <span className='product__price'>{`${(productToDisplay.price * (1 - product.sale)).toFixed(2)} TND`}</span>
+                                    <span className='product-cart__prev-price'>{productToDisplay && productToDisplay.price && productToDisplay.price.toFixed(2) + ' TND'} </span>
                                 </div>
                             )}
                         </div>

@@ -253,3 +253,30 @@ exports.getBestSellers = catchAsync(async (req, res, next) => {
         bestSellers
     })
 })
+
+//GET RELATED PRODUCTS  =>  api/v1/related-products
+exports.getRelatedProducts = catchAsync(async (req, res, next) => {
+    let relatedProducts = [];
+    const findRelatedProducts = async (id = req.body.parentId) => {
+        const subCategories = await Category.find({ parentId : id });
+        
+        const foundProducts = await Product.find({ category : id})
+
+        relatedProducts.push(...foundProducts)
+    
+        if(subCategories.length > 0){
+            for (let cat of subCategories){
+                await findRelatedProducts(cat._id)
+            }
+        } 
+        return relatedProducts;
+    };
+   
+     const mayLikeProducts = await findRelatedProducts(req.body.parentId)
+
+    res.status(200).json({
+        success: true,
+        numOfProducts: mayLikeProducts.length,
+        mayLikeProducts
+    })
+})

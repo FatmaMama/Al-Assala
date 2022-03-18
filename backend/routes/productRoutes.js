@@ -9,7 +9,8 @@ const { addProduct,
         getOnSaleProducts, 
         getBestSellers, 
         getAdminProducts, 
-        getSearchProducts} = require('../controllers/productControllers');
+        getSearchProducts,
+        getRelatedProducts} = require('../controllers/productControllers');
 const { isAuthenticated, authorizeRoles } = require('../middlewares/authMiddleware');
 
 router.route('/products')
@@ -30,5 +31,7 @@ router.get('/best-sellers', getBestSellers);
 router.get('/admin/products', isAuthenticated, authorizeRoles('admin'), getAdminProducts);
 
 router.get('/search/products', getSearchProducts);
+
+router.get('/related-products', getRelatedProducts);
 
 module.exports = router;

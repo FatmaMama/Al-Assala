@@ -42,6 +42,9 @@ export default function Navigation() {
             {loading ? <Loader /> : (
                 <ul>
                     {categories && renderCategories(categories)}
+                    <li className='navigation-item'>
+                        <Link to='#'>Promo</Link>
+                    </li>
                 </ul> 
             )}
         </nav>
