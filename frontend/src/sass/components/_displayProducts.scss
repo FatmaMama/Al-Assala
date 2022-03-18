@@ -14,11 +14,12 @@
 }
 
 .product-cart {
-
+    background-color: $color-grey-light-1;
     border-radius: 5px;
     overflow: hidden;
     box-shadow: 0 .8rem .8rem rgba($color-grey-dark-1, 0.1);
     position: relative;
+    // border-radius: 12rem;
 
     &__img-container {
         position: relative;

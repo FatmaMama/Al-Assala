@@ -17,7 +17,7 @@ export default function Header() {
     const { message, messageType } = useSelector(state => state.notify);
     const { cartItems } = useSelector(state => state.cart);
     const {searchProducts} = useSelector(state => state.searchProducts);
-
+    const {settings} = useSelector(state => state.settingsInfos);
 
     useEffect(() => {
         if(keyword.trim()){
@@ -46,9 +46,28 @@ export default function Header() {
 
     return (
         <Fragment>
+            <div className='subHeader' >
+                <div className='d-flex gap-2'>
+                    <Link to='#' >
+                        <i className="fab fa-facebook-square subHeader__icon-social"></i>
+                    </Link>
+                    <Link to='#' >
+                    {/* <i className="fab fa-instagram-square subHeader__icon"></i> */}
+                        <i className="fab fa-instagram subHeader__icon-social"></i>
+                    </Link>
+                </div>
+                <div className='subHeader__shipping'>
+                    <i className="fas fa-shipping-fast me-1 subHeader__icon"></i>
+                    <span className='subHeader__text'>Livraison gratuite à partir de {settings.shippingFreeLimit}dt</span>
+                </div>
+                <div>
+                    <i className="fas fa-phone-alt me-1 subHeader__icon"></i>
+                    <span className='subHeader__text'>+216 66 548 741</span>
+                </div>
+            </div>
             <header>
                 <Link to='/'>
-                    <img src='./images/al-assala-logo.png' alt='Al Assala Logo' className='logo' />
+                    <img src='./images/logo.png' alt='Al Assala Logo' className='logo' />
                 </Link>
 
                 <form action="#" className="search" onSubmit={submitHandler}>
@@ -118,7 +137,7 @@ export default function Header() {
                                     !loading && 
                                     <Link to='/login' className="user-nav__link">
                                         <i className="fas fa-user user-nav__icon"></i>
-                                        <span className="user-nav__text">Se connecter</span>
+                                        <span>Se connecter</span>
                                     </Link>
                             }
                                 

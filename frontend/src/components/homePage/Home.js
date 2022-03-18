@@ -6,7 +6,8 @@ import Alert from '../utils/Alert';
 import { getProducts, clearErrors, getOnSaleProducts, getBestSellers } from '../../redux/actions/productActions';
 import { notifyUser } from '../../redux/actions/notifyActions';
 import Slide from './Slide';
-
+import ScrollingColorBackground from 'react-scrolling-color-background';
+import Header from '../layouts/Header'
 
 export default function Home() {
 
@@ -43,7 +44,7 @@ export default function Home() {
         <div>
             <Menu />
             {error && <Alert message={message} messageType={messageType} />}
-            <div className='container'>
+            <div>
                 <div id="carouselExampleCaptions" className="carousel slide main-slide" data-bs-ride="carousel">
                     <div className="carousel-indicators">
                         <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" className="active" aria-current="true" aria-label="Slide 1"></button>
@@ -61,6 +62,9 @@ export default function Home() {
                             
                         </div>
                         <div className="carousel-item" data-bs-interval="2000">
+                            <img src="images/IMG_9968.jpg" className="d-block w-100" alt="..."/>
+                        </div>
+                        <div className="carousel-item" data-bs-interval="2000">
                             <img src="images/chachia.jpg" className="d-block w-100" alt="..."/>
                         </div>
                         <div className="carousel-item">
@@ -76,24 +80,33 @@ export default function Home() {
                         <span className="visually-hidden">Next</span>
                     </button>
                 </div>
-
+            </div>
+            
             {loading || onSaleLoading || bestSellersLoading ? <Loader/> : (
                 <Fragment>
-                    <h1>Nouveautés</h1>
-                    <Slide  products={products} />
+                    <div className='pad new'>
+                        <img className='new__img new__img--1' src='images/khomsa3.png' />
+                        <img className='new__img new__img--2' src='images/khomsa.png' />
+                        <h1>Nouveautés</h1>
+                        <Slide  products={products} className='new__slider' />
+                        
+                    </div>
+
+                    <div className='pad best'>
+                        <h1>Meilleures Ventes</h1>
+                        <Slide  products={bestSellers} />
+                    </div>
 
                     {onSaleProducts && onSaleProducts.length > 0 && (
-                        <Fragment>
+                        <div className='pad promo'>
                             <h1>Promo</h1>
                             <Slide  products={onSaleProducts} />
-                        </Fragment>
+                        </div>
                     )}
-                    
-                    <h1>Meilleures Ventes</h1>
-                    <Slide  products={bestSellers} />
+                      
                 </Fragment>
             )}
-        </div>
+        
         </div>
     )
 }

@@ -59,9 +59,17 @@
         border: 1px solid $color-grey-light-4;
     }
 
+    &__activeColor {
+        border: 2px solid $color-grey-dark-1;
+    }
+
+    &__size-container {
+        display: flex;
+        flex-wrap: wrap;
+    }
+
     &__size {
-       
-        padding: .2rem .6rem;
+       padding: .2rem .6rem;
     }
 
     &__outOfStock {

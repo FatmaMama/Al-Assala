@@ -147,7 +147,9 @@ export default function ProductDetails() {
                                     {productToDisplay && productToDisplay.colors && productToDisplay.colors.map(color => (
                                         <div 
                                             key={color._id} 
-                                            className='product__color' 
+                                            className={classNames('product__color', {
+                                                'product__activeColor' : color.colorName === newColor
+                                            })}   
                                             style={{backgroundColor: color.code}}
                                             onClick={() => {setNewColor(color.colorName)
                                                 
@@ -173,8 +175,13 @@ export default function ProductDetails() {
                         </div>
 
                         <hr/>
-                        <h4 className="mt-2 product__description">Guide des tailles:</h4>
-                        <p>{productToDisplay && productToDisplay.sizeGuide}</p>
+                        {productToDisplay && productToDisplay.sizeGuide && 
+                            <div>
+                                <h4 className="mt-2 product__description">Guide des tailles:</h4>
+                                <p>{productToDisplay.sizeGuide}</p>
+                            </div>
+                        }
+                        
 
 
                         <div className="product__add-container">

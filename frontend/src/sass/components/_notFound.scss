@@ -1,0 +1,39 @@
+.not-found {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: calc(90vh);
+    background-image: linear-gradient(to right bottom, darkkhaki, #fff);
+    position: relative;
+
+    &__text{
+        font-size: 6.4rem;
+        z-index: 2;
+        color: #000;
+
+        @media only screen and (max-width: 56em) {  
+            font-size: 4.2rem;
+        }
+    }
+
+    &__img1 {
+        position: absolute;
+        left: 55%;
+    }
+
+    &__img2 {
+        position: absolute;
+        left: 27%;
+        top: 12%;
+        opacity: 0.5;
+
+        @media only screen and (max-width: 75em) { 
+            left: 22%;
+        }
+
+        @media only screen and (max-width: 56em) {  
+            left: 15%;
+        }
+    }
+}

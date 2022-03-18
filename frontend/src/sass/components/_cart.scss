@@ -3,7 +3,7 @@
     justify-content: space-between;
     margin-top: 3.2rem;
 
-    @media only screen and (max-width: 1200px) {
+    @media only screen and (max-width: 75em) {
         flex-direction: column;
     }
 
@@ -226,7 +226,7 @@
     }
 }
 
-@media only screen and (max-width: 1200px) {
+@media only screen and (max-width: 75em) {
     .cart-title {
         margin-left: 5rem;
     }
@@ -269,61 +269,4 @@
             grid-row: 5 / 6;
         }
     } 
-}
-
-
-.slider {
-    position: relative;
-
-    &__btn-left, &__btn-right {
-        border: none;
-        background-color: $color-grey-light-4;
-        width: 4rem;
-        height: 4rem;
-        border-radius: 50%;
-        font-size: 1.6rem;
-        transition: all .2s;
-        box-shadow: 0 .4rem .8rem  rgba(0, 0, 0, .2);
-        z-index: 2;
-        position: absolute;
-        top: 30%;
-    }
-
-    &__btn-left {
-        left: -2%;
-        &:hover {
-            transform: translateX(-3px) scale(1.05);
-        }
-    }
-
-    &__btn-right {
-        left: 99%;
-        &:hover {
-            transform: translateX(3px) scale(1.05);
-        }
-    }
-
-    .slick-slide > div {
-        margin: 0 1.6rem;
-    }
-    .slick-list {
-        margin: 0 -1.6rem;
-    }
-}
-
-.main-slide {
-    height: 80vh;
-}
-
-.item-1 {
-    position: relative;
-}
-
-.caption-1 {
-    position: absolute;
-    top: 55%;
-}
-
-.slide-img {
-    opacity: .8;
 }
