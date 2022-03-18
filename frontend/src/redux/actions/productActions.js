@@ -29,6 +29,9 @@ import { ADMIN_PRODUCTS_REQUEST,
     GET_BEST_SELLERS_REQUEST,
     GET_BEST_SELLERS_SUCCESS,
     GET_BEST_SELLERS_FAIL,
+    GET_RELATED_PRODUCTS_REQUEST,
+    GET_RELATED_PRODUCTS_SUCCESS,
+    GET_RELATED_PRODUCTS_FAIL,
     CLEAR_ERRORS} from '../constants/product_constants';
 
 export const getAdminProducts = () => async (dispatch) => {
@@ -171,6 +174,25 @@ export const getProductByColor = (color, name) => async (dispatch) => {
     } catch (error) {
         dispatch({
             type: GET_PRODUCT_BY_COLOR_FAIL,
+            payload: error.response.data.message
+        })
+    }
+};
+
+export const getRelatedProducts = (parentId) => async (dispatch) => {
+    try {
+        dispatch({type: GET_RELATED_PRODUCTS_REQUEST})
+
+        const {data} = await axios.get(`/api/v1/related-products/${parentId}`);
+       
+        dispatch({
+            type: GET_RELATED_PRODUCTS_SUCCESS,
+            payload: data.mayLikeProducts
+        })
+        
+    } catch (error) {
+        dispatch({
+            type: GET_RELATED_PRODUCTS_FAIL,
             payload: error.response.data.message
         })
     }

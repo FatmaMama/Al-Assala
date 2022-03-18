@@ -2,12 +2,13 @@ import React, { useEffect, useState, useMemo } from 'react'
 import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate, useParams } from 'react-router-dom'
 import { notifyUser } from '../../redux/actions/notifyActions';
-import { getProductByColor, clearErrors, getProduct } from '../../redux/actions/productActions';
+import { getProductByColor, clearErrors, getProduct, getRelatedProducts } from '../../redux/actions/productActions';
 import Loader from '../utils/Loader';
 import Menu from '../layouts/menu/Menu';
 import Alert from '../utils/Alert';
 import classNames from 'classnames';
 import { addToCart } from '../../redux/actions/cartActions';
+import Slide from '../homePage/Slide';
 // import ReactImageMagnify from 'react-image-magnify';
 // import { TransformWrapper, TransformComponent} from 'react-zoom-pan-pinch'
 
@@ -26,6 +27,7 @@ export default function ProductDetails() {
     const [successAdd, setSuccessAdd] = useState(false)
 
     const { loading, product, error } = useSelector(state => state.productDetails);
+    const { loading: productsLoading, products, error: productsError } = useSelector(state => state.products);
     const { productByColor } = useSelector(state => state.productDetailsByColor);
     const { message, messageType } = useSelector(state => state.notify);
 
@@ -37,6 +39,7 @@ export default function ProductDetails() {
         } else {
             setProductToDisplay(product)
             setMainImage(product.images[0].url);
+            dispatch(getRelatedProducts(product.category.parentId))
         }
 
         if(newColor !== ''){
@@ -52,7 +55,12 @@ export default function ProductDetails() {
             setTimeout(() => dispatch(clearErrors()), 5000)
         };
 
-    }, [dispatch, params, error, product, data, newColor,  navigate]);
+        if(productsError){
+            dispatch(notifyUser(productsError, 'error'));
+            setTimeout(() => dispatch(clearErrors()), 5000)
+        };
+
+    }, [dispatch, params, error, productsError, product, data, newColor,  navigate]);
 
     const increaseQty = () => {
         const count = document.querySelector('.product__qty');
@@ -94,10 +102,10 @@ export default function ProductDetails() {
     return (
         <div>
             <Menu />
-            {loading ? <Loader/> : (
+            {loading && productsLoading ? <Loader/> : (
                 
                 <div className="row  product">
-                    {(error || successAdd) && <Alert message={message} messageType={messageType} /> }
+                    {(error || productsError || successAdd) && <Alert message={message} messageType={messageType} /> }
                     <div className='col-12 col-lg-5'>
                         <h1>{console.log(productToDisplay)}</h1>
                         <div className="row d-flex justify-content-around">
@@ -203,6 +211,11 @@ export default function ProductDetails() {
                     </div>
                 </div>
             )}
+
+            <div className='container mt-5 pt-5'>
+                <h1>Vous pourriez aimer...</h1>
+                <Slide products={products} />
+            </div>
         </div>
     )
 }

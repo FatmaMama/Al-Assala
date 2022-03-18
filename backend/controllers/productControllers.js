@@ -254,10 +254,10 @@ exports.getBestSellers = catchAsync(async (req, res, next) => {
     })
 })
 
-//GET RELATED PRODUCTS  =>  api/v1/related-products
+// GET RELATED PRODUCTS  =>  api/v1/related-products
 exports.getRelatedProducts = catchAsync(async (req, res, next) => {
     let relatedProducts = [];
-    const findRelatedProducts = async (id = req.body.parentId) => {
+    const findRelatedProducts = async (id = req.params.parentId) => {
         const subCategories = await Category.find({ parentId : id });
         
         const foundProducts = await Product.find({ category : id})
@@ -272,7 +272,7 @@ exports.getRelatedProducts = catchAsync(async (req, res, next) => {
         return relatedProducts;
     };
    
-     const mayLikeProducts = await findRelatedProducts(req.body.parentId)
+     const mayLikeProducts = await findRelatedProducts(req.params.parentId)
 
     res.status(200).json({
         success: true,

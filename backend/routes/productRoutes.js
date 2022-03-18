@@ -32,6 +32,6 @@ router.get('/admin/products', isAuthenticated, authorizeRoles('admin'), getAdmin
 
 router.get('/search/products', getSearchProducts);
 
-router.get('/related-products', getRelatedProducts);
+router.get('/related-products/:parentId', getRelatedProducts);
 
 module.exports = router;

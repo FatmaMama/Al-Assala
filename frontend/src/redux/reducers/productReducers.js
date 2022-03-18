@@ -31,6 +31,9 @@ import { ADMIN_PRODUCTS_REQUEST,
         GET_BEST_SELLERS_REQUEST,
         GET_BEST_SELLERS_SUCCESS,
         GET_BEST_SELLERS_FAIL,
+        GET_RELATED_PRODUCTS_REQUEST,
+        GET_RELATED_PRODUCTS_SUCCESS,
+        GET_RELATED_PRODUCTS_FAIL,
         CLEAR_ERRORS
         } from '../constants/product_constants';
 
@@ -38,6 +41,7 @@ export const productsReducer = (state = {products: []}, action) => {
     switch (action.type) {
         case ADMIN_PRODUCTS_REQUEST:
         case GET_PRODUCTS_REQUEST:
+        case GET_RELATED_PRODUCTS_REQUEST:
             return {
                 loading: true,
                 products: []
@@ -58,8 +62,15 @@ export const productsReducer = (state = {products: []}, action) => {
                 resPerPage: action.payload.resPerPage
             }
         
+        case GET_RELATED_PRODUCTS_SUCCESS:
+            return {
+                loading: false,
+                products: action.payload
+            }
+        
         case ADMIN_PRODUCTS_FAIL:
         case GET_PRODUCTS_FAIL:
+        case GET_RELATED_PRODUCTS_FAIL:
             return {
                 loading: false,
                 error: action.payload

@@ -6,8 +6,7 @@ import Alert from '../utils/Alert';
 import { getProducts, clearErrors, getOnSaleProducts, getBestSellers } from '../../redux/actions/productActions';
 import { notifyUser } from '../../redux/actions/notifyActions';
 import Slide from './Slide';
-import ScrollingColorBackground from 'react-scrolling-color-background';
-import Header from '../layouts/Header'
+
 
 export default function Home() {
 

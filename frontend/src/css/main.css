@@ -914,6 +914,7 @@ header .avatar {
   display: flex;
   justify-content: space-around;
   margin-top: 4.6rem;
+  margin-bottom: 8.2rem;
   font-size: 1.4rem;
 }
 .product__main-img {
