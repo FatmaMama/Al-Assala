@@ -130,12 +130,12 @@ export default function ProductDetails() {
 
                         
                         <div>
-                            {product.sale === 0 ?  <p className='product__price'>{`${productToDisplay && productToDisplay.price} TND`}</p>
+                            {product.sale === 0 ?  <p className='product__price'>{`${productToDisplay && productToDisplay.price.toFixed(2)} TND`}</p>
                             : (
                                 <div className='product__price-container'>
                                     <span className='product-cart__sale'>{`-${product.sale * 100}%`} </span>
                                     <span className='product__price'>{`${(product.price * (1 - product.sale)).toFixed(2)} TND`}</span>
-                                    <span className='product-cart__prev-price'>{product.price + ' TND'} </span>
+                                    <span className='product-cart__prev-price'>{product.price.toFixed(2) + ' TND'} </span>
                                 </div>
                             )}
                         </div>

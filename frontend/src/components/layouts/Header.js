@@ -48,13 +48,12 @@ export default function Header() {
         <Fragment>
             <div className='subHeader' >
                 <div className='d-flex gap-2'>
-                    <Link to='#' >
+                    <a href='https://www.facebook.com/Al-Assala-%D8%A7%D9%84%D8%A3%D8%B5%D8%A7%D9%84%D8%A9-111927638089839' >
                         <i className="fab fa-facebook-square subHeader__icon-social"></i>
-                    </Link>
-                    <Link to='#' >
-                    {/* <i className="fab fa-instagram-square subHeader__icon"></i> */}
+                    </a>
+                    <a href='https://www.instagram.com/al_assala_store/' >
                         <i className="fab fa-instagram subHeader__icon-social"></i>
-                    </Link>
+                    </a>
                 </div>
                 <div className='subHeader__shipping'>
                     <i className="fas fa-shipping-fast me-1 subHeader__icon"></i>
