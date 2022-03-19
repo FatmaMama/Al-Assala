@@ -49,6 +49,7 @@ import UpdateCategory from './components/admin/categories/UpdateCategory';
 import ProtectedRoute from './components/utils/ProtectedRoute';
 import NotFound from './components/utils/NotFound';
 import Unauthorized from './components/utils/Unauthorized';
+import Footer from './components/layouts/Footer';
 
 function App() {
 
@@ -109,6 +110,7 @@ function App() {
           <Route path='/unauthorized' element={<Unauthorized/>} />
           <Route path='*' element={<NotFound/>} />
         </Routes>
+        <Footer />
       </div>
     </Router>
   );

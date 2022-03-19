@@ -15,7 +15,7 @@ export default function Dashboard() {
     const { loading: usersLoading, usersCount } = useSelector(state => state.users);
 
     let outOfStock = 0
-    products.forEach(product => {
+    products && products.forEach(product => {
         for(let i =0; i < product.sizes.length; i++) {
             if(product.sizes[i].stock === 0){
                         outOfStock += 1
@@ -44,7 +44,7 @@ export default function Dashboard() {
                             <div className="col-xl-12 col-sm-12 mb-3">
                                 <div className="card text-white bg-primary o-hidden h-100">
                                     <div className="card-body">
-                                        <div className="text-center">Montant Total<br /> <b>{`${totalAmount} TND`}</b>
+                                        <div className="text-center">Montant Total<br /> <b>{`${totalAmount && totalAmount.toFixed(2)} TND`}</b>
                                         </div>
                                     </div>
                                 </div>

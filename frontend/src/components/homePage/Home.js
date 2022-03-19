@@ -53,7 +53,7 @@ export default function Home() {
                     <div className="carousel-inner">
                         <div className="carousel-item active item-1" data-bs-interval="5000">
                             <img src="images/enfants.jpg" className="d-block w-100 slide-img" alt="..." />
-                            <div class="carousel-caption caption-1">
+                            <div className="carousel-caption caption-1">
                             <button className='bg-danger'>Découvrir</button>
                                 <h5>First slide label</h5>
                                 <p>Some representative placeholder content for the first slide.</p>

@@ -128,6 +128,7 @@ export default function UpdateOrder() {
                     </div>
                     
                     <PDFExport ref={pdfExportComponent} scale={0.5} paperSize="A4" margin="0.5cm">
+                    <img src='./images/favicon-192.png' alt='Al Assala Logo' className='logo' />
                         <div className="my-4">
                             <span className="order__title">{order && `Commande #${order._id}`}</span>
                             <div className="order__date"><b>{order && order.createdAt && order.createdAt.slice(0,10)}</b></div>
@@ -165,7 +166,7 @@ export default function UpdateOrder() {
                                 
                             <div className='info__items mt-2'>
                                 <span className='info__item-1'>Montant:</span>
-                                <span className='info__item-2'><b>{order && totalPrice + ' TND'}</b></span>
+                                <span className='info__item-2'><b>{order && totalPrice && totalPrice.toFixed(2) + ' TND'}</b></span>
                             </div>
                         </div>
                     </div>
@@ -200,13 +201,13 @@ export default function UpdateOrder() {
                                         </div>
 
                                         <div className='center cart__price-container'>
-                                            {item.salePrice === 0 ? <p className='cart__price'><span className='cart__label'>Prix: </span>{`${item.price} TND`}</p>
+                                            {item.salePrice === 0 ? <p className='cart__price'><span className='cart__label'>Prix: </span>{`${item.price && item.price.toFixed(2)} TND`}</p>
                                                     : (
                                                         <Fragment>
                                                             <span className='cart__label'>Prix: </span>
                                                             <div className='d-flex gap-5 align-items-center justify-content-md-center'>
                                                                 <span className='cart__price'>{`${item.salePrice && item.salePrice.toFixed(2)} TND`}</span>
-                                                                <span className='product-cart__prev-price'>{`${item.price} TND`}</span>
+                                                                <span className='product-cart__prev-price'>{`${item.price && item.price.toFixed(2)} TND`}</span>
                                                             </div>
                                                         </Fragment>
                                                     )}
