@@ -50,6 +50,7 @@ import ProtectedRoute from './components/utils/ProtectedRoute';
 import NotFound from './components/utils/NotFound';
 import Unauthorized from './components/utils/Unauthorized';
 import Footer from './components/layouts/footer/Footer';
+import OnSale from './components/homePage/OnSale';
 
 function App() {
 
@@ -81,6 +82,7 @@ function App() {
           <Route path='/products' element={<ProductsByCategory/>} />
           <Route path='/products/:id' element={<ProductDetails/>} />
           <Route path="/search/products" element={<SearchProducts/>} />
+          <Route path="/onsale" element={<OnSale/>} />
 
           <Route path="/cart" element={<Cart/>} />
           <Route path="/shipping" element={<Shipping/>} />

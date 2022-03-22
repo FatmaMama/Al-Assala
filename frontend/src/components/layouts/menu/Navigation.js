@@ -43,7 +43,7 @@ export default function Navigation() {
                 <ul>
                     {categories && renderCategories(categories)}
                     <li>
-                        <Link to='#' className='navigation-head'>Promo</Link>
+                        <Link to='/onsale' className='navigation-head'>Promo</Link>
                     </li>
                 </ul> 
             )}

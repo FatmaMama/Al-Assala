@@ -132,7 +132,8 @@ export const onSaleProductsReducer = (state = {onSaleProducts: []}, action) => {
         case GET_PRODUCTS_ONSALE_SUCCESS:
             return {
                 loading: false,
-                onSaleProducts: action.payload
+                onSaleProducts: action.payload.onSaleProducts,
+                productsCount: action.payload.numOfProducts
             }
         case GET_PRODUCTS_ONSALE_FAIL:
             return {

@@ -106,7 +106,7 @@ export const getOnSaleProducts = () => async (dispatch) => {
        
         dispatch({ 
             type : GET_PRODUCTS_ONSALE_SUCCESS,
-            payload : data.onSaleProducts
+            payload : data
          })
          
 
