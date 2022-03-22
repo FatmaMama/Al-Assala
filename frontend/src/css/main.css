@@ -441,7 +441,6 @@ header .avatar {
 @media only screen and (max-width: 56em) {
   .navbar {
     position: absolute;
-    width: 100%;
     min-height: 100vh;
     z-index: 2;
     top: -1rem;
@@ -450,6 +449,8 @@ header .avatar {
 
   .navbar-open {
     background-image: linear-gradient(to right, rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6));
+    width: 100%;
+    min-height: 300vh;
   }
 
   .navbar .navigation {
@@ -467,8 +468,8 @@ header .avatar {
     padding: 0 1.2rem;
     margin-left: 1.2rem;
     position: absolute;
-    top: 28.5%;
-    left: 1%;
+    top: 28.8%;
+    left: 2%;
   }
 }
 @media only screen and (max-width: 56em) and (max-width: 38em) {
@@ -515,7 +516,6 @@ header .avatar {
     position: absolute;
     top: 0%;
     width: 40%;
-    height: 100%;
     background-color: #fdf5f5;
     display: flex;
     flex-direction: column;
@@ -1584,6 +1584,12 @@ header .avatar {
   opacity: 0.8;
 }
 
+.home-title {
+  font-size: 4.6rem;
+  text-transform: uppercase;
+  letter-spacing: 5px;
+}
+
 .pad {
   padding: 7.4rem 6.4rem 9.8rem 6.4rem;
 }
@@ -1613,4 +1619,44 @@ header .avatar {
   background-color: #ca6624;
   -webkit-clip-path: polygon(0 0, 100% 12vh, 100% 100%, 0 100%);
   clip-path: polygon(0 0, 100% 12vh, 100% 100%, 0 100%);
+}
+
+.not-found {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 90vh;
+  background-image: linear-gradient(to right bottom, darkkhaki, #fff);
+  position: relative;
+}
+.not-found__text {
+  font-size: 6.4rem;
+  z-index: 2;
+  color: #000;
+}
+@media only screen and (max-width: 56em) {
+  .not-found__text {
+    font-size: 4.2rem;
+  }
+}
+.not-found__img1 {
+  position: absolute;
+  left: 55%;
+}
+.not-found__img2 {
+  position: absolute;
+  left: 27%;
+  top: 12%;
+  opacity: 0.5;
+}
+@media only screen and (max-width: 75em) {
+  .not-found__img2 {
+    left: 22%;
+  }
+}
+@media only screen and (max-width: 56em) {
+  .not-found__img2 {
+    left: 15%;
+  }
 }

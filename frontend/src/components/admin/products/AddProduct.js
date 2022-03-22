@@ -21,9 +21,10 @@ export default function AddProduct() {
         description: '',
         category: '',
         color: '',
-        sizeGuide: ''
+        sizeGuide: '',
+        sale: 0
     });
-    const { name, price, description, category, color, sizeGuide } = product;
+    const { name, price, description, category, color, sizeGuide, sale } = product;
 
     const [sizes, setSizes] = useState([]);
     const [sizeName, setSizeName] = useState('');
@@ -78,6 +79,7 @@ export default function AddProduct() {
         formData.set('color', color);
         formData.set('category', category);
         formData.set('sizeGuide', sizeGuide);
+        formData.set('sale', sale);
 
         formData.set('sizes', JSON.stringify(sizes));
         formData.set('colors', JSON.stringify(colors));
@@ -284,6 +286,18 @@ export default function AddProduct() {
                                                 </div>
                                             }
                                             
+                                        </div>
+
+                                        <div className="form-group mt-4">
+                                            <label htmlFor="sale_field">Promotion{ ` <1`}</label>
+                                            <input 
+                                                type="text" 
+                                                id="sale_field" 
+                                                className="form-control"
+                                                name='sale'
+                                                value={sale}
+                                                onChange={onChange}
+                                            />
                                         </div>
 
                                         <div className='form-group mt-5'>

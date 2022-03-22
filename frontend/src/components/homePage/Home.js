@@ -86,19 +86,19 @@ export default function Home() {
                     <div className='pad new'>
                         <img className='new__img new__img--1' src='images/khomsa3.png' />
                         <img className='new__img new__img--2' src='images/khomsa.png' />
-                        <h1>Nouveautés</h1>
+                        <h1 className='home-title'>Nouveautés</h1>
                         <Slide  products={products} className='new__slider' />
                         
                     </div>
 
                     <div className='pad best'>
-                        <h1>Meilleures Ventes</h1>
+                        <h1 className='home-title'>Meilleures Ventes</h1>
                         <Slide  products={bestSellers} />
                     </div>
 
                     {onSaleProducts && onSaleProducts.length > 0 && (
                         <div className='pad promo'>
-                            <h1>Promo</h1>
+                            <h1 className='home-title'>Promo</h1>
                             <Slide  products={onSaleProducts} />
                         </div>
                     )}

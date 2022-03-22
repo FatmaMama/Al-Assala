@@ -22,9 +22,10 @@ export default function UpdateProduct() {
         description: '',
         category: '',
         color: '',
-        sizeGuide: ''
+        sizeGuide: '',
+        sale: 0
     });
-    const { name, price, description, category, color, sizeGuide } = productToUpdate;
+    const { name, price, description, category, color, sizeGuide, sale } = productToUpdate;
 
     const [sizes, setSizes] = useState([]);
     const [sizeName, setSizeName] = useState('');
@@ -58,7 +59,8 @@ export default function UpdateProduct() {
                 description: product.description,
                 category: product.category._id,
                 color: product.color,
-                sizeGuide: product.sizeGuide
+                sizeGuide: product.sizeGuide,
+                sale: product.sale
             })
             setSizes(product.sizes);
             setColors(product.colors);
@@ -105,6 +107,7 @@ export default function UpdateProduct() {
         formData.set('color', color);
         formData.set('category', category);
         formData.set('sizeGuide', sizeGuide);
+        formData.set('sale', sale);
 
         formData.set('sizes', JSON.stringify(sizes));
         formData.set('colors', JSON.stringify(colors));
@@ -201,7 +204,7 @@ export default function UpdateProduct() {
                     <Sidebar />
                 </div>
 
-                <div className="col-12 col-md-10 px-5">
+                <div className="col-12 col-md-10 px-5 mb-5">
                 <Fragment>
                         {(loading || productLoading) ? <Loader /> : (
                             <div className="row wrapper">
@@ -213,7 +216,7 @@ export default function UpdateProduct() {
                                         <div className="form-group">
                                             <label htmlFor="name_field">Nom</label>
                                             <input 
-                                                type="name" 
+                                                type="text" 
                                                 id="name_field" 
                                                 className="form-control"
                                                 name='name'
@@ -269,7 +272,7 @@ export default function UpdateProduct() {
 
                                         <div className="form-group mt-3">
                                             <label htmlFor="sizeGuide_field">Guide des tailles</label>
-                                            <textarea className="form-control" id="sizeGuide_field" rows="5" name= "sizeGuide"
+                                            <textarea className="form-control text-area" id="sizeGuide_field" rows="5" name= "sizeGuide"
                                             value={sizeGuide} onChange={onChange}></textarea>
                                         </div>
 
@@ -363,6 +366,18 @@ export default function UpdateProduct() {
                                                 </div>
                                             }
                                             
+                                        </div>
+
+                                        <div className="form-group mt-4">
+                                            <label htmlFor="sale_field">Promotion{ ` <1`}</label>
+                                            <input 
+                                                type="text" 
+                                                id="sale_field" 
+                                                className="form-control"
+                                                name='sale'
+                                                value={sale}
+                                                onChange={onChange}
+                                            />
                                         </div>
 
                                         <div className='form-group mt-5'>

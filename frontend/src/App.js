@@ -49,7 +49,7 @@ import UpdateCategory from './components/admin/categories/UpdateCategory';
 import ProtectedRoute from './components/utils/ProtectedRoute';
 import NotFound from './components/utils/NotFound';
 import Unauthorized from './components/utils/Unauthorized';
-import Footer from './components/layouts/Footer';
+import Footer from './components/layouts/footer/Footer';
 
 function App() {
 

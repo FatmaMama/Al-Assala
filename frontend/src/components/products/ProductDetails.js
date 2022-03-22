@@ -107,7 +107,6 @@ export default function ProductDetails() {
                 <div className="row  product">
                     {(error || productsError || successAdd) && <Alert message={message} messageType={messageType} /> }
                     <div className='col-12 col-lg-5'>
-                        <h1>{console.log(productToDisplay)}</h1>
                         <div className="row d-flex justify-content-around">
                             <div className=' col-9 col-sm-9'>
                                 <img src={mainImage} alt={productToDisplay.name}  className='product__main-img'/>

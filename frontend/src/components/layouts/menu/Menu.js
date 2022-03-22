@@ -12,7 +12,7 @@ export default function Menu() {
     }
 
     return (
-        <div className={classNames('navbar', { 'navbar-open' : open})}>
+        <div className={classNames('navbar', { 'navbar-open' : open})} onClick={() => setOpen(!open)}>
             <Navigation />
             <MobileNavigation open={open} setOpen={setOpen} closeMobileMenu={closeMobileMenu} />
         </div>

@@ -47,6 +47,9 @@ export default function MobileNavigation({open, setOpen, closeMobileMenu}) {
                     }
                     
                     {open && <ul>
+                                <li>
+                                <Link to='#' className='mobileNavigation-head'>Promo</Link>
+                                </li>
                                 {categories && renderCategories(categories)}
                             </ul>
                     }

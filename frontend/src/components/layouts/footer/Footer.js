@@ -1,7 +1,11 @@
-import React from 'react'
-import { Link } from 'react-router-dom'
+import React from 'react';
+import { Link } from 'react-router-dom';
+import { useSelector } from 'react-redux';
+import {Navigate, Outlet, useLocation } from 'react-router-dom';
 
 export default function Footer() {
+    const { loading, isAuthenticated, user } = useSelector(state => state.auth);
+
   return (
     <footer className='footer'>
         <div className='features container'>
@@ -38,15 +42,27 @@ export default function Footer() {
             <li className='nav__item'>
                 <h1 className='pb-3'>Notre Politique</h1>
                 <ul>
-                    <li><Link to='#' className='nav__link'>Politique de vente</Link></li>
+                    <li>
+                        <Link to='#' className='nav__link'>Politique de vente</Link> 
+                    </li>
                     <li><Link to='#' className='nav__link'>Confidentialité</Link></li>
                 </ul>
             </li>
             <li className='nav__item'>
                 <h1 className='pb-3'>Informations</h1>
                 <ul>
-                    <li><Link to='#' className='nav__link'>Votre Compte</Link></li>
-                    <li><Link to='#' className='nav__link'>Vos Commandes</Link></li>
+                    <li>
+                    {isAuthenticated ? 
+                        <Link to='/user/profile' className='nav__link'>Votre compte</Link> 
+                        : 
+                        <Link to='/login' className='nav__link'>Votre compte</Link>}
+                    </li>
+                    <li>
+                    {isAuthenticated ? 
+                        <Link to='/user/orders' className='nav__link'>Vos commandes</Link> 
+                        : 
+                        <Link to='/login' className='nav__link'>Vos commandes</Link>}
+                    </li>
                 </ul>
             </li>
             <li className='nav__item'>
