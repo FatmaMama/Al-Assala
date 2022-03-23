@@ -26,7 +26,7 @@ export default function Header() {
         
         if(isLogout){
             dispatch(notifyUser('Déconnecté avec succès', 'success'));
-            setTimeout(() => dispatch({type: LOGOUT_RESET}), 5000)
+            setTimeout(() => dispatch({type: LOGOUT_RESET}), 3000)
         }
     }, [isLogout, dispatch, keyword])
    

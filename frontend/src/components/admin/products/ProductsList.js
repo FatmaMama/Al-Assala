@@ -36,17 +36,17 @@ export default function ProductsList() {
 
         if(isDeleted){
             dispatch(notifyUser('Produit supprimé avec succès', 'success'));
-            setTimeout(() => dispatch({type: DELETE_PRODUCT_RESET}), 5000)
+            setTimeout(() => dispatch({type: DELETE_PRODUCT_RESET}), 3000)
         } 
 
         if(success){
             dispatch(notifyUser('Produit ajouté avec succès', 'success'));
-            setTimeout(() => dispatch({type: NEW_PRODUCT_RESET}), 5000)
+            setTimeout(() => dispatch({type: NEW_PRODUCT_RESET}), 3000)
         }
 
         if(isUpdated){
             dispatch(notifyUser('Produit mis à jour avec succès', 'success'));
-            setTimeout(() => dispatch({type: UPDATE_PRODUCT_RESET}), 5000)
+            setTimeout(() => dispatch({type: UPDATE_PRODUCT_RESET}), 3000)
         }
         
     }, [error, deleteError, isDeleted, success, isUpdated, navigate, dispatch]);

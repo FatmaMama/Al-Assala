@@ -33,12 +33,12 @@ export default function CategoriesList() {
 
         if(success){
             dispatch(notifyUser('La catégorie est ajoutée avec succès', 'success'))
-            setTimeout(() => dispatch({type: NEW_CATEGORY_RESET}), 5000)
+            setTimeout(() => dispatch({type: NEW_CATEGORY_RESET}), 3000)
         };
 
         if(isUpdated){
             dispatch(notifyUser('Catégorie mise à jour avec succès', 'success'));
-            setTimeout(() => {dispatch({ type : UPDATE_CATEGORY_RESET})},5000) 
+            setTimeout(() => {dispatch({ type : UPDATE_CATEGORY_RESET})},3000) 
         };
 
         if(isDeleted){

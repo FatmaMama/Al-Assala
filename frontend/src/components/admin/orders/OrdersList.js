@@ -22,22 +22,22 @@ export default function OrdersList() {
 
         if(error) {
             dispatch(notifyUser(error, 'error'));
-            setTimeout(() => dispatch(clearErrors()), 5000)
+            setTimeout(() => dispatch(clearErrors()), 3000)
         }
 
         if(deleteError){
             dispatch(notifyUser(deleteError, 'error'));
-            setTimeout(() => dispatch(clearErrors()), 5000)
+            setTimeout(() => dispatch(clearErrors()), 3000)
         }
 
         if(isDeleted){
             dispatch(notifyUser('Commande supprimée avec succès', 'success'));
-            setTimeout(() => dispatch({type: DELETE_ORDER_RESET}), 5000)
+            setTimeout(() => dispatch({type: DELETE_ORDER_RESET}), 3000)
         } 
 
         if(isUpdated){
             dispatch(notifyUser('Commande mise à jour avec succès', 'success'));
-            setTimeout(() => dispatch({type: UPDATE_ORDER_RESET}), 5000)
+            setTimeout(() => dispatch({type: UPDATE_ORDER_RESET}), 3000)
         }
         
     }, [error, deleteError, isDeleted, isUpdated, dispatch]);
