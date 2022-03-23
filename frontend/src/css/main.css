@@ -332,6 +332,11 @@ header .avatar {
   margin-top: 6rem;
 }
 
+.confidentiality p {
+  font-size: 1.6rem;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
 .loader {
   display: block;
   margin-left: auto;

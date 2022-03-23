@@ -51,7 +51,8 @@ import ProtectedRoute from './components/utils/ProtectedRoute';
 import NotFound from './components/utils/NotFound';
 import Unauthorized from './components/utils/Unauthorized';
 import Footer from './components/layouts/footer/Footer';
-
+import Confidentiality from './components/layouts/footer/Confidentiality';
+import Salepolicy from './components/layouts/footer/Salepolicy';
 
 function App() {
 
@@ -112,6 +113,8 @@ function App() {
           </Route>
           <Route path='/unauthorized' element={<Unauthorized/>} />
           <Route path='*' element={<NotFound/>} />
+          <Route path='/confidentiality' element={<Confidentiality/>} />
+          <Route path='/salepolicy' element={<Salepolicy/>} />
         </Routes>
         <Footer />
       </div>

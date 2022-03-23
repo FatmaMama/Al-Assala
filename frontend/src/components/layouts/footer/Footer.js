@@ -38,7 +38,7 @@ export default function Footer() {
                 </div>
                 <div>
                     <i className="fas fa-envelope me-3 fs-4"></i>
-                    <span>contact@alassala.tn</span>
+                    <span>contact@al-assala.tn</span>
                 </div>
             </li>
             <li className='nav__item'>
