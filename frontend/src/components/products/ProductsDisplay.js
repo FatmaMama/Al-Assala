@@ -8,7 +8,7 @@ export default function ProductsDisplay({ products, productsCount, resPerPage })
                 :  <h3 className='text-center result-text'>{`${productsCount} Résultats affichés`}</h3>
             }
             
-            <div className='display'>
+            <div className='display mb-5'>
                 {products && products.map(product => (
                     <ProductCart product={product} />
                 ))}

@@ -21,6 +21,7 @@ import NewPassword from './components/user/NewPassword';
 import ProductsByCategory from './components/products/ProductsByCategory';
 import ProductDetails from './components/products/ProductDetails';
 import SearchProducts from './components/products/SearchProducts';
+import OnSale from './components/homePage/OnSale';
 
 import Cart from './components/cart/Cart';
 import Shipping from './components/cart/Shipping';
@@ -50,7 +51,7 @@ import ProtectedRoute from './components/utils/ProtectedRoute';
 import NotFound from './components/utils/NotFound';
 import Unauthorized from './components/utils/Unauthorized';
 import Footer from './components/layouts/footer/Footer';
-import OnSale from './components/homePage/OnSale';
+
 
 function App() {
 

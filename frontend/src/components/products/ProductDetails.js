@@ -9,8 +9,8 @@ import Alert from '../utils/Alert';
 import classNames from 'classnames';
 import { addToCart } from '../../redux/actions/cartActions';
 import Slide from '../homePage/Slide';
-// import ReactImageMagnify from 'react-image-magnify';
-// import { TransformWrapper, TransformComponent} from 'react-zoom-pan-pinch'
+import 'react-inner-image-zoom/lib/InnerImageZoom/styles.css';
+import InnerImageZoom from 'react-inner-image-zoom';
 
 export default function ProductDetails() {
 
@@ -97,7 +97,43 @@ export default function ProductDetails() {
         setSuccessAdd(true)
         dispatch(notifyUser(`${productToDisplay.name} a été ajouté à votre panier`, 'success'))
         setTimeout(() => setSuccessAdd(false), 4000)
-    }
+    };
+
+    // const imageZoom = (imageId) => {
+    //     let img = document.getElementById(imageId);
+    //     let lens = document.getElementById('lens');
+    //     lens.style.backgroundImage = `url(${img.src})`;
+
+    //     let ratio = 1;
+    //     lens.style.backgroundSize = (img.width * ratio) + 'px ' + (img.height * ratio) + 'px';
+
+    //     img.addEventListener('mousemove', moveLens);
+    //     img.addEventListener('touchmove', moveLens);
+    //     lens.addEventListener('mousemove', moveLens);
+
+    //     function moveLens(){
+    //         let pos = getCursor();
+    //         console.log(pos)
+            // let positionLeft = pos.x - (lens.offsetWidth / 2);
+            // let positionTop = pos.y - (lens.offsetHeight / 2);
+
+            // lens.style.left = positionLeft + 'px';
+            // lens.style.top = positionTop + 'px';
+
+            // lens.style.backgroundPosition = '-' + (pos.x * ratio) + 'px -' + (pos.y * ratio) + 'px'
+    //     };
+
+    //     function getCursor(){
+    //         let e = window.event;
+    //         let bounds = img.getBoundingClientRect();
+
+    //         let x = e.pageX - bounds.left;
+    //         let y = e.pageY - bounds.top;
+    //         return { 'x':x, 'y':y}
+    //     }
+    // }
+
+    // productToDisplay && mainImage && imageZoom('featured')
 
     return (
         <div>
@@ -108,8 +144,13 @@ export default function ProductDetails() {
                     {(error || productsError || successAdd) && <Alert message={message} messageType={messageType} /> }
                     <div className='col-12 col-lg-5'>
                         <div className="row d-flex justify-content-around">
-                            <div className=' col-9 col-sm-9'>
-                                <img src={mainImage} alt={productToDisplay.name}  className='product__main-img'/>
+                            <div className='col-9 col-sm-9'>
+                                <InnerImageZoom src={mainImage} 
+                                    zoomSrc={mainImage} 
+                                    fullscreenOnMobile={true}
+                                    moveType="hover"
+                                    zoomScale={0.9}
+                                    zoomPreload={true} className='product__main-img'/>
                             </div>
                             <div className='col-2 col-sm-2'>
                                 {productToDisplay && productToDisplay.images && productToDisplay.images.map(image => (
@@ -211,7 +252,7 @@ export default function ProductDetails() {
                 </div>
             )}
 
-            <div className='container mt-5 pt-5'>
+            <div className='container pb-5'>
                 <h1>Vous pourriez aimer...</h1>
                 <Slide products={products} />
             </div>

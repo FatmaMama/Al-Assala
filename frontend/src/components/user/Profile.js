@@ -24,7 +24,7 @@ export default function Profile() {
     return (
         <Fragment>
             {loading ? <Loader/> : (
-                <Fragment>
+                <div className="mb-5">
                     {isUpdated && <Alert message={message} messageType={messageType} />}
                     <h2 className="profile-title">Mon Profil</h2>
                    
@@ -64,7 +64,7 @@ export default function Profile() {
                             </Link>
                         </div>
                     </div>
-                </Fragment>
+                </div>
             )}
         </Fragment>
     )

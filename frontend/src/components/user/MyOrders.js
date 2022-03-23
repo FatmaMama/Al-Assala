@@ -81,7 +81,7 @@ export default function MyOrders() {
             <Menu />
 
             {loading ? <Loader/> : (
-                    <div className='container'>
+                    <div className='container mb-5'>
                         <Fragment>
                             {error && <Alert message={message} messageType={messageType} /> }
                             <h1 className="text-uppercase my-5" >Commandes</h1>

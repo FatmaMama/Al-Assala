@@ -19,7 +19,7 @@ export default function OrderSuccess() {
             <div className='order-success'>
                 <div className='order-success__container'>
                     <i className="far fa-check-circle order-success__icon"></i>
-                    <span className='order-success__title'>Merci {user.firstName}!</span>
+                    <span className='order-success__title'>Merci {user && user.firstName}!</span>
                 </div>
                 <p className='order-success__text'>Votre commande est maintenant confirmée.</p>
                 <p className='order-success__text'>Vous pouvez suivre vos commandes à travers votre profil.</p>

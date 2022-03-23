@@ -1,10 +1,12 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { useSelector } from 'react-redux';
-import {Navigate, Outlet, useLocation } from 'react-router-dom';
 
 export default function Footer() {
-    const { loading, isAuthenticated, user } = useSelector(state => state.auth);
+
+    const { isAuthenticated } = useSelector(state => state.auth);
+    const today = new Date();
+    const year = today.getFullYear();
 
   return (
     <footer className='footer'>
@@ -43,9 +45,9 @@ export default function Footer() {
                 <h1 className='pb-3'>Notre Politique</h1>
                 <ul>
                     <li>
-                        <Link to='#' className='nav__link'>Politique de vente</Link> 
+                        <Link to='/salepolicy' className='nav__link'>Politique de vente</Link> 
                     </li>
-                    <li><Link to='#' className='nav__link'>Confidentialité</Link></li>
+                    <li><Link to='/confidentiality' className='nav__link'>Confidentialité</Link></li>
                 </ul>
             </li>
             <li className='nav__item'>
@@ -76,7 +78,7 @@ export default function Footer() {
             </li>
         </ul>
         <p className="copyright">
-            &copy; Copyright 2022 by Fatma Mama.
+            &copy; Copyright {year} by Fatma Mama.
         </p>
     </footer>
   )

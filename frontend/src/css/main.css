@@ -45,7 +45,7 @@ form {
   transition: all 0.2s;
 }
 .btn--1:hover {
-  transform: scale(1.05);
+  transform: scale(1.03);
 }
 
 .subHeader {
@@ -1269,6 +1269,9 @@ header .avatar {
 .cart__summary-afterSaleValue, .cart__summary-totalValue {
   font-weight: 600;
 }
+.cart__summary-condition {
+  font-size: 1.8rem;
+}
 .cart__coupon {
   background-color: #f0eeee;
   padding: 1.6rem;
@@ -1598,8 +1601,8 @@ header .avatar {
   margin-top: 4.8rem;
   background-image: linear-gradient(to right, darkkhaki, darkkhaki);
   position: relative;
-  -webkit-clip-path: polygon(0 0, 100% 0, 100% 98vh, 0 100%);
-  clip-path: polygon(0 0, 100% 0, 100% 98vh, 0 100%);
+  -webkit-clip-path: polygon(0 0, 100% 0, 100% 103vh, 0 100%);
+  clip-path: polygon(0 0, 100% 0, 100% 103vh, 0 100%);
 }
 .new__img {
   position: absolute;

@@ -1,4 +1,4 @@
-import React, { useEffect, Fragment } from 'react'
+import React, { useEffect, Fragment, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux';
 import { Link, useNavigate } from 'react-router-dom';
 import Menu from '../layouts/menu/Menu';
@@ -11,6 +11,8 @@ export default function ConfirmOrder() {
 
     const dispatch = useDispatch();
     const navigate = useNavigate();
+
+    const [checked, setChecked] = useState('');
 
     const { cartItems, shippingInfo, cartPrice } = useSelector(state => state.cart);
     const { user } = useSelector(state => state.auth);
@@ -46,6 +48,10 @@ export default function ConfirmOrder() {
             dispatch(notifyUser(error, 'error'));
             setTimeout(() => dispatch(clearErrors()), 5000)
         };
+    }
+
+    const isChecked = (e) => {
+        setChecked(e.target.checked)
     }
 
     return (
@@ -168,13 +174,22 @@ export default function ConfirmOrder() {
                                 <hr/>
                                 <h4 className='cart__summary-item'>Total: <span className='cart__summary-totalValue'>{cartPrice.totalPrice + ' TND'}</span></h4>
                                 <hr />
-                                <button  
-                                    className="btn btn--1" 
+                        
+                                <div className="form-check m-5">
+                                    <input className="form-check-input cart__summary-condition" type="checkbox" value="" id="flexCheckDefault" onChange={isChecked} />
+                                    <label className="form-check-label cart__summary-condition" for="flexCheckDefault">
+                                        J'ai lu et j'accepte <Link to='/salepolicy'>la politique de vente</Link>.
+                                    </label>
+                                </div>
+                                <button 
+                                    id='confirm-btn'
+                                    className='btn btn--1'
                                     onClick={() => placeOrderHandler(order)}
-                                    disabled={loading ? true : false}
+                                    disabled = {!checked}
                                     >
                                         Confirmer la commande
                                 </button>
+                                
                             </div>
                         </div>
                     
