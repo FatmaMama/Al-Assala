@@ -58,7 +58,8 @@ class ApiFeatures {
         const limit = this.queryString.limit || resPerPage;
         const skip = (page - 1) * limit;
 
-        this.query = this.query.skip(skip).limit(limit);
+        // this.query = this.query.skip(skip).limit(limit);
+        this.query = this.query.slice(skip, page * limit);
         return this;
     }
 };

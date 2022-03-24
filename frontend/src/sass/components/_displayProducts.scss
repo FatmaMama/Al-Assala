@@ -108,3 +108,18 @@
         padding: 0 .4rem;
     }
 }
+
+// pagination
+.page-item.active .page-link {
+    background-color: $color-primary;
+    border-color: $color-primary;
+}
+  
+.page-link {
+    color: $color-primary;
+    font-size: 1.6rem;
+}
+  
+.page-link:hover {
+    color: $color-primary;
+}

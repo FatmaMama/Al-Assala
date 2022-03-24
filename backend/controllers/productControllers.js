@@ -62,12 +62,13 @@ exports.getAdminProducts = catchAsync(async (req, res, next) => {
 //GET ALL PRODUCTS  => 
 exports.getProducts = catchAsync(async (req, res, next) => {
     
-    const resPerPage = 12
+    const resPerPage = 12;
+    
     const features = new ApiFeatures(Product.find().populate('category', 'name parentId'), req.query)
                         .filter()
                         .sort()
-                        .pagination(resPerPage);
-    let products = await features.query;
+                        
+    let products = await features.query;                         
     
     let filteredProducts = [];
     const findCategoryProducts = async (products, id = req.query.category) => {
@@ -90,12 +91,16 @@ exports.getProducts = catchAsync(async (req, res, next) => {
    
     if(req.query.category) {
         const newProducts = await findCategoryProducts(products);
-        products = [...newProducts]
+        products = [...newProducts];
     };
+
+    const numOfProducts = products.length;
+    const feature = new ApiFeatures(products, req.query).pagination(resPerPage);
+    products = await feature.query;
     
     res.status(200).json({
         success: true,
-        numOfProducts : products.length,
+        numOfProducts,
         resPerPage,
         products
     })
@@ -107,13 +112,16 @@ exports.getSearchProducts = catchAsync(async (req, res, next) => {
     const resPerPage = 12;
     const features = new ApiFeatures(Product.find().populate('category', 'name parentId'), req.query)
                         .search()
-                        .sort()
-                        .pagination(resPerPage);
-    const products = await features.query;
+                        .sort();
+    let products = await features.query;
+
+    const numOfProducts = products.length;
+    const feature = new ApiFeatures(products, req.query).pagination(resPerPage);
+    products = await feature.query;
     
     res.status(200).json({
         success: true,
-        numOfProducts : products.length,
+        numOfProducts,
         resPerPage,
         products
     })

@@ -996,6 +996,20 @@ header .avatar {
   padding: 0 0.4rem;
 }
 
+.page-item.active .page-link {
+  background-color: #c92a2a;
+  border-color: #c92a2a;
+}
+
+.page-link {
+  color: #c92a2a;
+  font-size: 1.6rem;
+}
+
+.page-link:hover {
+  color: #c92a2a;
+}
+
 .product {
   display: flex;
   justify-content: space-around;

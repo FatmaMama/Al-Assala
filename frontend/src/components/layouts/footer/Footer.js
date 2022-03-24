@@ -34,7 +34,7 @@ export default function Footer() {
                 </div>
                 <div>
                     <i className="fas fa-phone-alt me-3 fs-4"></i>
-                    <span>93 492 127</span>
+                    <span>(+216) 93 492 127</span>
                 </div>
                 <div>
                     <i className="fas fa-envelope me-3 fs-4"></i>

@@ -61,7 +61,7 @@ export default function Header() {
                 </div>
                 <div>
                     <i className="fas fa-phone-alt me-1 subHeader__icon"></i>
-                    <span className='subHeader__text'>+216 66 548 741</span>
+                    <span className='subHeader__text'>(+216) 93 492 127</span>
                 </div>
             </div>
             <header>
@@ -81,7 +81,7 @@ export default function Header() {
                                 <div key={product._id} >
                                     <img src={product.images[0].url} alt={product.name} width="52" height="52" />
                                     <span className='ms-4'>{product.name} </span>
-                                    <span className='float-end'>{product.price + ' TND'} </span>
+                                    <span className='float-end'>{product.price && product.price.toFixed(2) + ' TND'} </span>
                                     <hr/>
                                 </div>
                             ))}
