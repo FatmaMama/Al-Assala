@@ -6,6 +6,8 @@ const errorMiddleware = require('./middlewares/errorMiddleware');
 const bodyparser = require('body-parser');
 const rateLimit = require('express-rate-limit');
 const helmet = require('helmet');
+const mongoSanitize = require('express-mongo-sanitize');
+const xss = require('xss-clean');
 
 const categories = require('./routes/categoryRoutes');
 const products = require('./routes/productRoutes');
@@ -30,7 +32,13 @@ app.use('/api', limiter);
 app.use(express.json());
 app.use(bodyparser.urlencoded({ extended : true }));
 app.use(cookieParser());
-app.use(fileUpload())
+app.use(fileUpload());
+
+//data sanitization against noSql query injection
+app.use(mongoSanitize());
+
+//data sanitization against xss
+app.use(xss());
 
 //setup cloudinary
 cloudinary.config ({
