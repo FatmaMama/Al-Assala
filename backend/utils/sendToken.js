@@ -7,6 +7,9 @@ const sendToken = (user, statusCode, res) => {
         httpOnly : true
     };
 
+    //remove password from the output 
+    user.password = undefined;
+
     res.status(statusCode).cookie('token', token, options).json({
         success: true,
         token,

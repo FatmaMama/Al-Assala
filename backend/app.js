@@ -4,6 +4,7 @@ const cookieParser = require('cookie-parser');
 const AppError = require('./utils/appError')
 const errorMiddleware = require('./middlewares/errorMiddleware');
 const bodyparser = require('body-parser');
+const rateLimit = require('express-rate-limit');
 
 const categories = require('./routes/categoryRoutes');
 const products = require('./routes/productRoutes');
@@ -13,10 +14,16 @@ const orders = require('./routes/orderRoutes');
 const cloudinary = require('cloudinary');
 const fileUpload = require('express-fileUpload');
 
+const limiter = rateLimit({
+    max: 100,
+    windowMs: 60 * 60 * 1000,
+    message: 'Trop de requêtes de cette IP, veuillez réessayer dans une heure!'
+});
+
+app.use('/api', limiter);
+
 app.use(express.json());
 app.use(bodyparser.urlencoded({ extended : true }));
-// app.use(express.json({ limit: "50mb" })); 
-// app.use(express.urlencoded({ limit: "50mb", extended: true }));
 app.use(cookieParser());
 app.use(fileUpload())
 
