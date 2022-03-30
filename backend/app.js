@@ -5,6 +5,7 @@ const AppError = require('./utils/appError')
 const errorMiddleware = require('./middlewares/errorMiddleware');
 const bodyparser = require('body-parser');
 const rateLimit = require('express-rate-limit');
+const helmet = require('helmet');
 
 const categories = require('./routes/categoryRoutes');
 const products = require('./routes/productRoutes');
@@ -14,6 +15,10 @@ const orders = require('./routes/orderRoutes');
 const cloudinary = require('cloudinary');
 const fileUpload = require('express-fileUpload');
 
+//security http headers
+app.use(helmet());
+
+//limit requests from same API
 const limiter = rateLimit({
     max: 100,
     windowMs: 60 * 60 * 1000,
