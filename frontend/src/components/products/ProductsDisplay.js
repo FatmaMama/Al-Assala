@@ -10,7 +10,7 @@ export default function ProductsDisplay({ products, productsCount, resPerPage })
            
             <div className='display mb-5'>
                 {products && products.map(product => (
-                    <ProductCart product={product} />
+                    <ProductCart key={product._id} product={product} />
                 ))}
             </div>
         </Fragment>

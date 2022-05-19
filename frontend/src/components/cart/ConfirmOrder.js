@@ -16,7 +16,7 @@ export default function ConfirmOrder() {
 
     const { cartItems, shippingInfo, cartPrice } = useSelector(state => state.cart);
     const { user } = useSelector(state => state.auth);
-    const { loading, error } = useSelector(state => state.newOrder);
+    const { error } = useSelector(state => state.newOrder);
     const { message, messageType } = useSelector(state => state.notify);
 
     const getCartCount = () => {
@@ -177,7 +177,7 @@ export default function ConfirmOrder() {
                         
                                 <div className="form-check m-5">
                                     <input className="form-check-input cart__summary-condition" type="checkbox" value="" id="flexCheckDefault" onChange={isChecked} />
-                                    <label className="form-check-label cart__summary-condition" for="flexCheckDefault">
+                                    <label className="form-check-label cart__summary-condition" htmlFor="flexCheckDefault">
                                         J'ai lu et j'accepte <Link to='/salepolicy'>la politique de vente</Link>.
                                     </label>
                                 </div>

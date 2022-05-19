@@ -1,3 +1,143 @@
+
+// .homePage {
+//     background-color: #e3d985;
+// }
+
+.cover {
+    width: 100%;
+    overflow: hidden;
+    position: relative;
+
+    &__img {
+        width: 100%;
+        display: block;
+        animation-name: Zoom;
+        animation-duration: 3s;
+        // opacity: 0.9;
+    }
+
+    &__box {
+        position: absolute;
+        color: #fff;
+        top: 13%;
+        left: 15%;
+        
+        h1 {
+            
+            text-shadow: 0px 3px 4px rgba(0,0,0,0.87) ;
+        }
+    }
+
+    &__title {
+        font-size: 8rem;
+        animation-name: moveInRight;
+        animation-duration: 3s;
+
+        @media only screen and (max-width: 65em) {
+            font-size: 6rem;
+        }
+    }
+
+    &__subtitle {
+        font-size: 8rem;
+        animation-name: moveInLeft;
+        animation-duration: 3s;
+
+        @media only screen and (max-width: 65em) {
+            font-size: 6rem;
+        }
+
+        @media only screen and (max-width: 49em) {
+            font-size: 5rem;
+        }
+    }
+
+    &__button {
+        font-size: 2.4rem;
+        border: none;
+        border-radius: 3px;
+        padding: 1rem 3.2rem;
+        margin-top: 2.4rem;
+        transition: all .2s;
+        box-shadow: 0px 9px 12px -7px rgba(0,0,0,0.48);
+        animation: moveInBottom 3s ease-out;
+
+        &:hover {
+            background-color: #931f19;
+            color: #fff;
+        }
+    }
+
+    &__line1 {
+        position: absolute;
+        top: 25%;
+        left: 40%;
+        background-color: $color-grey-light-3;
+        height: 1px;
+        width: 100%;
+        box-shadow: 0px 9px 12px -7px rgba(0,0,0,0.48);
+    }
+
+    &__line2 {
+        position: absolute;
+        top: 1%;
+        left: 90%;
+        background-color: $color-grey-light-3;
+        height: 95%;
+        width: 1px;
+        box-shadow: 0px 9px 12px -7px rgba(0,0,0,0.48);
+    }
+}
+
+@keyframes Zoom {
+    0% {
+        transform: scale(0.95);
+    }
+   
+    100% {
+        transform: scale(1);
+    }
+}
+
+@keyframes moveInLeft {
+    0% {
+        opacity: 0;
+        transform: translateX(-10rem);
+    }
+    80% {
+        transform: translateX(1rem);
+    }
+    100% {
+        opacity: 1;
+        transform: translate(0);
+    }
+}
+
+@keyframes moveInRight {
+    0% {
+        opacity: 0;
+        transform: translateX(10rem);
+    }
+    80% {
+        transform: translateX(-1rem);
+    }
+    100% {
+        opacity: 1;
+        transform: translate(0);
+    }
+}
+
+@keyframes moveInBottom {
+    0% {
+        opacity: 0;
+        transform: translateY(3rem);
+    }
+    100% {
+        opacity: 1;
+        transform: translate(0);
+    }
+}
+
 .slider {
     position: relative;
 
@@ -65,8 +205,9 @@
 }
 
 .new {
-    margin-top: 4.8rem;
-    background-image: linear-gradient(to right, darkkhaki, darkkhaki);
+    margin-top: .5rem;
+    // background-image: linear-gradient(to right, lighten(darkkhaki, 20%), lighten(darkkhaki,20%));
+    background-color: #931f19;
     position: relative;
     -webkit-clip-path: polygon(0 0, 100% 0, 100% 103vh, 0 100% );
     clip-path: polygon(0 0, 100% 0, 100% 103vh, 0 100% );
@@ -88,8 +229,13 @@
     }
 }
 
+// .best {
+//     background-color: lighten(darkkhaki,10%);
+//     clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100% );
+// }
+
 .promo {
-    background-color: #ca6624;
+    background-color: #931f19;
     -webkit-clip-path: polygon(0 0, 100% 12vh, 100% 100%, 0 100% );
     clip-path: polygon(0 0, 100% 12vh, 100% 100%, 0 100% );
 }

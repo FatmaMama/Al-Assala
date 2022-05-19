@@ -8,6 +8,7 @@ const rateLimit = require('express-rate-limit');
 const helmet = require('helmet');
 const mongoSanitize = require('express-mongo-sanitize');
 const xss = require('xss-clean');
+const hpp = require('hpp');
 
 const categories = require('./routes/categoryRoutes');
 const products = require('./routes/productRoutes');
@@ -39,6 +40,9 @@ app.use(mongoSanitize());
 
 //data sanitization against xss
 app.use(xss());
+
+//prevent parameter pollution
+app.use(hpp());
 
 //setup cloudinary
 cloudinary.config ({

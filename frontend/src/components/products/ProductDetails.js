@@ -35,7 +35,8 @@ export default function ProductDetails() {
 
     useEffect(() => {
         if(product && product._id !== params.id){
-            dispatch(getProduct(params.id))
+            dispatch(getProduct(params.id));
+            setNewColor('')
         } else {
             setProductToDisplay(product)
             setMainImage(product.images[0].url);
@@ -146,7 +147,7 @@ export default function ProductDetails() {
                             : (
                                 <div className='product__price-container'>
                                     <span className='product-cart__sale'>{`-${productToDisplay.sale * 100}%`} </span>
-                                    <span className='product__price'>{`${(productToDisplay.price * (1 - product.sale)).toFixed(2)} TND`}</span>
+                                    <span className='product__price'>{`${(productToDisplay.price * (1 - productToDisplay.sale)).toFixed(2)} TND`}</span>
                                     <span className='product-cart__prev-price'>{productToDisplay && productToDisplay.price && productToDisplay.price.toFixed(2) + ' TND'} </span>
                                 </div>
                             )}

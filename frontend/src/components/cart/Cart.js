@@ -155,7 +155,7 @@ export default function Cart() {
                                     <button className='cart__btn-sale' data-bs-toggle="collapse" href="#collapseExample" aria-expanded="false" aria-controls="collapseExample" onClick={getNewSubtotalPrice}>Appliquer</button>
                                 </div>
 
-                                <div class="collapse" id="collapseExample">
+                                <div className="collapse" id="collapseExample">
                                     {userCoupon === coupon && new Date() <= new Date(saleDuration) ? 
                                     <div>
                                         <hr/>

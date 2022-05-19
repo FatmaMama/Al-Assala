@@ -34,7 +34,7 @@ export default function Shipping() {
                     <form onSubmit={submitHandler}>
                         <h1 className="text-center mb-4">Informations de livraison</h1>
                         <div className="form-group mb-4">
-                            <label for="address_field">Adresse</label>
+                            <label htmlFor="address_field">Adresse</label>
                             <input
                                 type="text"
                                 id="address_field"
@@ -46,7 +46,7 @@ export default function Shipping() {
                         </div>
 
                         <div className="form-group mb-4">
-                            <label for="city_field">Ville</label>
+                            <label htmlFor="city_field">Ville</label>
                             <input
                                 type="text"
                                 id="city_field"
@@ -58,7 +58,7 @@ export default function Shipping() {
                         </div>
 
                         <div className="form-group mb-4">
-                            <label for="country_field">Pays</label>
+                            <label htmlFor="country_field">Pays</label>
                             <input
                                 type="text"
                                 id="country_field"
@@ -81,7 +81,7 @@ export default function Shipping() {
                         </div>
 
                         <div className="form-group mb-4">
-                            <label for="postal_code_field">Code Postal</label>
+                            <label htmlFor="postal_code_field">Code Postal</label>
                             <input
                                 type="text"
                                 id="postal_code_field"
