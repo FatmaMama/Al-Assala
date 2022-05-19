@@ -6,6 +6,7 @@ import Alert from '../utils/Alert';
 import { getProducts, clearErrors, getOnSaleProducts, getBestSellers } from '../../redux/actions/productActions';
 import { notifyUser } from '../../redux/actions/notifyActions';
 import Slide from './Slide';
+import { Link } from 'react-router-dom';
 
 
 export default function Home() {
@@ -46,15 +47,16 @@ export default function Home() {
 
             <div className='cover'>
                 <picture >
-                    <source media="(max-width: 65em)" srcset="images/cover.png" />
+                    <source media="(max-width: 65em)" srcSet="images/cover.png" />
                     <img src="images/bansite.png"  className='cover__img'/>
                 </picture>
-                {/* <img src="images/bansite.png" className='cover__img'/> */}
+               
                 <div className='cover__box'>
                     <h1 className='cover__title'>Al Assala</h1>
                     <h1 className='cover__subtitle'>Habit Traditionnel Tunisien</h1>
-                    <button className='cover__button'>Découvrir</button>
-                    
+                    <Link to='/products' >
+                        <button className='cover__button'>Découvrir</button>
+                    </Link>
                 </div>
                 <div className='cover__line1'></div>
                 <div className='cover__line2'></div>

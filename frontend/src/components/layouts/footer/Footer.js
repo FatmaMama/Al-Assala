@@ -36,10 +36,10 @@ export default function Footer() {
                     <i className="fas fa-phone-alt me-3 fs-4"></i>
                     <span>(+216) 93 492 127</span>
                 </div>
-                <div>
+                {/* <div>
                     <i className="fas fa-envelope me-3 fs-4"></i>
                     <span>contact@al-assala.tn</span>
-                </div>
+                </div> */}
             </li>
             <li className='nav__item'>
                 <h1 className='pb-3'>Notre Politique</h1>

@@ -12,11 +12,17 @@ export default function Slide({products}) {
         dots: true,
         infinite: true,
         speed: 500,
-        slidesToShow: 4,
+        slidesToShow: 5,
         slidesToScroll: 1,
         autoplay: true,
         autoplaySpeed: 1500,
         responsive: [
+            {
+              breakpoint: 1450,
+              settings: {
+              slidesToShow: 4,
+              }
+            },
             {
               breakpoint: 1024,
               settings: {

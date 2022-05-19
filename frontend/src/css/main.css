@@ -1073,6 +1073,18 @@ header .avatar {
 }
 .product__outOfStock {
   border: 1px solid #ccc;
+  color: #999;
+  position: relative;
+}
+.product__outOfStock::before {
+  content: "";
+  width: 2px;
+  height: 4rem;
+  background-color: #999;
+  position: absolute;
+  top: -20%;
+  left: 40%;
+  transform: rotate(45deg);
 }
 .product__inStock {
   border: 1px solid #333;
@@ -1559,8 +1571,14 @@ header .avatar {
   overflow: hidden;
   position: relative;
 }
+@media only screen and (max-width: 41.5em) {
+  .cover {
+    height: 80vh;
+  }
+}
 .cover__img {
   width: 100%;
+  height: 100%;
   display: block;
   animation-name: Zoom;
   animation-duration: 3s;
@@ -1599,6 +1617,11 @@ header .avatar {
     font-size: 5rem;
   }
 }
+@media only screen and (max-width: 41.5em) {
+  .cover__subtitle {
+    font-size: 4rem;
+  }
+}
 .cover__button {
   font-size: 2.4rem;
   border: none;
@@ -1612,6 +1635,12 @@ header .avatar {
 .cover__button:hover {
   background-color: #931f19;
   color: #fff;
+}
+@media only screen and (max-width: 49em) {
+  .cover__button {
+    font-size: 2rem;
+    padding: 0.6rem 2.8rem;
+  }
 }
 .cover__line1 {
   position: absolute;
@@ -1742,8 +1771,8 @@ header .avatar {
   margin-top: 0.5rem;
   background-color: #931f19;
   position: relative;
-  -webkit-clip-path: polygon(0 0, 100% 0, 100% 103vh, 0 100%);
-  clip-path: polygon(0 0, 100% 0, 100% 103vh, 0 100%);
+  -webkit-clip-path: polygon(0 0, 100% 0, 100% 88%, 0 100%);
+  clip-path: polygon(0 0, 100% 0, 100% 88%, 0 100%);
 }
 .new__img {
   position: absolute;
@@ -1761,8 +1790,8 @@ header .avatar {
 
 .promo {
   background-color: #931f19;
-  -webkit-clip-path: polygon(0 0, 100% 12vh, 100% 100%, 0 100%);
-  clip-path: polygon(0 0, 100% 12vh, 100% 100%, 0 100%);
+  -webkit-clip-path: polygon(0 0, 100% 12%, 100% 100%, 0 100%);
+  clip-path: polygon(0 0, 100% 12%, 100% 100%, 0 100%);
 }
 
 .not-found {

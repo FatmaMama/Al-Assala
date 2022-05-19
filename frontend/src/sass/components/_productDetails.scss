@@ -75,6 +75,19 @@
 
     &__outOfStock {
         border: 1px solid $color-grey-light-4;
+        color: $color-grey-dark-3;
+        position: relative;
+
+        &::before{
+            content: "";
+            width: 2px;
+            height: 4rem;
+            background-color: $color-grey-dark-3;
+            position: absolute;
+            top: -20%;
+            left: 40%;
+            transform: rotate(45deg);
+        }
     }
 
 

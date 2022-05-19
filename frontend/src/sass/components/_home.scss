@@ -1,19 +1,21 @@
-
-// .homePage {
-//     background-color: #e3d985;
-// }
-
 .cover {
     width: 100%;
     overflow: hidden;
     position: relative;
 
+    @media only screen and (max-width: 41.5em) {
+        height: 80vh;
+    }
+
     &__img {
         width: 100%;
+        height: 100%;
         display: block;
         animation-name: Zoom;
         animation-duration: 3s;
         // opacity: 0.9;
+
+        
     }
 
     &__box {
@@ -50,6 +52,10 @@
         @media only screen and (max-width: 49em) {
             font-size: 5rem;
         }
+
+        @media only screen and (max-width: 41.5em) {
+            font-size: 4rem;
+        }
     }
 
     &__button {
@@ -65,6 +71,11 @@
         &:hover {
             background-color: #931f19;
             color: #fff;
+        }
+
+        @media only screen and (max-width: 49em) {
+            font-size: 2rem;
+            padding: .6rem 2.8rem;
         }
     }
 
@@ -206,11 +217,10 @@
 
 .new {
     margin-top: .5rem;
-    // background-image: linear-gradient(to right, lighten(darkkhaki, 20%), lighten(darkkhaki,20%));
     background-color: #931f19;
     position: relative;
-    -webkit-clip-path: polygon(0 0, 100% 0, 100% 103vh, 0 100% );
-    clip-path: polygon(0 0, 100% 0, 100% 103vh, 0 100% );
+    -webkit-clip-path: polygon(0 0, 100% 0, 100% 88%, 0 100% );
+    clip-path: polygon(0 0, 100% 0, 100% 88%, 0 100% );
 
     &__img {
         position: absolute;
@@ -229,13 +239,8 @@
     }
 }
 
-// .best {
-//     background-color: lighten(darkkhaki,10%);
-//     clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100% );
-// }
-
 .promo {
     background-color: #931f19;
-    -webkit-clip-path: polygon(0 0, 100% 12vh, 100% 100%, 0 100% );
-    clip-path: polygon(0 0, 100% 12vh, 100% 100%, 0 100% );
+    -webkit-clip-path: polygon(0 0, 100% 12%, 100% 100%, 0 100% );
+    clip-path: polygon(0 0, 100% 12%, 100% 100%, 0 100% );
 }
