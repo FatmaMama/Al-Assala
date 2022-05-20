@@ -1,4 +1,4 @@
-import axios from './http-common';
+import axios from 'axios';
 import { ADMIN_PRODUCTS_REQUEST,
     ADMIN_PRODUCTS_SUCCESS,
     ADMIN_PRODUCTS_FAIL,

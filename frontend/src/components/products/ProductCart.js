@@ -12,8 +12,10 @@ export default function ProductCart({product}) {
         <div className='p-3'>
             <h5 className='text-center product-cart__category'>{product.category.name}</h5>
             <Link to={`/products/${product._id}`} className='text-center product-cart__title'>
-                <h2  >{product.name} </h2>
-                <h5>{`+${product.colors.length - 1} couleurs`}</h5>
+                <div className='product-cart__title-box'>
+                    <h2  >{product.name} </h2>
+                    <h5>{`+${product.colors.length - 1} couleurs`}</h5>
+                </div>
             </Link>
             <div>
                 {product.sale === 0 ?  <h3 className='text-center mt-5 product-cart__price'>{product.price.toFixed(2) + ' TND'} </h3>

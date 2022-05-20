@@ -961,6 +961,9 @@ header .avatar {
 .product-cart__title:hover {
   color: inherit;
 }
+.product-cart__title-box {
+  height: 6.5rem;
+}
 .product-cart__price-container {
   display: flex;
   justify-content: space-between;
@@ -1722,16 +1725,98 @@ header .avatar {
   top: 30%;
 }
 .slider__btn-left {
-  left: -2%;
+  left: 4%;
 }
 .slider__btn-left:hover {
   transform: translateX(-3px) scale(1.05);
 }
+@media only screen and (max-width: 45em) {
+  .slider__btn-left {
+    left: -7%;
+  }
+}
+@media only screen and (max-width: 33.75em) {
+  .slider__btn-left {
+    left: -3%;
+  }
+}
+@media only screen and (max-width: 26em) {
+  .slider__btn-left {
+    left: -12%;
+  }
+}
 .slider__btn-right {
-  left: 99%;
+  left: 93%;
 }
 .slider__btn-right:hover {
   transform: translateX(3px) scale(1.05);
+}
+@media only screen and (max-width: 45em) {
+  .slider__btn-right {
+    left: 99%;
+  }
+}
+@media only screen and (max-width: 33.75em) {
+  .slider__btn-right {
+    left: 88%;
+  }
+}
+@media only screen and (max-width: 26em) {
+  .slider__btn-right {
+    left: 96%;
+  }
+}
+.slider__slide {
+  margin: 4rem 6rem;
+  padding: 0 6rem;
+}
+@media only screen and (max-width: 80em) {
+  .slider__slide {
+    margin: 4rem 5rem;
+    padding: 0 4rem;
+  }
+}
+@media only screen and (max-width: 50em) {
+  .slider__slide {
+    margin: 4rem;
+    padding: 0 4rem;
+  }
+}
+@media only screen and (max-width: 45em) {
+  .slider__slide {
+    margin: 4rem 2rem;
+    padding: 0 2rem;
+  }
+}
+@media only screen and (max-width: 38.5em) {
+  .slider__slide {
+    margin: 4rem 0rem;
+    padding: 0;
+  }
+}
+@media only screen and (max-width: 33.75em) {
+  .slider__slide {
+    margin: 4rem 4rem;
+    padding: 0 4rem;
+  }
+}
+@media only screen and (max-width: 30em) {
+  .slider__slide {
+    margin: 4rem 2rem;
+    padding: 0 2rem;
+  }
+}
+@media only screen and (max-width: 26em) {
+  .slider__slide {
+    margin: 4rem 1rem;
+    padding: 0 1rem;
+  }
+}
+@media only screen and (max-width: 22.5em) {
+  .slider__slide {
+    margin: 4rem 0rem;
+    padding: 0 0rem;
+  }
 }
 .slider .slick-slide > div {
   margin: 0 1.6rem;
@@ -1761,6 +1846,14 @@ header .avatar {
   font-size: 4.6rem;
   text-transform: uppercase;
   letter-spacing: 5px;
+  padding-bottom: 1rem;
+  border-bottom: 2px solid #f0eeee;
+  color: #f0eeee;
+}
+
+.home-title-best {
+  border-bottom: 2px solid #333;
+  color: #333;
 }
 
 .pad {

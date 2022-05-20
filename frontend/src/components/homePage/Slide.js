@@ -12,11 +12,17 @@ export default function Slide({products}) {
         dots: true,
         infinite: true,
         speed: 500,
-        slidesToShow: 5,
+        slidesToShow: 6,
         slidesToScroll: 1,
         autoplay: true,
         autoplaySpeed: 1500,
         responsive: [
+            {
+              breakpoint: 1750,
+              settings: {
+              slidesToShow: 5,
+              }
+            },
             {
               breakpoint: 1450,
               settings: {
@@ -24,7 +30,7 @@ export default function Slide({products}) {
               }
             },
             {
-              breakpoint: 1024,
+              breakpoint: 1100,
               settings: {
                slidesToShow: 3,
               }
@@ -36,7 +42,13 @@ export default function Slide({products}) {
                 }
               },
             {
-              breakpoint: 600,
+              breakpoint: 608,
+              settings: {
+               slidesToShow: 2,
+              }
+             },
+             {
+              breakpoint: 540,
               settings: {
                slidesToShow: 1,
               }
@@ -52,7 +64,7 @@ export default function Slide({products}) {
         <button className='slider__btn-right' onClick={() => slider?.current?.slickNext()}>
             <i className="fa fa-chevron-right"></i>
         </button>
-        <Slider ref={slider} {...settings} className='m-5'>
+        <Slider ref={slider} {...settings} className='slider__slide'>
             {products && products.map(product => (
                 <ProductCart product={product} key={product._id}/>
             ))}

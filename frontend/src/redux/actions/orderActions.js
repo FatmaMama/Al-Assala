@@ -1,4 +1,4 @@
-import axios from './http-common';
+import axios from 'axios';
 import {
     ALL_ORDERS_REQUEST,
     ALL_ORDERS_SUCCESS,

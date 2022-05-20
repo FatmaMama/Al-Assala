@@ -167,16 +167,85 @@
     }
 
     &__btn-left {
-        left: -2%;
+        left: 4%;
         &:hover {
             transform: translateX(-3px) scale(1.05);
+        }
+
+        @media only screen and (max-width:45em) {
+            left: -7%;
+        }
+
+        @media only screen and (max-width:33.75em) {
+            left: -3%;
+        }
+
+        @media only screen and (max-width:26em) {
+            left: -12%;
         }
     }
 
     &__btn-right {
-        left: 99%;
+        left: 93%;
         &:hover {
             transform: translateX(3px) scale(1.05);
+        }
+
+        @media only screen and (max-width:45em) {
+            left: 99%;
+        }
+
+        @media only screen and (max-width:33.75em) {
+            left: 88%;
+        }
+
+        @media only screen and (max-width:26em) {
+            left: 96%;
+        }
+    }
+
+    &__slide {
+        margin: 4rem 6rem;
+        padding: 0 6rem;
+
+        @media only screen and (max-width: 80em) {
+            margin: 4rem 5rem ;
+            padding: 0 4rem;
+        }
+
+        @media only screen and (max-width: 50em) {
+            margin: 4rem ;
+            padding: 0 4rem;
+        }
+
+        @media only screen and (max-width: 45em) {
+            margin: 4rem 2rem;
+            padding: 0 2rem;
+        }
+
+        @media only screen and (max-width:38.5em) {
+            margin: 4rem 0rem;
+            padding: 0;
+        }
+
+        @media only screen and (max-width:33.75em) {
+            margin: 4rem 4rem;
+            padding: 0 4rem;
+        }
+
+        @media only screen and (max-width:30em) {
+            margin: 4rem 2rem;
+            padding: 0 2rem;
+        }
+
+        @media only screen and (max-width:26em) {
+            margin: 4rem 1rem;
+            padding: 0 1rem;
+        }
+
+        @media only screen and (max-width:22.5em) {
+            margin: 4rem 0rem;
+            padding: 0 0rem;
         }
     }
 
@@ -209,6 +278,14 @@
     font-size: 4.6rem;
     text-transform: uppercase;
     letter-spacing: 5px;
+    padding-bottom: 1rem;
+    border-bottom: 2px solid $color-grey-light-3;
+    color: $color-grey-light-3;
+}
+
+.home-title-best {
+    border-bottom: 2px solid $color-grey-dark-1;
+    color: $color-grey-dark-1;
 }
 
 .pad {

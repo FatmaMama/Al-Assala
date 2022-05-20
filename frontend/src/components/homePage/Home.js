@@ -47,8 +47,8 @@ export default function Home() {
 
             <div className='cover'>
                 <picture >
-                    <source media="(max-width: 65em)" srcSet="images/cover.png" />
-                    <img src="images/bansite.png"  className='cover__img'/>
+                    <source media='(max-width: 65em)' srcSet='images/cover.png' />
+                    <img src='images/bansite.png'  className='cover__img' alt='Habit traditionnel tunisien' />
                 </picture>
                
                 <div className='cover__box'>
@@ -74,7 +74,7 @@ export default function Home() {
                     </div>
 
                     <div className='pad best'>
-                        <h1 className='home-title'>Meilleures Ventes</h1>
+                        <h1 className='home-title home-title-best'>Meilleures Ventes</h1>
                         <Slide  products={bestSellers} />
                     </div>
 

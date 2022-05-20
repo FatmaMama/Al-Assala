@@ -166,7 +166,7 @@ export default function UpdateOrder() {
                                 
                             <div className='info__items mt-2'>
                                 <span className='info__item-1'>Montant:</span>
-                                <span className='info__item-2'><b>{newTotalPrice || order && totalPrice && totalPrice.toFixed(2) + ' TND'}</b></span>
+                                <span className='info__item-2'><b>{newTotalPrice || (order && totalPrice && totalPrice.toFixed(2)) + ' TND'}</b></span>
                             </div>
                         </div>
                     </div>

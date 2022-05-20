@@ -69,10 +69,10 @@ export default function Footer() {
             </li>
             <li className='nav__item'>
                 <h1 className='pb-3'>Nous Rejoindre</h1>
-                <a href='https://www.facebook.com/Al-Assala-%D8%A7%D9%84%D8%A3%D8%B5%D8%A7%D9%84%D8%A9-111927638089839' target="_blank">
+                <a href='https://www.facebook.com/Al-Assala-%D8%A7%D9%84%D8%A3%D8%B5%D8%A7%D9%84%D8%A9-111927638089839' target="_blank" rel="noreferrer">
                     <i className="fab fa-facebook-square nav__social-icon me-3"></i>
                 </a>
-                <a href='https://www.instagram.com/al_assala_store/' target="_blank">
+                <a href='https://www.instagram.com/al_assala_store/' target="_blank" rel="noreferrer">
                     <i className="fab fa-instagram nav__social-icon"></i>
                 </a>
             </li>
