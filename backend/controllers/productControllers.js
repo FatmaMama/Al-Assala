@@ -203,7 +203,7 @@ exports.updateProduct = catchAsync(async (req, res, next) => {
     req.body.images = imagesLinks;
     req.body.sizes = JSON.parse(req.body.sizes);
     req.body.colors = JSON.parse(req.body.colors);
-        
+    req.body.category = JSON.parse(req.body.category);  
     
     product = await Product.findByIdAndUpdate(req.params.id, req.body, {
         new: true,

@@ -105,10 +105,11 @@ export default function UpdateProduct() {
         formData.set('price', price);
         formData.set('description', description);
         formData.set('color', color);
-        formData.set('category', category);
+        // formData.set('category', category);
         formData.set('sizeGuide', sizeGuide);
         formData.set('sale', sale);
 
+        formData.set('category', JSON.stringify(category));
         formData.set('sizes', JSON.stringify(sizes));
         formData.set('colors', JSON.stringify(colors));
         formData.set('oldImages', JSON.stringify(oldImages));
