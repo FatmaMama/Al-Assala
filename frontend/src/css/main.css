@@ -85,6 +85,11 @@ header {
     justify-content: space-around;
   }
 }
+@media only screen and (max-width: 56em) {
+  header {
+    height: 24rem;
+  }
+}
 header .logo {
   width: 12rem;
   margin-left: 5rem;
@@ -1573,10 +1578,17 @@ header .avatar {
   width: 100%;
   overflow: hidden;
   position: relative;
+  margin-bottom: 0.5rem;
 }
 @media only screen and (max-width: 41.5em) {
   .cover {
     height: 80vh;
+  }
+}
+@media only screen and (max-width: 26em) {
+  .cover {
+    margin: 0.5rem 0;
+    height: 60vh;
   }
 }
 .cover__img {
@@ -1861,7 +1873,6 @@ header .avatar {
 }
 
 .new {
-  margin-top: 0.5rem;
   background-color: #931f19;
   position: relative;
   -webkit-clip-path: polygon(0 0, 100% 0, 100% 88%, 0 100%);

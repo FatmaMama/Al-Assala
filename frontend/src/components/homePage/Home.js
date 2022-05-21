@@ -47,8 +47,10 @@ export default function Home() {
 
             <div className='cover'>
                 <picture >
-                    <source media='(max-width: 65em)' srcSet='images/cover.png' />
-                    <img src='images/bansite.png'  className='cover__img' alt='Habit traditionnel tunisien' />
+                    <source media='(max-width: 26em)' srcSet='images/cover-dim3.jpg' />
+                    <source media='(max-width: 48em)' srcSet='images/cover-dim2.jpg' />
+                    <source media='(max-width: 65em)' srcSet='images/cover-dim1.jpg' />
+                    <img src='images/main-cover.jpg'  className='cover__img' alt='Habit traditionnel tunisien' />
                 </picture>
                
                 <div className='cover__box'>

@@ -39,6 +39,10 @@ header {
         justify-content: space-around;
     }
 
+    @media only screen and (max-width: 56em) {
+        height: 24rem;
+    }
+
     .logo {
         width: 12rem;
         margin-left: 5rem;

@@ -10,7 +10,7 @@ export default function Slide({products}) {
     let settings = {
         arrows: false,
         dots: true,
-        infinite: true,
+        infinite: products.length > 4,
         speed: 500,
         slidesToShow: 6,
         slidesToScroll: 1,

@@ -1,6 +1,171 @@
-[
+    [{
+        "name" : "Ensemble Traditionnel",
+        "price" : 32.00,
+        "description" : "Ensemble traditionnel se compose de deux pièces: un pantalon et une veste avec fermeture.",
+        "category" : "6217c1c398f7d0e2b36e694f",
+        "sizes" : [{
+            "sizeName" : "2ans",
+            "stock" : 5
+        },
+        {
+            "sizeName" : "4ans",
+            "stock" : 5
+        },
+        {
+            "sizeName" : "6ans",
+            "stock" : 10
+        },
+        {
+            "sizeName" : "8ans",
+            "stock" : 5
+        },
+        {
+            "sizeName" : "10ans",
+            "stock" : 5
+        },
+        {
+            "sizeName" : "12ans",
+            "stock" : 5
+        }],
+        "color" : "gris",
+        "colors" : [
+            {
+                "colorName" : "bronze",
+                "code" : "#b6853e"
+            },
+            {
+                "colorName" : "beige bordeaux",
+                "code" : "#f9e4b7"
+            },
+            {
+                "colorName" : "gris",
+                "code" : "#7f7f7f"
+            },
+            {
+                "colorName" : "bordeaux",
+                "code" : "#931f19"
+            }
+        ],
+        "images" : [
+            {
+                "public_id": "Al-Assala/products/ensemble-gris_pjcfz3.webp",
+                "url": "https://res.cloudinary.com/fantasy2021/image/upload/v1653084949/Al-Assala/products/ensemble-gris_pjcfz3.webp"
+            }
+        ],
+        "numOfSells" : 0,
+        "sale" : 0,
+        "user" : "61c23bf94ef7be3ae01e4c56"
+    },
     {
-        "name" : "Jebba + Farmla ,enfants",
+        "name" : "Pantalon Arabe",
+        "price" : 8.00,
+        "description" : "Pantalon arabe 'serwel arbi', en tissu ",
+        "category" : "6217b07b0b69b799d1e316de",
+        "sizes" : [{
+            "sizeName" : "<1an",
+            "stock" : 5
+        },
+        {
+            "sizeName" : "1an",
+            "stock" : 5
+        },
+        {
+            "sizeName" : "2ans",
+            "stock" : 10
+        },
+        {
+            "sizeName" : "4ans",
+            "stock" : 5
+        },
+        {
+            "sizeName" : "6ans",
+            "stock" : 5
+        },
+        {
+            "sizeName" : "8ans",
+            "stock" : 5
+        },
+        {
+            "sizeName" : "10ans",
+            "stock" : 5
+        }],
+        "color" : "beige",
+        "colors" : [
+            {
+                "colorName" : "beige",
+                "code" : "#f2e7bf"
+            }
+        ],
+        "images" : [
+            {
+                "public_id": "Al-Assala/products/pantalon-arabe_mwt0xa.webp",
+                "url": "https://res.cloudinary.com/fantasy2021/image/upload/v1653085077/Al-Assala/products/pantalon-arabe_mwt0xa.webp"
+            }
+        ],
+        "numOfSells" : 0,
+        "sale" : 0,
+        "user" : "61c23bf94ef7be3ae01e4c56"
+    },
+    {
+        "name" : "Ensemble Traditionnel",
+        "price" : 32.00,
+        "description" : "Ensemble traditionnel se compose de deux pièces: un pantalon et une veste avec fermeture.",
+        "category" : "6217c1c398f7d0e2b36e694f",
+        "sizes" : [{
+            "sizeName" : "2ans",
+            "stock" : 5
+        },
+        {
+            "sizeName" : "4ans",
+            "stock" : 5
+        },
+        {
+            "sizeName" : "6ans",
+            "stock" : 10
+        },
+        {
+            "sizeName" : "8ans",
+            "stock" : 5
+        },
+        {
+            "sizeName" : "10ans",
+            "stock" : 5
+        },
+        {
+            "sizeName" : "12ans",
+            "stock" : 5
+        }],
+        "color" : "beige bordeaux",
+        "colors" : [
+            {
+                "colorName" : "bronze",
+                "code" : "#b6853e"
+            },
+            {
+                "colorName" : "beige bordeaux",
+                "code" : "#f9e4b7"
+            },
+            {
+                "colorName" : "gris",
+                "code" : "#7f7f7f"
+            },
+            {
+                "colorName" : "bordeaux",
+                "code" : "#931f19"
+            }
+        ],
+        "images" : [
+            {
+                "public_id": "Al-Assala/products/ensemble-sucre-bordeaux_zjzdsn.webp",
+                "url": "https://res.cloudinary.com/fantasy2021/image/upload/v1653084949/Al-Assala/products/ensemble-sucre-bordeaux_zjzdsn.webp"
+            }
+        ],
+        "numOfSells" : 0,
+        "sale" : 0,
+        "user" : "61c23bf94ef7be3ae01e4c56"
+    },
+    {
+        "name" : "Jebba + Farmla enfants",
         "price" : 31.00,
         "description" : "Jebba et farmla (jaquette) tunisienne en tissu polystère viscose 30/70.",
         "category" : "6217b03c0b69b799d1e316cc",
@@ -70,12 +235,12 @@
         ],
         "images" : [
             {
-                "public_id": "Al-Assala/products/Jebba-beige_tpllw0.jpg",
-                "url": "https://res.cloudinary.com/fantasy2021/image/upload/v1647602339/Al-Assala/products/Jebba-beige_tpllw0.jpg"
+                "public_id": "Al-Assala/products/Jebba-beige_wd2lfj.webp",
+                "url": "https://res.cloudinary.com/fantasy2021/image/upload/v1653084992/Al-Assala/products/Jebba-beige_wd2lfj.webp"
             },
             {
-                "public_id": "Al-Assala/products/jebba-beige-2_byeygt.jpg",
-                "url": "https://res.cloudinary.com/fantasy2021/image/upload/v1647603548/Al-Assala/products/jebba-beige-2_byeygt.jpg"
+                "public_id": "Al-Assala/products/Jebba-beige1_xjhoyg.webp",
+                "url": "https://res.cloudinary.com/fantasy2021/image/upload/v1653085023/Al-Assala/products/Jebba-beige1_xjhoyg.webp"
             }
         ],
         "numOfSells" : 0,
@@ -83,7 +248,124 @@
         "user" : "61c23bf94ef7be3ae01e4c56"
     },
     {
-        "name" : "Jebba + Farmla ,enfants",
+        "name" : "Balgha STAR",
+        "price" : 15.00,
+        "description" : "Chaussures en doré brillant, peuvent être portées de la manière tunisienne 'BALGHA' ou comme des chaussures normales",
+        "category" : "62880f5807b810cd2dfec40c",
+        "sizeGuide" : "Ces chaussures taillent petit. Veuillez ajouter une pointure à la pointure habituelle de votre enfants.",
+        "sizes" : [{
+            "sizeName" : "23",
+            "stock" : 5
+        },
+        {
+            "sizeName" : "24",
+            "stock" : 5
+        },
+        {
+            "sizeName" : "25",
+            "stock" : 10
+        },
+        {
+            "sizeName" : "26",
+            "stock" : 5
+        },
+        {
+            "sizeName" : "27",
+            "stock" : 5
+        },
+        {
+            "sizeName" : "28",
+            "stock" : 5
+        },
+        {
+            "sizeName" : "29",
+            "stock" : 5
+        },
+        {
+            "sizeName" : "30",
+            "stock" : 5
+        },
+        {
+            "sizeName" : "31",
+            "stock" : 5
+        },
+        {
+            "sizeName" : "32",
+            "stock" : 5
+        },
+        {
+            "sizeName" : "33",
+            "stock" : 5
+        },
+        {
+            "sizeName" : "34",
+            "stock" : 5
+        }],
+        "color" : "doré",
+        "colors" : [
+            {
+                "colorName" : "doré",
+                "code" : "#d4a940"
+            }
+        ],
+        "images" : [
+            {
+                "public_id": "Al-Assala/products/balgha-paillettes_ywqjee.webp",
+                "url": "https://res.cloudinary.com/fantasy2021/image/upload/v1653084912/Al-Assala/products/balgha-paillettes_ywqjee.webp"
+            }
+        ],
+        "numOfSells" : 0,
+        "sale" : 0,
+        "user" : "61c23bf94ef7be3ae01e4c56"
+    },
+    {
+        "name" : "Chachia brodée",
+        "price" : 5.00,
+        "description" : "chachia brodée en doré",
+        "category" : "6217b0a50b69b799d1e316ec",
+        "sizes" : [{
+            "sizeName" : "23cm",
+            "stock" : 5
+        },
+        {
+            "sizeName" : "24cm",
+            "stock" : 5
+        },
+        {
+            "sizeName" : "25cm",
+            "stock" : 10
+        },
+        {
+            "sizeName" : "26cm",
+            "stock" : 5
+        },
+        {
+            "sizeName" : "27cm",
+            "stock" : 5
+        }],
+        "color" : "bordeaux",
+        "colors" : [
+            {
+                "colorName" : "bordeaux",
+                "code" : "#931f19"
+            }
+        ],
+        "images" : [
+            {
+                "public_id": "Al-Assala/products/bduqaqgzfh8flwzxjjqq.webp",
+                "url": "https://res.cloudinary.com/fantasy2021/image/upload/v1653084506/Al-Assala/products/bduqaqgzfh8flwzxjjqq.webp"
+            },
+            {
+                "public_id": "Al-Assala/products/xnlsgxdv16gxqxechyix.webp",
+                "url": "https://res.cloudinary.com/fantasy2021/image/upload/v1653084508/Al-Assala/products/xnlsgxdv16gxqxechyix.webp"
+            }
+        ],
+        "numOfSells" : 0,
+        "sale" : 0,
+        "user" : "61c23bf94ef7be3ae01e4c56"
+    },
+    {
+        "name" : "Jebba + Farmla enfants",
         "price" : 31.00,
         "description" : "Jebba et farmla (jaquette) tunisienne en tissu polystère viscose 30/70.",
         "category" : "6217b03c0b69b799d1e316cc",
@@ -153,12 +435,16 @@
         ],
         "images" : [
             {
-                "public_id": "Al-Assala/products/jebba-beige-bordeaux_rzkidx.jpg",
-                "url": "https://res.cloudinary.com/fantasy2021/image/upload/v1647600661/Al-Assala/products/jebba-beige-bordeaux_rzkidx.jpg"
+                "public_id": "Al-Assala/products/Jebba-beigeBordeaux_mbquai.webp",
+                "url": "https://res.cloudinary.com/fantasy2021/image/upload/v1653085018/Al-Assala/products/Jebba-beigeBordeaux_mbquai.webp"
             },
             {
-                "public_id": "Al-Assala/products/jebba-beige-bordeaux-2_lk1krv.jpg",
-                "url": "https://res.cloudinary.com/fantasy2021/image/upload/v1647600816/Al-Assala/products/jebba-beige-bordeaux-2_lk1krv.jpg"
+                "public_id": "Al-Assala/products/jebba-beige-bordeaux-2_wrdaqd.webp",
+                "url": "https://res.cloudinary.com/fantasy2021/image/upload/v1653085020/Al-Assala/products/jebba-beige-bordeaux-2_wrdaqd.webp"
+            },
+            {
+                "public_id": "Al-Assala/products/farmal-beige-bordeaux_ormmj0.webp",
+                "url": "https://res.cloudinary.com/fantasy2021/image/upload/v1653084971/Al-Assala/products/farmal-beige-bordeaux_ormmj0.webp"
             }
         ],
         "numOfSells" : 0,
@@ -166,7 +452,65 @@
         "user" : "61c23bf94ef7be3ae01e4c56"
     },
     {
-        "name" : "Jebba + Farmla ,enfants",
+        "name" : "Ensemble Traditionnel",
+        "price" : 32.00,
+        "description" : "Ensemble traditionnel se compose de deux pièces: un pantalon et une veste avec fermeture.",
+        "category" : "6217c1c398f7d0e2b36e694f",
+        "sizes" : [{
+            "sizeName" : "2ans",
+            "stock" : 5
+        },
+        {
+            "sizeName" : "4ans",
+            "stock" : 5
+        },
+        {
+            "sizeName" : "6ans",
+            "stock" : 10
+        },
+        {
+            "sizeName" : "8ans",
+            "stock" : 5
+        },
+        {
+            "sizeName" : "10ans",
+            "stock" : 5
+        },
+        {
+            "sizeName" : "12ans",
+            "stock" : 5
+        }],
+        "color" : "bordeaux",
+        "colors" : [
+            {
+                "colorName" : "bronze",
+                "code" : "#b6853e"
+            },
+            {
+                "colorName" : "beige bordeaux",
+                "code" : "#f9e4b7"
+            },
+            {
+                "colorName" : "gris",
+                "code" : "#7f7f7f"
+            },
+            {
+                "colorName" : "bordeaux",
+                "code" : "#931f19"
+            }
+        ],
+        "images" : [
+            {
+                "public_id": "Al-Assala/products/ensemble-bordeaux_hts8mt.webp",
+                "url": "https://res.cloudinary.com/fantasy2021/image/upload/v1653084948/Al-Assala/products/ensemble-bordeaux_hts8mt.webp"
+            }
+        ],
+        "numOfSells" : 0,
+        "sale" : 0,
+        "user" : "61c23bf94ef7be3ae01e4c56"
+    },
+    {
+        "name" : "Jebba + Farmla enfants",
         "price" : 31.00,
         "description" : "Jebba et farmla (jaquette) tunisienne en tissu polystère viscose 30/70.",
         "category" : "6217b03c0b69b799d1e316cc",
@@ -236,12 +580,16 @@
         ],
         "images" : [
             {
-                "public_id": "Al-Assala/products/Jebba-Gris_owrw8j.jpg",
-                "url": "https://res.cloudinary.com/fantasy2021/image/upload/v1647599831/Al-Assala/products/Jebba-Gris_owrw8j.jpg"
+                "public_id": "Al-Assala/products/Jebba-gris_svq0z1.webp",
+                "url": "https://res.cloudinary.com/fantasy2021/image/upload/v1653085082/Al-Assala/products/Jebba-gris_svq0z1.webp"
             },
             {
-                "public_id": "Al-Assala/products/jebba-gris-2_hugij2.jpg",
-                "url": "https://res.cloudinary.com/fantasy2021/image/upload/v1647600825/Al-Assala/products/jebba-gris-2_hugij2.jpg"
+                "public_id": "Al-Assala/products/Jebba-gris2_xdofuz.webp",
+                "url": "https://res.cloudinary.com/fantasy2021/image/upload/v1653085085/Al-Assala/products/Jebba-gris2_xdofuz.webp"
+            },
+            {
+                "public_id": "Al-Assala/products/farmla-gris_qszxij.webp",
+                "url": "https://res.cloudinary.com/fantasy2021/image/upload/v1653084982/Al-Assala/products/farmla-gris_qszxij.webp"
             }
         ],
         "numOfSells" : 0,
@@ -249,7 +597,86 @@
         "user" : "61c23bf94ef7be3ae01e4c56"
     },
     {
-        "name" : "Jebba + Farmla ,enfants",
+        "name" : "Chaussures BALGHA",
+        "price" : 14.00,
+        "description" : "Chaussures brodées en simili cuir, peuvent être portées de la manière tunisienne 'BALGHA' ou comme des chaussures normales",
+        "category" : "6217b08c0b69b799d1e316e5",
+        "sizeGuide" : "Ces chaussures taillent petit. Veuillez ajouter une ou deux pointures à la pointure habituelle de votre enfants.",
+        "sizes" : [{
+            "sizeName" : "23",
+            "stock" : 5
+        },
+        {
+            "sizeName" : "24",
+            "stock" : 5
+        },
+        {
+            "sizeName" : "25",
+            "stock" : 10
+        },
+        {
+            "sizeName" : "26",
+            "stock" : 5
+        },
+        {
+            "sizeName" : "27",
+            "stock" : 5
+        },
+        {
+            "sizeName" : "28",
+            "stock" : 5
+        },
+        {
+            "sizeName" : "29",
+            "stock" : 5
+        },
+        {
+            "sizeName" : "30",
+            "stock" : 5
+        },
+        {
+            "sizeName" : "31",
+            "stock" : 5
+        },
+        {
+            "sizeName" : "32",
+            "stock" : 5
+        },
+        {
+            "sizeName" : "33",
+            "stock" : 5
+        },
+        {
+            "sizeName" : "34",
+            "stock" : 5
+        }],
+        "color" : "beige bordeaux",
+        "colors" : [
+            {
+                "colorName" : "beige",
+                "code" : "#f2e7bf"
+            },
+            {
+                "colorName" : "beige bordeaux",
+                "code" : "#b90e0a"
+            }
+        ],
+        "images" : [
+            {
+                "public_id": "Al-Assala/products/balgha-beigeBordeaux_mzb2m0.webp",
+                "url": "https://res.cloudinary.com/fantasy2021/image/upload/v1653084890/Al-Assala/products/balgha-beigeBordeaux_mzb2m0.webp"
+            },
+            {
+                "public_id": "Al-Assala/products/balgha-beige-bordeaux-2_px4jqk.webp",
+                "url": "https://res.cloudinary.com/fantasy2021/image/upload/v1653084899/Al-Assala/products/balgha-beige-bordeaux-2_px4jqk.webp"
+            }
+        ],
+        "numOfSells" : 0,
+        "sale" : 0.1,
+        "user" : "61c23bf94ef7be3ae01e4c56"
+    },
+    {
+        "name" : "Jebba + Farmla enfants",
         "price" : 31.00,
         "description" : "Jebba et farmla (jaquette) tunisienne en tissu polystère viscose 30/70.",
         "category" : "6217b03c0b69b799d1e316cc",
@@ -319,12 +746,16 @@
         ],
         "images" : [
             {
-                "public_id": "Al-Assala/products/jebba-beige-vertpastel_ox61lt.jpg",
-                "url": "https://res.cloudinary.com/fantasy2021/image/upload/v1647603468/Al-Assala/products/jebba-beige-vertpastel_ox61lt.jpg"
+                "public_id": "Al-Assala/products/jebba-beige-vertpastel_ipy9be.webp",
+                "url": "https://res.cloudinary.com/fantasy2021/image/upload/v1653085055/Al-Assala/products/jebba-beige-vertpastel_ipy9be.webp"
             },
             {
-                "public_id": "Al-Assala/products/jebba-beige-vertpastel-2_bw84bc.jpg",
-                "url": "https://res.cloudinary.com/fantasy2021/image/upload/v1647603382/Al-Assala/products/jebba-beige-vertpastel-2_bw84bc.jpg"
+                "public_id": "Al-Assala/products/jebba-beige-vertpastel-2_ajxgec.webp",
+                "url": "https://res.cloudinary.com/fantasy2021/image/upload/v1653085056/Al-Assala/products/jebba-beige-vertpastel-2_ajxgec.webp"
+            },
+            {
+                "public_id": "Al-Assala/products/farmla-beige-vertpastel_rnihpr.webp",
+                "url": "https://res.cloudinary.com/fantasy2021/image/upload/v1653084969/Al-Assala/products/farmla-beige-vertpastel_rnihpr.webp"
             }
         ],
         "numOfSells" : 0,
@@ -332,7 +763,7 @@
         "user" : "61c23bf94ef7be3ae01e4c56"
     },
     {
-        "name" : "Jebba + Farmla ,enfants",
+        "name" : "Jebba + Farmla enfants",
         "price" : 31.00,
         "description" : "Jebba et farmla (jaquette) tunisienne en tissu polystère viscose 30/70.",
         "category" : "6217b03c0b69b799d1e316cc",
@@ -402,12 +833,16 @@
         ],
         "images" : [
             {
-                "public_id": "Al-Assala/products/jebba-_bordeaux-vert-2_vzxkw7.jpg",
-                "url": "https://res.cloudinary.com/fantasy2021/image/upload/v1647603846/Al-Assala/products/jebba-_bordeaux-vert-2_vzxkw7.jpg"
+                "public_id": "Al-Assala/products/jebba-_bordeaux-vert-2_pbfqxk.webp",
+                "url": "https://res.cloudinary.com/fantasy2021/image/upload/v1653084994/Al-Assala/products/jebba-_bordeaux-vert-2_pbfqxk.webp"
             },
             {
-                "public_id": "Al-Assala/products/jebba-bordeaux-vert_vzkpwa.jpg",
-                "url": "https://res.cloudinary.com/fantasy2021/image/upload/v1647603837/Al-Assala/products/jebba-bordeaux-vert_vzkpwa.jpg"
+                "public_id": "Al-Assala/products/jebba-bordeaux-vert_uavcyz.webp",
+                "url": "https://res.cloudinary.com/fantasy2021/image/upload/v1653085055/Al-Assala/products/jebba-bordeaux-vert_uavcyz.webp"
+            },
+            {
+                "public_id": "Al-Assala/products/farmla-bordeaux-vert_jvupev.webp",
+                "url": "https://res.cloudinary.com/fantasy2021/image/upload/v1653084969/Al-Assala/products/farmla-bordeaux-vert_jvupev.webp"
             }
         ],
         "numOfSells" : 0,
@@ -415,7 +850,132 @@
         "user" : "61c23bf94ef7be3ae01e4c56"
     },
     {
-        "name" : "Jebba + Farmla ,enfants",
+        "name" : "Balgha PERLE",
+        "price" : 14.00,
+        "description" : "Chaussures en doré brillant avec des perles, peuvent être portées de la manière tunisienne 'BALGHA' ou comme des chaussures normales",
+        "category" : "62880f5807b810cd2dfec40c",
+        "sizeGuide" : "Ces chaussures taillent petit. Veuillez ajouter une pointure à la pointure habituelle de votre enfants.",
+        "sizes" : [{
+            "sizeName" : "23",
+            "stock" : 5
+        },
+        {
+            "sizeName" : "24",
+            "stock" : 5
+        },
+        {
+            "sizeName" : "25",
+            "stock" : 10
+        },
+        {
+            "sizeName" : "26",
+            "stock" : 5
+        },
+        {
+            "sizeName" : "27",
+            "stock" : 5
+        },
+        {
+            "sizeName" : "28",
+            "stock" : 5
+        },
+        {
+            "sizeName" : "29",
+            "stock" : 5
+        },
+        {
+            "sizeName" : "30",
+            "stock" : 5
+        },
+        {
+            "sizeName" : "31",
+            "stock" : 5
+        },
+        {
+            "sizeName" : "32",
+            "stock" : 5
+        },
+        {
+            "sizeName" : "33",
+            "stock" : 5
+        },
+        {
+            "sizeName" : "34",
+            "stock" : 5
+        }],
+        "color" : "doré",
+        "colors" : [
+            {
+                "colorName" : "doré",
+                "code" : "#d4a940"
+            }
+        ],
+        "images" : [
+            {
+                "public_id": "Al-Assala/products/balgha-perles_eo5fav.webp",
+                "url": "https://res.cloudinary.com/fantasy2021/image/upload/v1653084916/Al-Assala/products/balgha-perles_eo5fav.webp"
+            }
+        ],
+        "numOfSells" : 0,
+        "sale" : 0,
+        "user" : "61c23bf94ef7be3ae01e4c56"
+    },
+    {
+        "name" : "Chemise",
+        "price" : 12.00,
+        "description" : "Chemise style traditionnelles en tissu ",
+        "category" : "6217b04f0b69b799d1e316d5",
+        "sizes" : [{
+            "sizeName" : "<1an",
+            "stock" : 5
+        },
+        {
+            "sizeName" : "1an",
+            "stock" : 5
+        },
+        {
+            "sizeName" : "2ans",
+            "stock" : 10
+        },
+        {
+            "sizeName" : "4ans",
+            "stock" : 5
+        },
+        {
+            "sizeName" : "6ans",
+            "stock" : 5
+        },
+        {
+            "sizeName" : "8ans",
+            "stock" : 5
+        },
+        {
+            "sizeName" : "10ans",
+            "stock" : 5
+        }],
+        "color" : "beige",
+        "colors" : [
+            {
+                "colorName" : "beige",
+                "code" : "#f2e7bf"
+            }
+        ],
+        "images" : [
+            {
+                "public_id": "Al-Assala/products/chemise1_jwgj7c.webp",
+                "url": "https://res.cloudinary.com/fantasy2021/image/upload/v1653084933/Al-Assala/products/chemise1_jwgj7c.webp"
+            },
+            {
+                "public_id": "Al-Assala/products/chemise_rtwvih.webp",
+                "url": "https://res.cloudinary.com/fantasy2021/image/upload/v1653084926/Al-Assala/products/chemise_rtwvih.webp"
+            }
+        ],
+        "numOfSells" : 0,
+        "sale" : 0,
+        "user" : "61c23bf94ef7be3ae01e4c56"
+    },
+    {
+        "name" : "Jebba + Farmla enfants",
         "price" : 31.00,
         "description" : "Jebba et farmla (jaquette) tunisienne en tissu polystère viscose 30/70.",
         "category" : "6217b03c0b69b799d1e316cc",
@@ -485,8 +1045,12 @@
         ],
         "images" : [
             {
-                "public_id": "Al-Assala/products/jebba-turquoise_f59fwn.jpg",
-                "url": "https://res.cloudinary.com/fantasy2021/image/upload/v1647604296/Al-Assala/products/jebba-turquoise_f59fwn.jpg"
+                "public_id": "Al-Assala/products/jebba-turquoise_vxyc9g.webp",
+                "url": "https://res.cloudinary.com/fantasy2021/image/upload/v1653085083/Al-Assala/products/jebba-turquoise_vxyc9g.webp"
+            },
+            {
+                "public_id": "Al-Assala/products/farmla-turquoise_rls0ud.webp",
+                "url": "https://res.cloudinary.com/fantasy2021/image/upload/v1653084983/Al-Assala/products/farmla-turquoise_rls0ud.webp"
             }
         ],
         "numOfSells" : 0,
@@ -494,7 +1058,7 @@
         "user" : "61c23bf94ef7be3ae01e4c56"
     },
     {
-        "name" : "Jebba + Farmla ,enfants",
+        "name" : "Jebba + Farmla enfants",
         "price" : 31.00,
         "description" : "Jebba et farmla (jaquette) tunisienne en tissu polystère viscose 30/70.",
         "category" : "6217b03c0b69b799d1e316cc",
@@ -564,14 +1128,19 @@
         ],
         "images" : [
             {
-                "public_id": "Al-Assala/products/jebba-bordeaux_tko2du.jpg",
-                "url": "https://res.cloudinary.com/fantasy2021/image/upload/v1647604607/Al-Assala/products/jebba-bordeaux_tko2du.jpg"
+                "public_id": "Al-Assala/products/Jebba-bordeaux_e8uugz.webp",
+                "url": "https://res.cloudinary.com/fantasy2021/image/upload/v1653085050/Al-Assala/products/Jebba-bordeaux_e8uugz.webp"
+            },
+            {
+                "public_id": "Al-Assala/products/farmal-bordeaux_bujgaw.webp",
+                "url": "https://res.cloudinary.com/fantasy2021/image/upload/v1653084969/Al-Assala/products/farmal-bordeaux_bujgaw.webp"
             }
         ],
         "numOfSells" : 0,
         "sale" : 0,
         "user" : "61c23bf94ef7be3ae01e4c56"
     },
+    
     {
         "name" : "Chaussures BALGHA",
         "price" : 14.00,
@@ -639,12 +1208,12 @@
         ],
         "images" : [
             {
-                "public_id": "Al-Assala/products/chaussures-beige_frm5hw.jpg",
-                "url": "https://res.cloudinary.com/fantasy2021/image/upload/v1647630571/Al-Assala/products/chaussures-beige_frm5hw.jpg"
+                "public_id": "Al-Assala/products/chaussures-beige_zaor9i.webp",
+                "url": "https://res.cloudinary.com/fantasy2021/image/upload/v1653084923/Al-Assala/products/chaussures-beige_zaor9i.webp"
             },
             {
-                "public_id": "Al-Assala/products/IMG_0006_snfmf6.jpg",
-                "url": "https://res.cloudinary.com/fantasy2021/image/upload/v1647630539/Al-Assala/products/IMG_0006_snfmf6.jpg"
+                "public_id": "Al-Assala/products/balgha-beige-2_fbm5bk.webp",
+                "url": "https://res.cloudinary.com/fantasy2021/image/upload/v1653084881/Al-Assala/products/balgha-beige-2_fbm5bk.webp"
             }
         ],
         "numOfSells" : 0,
@@ -652,11 +1221,11 @@
         "user" : "61c23bf94ef7be3ae01e4c56"
     },
     {
-        "name" : "Chaussures BALGHA",
-        "price" : 14.00,
-        "description" : "Chaussures brodées en simili cuir, peuvent être portées de la manière tunisienne 'BALGA' ou comme des chaussures normales",
-        "category" : "6217b08c0b69b799d1e316e5",
-        "sizeGuide" : "Ces chaussures taillent petit. Veuillez ajouter une ou deux pointures à la pointure habituelle de votre enfants.",
+        "name" : "Balgha KHOMSA",
+        "price" : 15.00,
+        "description" : "Chaussures brodées, peuvent être portées de la manière tunisienne 'BALGHA' ou comme des chaussures normales",
+        "category" : "62880f5807b810cd2dfec40c",
+        "sizeGuide" : "Ces chaussures taillent petit. Veuillez ajouter une pointure à la pointure habituelle de votre enfants.",
         "sizes" : [{
             "sizeName" : "23",
             "stock" : 5
@@ -705,29 +1274,25 @@
             "sizeName" : "34",
             "stock" : 5
         }],
-        "color" : "beige bordeaux",
+        "color" : "doré",
         "colors" : [
             {
-                "colorName" : "beige",
-                "code" : "#f2e7bf"
-            },
-            {
-                "colorName" : "beige bordeaux",
-                "code" : "#b90e0a"
+                "colorName" : "doré",
+                "code" : "#d4a940"
             }
         ],
         "images" : [
             {
-                "public_id": "Al-Assala/products/chaussures-beige-bordeaux_mexkyl.jpg",
-                "url": "https://res.cloudinary.com/fantasy2021/image/upload/v1647630838/Al-Assala/products/chaussures-beige-bordeaux_mexkyl.jpg"
+                "public_id": "Al-Assala/products/balgha-khomsa_r5ljwa.webp",
+                "url": "https://res.cloudinary.com/fantasy2021/image/upload/v1653084903/Al-Assala/products/balgha-khomsa_r5ljwa.webp"
             }
         ],
         "numOfSells" : 0,
-        "sale" : 0.1,
+        "sale" : 0,
         "user" : "61c23bf94ef7be3ae01e4c56"
     },
     {
-        "name" : "Jebba + Farmla ,enfants",
+        "name" : "Jebba + Farmla enfants",
         "price" : 31.00,
         "description" : "Jebba et farmla (jaquette) tunisienne en tissu polystère viscose 30/70.",
         "category" : "6217b03c0b69b799d1e316cc",
@@ -797,20 +1362,20 @@
         ],
         "images" : [
             {
-                "public_id": "Al-Assala/products/jebba-beige-vert_jlhoy0.jpg",
-                "url": "https://res.cloudinary.com/fantasy2021/image/upload/v1647604411/Al-Assala/products/jebba-beige-vert_jlhoy0.jpg"
+                "public_id": "Al-Assala/products/Jebba-beigeVert_vxtkip.webp",
+                "url": "https://res.cloudinary.com/fantasy2021/image/upload/v1653083774/Al-Assala/products/Jebba-beigeVert_vxtkip.webp"
             },
             {
-                "public_id": "Al-Assala/products/jebba-beige-vert-3_cyijiv.jpg",
-                "url": "https://res.cloudinary.com/fantasy2021/image/upload/v1647604428/Al-Assala/products/jebba-beige-vert-3_cyijiv.jpg"
+                "public_id": "Al-Assala/products/jebba-beige-vert-_utotee.webp",
+                "url": "https://res.cloudinary.com/fantasy2021/image/upload/v1653085020/Al-Assala/products/jebba-beige-vert-_utotee.webp"
             },
             {
-                "public_id": "Al-Assala/products/jebba-beige-vert-2_fexnwa.jpg",
-                "url": "https://res.cloudinary.com/fantasy2021/image/upload/v1647604421/Al-Assala/products/jebba-beige-vert-2_fexnwa.jpg"
+                "public_id": "Al-Assala/products/jebba-beige-vert-2_bc1w4p.webp",
+                "url": "https://res.cloudinary.com/fantasy2021/image/upload/v1653085061/Al-Assala/products/jebba-beige-vert-2_bc1w4p.webp"
             },
             {
-                "public_id": "Al-Assala/products/jebba-beige-vert-_bhpqek.jpg",
-                "url": "https://res.cloudinary.com/fantasy2021/image/upload/v1647604435/Al-Assala/products/jebba-beige-vert-_bhpqek.jpg"
+                "public_id": "Al-Assala/products/farmla-beigeVertF_gp8rf7.webp",
+                "url": "https://res.cloudinary.com/fantasy2021/image/upload/v1653084971/Al-Assala/products/farmla-beigeVertF_gp8rf7.webp"
             }
         ],
         "numOfSells" : 0,
@@ -862,187 +1427,13 @@
             },
             {
                 "colorName" : "bordeaux",
-                "code" : "#a91b0d"
+                "code" : "#931f19"
             }
         ],
         "images" : [
             {
-                "public_id": "Al-Assala/products/ensemble-bronze_iv2ffz.jpg",
-                "url": "https://res.cloudinary.com/fantasy2021/image/upload/v1647631723/Al-Assala/products/ensemble-bronze_iv2ffz.jpg"
-            }
-        ],
-        "numOfSells" : 0,
-        "sale" : 0,
-        "user" : "61c23bf94ef7be3ae01e4c56"
-    },
-    {
-        "name" : "Ensemble Traditionnel",
-        "price" : 32.00,
-        "description" : "Ensemble traditionnel se compose de deux pièces: un pantalon et une veste avec fermeture.",
-        "category" : "6217c1c398f7d0e2b36e694f",
-        "sizes" : [{
-            "sizeName" : "2ans",
-            "stock" : 5
-        },
-        {
-            "sizeName" : "4ans",
-            "stock" : 5
-        },
-        {
-            "sizeName" : "6ans",
-            "stock" : 10
-        },
-        {
-            "sizeName" : "8ans",
-            "stock" : 5
-        },
-        {
-            "sizeName" : "10ans",
-            "stock" : 5
-        },
-        {
-            "sizeName" : "12ans",
-            "stock" : 5
-        }],
-        "color" : "bordeaux",
-        "colors" : [
-            {
-                "colorName" : "bronze",
-                "code" : "#b6853e"
-            },
-            {
-                "colorName" : "beige bordeaux",
-                "code" : "#f9e4b7"
-            },
-            {
-                "colorName" : "gris",
-                "code" : "#7f7f7f"
-            },
-            {
-                "colorName" : "bordeaux",
-                "code" : "#a91b0d"
-            }
-        ],
-        "images" : [
-            {
-                "public_id": "AAl-Assala/products/ensemble-bordeaux_kwoqho.jpg",
-                "url": "https://res.cloudinary.com/fantasy2021/image/upload/v1647631583/Al-Assala/products/ensemble-bordeaux_kwoqho.jpg"
-            }
-        ],
-        "numOfSells" : 0,
-        "sale" : 0,
-        "user" : "61c23bf94ef7be3ae01e4c56"
-    },
-    {
-        "name" : "Ensemble Traditionnel",
-        "price" : 32.00,
-        "description" : "Ensemble traditionnel se compose de deux pièces: un pantalon et une veste avec fermeture.",
-        "category" : "6217c1c398f7d0e2b36e694f",
-        "sizes" : [{
-            "sizeName" : "2ans",
-            "stock" : 5
-        },
-        {
-            "sizeName" : "4ans",
-            "stock" : 5
-        },
-        {
-            "sizeName" : "6ans",
-            "stock" : 10
-        },
-        {
-            "sizeName" : "8ans",
-            "stock" : 5
-        },
-        {
-            "sizeName" : "10ans",
-            "stock" : 5
-        },
-        {
-            "sizeName" : "12ans",
-            "stock" : 5
-        }],
-        "color" : "beige bordeaux",
-        "colors" : [
-            {
-                "colorName" : "bronze",
-                "code" : "#b6853e"
-            },
-            {
-                "colorName" : "beige bordeaux",
-                "code" : "#f9e4b7"
-            },
-            {
-                "colorName" : "gris",
-                "code" : "#7f7f7f"
-            },
-            {
-                "colorName" : "bordeaux",
-                "code" : "#a91b0d"
-            }
-        ],
-        "images" : [
-            {
-                "public_id": "Al-Assala/products/ensemble-sucre-bordeaux_ojz0fe.jpg",
-                "url": "https://res.cloudinary.com/fantasy2021/image/upload/v1647631767/Al-Assala/products/ensemble-sucre-bordeaux_ojz0fe.jpg"
-            }
-        ],
-        "numOfSells" : 0,
-        "sale" : 0,
-        "user" : "61c23bf94ef7be3ae01e4c56"
-    },
-    {
-        "name" : "Ensemble Traditionnel",
-        "price" : 32.00,
-        "description" : "Ensemble traditionnel se compose de deux pièces: un pantalon et une veste avec fermeture.",
-        "category" : "6217c1c398f7d0e2b36e694f",
-        "sizes" : [{
-            "sizeName" : "2ans",
-            "stock" : 5
-        },
-        {
-            "sizeName" : "4ans",
-            "stock" : 5
-        },
-        {
-            "sizeName" : "6ans",
-            "stock" : 10
-        },
-        {
-            "sizeName" : "8ans",
-            "stock" : 5
-        },
-        {
-            "sizeName" : "10ans",
-            "stock" : 5
-        },
-        {
-            "sizeName" : "12ans",
-            "stock" : 5
-        }],
-        "color" : "gris",
-        "colors" : [
-            {
-                "colorName" : "bronze",
-                "code" : "#b6853e"
-            },
-            {
-                "colorName" : "beige bordeaux",
-                "code" : "#f9e4b7"
-            },
-            {
-                "colorName" : "gris",
-                "code" : "#7f7f7f"
-            },
-            {
-                "colorName" : "bordeaux",
-                "code" : "#a91b0d"
-            }
-        ],
-        "images" : [
-            {
-                "public_id": "Al-Assala/products/ensemble-gris_bgyrzk.jpg",
-                "url": "https://res.cloudinary.com/fantasy2021/image/upload/v1647631602/Al-Assala/products/ensemble-gris_bgyrzk.jpg"
+                "public_id": "Al-Assala/products/ensemble-bronze_fc6pci.webp",
+                "url": "https://res.cloudinary.com/fantasy2021/image/upload/v1653084951/Al-Assala/products/ensemble-bronze_fc6pci.webp"
             }
         ],
         "numOfSells" : 0,
