@@ -1,4 +1,4 @@
-import axios from 'axios';
+import axios from './http-common';
 import {
     LOGIN_REQUEST,
     LOGIN_SUCCESS,
