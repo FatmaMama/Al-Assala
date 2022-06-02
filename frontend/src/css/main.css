@@ -65,12 +65,30 @@ form {
 .subHeader__text {
   font-size: 1.4rem;
 }
-@media only screen and (max-width: 56em) {
-  .subHeader__shipping {
+.subHeader__contact {
+  display: flex;
+}
+@media only screen and (max-width: 30em) {
+  .subHeader__contact {
     display: none;
   }
 }
+@media only screen and (max-width: 30em) {
+  .subHeader__shipping {
+    width: 90%;
+    margin: auto;
+    text-align: center;
+  }
+}
 
+@keyframes my-animation {
+  from {
+    transform: translateX(100%);
+  }
+  to {
+    transform: translateX(-100%);
+  }
+}
 header {
   display: flex;
   justify-content: space-between;

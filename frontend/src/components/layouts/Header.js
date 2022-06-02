@@ -47,22 +47,26 @@ export default function Header() {
     return (
         <Fragment>
             <div className='subHeader' >
-                <div className='d-flex gap-2'>
-                    <a href='https://www.facebook.com/Al-Assala-%D8%A7%D9%84%D8%A3%D8%B5%D8%A7%D9%84%D8%A9-111927638089839' target="_blank" rel="noreferrer">
-                        <i className="fab fa-facebook-square subHeader__icon-social"></i>
-                    </a>
-                    <a href='https://www.instagram.com/al_assala_store/' target="_blank" rel="noreferrer">
-                        <i className="fab fa-instagram subHeader__icon-social"></i>
-                    </a>
-                </div>
-                <div className='subHeader__shipping'>
-                    <i className="fas fa-shipping-fast me-1 subHeader__icon"></i>
-                    <span className='subHeader__text'>Livraison gratuite à partir de {settings.shippingFreeLimit}dt</span>
-                </div>
-                <div>
-                    <i className="fas fa-phone-alt me-1 subHeader__icon"></i>
-                    <span className='subHeader__text'>(+216) 93 492 127</span>
-                </div>
+                    <div className='subHeader__contact gap-2'>
+                        <a href='https://www.facebook.com/Al-Assala-%D8%A7%D9%84%D8%A3%D8%B5%D8%A7%D9%84%D8%A9-111927638089839' target="_blank" rel="noreferrer">
+                            <i className="fab fa-facebook-square subHeader__icon-social"></i>
+                        </a>
+                        <a href='https://www.instagram.com/al_assala_store/' target="_blank" rel="noreferrer">
+                            <i className="fab fa-instagram subHeader__icon-social"></i>
+                        </a>
+                    </div>
+                    <div className='subHeader__shipping'>
+                        <i className="fas fa-shipping-fast me-1 subHeader__icon"></i>
+                        {settings.shippingFreeLimit === 0 ? 
+                        <span className='subHeader__text'>Livraison Gratuite</span> 
+                        :
+                        <span className='subHeader__text'>Livraison gratuite à partir de {settings.shippingFreeLimit}dt</span>
+                        }  
+                    </div>
+                    <div className='subHeader__contact'>
+                        <i className="fas fa-phone-alt me-1 subHeader__icon"></i>
+                        <span className='subHeader__text'>(+216) 93 492 127</span>
+                    </div>
             </div>
             <header>
                 <Link to='/'>

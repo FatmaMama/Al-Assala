@@ -4,7 +4,8 @@
     align-items: center;
     padding: .8rem 2rem;
     background-color: darken($color: #fff, $amount: 5);
-
+    
+    
     &__icon-social {
         font-size: 2rem;
         color: $color-grey-dark-1;
@@ -18,10 +19,29 @@
         font-size: 1.4rem;
     }
 
-    &__shipping {
-        @media only screen and (max-width: 56em) {
+    &__contact {
+        display: flex;
+
+        @media only screen and (max-width: 30em) {
             display: none;
         }
+    }
+
+    &__shipping {
+        @media only screen and (max-width: 30em) {
+            width: 90%;
+            margin: auto;
+            text-align: center;
+        }
+    }
+}
+
+@keyframes my-animation {
+    from {
+      transform: translateX(100%);
+    }
+    to {
+      transform: translateX(-100%);
     }
 }
 
