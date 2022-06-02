@@ -1,4 +1,4 @@
-import axios from './http-common';
+import axios from 'axios';
 import { ADD_TO_CART, REMOVE_CART_ITEM, RESET_CART_ITEM, CART_PRICE, SHIPPING_INFO } from "../constants/cartConstants";
 
 

@@ -1,4 +1,4 @@
-import axios from './http-common';
+import axios from 'axios';
 import {
     ALL_CATEGORIES_REQUEST,
     ALL_CATEGORIES_SUCCESS,
