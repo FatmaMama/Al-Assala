@@ -43,7 +43,7 @@ export default function Login() {
         <Fragment>
             {loading ? <Loader/> : (
                 <div className='login'>
-                    <div className="wrapper"> 
+                    <div className="wrapper register__wrapper"> 
                         <div className="login__col col-10 col-lg-6 bg-light">
                             <form onSubmit={submitHandler} >
                                 <h1 className="wrapper__title mb-3 text-center">Connectez-vous à votre compte</h1>

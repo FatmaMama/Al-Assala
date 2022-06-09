@@ -77,7 +77,7 @@ export default function Cart() {
     return (
         <div>
              <Menu />
-             <div className='p-5'>
+             <div className='mb-5 p-3 pt-5'>
                 {cartItems.length === 0 ? <h2 className='text-center'>Votre panier est vide...</h2> : (
                     <Fragment>
                         <h1 className='cart-title'>Votre panier: <b>{getCartCount()} Articles</b></h1>

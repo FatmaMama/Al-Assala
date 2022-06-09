@@ -257,6 +257,11 @@ header .avatar {
   top: 2.8rem;
   font-size: 1.4rem;
 }
+@media only screen and (max-width: 426px) {
+  .user-nav__notification {
+    top: -1rem;
+  }
+}
 
 .dropdown-toggle {
   font-size: inherit;
@@ -276,8 +281,13 @@ header .avatar {
 
 .footer {
   background-color: #fdf5f5;
-  padding-top: 8rem;
+  padding-top: 6rem;
   padding-bottom: 1rem;
+}
+@media only screen and (max-width: 26em) {
+  .footer {
+    padding-top: 4rem;
+  }
 }
 .footer span {
   font-size: 1.6rem;
@@ -469,7 +479,7 @@ header .avatar {
 @media only screen and (max-width: 56em) {
   .navbar {
     position: absolute;
-    min-height: 100vh;
+    min-height: 24rem;
     z-index: 2;
     top: -1rem;
     padding-bottom: 4.8rem;
@@ -489,20 +499,33 @@ header .avatar {
     display: flex;
     z-index: 15;
   }
+  .navbar .mobileNavigation__hamburger-container {
+    padding: 0 1.2rem;
+    margin-left: 1.2rem;
+    position: absolute;
+    top: 90%;
+    left: 2%;
+  }
+}
+@media only screen and (max-width: 56em) and (max-width: 426px) {
+  .navbar .mobileNavigation__hamburger-container {
+    top: 70%;
+  }
+}
+@media only screen and (max-width: 56em) {
   .navbar .mobileNavigation__hamburger {
     border: none;
     background-color: transparent;
     font-size: 3.6rem;
-    padding: 0 1.2rem;
-    margin-left: 1.2rem;
-    position: absolute;
-    top: 28.8%;
-    left: 2%;
+    padding: 0;
   }
 }
-@media only screen and (max-width: 56em) and (max-width: 38em) {
-  .navbar .mobileNavigation__hamburger {
-    left: 0%;
+@media only screen and (max-width: 56em) {
+  .navbar .mobileNavigation__hamburger-menu {
+    font-weight: 700;
+    letter-spacing: 3px;
+    position: absolute;
+    top: 4.5rem;
   }
 }
 @media only screen and (max-width: 56em) {
@@ -681,7 +704,7 @@ header .avatar {
   background-image: linear-gradient(to right, rgba(250, 250, 250, 0.7), rgba(250, 250, 250, 0.7)), url(../images/sidiBou.jpg);
   background-size: cover;
   background-position: center;
-  height: calc(100vh - 6rem);
+  height: max-content;
 }
 .login__col {
   box-shadow: 0.2rem 0.1rem 1.2rem 0.2rem rgba(0, 0, 0, 0.7);
@@ -691,10 +714,10 @@ header .avatar {
   background-image: linear-gradient(to right, rgba(250, 250, 250, 0.7), rgba(250, 250, 250, 0.7)), url(../images/street.jpeg);
   background-size: cover;
   background-position: center;
-  height: calc(100vh - 6rem);
+  height: max-content;
 }
 .register__wrapper {
-  padding-top: 2rem;
+  padding: 5rem 0;
 }
 .register__avatar {
   height: 5rem;
@@ -991,16 +1014,32 @@ header .avatar {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  margin-top: 3rem;
+}
+@media only screen and (max-width: 30em) {
+  .product-cart__price-container {
+    margin-top: 0;
+  }
 }
 .product-cart__price {
   font-size: 1.8rem;
+  margin-top: 3rem;
+}
+@media only screen and (max-width: 30em) {
+  .product-cart__price {
+    margin-top: 0;
+  }
 }
 .product-cart__sale {
-  font-size: 1.4rem;
+  font-size: 1.2rem;
   color: #c92a2a;
 }
+.product-cart__new-price {
+  font-size: 1.6rem;
+  font-weight: 500;
+}
 .product-cart__prev-price {
-  font-size: 1.4rem;
+  font-size: 1.2rem;
   text-decoration: line-through;
 }
 .product-cart__button {
@@ -1040,7 +1079,6 @@ header .avatar {
   display: flex;
   justify-content: space-around;
   margin-top: 4.6rem;
-  margin-bottom: 8.2rem;
   font-size: 1.4rem;
 }
 .product__main-img {
@@ -1163,11 +1201,17 @@ header .avatar {
 .product__add-btn:hover {
   transform: scale(1.05);
 }
+@media only screen and (max-width: 26em) {
+  .product__add-btn {
+    padding: 0.8rem 1rem;
+    font-size: 1.6rem;
+  }
+}
 
 .cart {
   display: flex;
   justify-content: space-between;
-  margin-top: 3.2rem;
+  margin-top: 1.2rem;
 }
 @media only screen and (max-width: 75em) {
   .cart {
@@ -1187,6 +1231,11 @@ header .avatar {
   .cart__container {
     width: 95%;
     margin: 0 auto;
+  }
+}
+@media only screen and (max-width: 26em) {
+  .cart__container {
+    width: 100%;
   }
 }
 .cart__order, .cart__order-title {
@@ -1215,6 +1264,12 @@ header .avatar {
     grid-template-columns: 15rem 1fr;
     grid-template-rows: repeat(5, min-content);
     column-gap: 2.4rem;
+  }
+}
+@media only screen and (max-width: 26em) {
+  .cart__grid {
+    grid-template-columns: 15rem 1fr;
+    column-gap: 0rem;
   }
 }
 .cart__img {
@@ -1260,6 +1315,7 @@ header .avatar {
   font-size: 1.8rem;
 }
 .cart__qty-container {
+  width: 100%;
   display: flex;
   gap: 0.5rem;
 }
@@ -1305,6 +1361,11 @@ header .avatar {
     width: 90%;
     margin: auto;
     margin-top: 3.2rem;
+  }
+}
+@media only screen and (max-width: 26em) {
+  .cart__summary {
+    width: 100%;
   }
 }
 .cart__order-summary {
@@ -1373,7 +1434,12 @@ header .avatar {
 @media only screen and (max-width: 56em) {
   .center {
     justify-content: flex-start;
-    padding: 0 4.6rem;
+    padding: 0 2.4rem;
+  }
+}
+@media only screen and (max-width: 26em) {
+  .center {
+    padding: 0 1.8rem;
   }
 }
 
@@ -1417,6 +1483,11 @@ header .avatar {
   gap: 2.4rem;
   padding: 4.8rem 6.4rem;
 }
+@media only screen and (max-width: 26em) {
+  .steps {
+    padding: 4.8rem 1.8rem;
+  }
+}
 .steps__step {
   flex: 1;
   text-align: center;
@@ -1456,6 +1527,11 @@ header .avatar {
   display: flex;
   justify-content: center;
 }
+@media only screen and (max-width: 26em) {
+  .shipping {
+    padding: 0 2.4rem;
+  }
+}
 .shipping input {
   height: 4rem;
   font-size: 1.6rem;
@@ -1466,6 +1542,11 @@ header .avatar {
   padding: 0 6.4rem;
   display: flex;
   justify-content: space-around;
+}
+@media only screen and (max-width: 26em) {
+  .info {
+    padding: 0 2.4rem;
+  }
 }
 .info__box {
   border: 2px solid #ccc;
@@ -1491,6 +1572,15 @@ header .avatar {
 }
 .info__item-3:hover {
   color: #c92a2a;
+}
+
+.order-info {
+  padding: 3.4rem 4.4rem;
+}
+@media only screen and (max-width: 26em) {
+  .order-info {
+    padding: 2.4rem 0;
+  }
 }
 
 .order-success {

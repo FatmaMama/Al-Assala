@@ -2,7 +2,7 @@
     background-image: linear-gradient(to right,rgba(250, 250, 250, 0.7), rgba(250, 250, 250, 0.7)), url(../images/sidiBou.jpg);
     background-size: cover;
     background-position: center;
-    height: calc(100vh - 6rem);
+    height: max-content;
 
     &__col {
         box-shadow: .2rem .1rem 1.2rem .2rem rgba(0,0,0,0.7);
@@ -14,10 +14,10 @@
     background-image: linear-gradient(to right,rgba(250, 250, 250, 0.7), rgba(250, 250, 250, 0.7)), url(../images/street.jpeg);
     background-size: cover;
     background-position: center;
-    height: calc(100vh - 6rem);
+    height: max-content;
 
     &__wrapper {
-        padding-top: 2rem;
+        padding: 5rem 0;
     }
 
     &__avatar {

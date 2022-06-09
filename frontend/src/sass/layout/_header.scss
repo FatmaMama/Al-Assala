@@ -220,6 +220,10 @@ header {
         left: 5.5rem;
         top: 2.8rem;
         font-size: 1.4rem;
+
+        @media only screen and (max-width: 426px) {
+            top: -1rem;
+        }
     }
 }
 

@@ -43,7 +43,10 @@ export default function MobileNavigation({open, setOpen, closeMobileMenu}) {
                 <Fragment>
                     {open ? <button className='mobileNavigation__close' onClick={() => setOpen(!open)}><i className="far fa-times-circle"></i></button> 
                     :
-                    <button className='mobileNavigation__hamburger' onClick={() => setOpen(!open)} ><i className="fas fa-bars"></i></button>
+                    <div className='mobileNavigation__hamburger-container'>
+                        <button className='mobileNavigation__hamburger' onClick={() => setOpen(!open)} ><i className="fas fa-bars"></i></button>
+                        <div className='mobileNavigation__hamburger-menu'>MENU</div>
+                    </div>
                     }
                     
                     {open && <ul>

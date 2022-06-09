@@ -91,10 +91,10 @@ export default function ConfirmOrder() {
                 </div>
             </div>
 
-            <div className='p-5 mt-5'>
+            <div className='order-info mt-5'>
                 <h2 className='cart-title cart__order-title'>Votre commande: <b>{getCartCount()} Articles</b></h2>
         
-                        <div className='pt-5'>
+                        <div className='pt-3'>
                             <div className='cart__container cart__order'>
                                 <div className='cart__grid cart__head'>
                                     <h4>&nbsp;</h4>

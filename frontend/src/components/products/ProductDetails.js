@@ -217,7 +217,7 @@ export default function ProductDetails() {
                 </div>
             )}
 
-            <div className='container pb-5'>
+            <div className='pad pt-0'>
                 <h1>Vous pourriez aimer...</h1>
                 <Slide products={products} />
             </div>
