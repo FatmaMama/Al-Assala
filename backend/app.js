@@ -15,6 +15,7 @@ const categories = require('./routes/categoryRoutes');
 const products = require('./routes/productRoutes');
 const users = require('./routes/userRoutes');
 const orders = require('./routes/orderRoutes');
+const orderSettings = require('./routes/orderSettingsRoutes')
 
 const cloudinary = require('cloudinary');
 const fileUpload = require('express-fileupload');
@@ -64,6 +65,7 @@ app.use('/api/v1', categories);
 app.use('/api/v1', products);
 app.use('/api/v1', users);
 app.use('/api/v1', orders);
+app.use('/api/v1', orderSettings);
 
 //Handling unhandled Routes
 app.all('*', (req, res, next) => {
