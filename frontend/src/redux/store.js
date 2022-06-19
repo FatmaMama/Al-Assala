@@ -6,7 +6,7 @@ import { notifyReducer } from './reducers/notifyReducer';
 import { bestSellersReducer, newProductReducer, onSaleProductsReducer, productDetailsByColorReducer, productDetailsReducer, productReducer, productsReducer, searchProductsReducer } from './reducers/productReducers';
 import { categoriesReducer, categoryDetailsReducer, categoryReducer, newCategoryReducer } from './reducers/categoryReducer';
 import { monthlyOrdersReducer, newOrderReducer, orderDetailsReducer, orderReducer, ordersReducer, todayYesterdayOrdersReducer, toUpdateOrderReducer, weeklyOrdersReducer } from './reducers/orderReducers';
-import { settingsReducer } from './reducers/settingsReducers';
+import { settingsReducer, updateSettingsReducer } from './reducers/settingsReducers';
 import { cartReducer } from './reducers/cartReducers';
 
 const reducers = combineReducers({
@@ -44,27 +44,14 @@ const reducers = combineReducers({
 
     cart: cartReducer,
 
-    settingsInfos: settingsReducer
+    settingsInfos: settingsReducer,
+    updateSettings: updateSettingsReducer
 });
 
-//Check for settings in localstorage
-if(localStorage.getItem('settingsInfo') == null){
-    const defaultSettings = {
-        shippingPrice : 0,
-        shippingFreeLimit : 0,
-        shippingDuration : 0,
-        coupon: '',
-        saleCoupon: 0,
-        saleDuration: 0
-    };
 
-    localStorage.setItem('settingsInfo', JSON.stringify(defaultSettings))
-}
 
 const initialState = {
-    settingsInfos : {
-        settings : JSON.parse(localStorage.getItem('settingsInfo'))
-    },
+    
     cart : {
         cartItems : localStorage.getItem('cartItems') ? JSON.parse(localStorage.getItem('cartItems')) : [],
         shippingInfo : localStorage.getItem('shippingInfo') ? JSON.parse(localStorage.getItem('shippingInfo')) : {},

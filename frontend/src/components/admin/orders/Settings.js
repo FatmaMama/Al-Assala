@@ -1,11 +1,16 @@
 import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { getSettings, updateSettings } from '../../../redux/actions/settingsActions';
+import { updateSettings } from '../../../redux/actions/settingsActions';
+import { clearErrors } from '../../../redux/actions/orderActions';
+import { notifyUser } from '../../../redux/actions/notifyActions';
 import Sidebar from '../../layouts/Sidebar';
+import Alert from '../../utils/Alert';
+import { useNavigate} from 'react-router-dom';
 
 export default function Settings() {
 
     const dispatch = useDispatch();
+    const navigate = useNavigate();
 
     const [newSettings, setNewSettings] = useState({
         shippingPrice : 0,
@@ -16,21 +21,40 @@ export default function Settings() {
         saleDuration: 0
     });
 
+
+    const { message, messageType }= useSelector(state => state.notify);
     const {shippingPrice, shippingFreeLimit, shippingDuration, coupon, saleCoupon, saleDuration} = newSettings;
-    const { settings } = useSelector(state => state.settingsInfos);
+    const {error, isUpdated} = useSelector(state => state.updateSettings)
 
     useEffect(() => {
+        
+        if(isUpdated){
+            navigate('/');
+        };
 
-            dispatch(getSettings())
-            setNewSettings({...settings})
-    }, [dispatch, JSON.stringify(settings)]);
+        if(error){
+            dispatch(notifyUser(error, 'error'));
+            setTimeout(() => dispatch(clearErrors()), 5000)
+        };
+           
+            
+    }, [dispatch, error, isUpdated]);
 
     const changeData = (e) => {
         e.preventDefault();
         setNewSettings({...newSettings, [e.target.name] : e.target.value})
     };
 
-    const updateHandler = () => {
+    const updateHandler = (e) => {
+        e.preventDefault();
+        let TodayDate1 = new Date();
+        let TodayDate2 = new Date();
+        let resultShipping = TodayDate1.setDate(TodayDate1.getDate() + Number(newSettings.shippingDuration));
+        let resultSale = TodayDate2.setDate(TodayDate2.getDate() + Number(newSettings.saleDuration));
+
+        newSettings.shippingDuration = new Date(resultShipping);
+        newSettings.saleDuration = new Date(resultSale);
+    
         dispatch(updateSettings(newSettings))
     }
 
@@ -39,9 +63,10 @@ export default function Settings() {
             <div className="col-12 col-md-2 pt-3 bg-dark min-vh-100">
                 <Sidebar />
             </div>
-
+            {error && <Alert message={message} messageType={messageType} /> }
             <div className="col-12 col-md-10 px-5">
                 <h1 className="text-uppercase my-5" >Paramètres des commandes</h1>
+               
                 <form >
                     <div className='row'>
                         <div className='col-12 col-lg-6 px-5 mt-5'>

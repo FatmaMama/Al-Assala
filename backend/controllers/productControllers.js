@@ -163,7 +163,7 @@ exports.getProductByColorName = catchAsync(async (req,res, next) => {
 //UPDATE PRODUCT  =>  PATCH : api/v1/products/:id
 exports.updateProduct = catchAsync(async (req, res, next) => {
     let product = await Product.findById(req.params.id);
-    
+    console.log(req.params.id)
     if(!product) {
         return next(new ErrorHandler('Product Not Found', 404))
     };

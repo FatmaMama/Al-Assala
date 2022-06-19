@@ -26,7 +26,7 @@ exports.newOrderSettings = catchAsync(async (req, res, next) => {
 
 //GET ORDER SETTINGS  =>  GET : api/v1/order/orderSettings/:id
 exports.getOrderSettings = catchAsync(async (req, res, next) => {
-    const settingsInfo = await OrderSettings.findById(req.params.id);
+    const settingsInfo = await OrderSettings.find();
 
     if(!settingsInfo){
         return next(new AppError('Paramètres des commandes non trouvée', 404))
@@ -40,17 +40,15 @@ exports.getOrderSettings = catchAsync(async (req, res, next) => {
 
 //UPDATE ORDER SETTINGS  =>  PATCH : api/v1/order/orderSettings/:id
 exports.updateOrderSettings = catchAsync(async (req, res, next) => {
-    let settingsInfo = await OrderSettings.findById(req.params.id);
+    const settingsInfoList = await OrderSettings.find()
     
-    if(!settingsInfo) {
-        return next(new ErrorHandler('Product Not Found', 404))
-    };
-    
-    settingsInfo = await OrderSettings.findByIdAndUpdate(req.params.id, req.body, {
+        
+    const settingsInfo = await OrderSettings.findByIdAndUpdate(settingsInfoList[0]._id, req.body, {
         new: true,
         runValidators: true,
         useFindAndModify: false
     });
+   
     
     res.status(200).json({
         success: true,

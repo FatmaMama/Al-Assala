@@ -8,10 +8,10 @@ const orderSettingsSchema = new mongoose.Schema ({
             type : Number,
         },
         saleDuration : {
-            type : Number,
+            type : String,
         },
         shippingDuration : {
-            type : Number,
+            type : String,
         },
         shippingFreeLimit : {
             type : Number,

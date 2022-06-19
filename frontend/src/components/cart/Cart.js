@@ -15,7 +15,7 @@ export default function Cart() {
 
     const {cartItems} = useSelector(state => state.cart);
     const {settings} = useSelector(state => state.settingsInfos);
-    const { shippingPrice, shippingFreeLimit, shippingDuration, coupon, saleCoupon, saleDuration} = settings;
+    const { shippingPrice, shippingFreeLimit, shippingDuration, coupon, saleCoupon, saleDuration} = settings; 
 
     const getCartCount = () => {
         return cartItems.reduce((qty, item) => Number(item.quantity) + qty, 0)
@@ -34,7 +34,7 @@ export default function Cart() {
 
     const handleShippingPrice = () => {
         const today = new Date();
-        return settings && subTotalPrice >=  shippingFreeLimit && today <= new Date(shippingDuration) ? '0.00' : shippingPrice
+        return settings && subTotalPrice >=  shippingFreeLimit && today <= new Date(shippingDuration) ? '0.00' : shippingPrice && shippingPrice.toFixed(2)
     }
 
     const newShippingPrice = handleShippingPrice();

@@ -1,15 +1,16 @@
 import React, { Fragment, useEffect, useState } from 'react';
-import { Link, useNavigate } from 'react-router-dom';
+import { Link, useNavigate} from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { logout } from '../../redux/actions/userActions';
 import { notifyUser } from '../../redux/actions/notifyActions';
 import { LOGOUT_RESET } from '../../redux/constants/userConstants';
 import Alert from '../utils/Alert';
 import { getSearchProducts } from '../../redux/actions/productActions';
+import { getSettings } from '../../redux/actions/settingsActions';
 
 export default function Header() {
     const dispatch= useDispatch();
-    const navigate = useNavigate()
+    const navigate = useNavigate();
 
     const [keyword, setKeyword] = useState('');
 
@@ -20,6 +21,9 @@ export default function Header() {
     const {settings} = useSelector(state => state.settingsInfos);
 
     useEffect(() => {
+        
+        dispatch(getSettings());
+        
         if(keyword.trim()){
             dispatch(getSearchProducts(keyword))
         } 
@@ -55,14 +59,16 @@ export default function Header() {
                             <i className="fab fa-instagram subHeader__icon-social"></i>
                         </a>
                     </div>
+                    
                     <div className='subHeader__shipping'>
                         <i className="fas fa-shipping-fast me-1 subHeader__icon"></i>
-                        {settings.shippingFreeLimit === 0 ? 
+                        {settings && settings.shippingFreeLimit === 0 ? 
                         <span className='subHeader__text'>Livraison Gratuite</span> 
                         :
-                        <span className='subHeader__text'>Livraison gratuite à partir de {settings.shippingFreeLimit}dt</span>
+                        <span className='subHeader__text'>Livraison gratuite à partir de {settings && settings.shippingFreeLimit}dt</span>
                         }  
                     </div>
+                    
                     <div className='subHeader__contact'>
                         <i className="fas fa-phone-alt me-1 subHeader__icon"></i>
                         <span className='subHeader__text'>(+216) 93 492 127</span>

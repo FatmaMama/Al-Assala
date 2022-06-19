@@ -3,8 +3,9 @@ const { newOrderSettings, getOrderSettings, updateOrderSettings } = require('../
 const router = express.Router();
 
 router.post('/order/newSettings', newOrderSettings);
-router.route('/order/orderSettings/:id')
-            .get(getOrderSettings)
-            .patch(updateOrderSettings);
+
+router.get('/orderSettings', getOrderSettings);
+
+router.patch('/orderSettings', updateOrderSettings);
 
 module.exports = router;

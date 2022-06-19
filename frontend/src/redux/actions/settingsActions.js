@@ -1,35 +1,55 @@
-import { GET_SETTINGS, SET_SETTINGS } from "../constants/settingsConstants";
+import axios from 'axios';
+import { GET_SETTINGS_REQUEST,
+    GET_SETTINGS_SUCCESS,
+    GET_SETTINGS_FAIL,
+    UPDATE_SETTINGS_REQUEST,
+    UPDATE_SETTINGS_SUCCESS,
+    UPDATE_SETTINGS_FAIL } from "../constants/settingsConstants";
 
-export const getSettings = () => (dispatch) => {
+export const getSettings = () => async (dispatch) => {
 
-    const settings = JSON.parse(localStorage.getItem('settingsInfo'));
-    
-    dispatch({
-        type : GET_SETTINGS,
-        payload : settings
-    })
+    try {
+        dispatch({type: GET_SETTINGS_REQUEST});
+
+        const {data} = await axios.get(`/api/v1/orderSettings`);
+
+        dispatch({
+            type: GET_SETTINGS_SUCCESS,
+            payload: data.settingsInfo[0]
+        })
+        
+    } catch (error) {
+        dispatch({
+            type: GET_SETTINGS_FAIL,
+            payload: error.response.data.message
+        })
+    }
 };
 
 
-export const updateSettings = (settingsData) => (dispatch) => {
+export const updateSettings = (settingsData) => async (dispatch) => {
 
-    let TodayDate1 = new Date();
-    let TodayDate2 = new Date();
-    let resultShipping = TodayDate1.setDate(TodayDate1.getDate() + Number(settingsData.shippingDuration));
-    let resultSale = TodayDate2.setDate(TodayDate2.getDate() + Number(settingsData.saleDuration));
+    try {
+        dispatch({type: UPDATE_SETTINGS_REQUEST});
 
-    const settings = JSON.parse(localStorage.getItem('settingsInfo'));
-        settings.shippingPrice = settingsData.shippingPrice;
-        settings.shippingFreeLimit = settingsData.shippingFreeLimit;
-        settings.shippingDuration = new Date(resultShipping);
-        settings.coupon = settingsData.coupon;
-        settings.saleCoupon = settingsData.saleCoupon;
-        settings.saleDuration = new Date(resultSale);
-    
-    localStorage.setItem('settingsInfo', JSON.stringify(settings))
+        const config = {
+            headers: {
+                "content-type" : "application/json"
+            }
+        }
 
-    dispatch({
-        type : SET_SETTINGS,
-        payload : settings
-    })
+        const {data} = await axios.patch(`/api/v1/orderSettings`, settingsData, config);
+        console.log(data)
+
+        dispatch({
+            type: UPDATE_SETTINGS_SUCCESS,
+            payload: data.success
+        })
+        
+    } catch (error) {
+        dispatch({
+            type: UPDATE_SETTINGS_FAIL,
+            payload: error.response.data.message
+        })
+    }
 };
