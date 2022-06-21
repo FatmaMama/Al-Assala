@@ -1103,6 +1103,15 @@ header .avatar {
 .product__id {
   font-size: 1rem;
 }
+.product__outOfStock-title {
+  width: max-content;
+  text-transform: uppercase;
+  font-size: 1.2rem;
+  letter-spacing: 2px;
+  background-color: #c92a2a;
+  color: #eee;
+  padding: 0.2rem 0.4rem;
+}
 .product__description {
   font-size: 1.6rem;
 }

@@ -135,6 +135,11 @@ export default function ProductDetails() {
                     <div className='col-12 col-lg-5 p-5 m-5 p-lg-0 m-lg-0'>
                         <h3 className='product__title'>{productToDisplay && productToDisplay.name}</h3>
                         <p className='product__id'>Produit #{productToDisplay && productToDisplay._id}</p>
+                        {
+                            productToDisplay && productToDisplay.sizes 
+                            && productToDisplay.sizes.reduce((acc,size) => acc + size.stock, 0) === 0
+                            && <div className='product__outOfStock-title'>Rupture de Stock</div>
+                        }
 
                         <hr/>
                         <h4 className="mt-2 product__description">Description:</h4>
@@ -217,7 +222,7 @@ export default function ProductDetails() {
                 </div>
             )}
 
-            <div className='pad pt-0'>
+            <div className='pad pt-lg-5 mt-lg-5 pt-0'>
                 <h1>Vous pourriez aimer...</h1>
                 <Slide products={products} />
             </div>
